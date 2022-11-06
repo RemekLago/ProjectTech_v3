@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity_Etykieta">
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="#F71C4578"
+        android:text="RozycjaNazwa"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_NazwaPozycja" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="#F71C4578"
+        android:textColor="@color/white"
+        android:text="RozycjaNazwa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Komunikat" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="#F71C4578"
+        android:textColor="@color/white"
+        android:text="Komunikat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Status" />
+
+    <TextView
+        android:id="@+id/textView_Status"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:text="rStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView_Komunikat"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:text="rKomunikat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView_Pozycja"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:text="rPozycja"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/textView_NazwaPozycja"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:text="rPozycjaNazwa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="113dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="76dp"
+        android:text="Go to results"
+        android:background="#F71C4578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Pozycja" />
+
+    <TextView
+        android:id="@+id/textView_Barcode"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:text="Barcode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="#F71C4578"
+        android:textColor="@color/white"
+        android:text="Barcode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="380dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:background="#F71C4578"
+        android:textColor="@color/white"
+        android:text="Status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Barcode" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
