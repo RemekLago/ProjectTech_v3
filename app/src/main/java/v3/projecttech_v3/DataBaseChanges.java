@@ -61,16 +61,16 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
         return ListWithColumnsNames;
     }
 
-    public ArrayList<Integer> columnsWidth(ArrayList<ArrayList> records) {
+    public ArrayList<Integer> columnsWidth() {
         try {
 
-            for (int i = 0; i < numberOfColumns; i++) {
-                String tmpOneColumn = (records.get(0).get(i).toString()).split("\\|")[2];
+            for (int i = 0; i < columnsNames.size(); i++) {
+                String tmpOneColumn = (columnsNames.get(i).split("\\|")[2]);
                 Log.i("checking", "method-columnsWidth1: " + tmpOneColumn);
                 int tmpOneColumnInt = Integer.parseInt(tmpOneColumn);
                 Log.i("checking", "method-columnsWidth1: " + tmpOneColumnInt);
 
-                ListWithColumnsWidth.add(3 * tmpOneColumnInt);
+                ListWithColumnsWidth.add(4 * tmpOneColumnInt);
             }
 //            Log.i("checking", "parameterColumn2: " + tmpOneColumn);
 

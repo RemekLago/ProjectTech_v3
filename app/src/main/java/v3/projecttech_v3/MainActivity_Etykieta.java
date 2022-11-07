@@ -2,6 +2,8 @@ package v3.projecttech_v3;
 
 import static v3.projecttech_v3.DataBaseChanges.tmpdata;
 import static v3.projecttech_v3.Procedura_Pozycja_Informacje.Barcode;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje.rKomunikat;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje.rPozycjaNazwa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +14,7 @@ import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -59,8 +62,12 @@ public class MainActivity_Etykieta extends AppCompatActivity {
         textView_Pozycja.setText(tmpdata.get("Pozycja"));
         textView_Barcode.setText(Barcode);
 
-        //
-//        takingLocalizationPosition();
+
+        Toast toast_etykieta = Toast.makeText(getApplicationContext(), rKomunikat, Toast.LENGTH_LONG);
+        toast_etykieta.show();
+
+
+
 
     }
 

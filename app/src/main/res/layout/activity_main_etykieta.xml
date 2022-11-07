@@ -13,7 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:background="#F71C4578"
-        android:text="RozycjaNazwa"
+        android:text="PozycjaNumer"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_NazwaPozycja" />
@@ -26,7 +26,7 @@
         android:layout_marginTop="20dp"
         android:background="#F71C4578"
         android:textColor="@color/white"
-        android:text="RozycjaNazwa"
+        android:text="PozycjaNazwa"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_Komunikat" />
 
