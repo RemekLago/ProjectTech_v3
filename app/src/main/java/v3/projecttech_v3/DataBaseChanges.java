@@ -1,5 +1,6 @@
 package v3.projecttech_v3;
 
+import static v3.projecttech_v3.MainActivity_enterdata.status_input;
 import static v3.projecttech_v3.Procedura_Magazyn_Pozycje_Lokalizacje.columnsNames;
 import static v3.projecttech_v3.Procedura_Magazyn_Pozycje_Lokalizacje.numberOfColumns;
 
@@ -23,10 +24,10 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
     @Override
     protected ArrayList<ArrayList<String>> doInBackground(String... strings) {
 
-        if (Objects.equals(tmpdata.get("Status"), "1")) {
+        if (Objects.equals(tmpdata.get("Status"), "1"))  {
             Procedura_Magazyn_Pozycje_Lokalizacje procedura = new Procedura_Magazyn_Pozycje_Lokalizacje();
             ArrayListWithFinalData = procedura.takingLocalizationPosition();
-//            Log.i("checking", "method_doInBackground " + ArrayListWithFinalData.size());
+            Log.i("checking", "method_doInBackground " + ArrayListWithFinalData.size());
         }
 
         return ArrayListWithFinalData;
@@ -66,9 +67,9 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
 
             for (int i = 0; i < columnsNames.size(); i++) {
                 String tmpOneColumn = (columnsNames.get(i).split("\\|")[2]);
-                Log.i("checking", "method-columnsWidth1: " + tmpOneColumn);
+//                Log.i("checking", "method-columnsWidth1: " + tmpOneColumn);
                 int tmpOneColumnInt = Integer.parseInt(tmpOneColumn);
-                Log.i("checking", "method-columnsWidth1: " + tmpOneColumnInt);
+//                Log.i("checking", "method-columnsWidth1: " + tmpOneColumnInt);
 
                 ListWithColumnsWidth.add(4 * tmpOneColumnInt);
             }
@@ -86,7 +87,7 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
         try {
             for (int i = 0; i < columnsNames.size(); i++) {
                 String tmpOneColumn = (columnsNames.get(i).split("\\|")[3]);
-                Log.i("checking", "method-columnsAdjust1: " + tmpOneColumn);
+//                Log.i("checking", "method-columnsAdjust1: " + tmpOneColumn);
 
                 switch (tmpOneColumn) {
                     case "2":
@@ -101,7 +102,7 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
                     default:
                         tmpOneColumnInt = 0; //NO GRAVITY - NO ALIGNMENT
                 }
-                Log.i("checking", "method-columnsAdjust2: " + tmpOneColumnInt);
+//                Log.i("checking", "method-columnsAdjust2: " + tmpOneColumnInt);
                 ListWithColumnsAdjust.add((int) tmpOneColumnInt);
             }
         }

@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="fill"
-        android:layout_weight="1"
+        
         android:padding="4dp"
 
         android:background="@drawable/ramkatextview"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="fill"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="fill"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -45,7 +45,7 @@
         android:id="@+id/textView4name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -55,7 +55,7 @@
         android:id="@+id/textView5name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -65,7 +65,7 @@
         android:id="@+id/textView6name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -75,7 +75,7 @@
         android:id="@+id/textView7name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -85,7 +85,7 @@
         android:id="@+id/textView8name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -95,7 +95,7 @@
         android:id="@+id/textView9name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -105,7 +105,7 @@
         android:id="@+id/textView10name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -115,7 +115,7 @@
         android:id="@+id/textView11name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -125,7 +125,7 @@
         android:id="@+id/textView12name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -135,7 +135,7 @@
         android:id="@+id/textView13name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -145,7 +145,7 @@
         android:id="@+id/textView14name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 
@@ -155,7 +155,7 @@
         android:id="@+id/textView15name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        
         android:padding="4dp"
         android:background="@drawable/ramkatextview"
 

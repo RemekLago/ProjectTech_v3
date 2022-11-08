@@ -1,6 +1,7 @@
 package v3.projecttech_v3;
 
 import static v3.projecttech_v3.DataBaseChanges.tmpdata;
+import static v3.projecttech_v3.MainActivity_enterdata.pozycja_input;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -45,6 +46,12 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje {
             Firma = "750";
             UserId = "1";
             Pozycja = tmpdata.get("Pozycja");
+
+//            if (pozycja_input.isEmpty()) {
+//                Pozycja = tmpdata.get("Pozycja");
+//            } else {
+//                Pozycja = pozycja_input;
+//            }
 
             callableStatement.setInt("Firma", Integer.valueOf(Firma));
             callableStatement.setInt("UserId", Integer.valueOf(UserId));

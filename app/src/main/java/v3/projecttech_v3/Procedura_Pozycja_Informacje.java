@@ -1,5 +1,7 @@
 package v3.projecttech_v3;
 
+import static v3.projecttech_v3.MainActivity_Scanner.intent;
+
 import android.util.Log;
 
 import java.sql.CallableStatement;
@@ -35,7 +37,14 @@ public class Procedura_Pozycja_Informacje {
 
             Firma = "750";
             UserId = "1";
-            Barcode = "WYGPZ2201681|         1897 013 05|0,300|0|S300-2205||562105_1|749955|NEW|||124/A/05/22||||20.05.22|||||||";
+            Barcode = intent.getStringExtra("barcodeInput");
+//            intentScanner.getStringExtra("barcodeInput");
+//            Barcode = intentScanner.getStringExtra("barcodeInput");
+//            Barcode = "WYGPZ2201681|         1897 013 05|0,300|0|S300-2205||562105_1|749955|NEW|||124/A/05/22||||20.05.22|||||||";
+//            Barcode = result.getText();
+//            Log.i("checking", "intentScanner " + intentScanner.getExtras());
+            Log.i("checking", "Barcode " + Barcode);
+
 
             callableStatement.setInt("Firma", Integer.valueOf(Firma));
             callableStatement.setInt("UserId", Integer.valueOf(UserId));
