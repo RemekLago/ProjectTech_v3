@@ -17,8 +17,8 @@ import com.google.zxing.Result;
 public class MainActivity_Scanner extends AppCompatActivity {
 
     private CodeScanner mCodeScanner;
-    static Result result;
-    static Intent intent;
+//    static Result result;
+    static Intent intent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +40,6 @@ public class MainActivity_Scanner extends AppCompatActivity {
                 });
             }
 
-//            @Override
-//            public void onDecoded(@NonNull final Result result) {
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Toast.makeText(MainActivity_Scanner.this, result.toString(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//            }
         });
         scannerView.setOnClickListener(new View.OnClickListener() {
             @Override

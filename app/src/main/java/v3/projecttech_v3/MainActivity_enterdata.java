@@ -27,18 +27,18 @@ public class MainActivity_enterdata extends AppCompatActivity {
 
         Intent intent = new Intent(this, MainActivity_Table.class);
 
-        EditText editTextNumber = findViewById(R.id.editTextNumber);
-        Button buttonSearch = findViewById(R.id.buttonSearch);
+//        EditText editTextNumber = findViewById(R.id.editTextNumber);
+//        Button buttonSearch = findViewById(R.id.buttonSearch);
 
 
-        buttonSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pozycja_input = pozycja_input + editTextNumber.getText().toString();
-                status_input = "1";
-                startActivity(intent);
-                Log.i("checking", "pozycjaInput: " + pozycja_input);
-            }});
+//        buttonSearch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                pozycja_input = pozycja_input + editTextNumber.getText().toString();
+//                status_input = "1";
+//                startActivity(intent);
+//                Log.i("checking", "pozycjaInput: " + pozycja_input);
+//            }});
 
         Button btnScanBarcode = findViewById(R.id.buttonScanBarcode);
 

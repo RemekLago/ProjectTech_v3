@@ -57,15 +57,16 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje {
             callableStatement.setInt("UserId", Integer.valueOf(UserId));
             callableStatement.setString("Pozycja", Pozycja);
 
-            Log.i("checking", "Pozycja: " + Pozycja);
+//            Log.i("checking", "Pozycja: " + Pozycja);
 
-            ResultSet rs = callableStatement.executeQuery();
+            ResultSet rs;
+            rs = callableStatement.executeQuery();
 
             //taking metadata and checking how many columns is in downloaded data
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
 
-
+            columnsNames.clear();
             for (int i = 1; i <= columnCount; i++) {
                 String columnName = rsmd.getColumnName(i);
                 columnsNames.add(columnName);
@@ -74,6 +75,8 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje {
             numberOfColumns = columnsNames.size();
 //            Log.i("checking", "numberOfColumns: " + numberOfColumns);
 //            Log.i("checking", "ResultSet: " + rs.next());
+
+            Result.clear();
             while (rs.next()) {
                 ArrayList<String> tmpRecord = new ArrayList<>();
                 for (int i = 1; i <= numberOfColumns; i++) {

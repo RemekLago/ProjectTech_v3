@@ -1,58 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     tools:context=".MainActivity_enterdata">
 
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="217dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:hint="podaj numer pozycji"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonScanBarcode" />
-
-    <Button
-        android:id="@+id/buttonSearch"
-        android:layout_width="217dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/ramkatextview"
-        android:text="Search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
 
     <Button
         android:id="@+id/buttonScanBarcode"
-        android:layout_width="298dp"
-        android:layout_height="52dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="136dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:background="@drawable/ramkatextview"
-        android:text="scan_barcode"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="224dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/technokabel_logo" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="scan_barcode" />
+
+    <!--    <include layout="@layout/activity_main_table" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextNumber"-->
+<!--        android:layout_width="217dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="podaj numer pozycji"-->
+<!--        android:inputType="number"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/buttonScanBarcode" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/buttonSearch"-->
+<!--        android:layout_width="217dp"-->
+<!--        android:layout_height="53dp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:background="@drawable/ramkatextview"-->
+<!--        android:text="Search"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="224dp"-->
+<!--        android:layout_height="51dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.505"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/technokabel_logo" />-->
+</LinearLayout>

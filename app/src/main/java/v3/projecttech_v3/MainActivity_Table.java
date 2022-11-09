@@ -11,11 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,6 +63,16 @@ public class MainActivity_Table extends AppCompatActivity implements RecyclerVie
         AdapterRecyclerView adapterRecyclerView = new AdapterRecyclerView(this, database, this);
         recyclerView.setAdapter(adapterRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Intent intent = new Intent(this, MainActivity_Table.class);
+        Button buttonScanCode = findViewById(R.id.buttonScanCode);
+
+        buttonScanCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity_Table.this, MainActivity_Scanner.class));
+            }
+        });
 
         TextView textView_NazwaPozycja = findViewById(R.id.textView_NazwaPozycja);
         TextView textView_Pozycja = findViewById(R.id.textView_Pozycja);
