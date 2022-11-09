@@ -4,6 +4,7 @@ package v3.projecttech_v3;
 import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.DataBaseChanges.ArrayListWithFinalData;
 import static v3.projecttech_v3.DataBaseChanges.ListWithColumnsNames;
+import static v3.projecttech_v3.DataBaseChanges.tmpdata;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -29,6 +31,16 @@ public class MainActivity_Table extends AppCompatActivity implements RecyclerVie
     @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if (BuildConfig.DEBUG) {
+            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                    .detectDiskReads()
+                    .detectDiskWrites()
+                    .detectNetwork()   // or .detectAll() for all detectable problems
+                    .penaltyLog()
+                    .build());
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_table);
 
@@ -48,6 +60,11 @@ public class MainActivity_Table extends AppCompatActivity implements RecyclerVie
         AdapterRecyclerView adapterRecyclerView = new AdapterRecyclerView(this, database, this);
         recyclerView.setAdapter(adapterRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        TextView textView_NazwaPozycja = findViewById(R.id.textView_NazwaPozycja);
+        TextView textView_Pozycja = findViewById(R.id.textView_Pozycja);
+        textView_NazwaPozycja.setText( tmpdata.get("PozycjaNazwa"));
+        textView_Pozycja.setText((tmpdata.get("Pozycja").trim()));
 
         TextView textView1name = findViewById(R.id.textView1name);
         TextView textView2name = findViewById(R.id.textView2name);

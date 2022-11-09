@@ -24,6 +24,9 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
     @Override
     protected ArrayList<ArrayList<String>> doInBackground(String... strings) {
 
+        Procedura_Pozycja_Informacje informacje = new Procedura_Pozycja_Informacje();
+        tmpdata = informacje.takingPositionInformation();
+
         if (Objects.equals(tmpdata.get("Status"), "1"))  {
             Procedura_Magazyn_Pozycje_Lokalizacje procedura = new Procedura_Magazyn_Pozycje_Lokalizacje();
             ArrayListWithFinalData = procedura.takingLocalizationPosition();

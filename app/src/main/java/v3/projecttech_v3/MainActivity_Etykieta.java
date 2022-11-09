@@ -37,16 +37,16 @@ public class MainActivity_Etykieta extends AppCompatActivity {
 
         setContentView(R.layout.activity_main_etykieta);
 
-        Procedura_Pozycja_Informacje informacje = new Procedura_Pozycja_Informacje();
-        tmpdata = informacje.takingPositionInformation();
+//        Procedura_Pozycja_Informacje informacje = new Procedura_Pozycja_Informacje();
+//        tmpdata = informacje.takingPositionInformation();
 
 
-        Button button1 = findViewById(R.id.button);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMainActivity_table();
-            }});
+//        Button button1 = findViewById(R.id.button);
+//        button1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openMainActivity_table();
+//            }});
 
         //set data from Result1 into TextViews to show in layout
 //        TextView textView_Status = findViewById(R.id.textView_Status);
@@ -69,9 +69,9 @@ public class MainActivity_Etykieta extends AppCompatActivity {
     }
 
     // method with Intend allows to go to the next layout/activity
-    private void openMainActivity_table() {
-        Intent intent = new Intent(this, MainActivity_Table.class);
-        startActivity(intent);
-    }
+//    private void openMainActivity_table() {
+//        Intent intent = new Intent(this, MainActivity_Table.class);
+//        startActivity(intent);
+//    }
 
 }

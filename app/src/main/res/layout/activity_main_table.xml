@@ -6,32 +6,38 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".MainActivity_Table">
 
-<HorizontalScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp" >
-
-    <ScrollView
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp" >
+        android:padding="10dp"
+        >
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/layout3_1"
-            android:orientation="vertical" >
+            android:layout_height="match_parent"
+            android:padding="10dp">
 
-            <include layout="@layout/columns_names"/>
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <LinearLayout
+                android:id="@+id/layout3_1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        </LinearLayout>
-    </ScrollView>
-</HorizontalScrollView>
+                <include
+                    layout="@layout/activity_main_etykieta"
+                    android:layout_width="match_parent" />
+                <include layout="@layout/columns_names" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+        </ScrollView>
+    </HorizontalScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

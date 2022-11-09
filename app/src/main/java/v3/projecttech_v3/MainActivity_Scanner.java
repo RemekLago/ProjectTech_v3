@@ -25,7 +25,7 @@ public class MainActivity_Scanner extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_scanner);
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
-        intent = new Intent(MainActivity_Scanner.this, MainActivity_Etykieta.class);
+        intent = new Intent(MainActivity_Scanner.this, MainActivity_Table.class);
         mCodeScanner = new CodeScanner(this, scannerView);
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override

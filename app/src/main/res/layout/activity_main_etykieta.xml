@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:padding="2dp"
     tools:context=".MainActivity_Etykieta">
 
     <!--    <TextView-->
@@ -38,59 +39,51 @@
 <!--        tools:layout_editor_absoluteY="30dp" />-->
 
     <TextView
-        android:id="@+id/textView19"
-        android:layout_width="380dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:background="#F71C4578"
-        android:text="PozycjaNumer"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_NazwaPozycja" />
-
-    <TextView
         android:id="@+id/textView18"
-        android:layout_width="380dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:background="#F71C4578"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="PozycjaNazwa"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView_Pozycja"
-        android:layout_width="380dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:text="rPozycja"
-        android:background="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        android:gravity="fill"
+        android:padding="4dp"
+        android:background="@color/mainColor"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/textView_NazwaPozycja"
-        android:layout_width="380dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:text="rPozycjaNazwa"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        android:padding="4dp"
+        android:text="rPozycjaNazwa" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="113dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="76dp"
-        android:text="Show data"
-        android:background="@drawable/ramkatextview"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Pozycja" />
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="fill"
+        android:padding="4dp"
+        android:background="@color/mainColor"
+        android:text="PozycjaNumer"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView_Pozycja"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:background="@android:color/white"
+        android:text="rPozycja" />
+
+
+
+<!--    <Button-->
+<!--        android:id="@+id/button"-->
+<!--        android:layout_width="113dp"-->
+<!--        android:layout_height="53dp"-->
+<!--        android:layout_marginStart="280dp"-->
+<!--        android:layout_marginTop="76dp"-->
+<!--        android:text="Show data"-->
+<!--        android:background="@drawable/ramkatextview" />-->
 
 <!--    <TextView-->
 <!--        android:id="@+id/textView_Barcode"-->
@@ -128,4 +121,4 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/textView_Barcode" />-->
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
