@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,11 @@ public class MainActivity_Table extends AppCompatActivity implements RecyclerVie
     public static ArrayList<String> FinalListWithCellColor;
     public static ArrayList<Integer> FinalListWithColumnsAdjust;
     public static ArrayList<Integer> FinalListWithColumnsWidth;
+
+    private ProgressBar progressbar;
+    int progressbarMin = 0;
+    int progressbarMax;
+
 
     @SuppressLint("WrongThread")
     @Override
@@ -47,10 +53,20 @@ public class MainActivity_Table extends AppCompatActivity implements RecyclerVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_table);
 
-
         DataBaseChanges dataFinal = new DataBaseChanges();
         ArrayList<ArrayList<String>> database1 = dataFinal.doInBackground();
         database = dataFinal.cleaningDatabase(database1);
+
+
+//        progressbar = findViewById(R.id.progressbar);
+//        progressbar.setVisibility(View.VISIBLE);
+//        for (int i=0; i <= 1000*database.size(); i++){
+//            progressbar.setProgress(i);
+//        }
+//        progressbar.setVisibility(View.GONE);
+
+
+
         dataFinal.columnsNames();
         FinalListWithCellColor = dataFinal.cellsColor(database);
         FinalListWithColumnsAdjust = dataFinal.columnsAdjust();
