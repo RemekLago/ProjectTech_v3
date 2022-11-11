@@ -3,122 +3,138 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="30dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="2dp"
     tools:context=".MainActivity_Etykieta">
 
     <!--    <TextView-->
-<!--        android:id="@+id/textView_Status"-->
-<!--        android:layout_width="380dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:text="rStatus"-->
-<!--        android:background="@android:color/white"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView16" />-->
+    <!--        android:id="@+id/textView_Status"-->
+    <!--        android:layout_width="380dp"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:text="rStatus"-->
+    <!--        android:background="@android:color/white"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView16" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView_Komunikat"-->
-<!--        android:layout_width="380dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:text="rKomunikat"-->
-<!--        android:background="@android:color/white"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView17" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView_Komunikat"-->
+    <!--        android:layout_width="380dp"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:text="rKomunikat"-->
+    <!--        android:background="@android:color/white"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView17" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView17"-->
-<!--        android:layout_width="380dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:background="#F71C4578"-->
-<!--        android:text="PozycjaNazwa"-->
-<!--        android:textColor="@color/white"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        tools:layout_editor_absoluteY="30dp" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView17"-->
+    <!--        android:layout_width="380dp"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:background="#F71C4578"-->
+    <!--        android:text="PozycjaNazwa"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        tools:layout_editor_absoluteY="30dp" />-->
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layout3_7"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PozycjaNazwa"
-        android:gravity="fill"
-        android:padding="4dp"
-        android:background="@color/mainColor"
-        android:textColor="@color/white" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView_NazwaPozycja"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/mainColor"
+            android:gravity="fill"
+            android:padding="4dp"
+            android:text="Numer"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView_Pozycja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="4dp"
+            android:text="rPozycja" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout3_6"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:padding="4dp"
-        android:text="rPozycjaNazwa" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="fill"
-        android:padding="4dp"
-        android:background="@color/mainColor"
-        android:text="PozycjaNumer"
-        android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/mainColor"
+            android:gravity="fill"
+            android:padding="4dp"
+            android:text="Nazwa"
+            android:textColor="@color/white" />
 
-    <TextView
-        android:id="@+id/textView_Pozycja"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:background="@android:color/white"
-        android:text="rPozycja" />
-
+        <TextView
+            android:id="@+id/textView_NazwaPozycja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="4dp"
+            android:text="rPozycjaNazwa" />
+    </LinearLayout>
 
 
-<!--    <Button-->
-<!--        android:id="@+id/button"-->
-<!--        android:layout_width="113dp"-->
-<!--        android:layout_height="53dp"-->
-<!--        android:layout_marginStart="280dp"-->
-<!--        android:layout_marginTop="76dp"-->
-<!--        android:text="Show data"-->
-<!--        android:background="@drawable/ramkatextview" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView_Barcode"-->
-<!--        android:layout_width="380dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="44dp"-->
-<!--        android:text="Barcode"-->
-<!--        android:background="@android:color/black"-->
-<!--        android:textColor="@android:color/white"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--    <TextView-->
-<!--        android:layout_width="380dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="12dp"-->
-<!--        android:background="#F71C4578"-->
-<!--        android:text="Barcode"-->
-<!--        android:textColor="@color/white"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <Button-->
+    <!--        android:id="@+id/button"-->
+    <!--        android:layout_width="113dp"-->
+    <!--        android:layout_height="53dp"-->
+    <!--        android:layout_marginStart="280dp"-->
+    <!--        android:layout_marginTop="76dp"-->
+    <!--        android:text="Show data"-->
+    <!--        android:background="@drawable/ramkatextview" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView16"-->
-<!--        android:layout_width="380dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="60dp"-->
-<!--        android:background="#F71C4578"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:text="Status"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView_Barcode" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView_Barcode"-->
+    <!--        android:layout_width="380dp"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:layout_marginTop="44dp"-->
+    <!--        android:text="Barcode"-->
+    <!--        android:background="@android:color/black"-->
+    <!--        android:textColor="@android:color/white"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <TextView-->
+    <!--        android:layout_width="380dp"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:layout_marginTop="12dp"-->
+    <!--        android:background="#F71C4578"-->
+    <!--        android:text="Barcode"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView16"-->
+    <!--        android:layout_width="380dp"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:layout_marginTop="60dp"-->
+    <!--        android:background="#F71C4578"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:text="Status"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView_Barcode" />-->
 
 
 </LinearLayout>

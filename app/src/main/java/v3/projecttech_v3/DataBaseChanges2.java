@@ -1,19 +1,18 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Procedura_Magazyn_Pozycje_Lokalizacje.columnsNames;
-import static v3.projecttech_v3.Procedura_Magazyn_Pozycje_Lokalizacje.numberOfColumns;
+import static v3.projecttech_v3.Procedura_Magazyn_Pozycje_Lokalizacje2.columnsNames2;
+import static v3.projecttech_v3.Procedura_Magazyn_Pozycje_Lokalizacje2.numberOfColumns2;
 
 import android.os.AsyncTask;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 
-public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayList<String>>> {
+public class DataBaseChanges2 extends AsyncTask <String, Void, ArrayList<ArrayList<String>>> {
 
     static ArrayList<ArrayList<String>> ArrayListWithFinalData = new ArrayList<>();
-    public static HashMap<String, String> tmpdata;
+    public static HashMap<String, String> tmpdata2;
 
     static ArrayList<String> ListWithColumnsNames = new ArrayList<>();
     ArrayList<Integer> ListWithColumnsWidth = new ArrayList<>();
@@ -23,15 +22,12 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
     @Override
     protected ArrayList<ArrayList<String>> doInBackground(String... strings) {
 
-        Procedura_Pozycja_Informacje informacje = new Procedura_Pozycja_Informacje();
-        tmpdata = informacje.takingPositionInformation();
+        Procedura_Pozycja_Informacje2 informacje = new Procedura_Pozycja_Informacje2();
+        tmpdata2 = informacje.takingPositionInformation();
 
-
-        if (Objects.equals(tmpdata.get("Status"), "1"))  {
-            Procedura_Magazyn_Pozycje_Lokalizacje procedura = new Procedura_Magazyn_Pozycje_Lokalizacje();
-            ArrayListWithFinalData = procedura.takingLocalizationPosition();
-            Log.i("checking", "method_doInBackground " + ArrayListWithFinalData.size());
-        }
+        Procedura_Magazyn_Pozycje_Lokalizacje2 procedura = new Procedura_Magazyn_Pozycje_Lokalizacje2();
+        ArrayListWithFinalData = procedura.takingLocalizationPosition();
+        Log.i("checking", "method_doInBackground " + ArrayListWithFinalData.size());
 
         return ArrayListWithFinalData;
     }
@@ -39,7 +35,7 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
 
     public ArrayList<ArrayList<String>> cleaningDatabase(ArrayList<ArrayList<String>> dataIn){
         for (int i = 0; i < dataIn.size(); i++){
-            for (int j = 0; j < numberOfColumns; j++){
+            for (int j = 0; j < numberOfColumns2; j++){
                 if (dataIn.get(i).get(j) == null || dataIn.get(i).get(j).isEmpty()) {
 //                    Log.i("checking", "method celaningDatabase: " + i + " " + dataIn.get(i).get(j));
                     dataIn.get(i).set(j,"0");
@@ -53,8 +49,8 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
     public ArrayList<String> columnsNames() {
 
         try {
-            for (int i = 0; i < columnsNames.size(); i++) {
-                String tmpOneColumn = (columnsNames.get(i).split("\\|")[1]);
+            for (int i = 0; i < columnsNames2.size(); i++) {
+                String tmpOneColumn = (columnsNames2.get(i).split("\\|")[1]);
 //            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
 //            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
                 ListWithColumnsNames.add(tmpOneColumn);
@@ -68,8 +64,8 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
     public ArrayList<Integer> columnsWidth() {
         try {
 
-            for (int i = 0; i < columnsNames.size(); i++) {
-                String tmpOneColumn = (columnsNames.get(i).split("\\|")[2]);
+            for (int i = 0; i < columnsNames2.size(); i++) {
+                String tmpOneColumn = (columnsNames2.get(i).split("\\|")[2]);
 //                Log.i("checking", "method-columnsWidth1: " + tmpOneColumn);
                 int tmpOneColumnInt = Integer.parseInt(tmpOneColumn);
 //                Log.i("checking", "method-columnsWidth1: " + tmpOneColumnInt);
@@ -88,8 +84,8 @@ public class DataBaseChanges extends AsyncTask <String, Void, ArrayList<ArrayLis
         int tmpOneColumnInt;
 
         try {
-            for (int i = 0; i < columnsNames.size(); i++) {
-                String tmpOneColumn = (columnsNames.get(i).split("\\|")[3]);
+            for (int i = 0; i < columnsNames2.size(); i++) {
+                String tmpOneColumn = (columnsNames2.get(i).split("\\|")[3]);
 //                Log.i("checking", "method-columnsAdjust1: " + tmpOneColumn);
 
                 switch (tmpOneColumn) {

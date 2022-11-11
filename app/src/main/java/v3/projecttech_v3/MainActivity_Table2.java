@@ -1,40 +1,36 @@
 package v3.projecttech_v3;
 
-
-import static android.graphics.Color.rgb;
-import static v3.projecttech_v3.DataBaseChanges.ListWithColumnsNames;
-import static v3.projecttech_v3.DataBaseChanges.tmpdata;
-import static v3.projecttech_v3.MainActivity_Scanner.intent2;
-//import static v3.projecttech_v3.MainActivity_progressBar.intent3;
-
 import androidx.appcompat.app.AppCompatActivity;
+import static android.graphics.Color.rgb;
+import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
+import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.MainActivity_Scanner.intent2;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class MainActivity_Table extends AppCompatActivity implements RecyclerViewInterface {
+public class MainActivity_Table2 extends AppCompatActivity implements RecyclerViewInterface{
 
-    public static ArrayList<ArrayList<String>> database;
+    public static ArrayList<ArrayList<String>> database2;
     public static ArrayList<String> FinalListWithCellColor;
     public static ArrayList<Integer> FinalListWithColumnsAdjust;
     public static ArrayList<Integer> FinalListWithColumnsWidth;
     public static DataBaseChanges dataFinal;
+    static Intent intent4;
 
     @SuppressLint("WrongThread")
     @Override
@@ -49,43 +45,62 @@ public class MainActivity_Table extends AppCompatActivity implements RecyclerVie
                     .build());
         }
 
-//        String tmp = intent3.getStringExtra("barcodeInput2");
-//        Log.i("checking", "tmp: " + tmp);
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_table);
+        setContentView(R.layout.activity_main_table2);
 
-        DataBaseChanges dataFinal = new DataBaseChanges();
-        ArrayList<ArrayList<String>> database1 = dataFinal.doInBackground();
-        database = dataFinal.cleaningDatabase(database1);
+
+        DataBaseChanges2 dataFinal = new DataBaseChanges2();
+        ArrayList<ArrayList<String>> database0 = dataFinal.doInBackground();
+        database2 = dataFinal.cleaningDatabase(database0);
 
         dataFinal.columnsNames();
-        FinalListWithCellColor = dataFinal.cellsColor(database);
+        FinalListWithCellColor = dataFinal.cellsColor(database2);
         FinalListWithColumnsAdjust = dataFinal.columnsAdjust();
         FinalListWithColumnsWidth = dataFinal.columnsWidth();
 
-        Log.i("checking", "database size: " + database.size());
+        Log.i("checking", "database size: " + database2.size());
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
-        AdapterRecyclerView adapterRecyclerView = new AdapterRecyclerView(this, database, this);
-        recyclerView.setAdapter(adapterRecyclerView);
+        AdapterRecyclerView2 adapterRecyclerView2 = new AdapterRecyclerView2(this, database2, this);
+        recyclerView.setAdapter(adapterRecyclerView2);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-//        Intent intent4 = new Intent(this, MainActivity_Table.class);
+
         Button buttonScanCode = findViewById(R.id.buttonScanCode);
 
         buttonScanCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity_Table.this, MainActivity_Scanner.class));
+                startActivity(new Intent(MainActivity_Table2.this, MainActivity_Scanner.class));
             }
         });
 
+        Button buttonSearch = findViewById(R.id.buttonSearch);
+        TextView textViewSearch = findViewById(R.id.editTextNumber);
+
+        intent4 = new Intent(MainActivity_Table2.this, MainActivity_Table2.class);
+
+         buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+////                intent2.putExtra("searchPozycja",textViewSearch.getText().toString());
+//                intent4.putExtra("searchPozycja",textViewSearch.getText().toString());
+//                finish();
+//                startActivity(getIntent());
+            }
+        });
+
+//        Log.i("checking", "rStatus: " + tmpdata2.get("rStatus"));
+//        Log.i("checking", "rKomunikat: " + tmpdata2.get("rKomunikat"));
+//        Log.i("checking", "rPozycja: " + tmpdata2.get("rPozycja"));
+//        Log.i("checking", "rPozycjaNazwa: " + tmpdata2.get("rPozycjaNazwa"));
+
+
         TextView textView_NazwaPozycja = findViewById(R.id.textView_NazwaPozycja);
         TextView textView_Pozycja = findViewById(R.id.textView_Pozycja);
-        textView_NazwaPozycja.setText( tmpdata.get("PozycjaNazwa"));
-        textView_Pozycja.setText((tmpdata.get("Pozycja").trim()));
+        textView_NazwaPozycja.setText( tmpdata2.get("PozycjaNazwa"));
+        textView_Pozycja.setText((tmpdata2.get("Pozycja")));
 
         TextView textView1name = findViewById(R.id.textView1name);
         TextView textView2name = findViewById(R.id.textView2name);

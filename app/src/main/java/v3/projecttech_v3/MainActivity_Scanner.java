@@ -18,14 +18,15 @@ public class MainActivity_Scanner extends AppCompatActivity {
 
     private CodeScanner mCodeScanner;
 //    static Result result;
-    static Intent intent = null;
+    static Intent intent2 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_scanner);
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
-        intent = new Intent(MainActivity_Scanner.this, MainActivity_Table.class);
+//        intent = new Intent(MainActivity_Scanner.this, MainActivity_Table.class);
+        intent2 = new Intent(MainActivity_Scanner.this, MainActivity_progressBar.class);
         mCodeScanner = new CodeScanner(this, scannerView);
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
@@ -34,11 +35,13 @@ public class MainActivity_Scanner extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(MainActivity_Scanner.this, result.getText(), Toast.LENGTH_SHORT).show();
-                        startActivity(intent.putExtra("barcodeInput", result.toString()));
+                        startActivity(intent2.putExtra("barcodeInput", result.toString()));
                         Log.i("checking", "barcodeInput " + result.getText());
                     }
                 });
             }
+
+
 
         });
         scannerView.setOnClickListener(new View.OnClickListener() {

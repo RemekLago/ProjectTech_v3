@@ -10,53 +10,59 @@ import android.widget.EditText;
 
 public class MainActivity_enterdata extends AppCompatActivity {
 
-    static String pozycja_input = "         ";
+    static String pozycja_input = "";
     static String status_input;
+
+    static Intent intent1;
+    static Intent intent2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_enterdata);
 
-//        Button button_scan = findViewById(R.id.button_scan);
-//        button_scan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                openMainActivity_table();
-//            }});
+        intent1 = new Intent(MainActivity_enterdata.this, MainActivity_Scanner.class);
+        intent2 = new Intent(MainActivity_enterdata.this, MainActivity_Table2.class);
 
-        Intent intent = new Intent(this, MainActivity_Table.class);
-
-//        EditText editTextNumber = findViewById(R.id.editTextNumber);
-//        Button buttonSearch = findViewById(R.id.buttonSearch);
+        Button button_scan = findViewById(R.id.buttonSearch);
+        button_scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                openMainActivity_table();
+            }});
 
 
-//        buttonSearch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                pozycja_input = pozycja_input + editTextNumber.getText().toString();
-//                status_input = "1";
-//                startActivity(intent);
-//                Log.i("checking", "pozycjaInput: " + pozycja_input);
-//            }});
+        EditText editTextNumber = findViewById(R.id.editTextNumber);
+        Button buttonSearch = findViewById(R.id.buttonSearch);
+
+
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tmp_pozycja_input = editTextNumber.getText().toString();
+                String[] a = tmp_pozycja_input.split("");
+                for (int i=0; i < 9; i++){
+                    if (i==4 || i==7){
+                        pozycja_input = pozycja_input + " " + a[i];
+                    } else {
+                        pozycja_input = pozycja_input + a[i];
+                    }
+
+                }
+
+                startActivity(intent2.putExtra("pozycjaInput", pozycja_input.toString()));
+
+                Log.i("checking", "pozycjaInput: " + pozycja_input);
+            }});
 
         Button btnScanBarcode = findViewById(R.id.buttonScanBarcode);
 
         btnScanBarcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity_enterdata.this, MainActivity_Scanner.class));
+//                startActivity(new Intent(MainActivity_enterdata.this, MainActivity_Scanner.class));
+                startActivity(intent1);
             }
         });
-
-//        Button btnScanBarcode = findViewById(R.id.btnScanBarcode);
-//
-//        btnScanBarcode.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(MainActivity_enterdata.this, Activity_scanned_barcode.class));
-//            }
-//        });
-
     }
 }

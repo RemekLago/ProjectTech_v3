@@ -1,9 +1,9 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.DataBaseChanges.tmpdata;
+import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.MainActivity_enterdata.intent2;
 import static v3.projecttech_v3.MainActivity_enterdata.pozycja_input;
 
-import android.os.AsyncTask;
 import android.util.Log;
 import android.util.SparseArray;
 
@@ -12,17 +12,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Procedura_Magazyn_Pozycje_Lokalizacje {
+public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
 
-    static ArrayList<ArrayList<String>> Result = new ArrayList<>();
+    static ArrayList<ArrayList<String>> Result2 = new ArrayList<>();
     public static String Firma, Pozycja;
     static String UserId;
-    static int numberOfColumns;
+    static int numberOfColumns2;
     static ResultSet rs;
-    static ArrayList<String> columnsNames = new ArrayList<>();
+    static ArrayList<String> columnsNames2 = new ArrayList<>();
 
     public ArrayList<ArrayList<String>> takingLocalizationPosition() {
 
@@ -45,14 +44,15 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje {
 
             Firma = "750";
             UserId = "1";
-            Pozycja = tmpdata.get("Pozycja");
+            Pozycja = tmpdata2.get("Pozycja");
 
 
             callableStatement.setInt("Firma", Integer.valueOf(Firma));
             callableStatement.setInt("UserId", Integer.valueOf(UserId));
             callableStatement.setString("Pozycja", Pozycja);
 
-//            Log.i("checking", "Pozycja: " + Pozycja);
+
+            Log.i("checking", "Pozycja: " + Pozycja);
 
             ResultSet rs;
             rs = callableStatement.executeQuery();
@@ -61,25 +61,25 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje {
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
 
-            columnsNames.clear();
+            columnsNames2.clear();
             for (int i = 1; i <= columnCount; i++) {
                 String columnName = rsmd.getColumnName(i);
-                columnsNames.add(columnName);
+                columnsNames2.add(columnName);
 //                Log.i("checking", "columnsNames: " + columnName);
             }
-            numberOfColumns = columnsNames.size();
+            numberOfColumns2 = columnsNames2.size();
 //            Log.i("checking", "numberOfColumns: " + numberOfColumns);
 //            Log.i("checking", "ResultSet: " + rs.next());
 
-            Result.clear();
+            Result2.clear();
             while (rs.next()) {
                 ArrayList<String> tmpRecord = new ArrayList<>();
-                for (int i = 1; i <= numberOfColumns; i++) {
+                for (int i = 1; i <= numberOfColumns2; i++) {
                     tmpRecord.add(rs.getString(i));
 //                    Log.i("checking", "record from ResultSet: " + rs.getString(i));
                 }
 
-                Result.add(tmpRecord); //database with all records for SQL
+                Result2.add(tmpRecord); //database with all records for SQL
             }
             callableStatement.close();
             connection.close();
@@ -87,6 +87,6 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje {
         } catch (Exception e) {
             Log.i("checking", "exception takingLocalizationPosition()" + e.toString());
         }
-        return Result;
+        return Result2;
     }
 }
