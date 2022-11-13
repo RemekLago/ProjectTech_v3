@@ -15,8 +15,8 @@ public class Data {
     public static final String COLUMN_WARIANTOPIS = "WariantOpis";
     public static final String COLUMN_PARTIAZLECENIE = "PartiaZlecenie";
     public static final String COLUMN_KONFEKCJA = "Konfekcja";
-    public static final String COLUMN_ILWKONF = "il.w.konf";
-    public static final String COLUMN_IlSZ = "il.szt";
+    public static final String COLUMN_ILWKONF = "ilwkonf";
+    public static final String COLUMN_IlSZ = "ilszt";
     public static final String COLUMN_ILOSCKM = "IloscKm";
     public static final String COLUMN_REZ = "Rez";
     public static final String COLUMN_SOURCE = "Source";
@@ -25,45 +25,45 @@ public class Data {
     public static final String ID_OPTIONS = "INTEGER PRIMARY KEY AUTOINCREMENT";
     public static final String RAWCOLOR_OPTIONS = "TEXT";
     public static final String LOCK_OPTIONS = "TEXT";
-    public static final String LP_OPTIONS = "INTEGER DEFAULT 0";
-    public static final String MAGAZYN_OPTIONS = "INTEGER DEFAULT 0";
+    public static final String LP_OPTIONS = "TEXT";
+    public static final String MAGAZYN_OPTIONS = "TEXT";
     public static final String LOKALIZACJA_OPTIONS = "TEXT";
     public static final String PARTIA_OPTIONS = "TEXT";
     public static final String WARIANT_OPTIONS = "TEXT";
     public static final String WARIANTOPIS_OPTIONS = "TEXT";
     public static final String PARTIAZLECENIE_OPTIONS = "TEXT";
     public static final String KONFEKCJA_OPTIONS = "TEXT";
-    public static final String ILWKONF_OPTIONS = "FLOAT DEFAULT 0";
-    public static final String IlSZ_OPTIONS = "FLOAT DEFAULT 0";
-    public static final String ILOSCKM_OPTIONS = "FLOAT DEFAULT 0";
-    public static final String REZ_OPTIONS = "FLOAT DEFAULT 0";
-    public static final String SOURCE_OPTIONS = "FLOAT DEFAULT 0";
+    public static final String ILWKONF_OPTIONS = "TEXT";
+    public static final String IlSZ_OPTIONS = "TEXT";
+    public static final String ILOSCKM_OPTIONS = "TEXT";
+    public static final String REZ_OPTIONS = "TEXT";
+    public static final String SOURCE_OPTIONS = "TEXT";
 
 
     // Variables
     private int id;
     private String rawColor;
     private String lock;
-    private int lp;
+    private String lp;
     private String magazyn;
-    private int lokalizacja;
+    private String lokalizacja;
     private String partia;
     private String wariant;
     private String wariantOpis;
     private String partiaZlecenie;
-    private String  konfekcja;
-    private float ilwkonf;
-    private float ilszt;
-    private float iloscKm;
-    private float rez;
-    private float source;
+    private String konfekcja;
+    private String ilwkonf;
+    private String ilszt;
+    private String iloscKm;
+    private String rez;
+    private String source;
 
     // Constructor
 
 
-    public Data(int id, String rawColor, String lock, int lp, String magazyn, int lokalizacja,
+    public Data(int id, String rawColor, String lock, String lp, String magazyn, String lokalizacja,
                 String partia, String wariant, String wariantOpis, String partiaZlecenie,
-                String  konfekcja, float ilwkonf, float ilszt, float iloscKm, float rez, float source) {
+                String  konfekcja, String ilwkonf, String ilszt, String iloscKm, String rez, String source) {
         this.id = id;
         this.rawColor = rawColor;
         this.lock = lock;
@@ -110,11 +110,11 @@ public class Data {
         this.lock = lock;
     }
 
-    public int getLp() {
+    public String getLp() {
         return lp;
     }
 
-    public void setLp(int lp) {
+    public void setLp(String lp) {
         this.lp = lp;
     }
 
@@ -126,11 +126,11 @@ public class Data {
         this.magazyn = magazyn;
     }
 
-    public int getLokalizacja() {
+    public String getLokalizacja() {
         return lokalizacja;
     }
 
-    public void setLokalizacja(int lokalizacja) {
+    public void setLokalizacja(String lokalizacja) {
         this.lokalizacja = lokalizacja;
     }
 
@@ -174,66 +174,85 @@ public class Data {
         this.konfekcja = konfekcja;
     }
 
-    public float getIlwkonf() {
+    public String getIlwkonf() {
         return ilwkonf;
     }
 
-    public void setIlwkonf(float ilwkonf) {
+    public void setIlwkonf(String ilwkonf) {
         this.ilwkonf = ilwkonf;
     }
 
-    public float getIlszt() {
+    public String getIlszt() {
         return ilszt;
     }
 
-    public void setIlszt(float ilszt) {
+    public void setIlszt(String ilszt) {
         this.ilszt = ilszt;
     }
 
-    public float getIloscKm() {
+    public String getIloscKm() {
         return iloscKm;
     }
 
-    public void setIloscKm(float iloscKm) {
+    public void setIloscKm(String iloscKm) {
         this.iloscKm = iloscKm;
     }
 
-    public float getRez() {
+    public String getRez() {
         return rez;
     }
 
-    public void setRez(float rez) {
+    public void setRez(String rez) {
         this.rez = rez;
     }
 
-    public float getSource() {
+    public String getSource() {
         return source;
     }
 
-    public void setSource(float source) {
+    public void setSource(String source) {
         this.source = source;
     }
 
     // SQL QUERY: Creating the Table
 
     public static final String CREATE_TABLE =
-        "CREATE TABLE " + TABLE_NAME + "( " +
-        COLUMN_ID + " " + ID_OPTIONS + ", " +
-        COLUMN_RAWCOLOR + " " + RAWCOLOR_OPTIONS + ", " +
-        COLUMN_LOCK + " " + LOCK_OPTIONS + ", " +
-        COLUMN_LP + " " + LP_OPTIONS + ", " +
-        COLUMN_MAGAZYN + " " + MAGAZYN_OPTIONS + ", " +
-        COLUMN_LOKALIZACJA + " " + LOKALIZACJA_OPTIONS + ", " +
-        COLUMN_PARTIA + " " + PARTIA_OPTIONS + ", " +
-        COLUMN_WARIANT + " " + WARIANT_OPTIONS + ", " +
-        COLUMN_WARIANTOPIS + " " + WARIANTOPIS_OPTIONS + ", " +
-        COLUMN_PARTIAZLECENIE + " " + PARTIAZLECENIE_OPTIONS + ", " +
-        COLUMN_KONFEKCJA + " " + KONFEKCJA_OPTIONS + ", " +
-        COLUMN_ILWKONF + " " + ILWKONF_OPTIONS + ", " +
-        COLUMN_IlSZ + " " + IlSZ_OPTIONS + ", " +
-        COLUMN_ILOSCKM + " " + ILOSCKM_OPTIONS + ", " +
-        COLUMN_REZ + " " + REZ_OPTIONS + ", " +
-        COLUMN_SOURCE + " " + SOURCE_OPTIONS + ", " +
-        ")";
+//        "CREATE TABLE " + TABLE_NAME + "(" +
+//        COLUMN_ID + " " + ID_OPTIONS + ", " +
+//        COLUMN_RAWCOLOR + " " + RAWCOLOR_OPTIONS + ", " +
+//        COLUMN_LOCK + " " + LOCK_OPTIONS + ", " +
+//        COLUMN_LP + " " + LP_OPTIONS + ", " +
+//        COLUMN_MAGAZYN + " " + MAGAZYN_OPTIONS + ", " +
+//        COLUMN_LOKALIZACJA + " " + LOKALIZACJA_OPTIONS + ", " +
+//        COLUMN_PARTIA + " " + PARTIA_OPTIONS + ", " +
+//        COLUMN_WARIANT + " " + WARIANT_OPTIONS + ", " +
+//        COLUMN_WARIANTOPIS + " " + WARIANTOPIS_OPTIONS + ", " +
+//        COLUMN_PARTIAZLECENIE + " " + PARTIAZLECENIE_OPTIONS + ", " +
+//        COLUMN_KONFEKCJA + " " + KONFEKCJA_OPTIONS + ", " +
+//        COLUMN_ILWKONF + " " + ILWKONF_OPTIONS + ", " +
+//        COLUMN_IlSZ + " " + IlSZ_OPTIONS + ", " +
+//        COLUMN_ILOSCKM + " " + ILOSCKM_OPTIONS + ", " +
+//        COLUMN_REZ + " " + REZ_OPTIONS + ", " +
+//        COLUMN_SOURCE + " " + SOURCE_OPTIONS  +
+//        ")";
+
+            "CREATE TABLE " + TABLE_NAME + "(" +
+            COLUMN_ID + " TEXT," +
+            COLUMN_RAWCOLOR + " TEXT," +
+            COLUMN_LOCK + " TEXT," +
+            COLUMN_LP + " TEXT," +
+            COLUMN_MAGAZYN + " TEXT," +
+            COLUMN_LOKALIZACJA + " TEXT," +
+            COLUMN_PARTIA + " TEXT," +
+            COLUMN_WARIANT + " TEXT," +
+            COLUMN_WARIANTOPIS + " TEXT," +
+            COLUMN_PARTIAZLECENIE + " TEXT," +
+            COLUMN_KONFEKCJA + " TEXT," +
+            COLUMN_ILWKONF + " TEXT," +
+            COLUMN_IlSZ + " TEXT," +
+            COLUMN_ILOSCKM + " TEXT," +
+            COLUMN_REZ + " TEXT," +
+            COLUMN_SOURCE + " TEXT" +
+            ")";
     
 }

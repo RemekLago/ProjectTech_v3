@@ -27,6 +27,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(Data.CREATE_TABLE);
@@ -41,9 +42,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     // Insert Data into Database
-    public long insertData(String rawColor, String lock, String lp, String magazyn, String lokalizacja, String partia,
-                           String wariant, String wariantOpis, String partiaZlecenie, float konfekcja, float ilwkonf,
-                           float ilszt, float iloscKm, float rez, float source) {
+    public long insertData(String rawColor, String lock, String lp, String magazyn, String lokalizacja,
+                           String partia, String wariant, String wariantOpis, String partiaZlecenie,
+                           String konfekcja, String ilwkonf,
+                           String ilszt, String iloscKm, String rez, String source) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -110,19 +112,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_ID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_RAWCOLOR)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LOCK)),
-                cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_LP)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LP)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_MAGAZYN)),
-                cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_LOKALIZACJA)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LOKALIZACJA)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_PARTIA)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_WARIANT)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_WARIANTOPIS)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_PARTIAZLECENIE)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_KONFEKCJA)),
-                cursor.getFloat(cursor.getColumnIndexOrThrow(Data.COLUMN_ILWKONF)),
-                cursor.getFloat(cursor.getColumnIndexOrThrow(Data.COLUMN_IlSZ)),
-                cursor.getFloat(cursor.getColumnIndexOrThrow(Data.COLUMN_ILOSCKM)),
-                cursor.getFloat(cursor.getColumnIndexOrThrow(Data.COLUMN_REZ)),
-                cursor.getFloat(cursor.getColumnIndexOrThrow(Data.COLUMN_SOURCE)));
+                cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_ILWKONF)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_IlSZ)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_ILOSCKM)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_REZ)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_SOURCE)));
 
         cursor.close();
         return dataGetId;
@@ -143,19 +145,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 data.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_ID)));
                 data.setRawColor(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_RAWCOLOR)));
                 data.setLock(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LOCK)));
-                data.setLp(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_LP)));
+                data.setLp(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LP)));
                 data.setMagazyn(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_MAGAZYN)));
-                data.setLokalizacja(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_LOKALIZACJA)));
+                data.setLokalizacja(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LOKALIZACJA)));
                 data.setPartia(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_PARTIA)));
                 data.setWariant(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_WARIANT)));
                 data.setWariantOpis(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_WARIANTOPIS)));
                 data.setPartiaZlecenie(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_PARTIAZLECENIE)));
                 data.setKonfekcja(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_KONFEKCJA)));
-                data.setIlwkonf(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_ILWKONF)));
-                data.setIlszt(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_IlSZ)));
-                data.setIloscKm(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_ILOSCKM)));
-                data.setRez(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_REZ)));
-                data.setSource(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_SOURCE)));
+                data.setIlwkonf(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_ILWKONF)));
+                data.setIlszt(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_IlSZ)));
+                data.setIloscKm(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_ILOSCKM)));
+                data.setRez(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_REZ)));
+                data.setSource(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_SOURCE)));
 
                 dataGetAll.add(data);
             } while(cursor.moveToNext());

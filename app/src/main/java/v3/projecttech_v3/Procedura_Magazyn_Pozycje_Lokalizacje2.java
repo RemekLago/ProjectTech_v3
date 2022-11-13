@@ -1,6 +1,7 @@
 package v3.projecttech_v3;
 
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
 import static v3.projecttech_v3.MainActivity_enterdata.intent2;
 import static v3.projecttech_v3.MainActivity_enterdata.pozycja_input;
 
@@ -13,6 +14,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
+
+import v3.projecttech_v3.db.DataBaseHelper;
 
 public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
 
@@ -72,11 +75,36 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
 //            Log.i("checking", "ResultSet: " + rs.next());
 
             Result2.clear();
+
+
             while (rs.next()) {
                 ArrayList<String> tmpRecord = new ArrayList<>();
+                dataBaseSQL.insertData(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14),
+                        rs.getString(15)
+                        );
+                Log.i("checking", "record from dataBaseSQL: " + rs.getString(1));
+                Log.i("checking", "record from dataBaseSQL: " + rs.getString(2));
+                Log.i("checking", "record from dataBaseSQL: " + rs.getString(3));
+                Log.i("checking", "record from dataBaseSQL: " + rs.getString(4));
+                Log.i("checking", "record from dataBaseSQL: " + rs.getString(5));
                 for (int i = 1; i <= numberOfColumns2; i++) {
                     tmpRecord.add(rs.getString(i));
 //                    Log.i("checking", "record from ResultSet: " + rs.getString(i));
+
                 }
 
                 Result2.add(tmpRecord); //database with all records for SQL

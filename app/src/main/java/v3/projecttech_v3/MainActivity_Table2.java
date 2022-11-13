@@ -23,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
+import v3.projecttech_v3.db.DataBaseHelper;
+
 public class MainActivity_Table2 extends AppCompatActivity implements RecyclerViewInterface{
 
     public static ArrayList<ArrayList<String>> database2;
@@ -31,6 +33,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public static ArrayList<Integer> FinalListWithColumnsWidth;
     public static DataBaseChanges dataFinal;
     static Intent intent4;
+    public static DataBaseHelper dataBaseSQL;
 
     @SuppressLint("WrongThread")
     @Override
@@ -47,6 +50,8 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_table2);
+
+        dataBaseSQL = new DataBaseHelper(MainActivity_Table2.this);
 
 
         DataBaseChanges2 dataFinal = new DataBaseChanges2();
