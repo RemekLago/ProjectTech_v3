@@ -22,7 +22,7 @@ public class Data {
     public static final String COLUMN_SOURCE = "Source";
 
 
-    public static final String ID_OPTIONS = "INTEGER PRIMARY KEY AUTOINCREMENT";
+    public static final String ID_OPTIONS = "INTEGER PRIMARY KEY";
     public static final String RAWCOLOR_OPTIONS = "TEXT";
     public static final String LOCK_OPTIONS = "TEXT";
     public static final String LP_OPTIONS = "TEXT";
@@ -237,7 +237,7 @@ public class Data {
 //        ")";
 
             "CREATE TABLE " + TABLE_NAME + " (" +
-            COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_ID + " INTEGER PRIMARY KEY, " +
             COLUMN_RAWCOLOR + " TEXT, " +
             COLUMN_LOCK + " TEXT, " +
             COLUMN_LP + " TEXT, " +

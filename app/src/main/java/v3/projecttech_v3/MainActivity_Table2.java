@@ -52,6 +52,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         setContentView(R.layout.activity_main_table2);
 
         dataBaseSQL = new DataBaseHelper(MainActivity_Table2.this);
+
         Log.i("checking", dataBaseSQL.toString());
 
         DataBaseChanges2 dataFinal = new DataBaseChanges2();

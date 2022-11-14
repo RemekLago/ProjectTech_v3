@@ -19,7 +19,7 @@ import v3.projecttech_v3.db.entity.Data;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
 
-    private static final int DATABASE_VERSION = 1;
+    private static int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "data_db";
 
     public DataBaseHelper(Context context){
@@ -36,6 +36,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(Data.CREATE_TABLE);
         Log.i("checking", CREATE_TABLE);
+        DATABASE_VERSION++;
 
     }
 
@@ -52,8 +53,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-
-//        values.put(Data.COLUMN_ID, data.getId());
+        values.put(Data.COLUMN_ID, data.getId());
         values.put(Data.COLUMN_RAWCOLOR, data.getRawColor());
         values.put(Data.COLUMN_LOCK, data.getLock());
         values.put(Data.COLUMN_LP, data.getLp());
@@ -246,8 +246,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void deleteAllData (){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-//        db.execSQL("DELETE FROM " + Data.TABLE_NAME );
+//        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DELETE FROM " + Data.TABLE_NAME );
 //        db.delete(Data.TABLE_NAME, null, null);
     }
 

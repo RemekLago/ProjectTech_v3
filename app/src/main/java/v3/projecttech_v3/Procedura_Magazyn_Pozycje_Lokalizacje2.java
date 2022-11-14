@@ -76,14 +76,15 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
 //            Log.i("checking", "ResultSet: " + rs.next());
 
             Result2.clear();
-
+            dataBaseSQL.deleteAllData();
 //            dataBaseSQL.deleteAllData();
             boolean a;
             int b = 1;
+            int idNumber = 0;
             while (rs.next()) {
                 ArrayList<String> tmpRecord = new ArrayList<>();
-
-               Data tmpInsertData = new Data( -1,
+                idNumber++;
+               Data tmpInsertData = new Data( idNumber,
                        rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
