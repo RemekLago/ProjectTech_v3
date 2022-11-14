@@ -3,7 +3,7 @@ package v3.projecttech_v3.db.entity;
 public class Data {
 
     // Constants for Database
-    public static final String TABLE_NAME = "dataFromProcedure";
+    public static final String TABLE_NAME = "DATABASE_1";
     public static final String COLUMN_ID = "Id";
     public static final String COLUMN_RAWCOLOR = "Rawcolor";
     public static final String COLUMN_LOCK = "Lock";
@@ -236,22 +236,22 @@ public class Data {
 //        COLUMN_SOURCE + " " + SOURCE_OPTIONS  +
 //        ")";
 
-            "CREATE TABLE " + TABLE_NAME + "(" +
-            COLUMN_ID + " TEXT," +
-            COLUMN_RAWCOLOR + " TEXT," +
-            COLUMN_LOCK + " TEXT," +
-            COLUMN_LP + " TEXT," +
-            COLUMN_MAGAZYN + " TEXT," +
-            COLUMN_LOKALIZACJA + " TEXT," +
-            COLUMN_PARTIA + " TEXT," +
-            COLUMN_WARIANT + " TEXT," +
-            COLUMN_WARIANTOPIS + " TEXT," +
-            COLUMN_PARTIAZLECENIE + " TEXT," +
-            COLUMN_KONFEKCJA + " TEXT," +
-            COLUMN_ILWKONF + " TEXT," +
-            COLUMN_IlSZ + " TEXT," +
-            COLUMN_ILOSCKM + " TEXT," +
-            COLUMN_REZ + " TEXT," +
+            "CREATE TABLE " + TABLE_NAME + " (" +
+            COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_RAWCOLOR + " TEXT, " +
+            COLUMN_LOCK + " TEXT, " +
+            COLUMN_LP + " TEXT, " +
+            COLUMN_MAGAZYN + " TEXT, " +
+            COLUMN_LOKALIZACJA + " TEXT, " +
+            COLUMN_PARTIA + " TEXT, " +
+            COLUMN_WARIANT + " TEXT, " +
+            COLUMN_WARIANTOPIS + " TEXT, " +
+            COLUMN_PARTIAZLECENIE + " TEXT, " +
+            COLUMN_KONFEKCJA + " TEXT, " +
+            COLUMN_ILWKONF + " TEXT, " +
+            COLUMN_IlSZ + " TEXT, " +
+            COLUMN_ILOSCKM + " TEXT, " +
+            COLUMN_REZ + " TEXT, " +
             COLUMN_SOURCE + " TEXT" +
             ")";
     

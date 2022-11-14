@@ -1,10 +1,14 @@
 package v3.projecttech_v3.db;
 
+import static v3.projecttech_v3.db.entity.Data.CREATE_TABLE;
+import static v3.projecttech_v3.db.entity.Data.TABLE_NAME;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -31,54 +35,92 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(Data.CREATE_TABLE);
+        Log.i("checking", CREATE_TABLE);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS" + Data.TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(sqLiteDatabase);
     }
 
 
     // Insert Data into Database
-    public long insertData(String rawColor, String lock, String lp, String magazyn, String lokalizacja,
-                           String partia, String wariant, String wariantOpis, String partiaZlecenie,
-                           String konfekcja, String ilwkonf,
-                           String ilszt, String iloscKm, String rez, String source) {
 
+    public boolean insertData(Data data) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
 
-        values.put(Data.COLUMN_RAWCOLOR, rawColor);
-        values.put(Data.COLUMN_LOCK, lock);
-        values.put(Data.COLUMN_LP, lp);
-        values.put(Data.COLUMN_MAGAZYN, magazyn);
-        values.put(Data.COLUMN_LOKALIZACJA, lokalizacja);
-        values.put(Data.COLUMN_PARTIA, partia);
-        values.put(Data.COLUMN_PARTIAZLECENIE, partiaZlecenie);
-        values.put(Data.COLUMN_WARIANT, wariant);
-        values.put(Data.COLUMN_WARIANTOPIS, wariantOpis);
-        values.put(Data.COLUMN_PARTIAZLECENIE, partiaZlecenie);
-        values.put(Data.COLUMN_KONFEKCJA, konfekcja);
-        values.put(Data.COLUMN_ILWKONF, ilwkonf);
-        values.put(Data.COLUMN_IlSZ, ilszt);
-        values.put(Data.COLUMN_ILOSCKM, iloscKm);
-        values.put(Data.COLUMN_REZ, rez);
-        values.put(Data.COLUMN_SOURCE, source);
+//        values.put(Data.COLUMN_ID, data.getId());
+        values.put(Data.COLUMN_RAWCOLOR, data.getRawColor());
+        values.put(Data.COLUMN_LOCK, data.getLock());
+        values.put(Data.COLUMN_LP, data.getLp());
+        values.put(Data.COLUMN_MAGAZYN, data.getMagazyn());
+        values.put(Data.COLUMN_LOKALIZACJA, data.getLokalizacja());
+        values.put(Data.COLUMN_PARTIA, data.getPartia());
+        values.put(Data.COLUMN_PARTIAZLECENIE, data.getPartiaZlecenie());
+        values.put(Data.COLUMN_WARIANT, data.getWariant());
+        values.put(Data.COLUMN_WARIANTOPIS, data.getWariantOpis());
+        values.put(Data.COLUMN_PARTIAZLECENIE, data.getPartiaZlecenie());
+        values.put(Data.COLUMN_KONFEKCJA, data.getKonfekcja());
+        values.put(Data.COLUMN_ILWKONF, data.getIlwkonf());
+        values.put(Data.COLUMN_IlSZ, data.getIlszt());
+        values.put(Data.COLUMN_ILOSCKM, data.getIloscKm());
+        values.put(Data.COLUMN_REZ, data.getRez());
+        values.put(Data.COLUMN_SOURCE, data.getSource());
 
-        long id = db.insert(Data.TABLE_NAME, null, values);
-        db.close();
+        long insert = db.insert(TABLE_NAME, null, values);
+        if (insert == -1) {
+            return false;
+        } else {
+            return true;
+        }
+//    public boolean insertData(String rawColor, String lock, String lp, String magazyn, String lokalizacja,
+//                           String partia, String wariant, String wariantOpis, String partiaZlecenie,
+//                           String konfekcja, String ilwkonf,
+//                           String ilszt, String iloscKm, String rez, String source) {
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//
+//
+//        values.put(Data.COLUMN_RAWCOLOR, rawColor);
+//        values.put(Data.COLUMN_LOCK, lock);
+//        values.put(Data.COLUMN_LP, lp);
+//        values.put(Data.COLUMN_MAGAZYN, magazyn);
+//        values.put(Data.COLUMN_LOKALIZACJA, lokalizacja);
+//        values.put(Data.COLUMN_PARTIA, partia);
+//        values.put(Data.COLUMN_PARTIAZLECENIE, partiaZlecenie);
+//        values.put(Data.COLUMN_WARIANT, wariant);
+//        values.put(Data.COLUMN_WARIANTOPIS, wariantOpis);
+//        values.put(Data.COLUMN_PARTIAZLECENIE, partiaZlecenie);
+//        values.put(Data.COLUMN_KONFEKCJA, konfekcja);
+//        values.put(Data.COLUMN_ILWKONF, ilwkonf);
+//        values.put(Data.COLUMN_IlSZ, ilszt);
+//        values.put(Data.COLUMN_ILOSCKM, iloscKm);
+//        values.put(Data.COLUMN_REZ, rez);
+//        values.put(Data.COLUMN_SOURCE, source);
+//
+//        long id = db.insert(Data.TABLE_NAME, null, values);
+//        if (id == -1) {
+//            return false;
+//        } else {
+//            return true;
+//        }
 
-        return id;
+//        db.close();
+
+
+//        return id;
     }
 
     // Getting Data from Database
     public Data getDataId (long id) {
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(Data.TABLE_NAME,
+        Cursor cursor = db.query(TABLE_NAME,
                 new String[]{
                         Data.COLUMN_ID,
                         Data.COLUMN_RAWCOLOR,
@@ -96,7 +138,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                         Data.COLUMN_ILOSCKM,
                         Data.COLUMN_REZ,
                         Data.COLUMN_SOURCE},
-                Data.COLUMN_ID + "?",
+                Data.COLUMN_ID + "=?",
                 new String[]{
                         String.valueOf(id)
                 },
@@ -134,7 +176,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public ArrayList<Data> getAllData() {
         ArrayList<Data> dataGetAll = new ArrayList<>();
 
-        String selectQuery = "SELECT * FROM " + Data.TABLE_NAME + " ORDER BY " +
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY " +
                 Data.COLUMN_ID + " DESC";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -188,17 +230,69 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         values.put(Data.COLUMN_REZ, data.getRez());
         values.put(Data.COLUMN_SOURCE, data.getSource());
 
-        return db.update(Data.TABLE_NAME, values, Data.COLUMN_ID + " = ? ",
+        return db.update(TABLE_NAME, values, Data.COLUMN_ID + " = ? ",
                 new String[]{String.valueOf(data.getId())}
                 );
     }
 
     public void deleteDataId (Data data){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(Data.TABLE_NAME, Data.COLUMN_ID + " = ?",
+        db.delete(TABLE_NAME, Data.COLUMN_ID + " = ?",
                 new String[]{String.valueOf(data.getId())}
         );
         db.close();
 
     }
+
+    public void deleteAllData (){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+//        db.execSQL("DELETE FROM " + Data.TABLE_NAME );
+//        db.delete(Data.TABLE_NAME, null, null);
+    }
+
+    // Getting all Data and Ordered By Clicked Column by User
+    public static String SORTEDBY_4 = " ASC";
+    public ArrayList<Data> getAllDataOrdered(String columnName) {
+        ArrayList<Data> dataGetAllOrdered = new ArrayList<>();
+        if (SORTEDBY_4.equals(" DESC")) {
+            SORTEDBY_4 = " ASC";
+        } else {
+            SORTEDBY_4 = " DESC";
+        }
+
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY " +
+                columnName + " SORTEDBY";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()){
+            do {
+                Data data = new Data();
+                data.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_ID)));
+                data.setRawColor(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_RAWCOLOR)));
+                data.setLock(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LOCK)));
+                data.setLp(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LP)));
+                data.setMagazyn(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_MAGAZYN)));
+                data.setLokalizacja(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LOKALIZACJA)));
+                data.setPartia(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_PARTIA)));
+                data.setWariant(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_WARIANT)));
+                data.setWariantOpis(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_WARIANTOPIS)));
+                data.setPartiaZlecenie(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_PARTIAZLECENIE)));
+                data.setKonfekcja(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_KONFEKCJA)));
+                data.setIlwkonf(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_ILWKONF)));
+                data.setIlszt(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_IlSZ)));
+                data.setIloscKm(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_ILOSCKM)));
+                data.setRez(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_REZ)));
+                data.setSource(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_SOURCE)));
+
+                dataGetAllOrdered.add(data);
+            } while(cursor.moveToNext());
+
+        }
+        db.close();
+        return dataGetAllOrdered;
+    }
+
+
 }

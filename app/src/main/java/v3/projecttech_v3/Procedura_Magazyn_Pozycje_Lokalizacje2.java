@@ -16,6 +16,7 @@ import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
 import v3.projecttech_v3.db.DataBaseHelper;
+import v3.projecttech_v3.db.entity.Data;
 
 public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
 
@@ -76,11 +77,14 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
 
             Result2.clear();
 
-
+//            dataBaseSQL.deleteAllData();
+            boolean a;
+            int b = 1;
             while (rs.next()) {
                 ArrayList<String> tmpRecord = new ArrayList<>();
-                dataBaseSQL.insertData(
-                        rs.getString(1),
+
+               Data tmpInsertData = new Data( -1,
+                       rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -95,12 +99,15 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
                         rs.getString(13),
                         rs.getString(14),
                         rs.getString(15)
-                        );
-                Log.i("checking", "record from dataBaseSQL: " + rs.getString(1));
-                Log.i("checking", "record from dataBaseSQL: " + rs.getString(2));
-                Log.i("checking", "record from dataBaseSQL: " + rs.getString(3));
-                Log.i("checking", "record from dataBaseSQL: " + rs.getString(4));
-                Log.i("checking", "record from dataBaseSQL: " + rs.getString(5));
+                       );
+               dataBaseSQL.insertData(tmpInsertData);
+
+//                Log.i("checking", "record from dataBaseSQL: " + dataBaseSQL.getDataId(b).getIlszt());
+//                Log.i("checking", "record from dataBaseSQL: " + rs.getString(1));
+//                Log.i("checking", "record from dataBaseSQL: " + rs.getString(2));
+//                Log.i("checking", "record from dataBaseSQL: " + rs.getString(3));
+//                Log.i("checking", "record from dataBaseSQL: " + rs.getString(4));
+//                Log.i("checking", "record from dataBaseSQL: " + rs.getString(5));
                 for (int i = 1; i <= numberOfColumns2; i++) {
                     tmpRecord.add(rs.getString(i));
 //                    Log.i("checking", "record from ResultSet: " + rs.getString(i));
@@ -108,6 +115,7 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
                 }
 
                 Result2.add(tmpRecord); //database with all records for SQL
+            b++;
             }
             callableStatement.close();
             connection.close();
@@ -116,5 +124,6 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
             Log.i("checking", "exception takingLocalizationPosition()" + e.toString());
         }
         return Result2;
+//        return dataBaseSQL;
     }
 }

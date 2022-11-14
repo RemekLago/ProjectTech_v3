@@ -4,21 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
-import static v3.projecttech_v3.MainActivity_Scanner.intent2;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_4;
+import static v3.projecttech_v3.db.entity.Data.CREATE_TABLE;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -34,6 +33,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public static DataBaseChanges dataFinal;
     static Intent intent4;
     public static DataBaseHelper dataBaseSQL;
+//    private DataAdapter;
 
     @SuppressLint("WrongThread")
     @Override
@@ -52,7 +52,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         setContentView(R.layout.activity_main_table2);
 
         dataBaseSQL = new DataBaseHelper(MainActivity_Table2.this);
-
+        Log.i("checking", dataBaseSQL.toString());
 
         DataBaseChanges2 dataFinal = new DataBaseChanges2();
         ArrayList<ArrayList<String>> database0 = dataFinal.doInBackground();
@@ -232,6 +232,19 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView13name.setLayoutParams(params13);
         textView14name.setLayoutParams(params14);
         textView15name.setLayoutParams(params15);
+
+        String sorting4 = " DESC";
+        textView4name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String columnName = textView4name.getText().toString();
+
+                dataBaseSQL.getAllDataOrdered(columnName);
+                new Intent(new Intent(MainActivity_Table2.this, MainActivity_Table2.class));
+
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_4, Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 

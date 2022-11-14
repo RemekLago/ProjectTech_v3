@@ -4,6 +4,7 @@ import static v3.projecttech_v3.DataBaseChanges2.ListWithCellColor;
 import static v3.projecttech_v3.MainActivity_Table2.FinalListWithCellColor;
 import static v3.projecttech_v3.MainActivity_Table2.FinalListWithColumnsAdjust;
 import static v3.projecttech_v3.MainActivity_Table2.FinalListWithColumnsWidth;
+import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
 import static v3.projecttech_v3.MainActivity_Table2.database2;
 
 import android.content.Context;
@@ -44,23 +45,39 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
     @Override
     public void onBindViewHolder(@NonNull AdapterRecyclerView2.ViewHolderRecyclerView holder, int i) {
 
-        Log.i("checking", "dana1: " + database2.get(i).get(2).toString());
+//        Log.i("checking", "dana1: " + database2.get(i).get(2).toString());
 
-        holder.textView1.setText(database2.get(i).get(0).toString());
-        holder.textView2.setText(database2.get(i).get(1).toString());
-        holder.textView3.setText(database2.get(i).get(2).toString());
-        holder.textView4.setText(database2.get(i).get(3).toString());
-        holder.textView5.setText(database2.get(i).get(4).toString());
-        holder.textView6.setText(database2.get(i).get(5).toString());
-        holder.textView7.setText(database2.get(i).get(6).toString());
-        holder.textView8.setText(database2.get(i).get(7).toString());
-        holder.textView9.setText(database2.get(i).get(8).toString());
-        holder.textView10.setText(database2.get(i).get(9).toString());
-        holder.textView11.setText(database2.get(i).get(10).toString());
-        holder.textView12.setText(database2.get(i).get(11).toString());
-        holder.textView13.setText(database2.get(i).get(12).toString());
-        holder.textView14.setText(database2.get(i).get(13).toString());
-        holder.textView15.setText(database2.get(i).get(14).toString());
+//        holder.textView1.setText(database2.get(i).get(0).toString());
+//        holder.textView2.setText(database2.get(i).get(1).toString());
+//        holder.textView3.setText(database2.get(i).get(2).toString());
+//        holder.textView4.setText(database2.get(i).get(3).toString());
+//        holder.textView5.setText(database2.get(i).get(4).toString());
+//        holder.textView6.setText(database2.get(i).get(5).toString());
+//        holder.textView7.setText(database2.get(i).get(6).toString());
+//        holder.textView8.setText(database2.get(i).get(7).toString());
+//        holder.textView9.setText(database2.get(i).get(8).toString());
+//        holder.textView10.setText(database2.get(i).get(9).toString());
+//        holder.textView11.setText(database2.get(i).get(10).toString());
+//        holder.textView12.setText(database2.get(i).get(11).toString());
+//        holder.textView13.setText(database2.get(i).get(12).toString());
+//        holder.textView14.setText(database2.get(i).get(13).toString());
+//        holder.textView15.setText(database2.get(i).get(14).toString());
+
+        holder.textView1.setText(dataBaseSQL.getDataId(i+1).getRawColor());
+        holder.textView2.setText(dataBaseSQL.getDataId(i+1).getLock());
+        holder.textView3.setText(dataBaseSQL.getDataId(i+1).getLp());
+        holder.textView4.setText(dataBaseSQL.getDataId(i+1).getMagazyn());
+        holder.textView5.setText(dataBaseSQL.getDataId(i+1).getLokalizacja());
+        holder.textView6.setText(dataBaseSQL.getDataId(i+1).getPartia());
+        holder.textView7.setText(dataBaseSQL.getDataId(i+1).getWariant());
+        holder.textView8.setText(dataBaseSQL.getDataId(i+1).getWariantOpis());
+        holder.textView9.setText(dataBaseSQL.getDataId(i+1).getPartiaZlecenie());
+        holder.textView10.setText(dataBaseSQL.getDataId(i+1).getKonfekcja());
+        holder.textView11.setText(dataBaseSQL.getDataId(i+1).getIlwkonf());
+        holder.textView12.setText(dataBaseSQL.getDataId(i+1).getIlszt());
+        holder.textView13.setText(dataBaseSQL.getDataId(i+1).getIloscKm());
+        holder.textView14.setText(dataBaseSQL.getDataId(i+1).getRez());
+        holder.textView15.setText(dataBaseSQL.getDataId(i+1).getSource());
 
         holder.textView1.setBackgroundColor(Color.parseColor(FinalListWithCellColor.get(i)));
         holder.textView2.setBackgroundColor(Color.parseColor(FinalListWithCellColor.get(i)));
