@@ -252,23 +252,24 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     // Getting all Data and Ordered By Clicked Column by User
-    public static String SORTEDBY_4 = " ASC";
-    public ArrayList<Data> getAllDataOrdered(String columnName) {
+    public static String SORTEDBY_3 = " ASC";
+    public Data getAllDataOrdered(String columnName) {
         ArrayList<Data> dataGetAllOrdered = new ArrayList<>();
-        if (SORTEDBY_4.equals(" DESC")) {
-            SORTEDBY_4 = " ASC";
+        if (SORTEDBY_3.equals(" DESC")) {
+            SORTEDBY_3 = " ASC";
         } else {
-            SORTEDBY_4 = " DESC";
+            SORTEDBY_3 = " DESC";
         }
 
         String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY " +
-                columnName + " SORTEDBY";
+                columnName + SORTEDBY_3;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
+        Data data = new Data();
         if (cursor.moveToFirst()){
             do {
-                Data data = new Data();
+//                Data data = new Data();
                 data.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_ID)));
                 data.setRawColor(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_RAWCOLOR)));
                 data.setLock(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LOCK)));
@@ -291,7 +292,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         }
         db.close();
-        return dataGetAllOrdered;
+        return data;
     }
 
 

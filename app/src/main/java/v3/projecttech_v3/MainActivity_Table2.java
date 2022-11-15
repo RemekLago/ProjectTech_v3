@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_4;
-import static v3.projecttech_v3.db.entity.Data.CREATE_TABLE;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
+
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +23,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import v3.projecttech_v3.db.DataBaseHelper;
+import v3.projecttech_v3.db.entity.Data;
 
 public class MainActivity_Table2 extends AppCompatActivity implements RecyclerViewInterface{
 
@@ -234,16 +235,16 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView14name.setLayoutParams(params14);
         textView15name.setLayoutParams(params15);
 
-        String sorting4 = " DESC";
-        textView4name.setOnClickListener(new View.OnClickListener() {
+
+        textView3name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String columnName = textView4name.getText().toString();
+                String columnName = textView3name.getText().toString();
 
                 dataBaseSQL.getAllDataOrdered(columnName);
-                new Intent(new Intent(MainActivity_Table2.this, MainActivity_Table2.class));
+                new Intent(MainActivity_Table2.this, MainActivity_Table2.class);
 
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_4, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_3, Toast.LENGTH_LONG).show();
             }
         });
 
