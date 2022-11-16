@@ -82,9 +82,11 @@ public class Data {
         this.source = source;
     }
 
-    // Getters and Setters
-    public Data(){
+    public Data() {
+
     }
+
+    // Getters and Setters
 
     public int getId() {
         return id;
@@ -166,11 +168,11 @@ public class Data {
         this.partiaZlecenie = partiaZlecenie;
     }
 
-    public String  getKonfekcja() {
+    public String getKonfekcja() {
         return konfekcja;
     }
 
-    public void setKonfekcja(String  konfekcja) {
+    public void setKonfekcja(String konfekcja) {
         this.konfekcja = konfekcja;
     }
 
@@ -214,6 +216,7 @@ public class Data {
         this.source = source;
     }
 
+
     // SQL QUERY: Creating the Table
 
     public static final String CREATE_TABLE =
@@ -240,7 +243,7 @@ public class Data {
             COLUMN_ID + " INTEGER PRIMARY KEY, " +
             COLUMN_RAWCOLOR + " TEXT, " +
             COLUMN_LOCK + " TEXT, " +
-            COLUMN_LP + " TEXT, " +
+            COLUMN_LP + " INTEGER, " +
             COLUMN_MAGAZYN + " TEXT, " +
             COLUMN_LOKALIZACJA + " TEXT, " +
             COLUMN_PARTIA + " TEXT, " +

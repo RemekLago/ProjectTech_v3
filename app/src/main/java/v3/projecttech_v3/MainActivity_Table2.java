@@ -1,5 +1,6 @@
 package v3.projecttech_v3;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
@@ -15,6 +16,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -34,6 +36,9 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public static DataBaseChanges dataFinal;
     static Intent intent4;
     public static DataBaseHelper dataBaseSQL;
+    public static String columnName;
+    public static RecyclerView recyclerView;
+    public static AdapterRecyclerView2 adapterRecyclerView2;
 //    private DataAdapter;
 
     @SuppressLint("WrongThread")
@@ -67,9 +72,9 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
 
         Log.i("checking", "database size: " + database2.size());
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
 
-        AdapterRecyclerView2 adapterRecyclerView2 = new AdapterRecyclerView2(this, database2, this);
+        adapterRecyclerView2 = new AdapterRecyclerView2(this, database2, this);
         recyclerView.setAdapter(adapterRecyclerView2);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -236,18 +241,47 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView15name.setLayoutParams(params15);
 
 
+
         textView3name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String columnName = textView3name.getText().toString();
+                columnName = textView3name.getText().toString();
 
-                dataBaseSQL.getAllDataOrdered(columnName);
-                new Intent(MainActivity_Table2.this, MainActivity_Table2.class);
+
+
+//                Log.i("checking", "databaseSQL ordering: " + dataBaseSQL.getDataId(6).getLp());
+//                Log.i("checking", "databaseSQL ordering: " + dataBaseSQL.getDataId(12).getLp());
+//                Log.i("checking", "databaseSQL ordering: " + dataBaseSQL.getDataId(18).getLp());
+                //                finish();
+                updateView();
+
 
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_3, Toast.LENGTH_LONG).show();
             }
         });
 
+    }
+
+    public void updateView() {
+        ArrayList<Data> sortedData = dataBaseSQL.getAllDataOrdered(columnName);
+        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(1).getLp());
+        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(2).getLp());
+        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(3).getLp());
+        dataBaseSQL.deleteAllData();
+        Log.i("checking", "databaseSQL ordering columnname: " + columnName);
+        for (int i=0; i<sortedData.size(); i++) {
+            dataBaseSQL.insertData(sortedData.get(i));
+            Log.i("checking", "databaseSQL ordering: " + i);
+            Log.i("checking", "databaseSQL ordering LP: " + sortedData.get(i).getLp());
+//            Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getDataId(i+1).getLp());
+        }
+        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(1).getLp());
+        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(2).getLp());
+        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(3).getLp());
+
+        adapterRecyclerView2.notifyDataSetChanged();
+        recyclerView.setAdapter(adapterRecyclerView2);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package v3.projecttech_v3.db;
 
+import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
 import static v3.projecttech_v3.db.entity.Data.CREATE_TABLE;
 import static v3.projecttech_v3.db.entity.Data.TABLE_NAME;
 
@@ -253,7 +254,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     // Getting all Data and Ordered By Clicked Column by User
     public static String SORTEDBY_3 = " ASC";
-    public Data getAllDataOrdered(String columnName) {
+
+    public ArrayList<Data> getAllDataOrdered(String columnName) {
         ArrayList<Data> dataGetAllOrdered = new ArrayList<>();
         if (SORTEDBY_3.equals(" DESC")) {
             SORTEDBY_3 = " ASC";
@@ -262,15 +264,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
 
         String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY " +
-                columnName + SORTEDBY_3;
+                columnName + " " + SORTEDBY_3;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-
-        Data data = new Data();
-        if (cursor.moveToFirst()){
+        int idNumber = 0;
+          if (cursor.moveToFirst()){
             do {
-//                Data data = new Data();
-                data.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_ID)));
+                idNumber++;
+                Data data = new Data();
+//                data.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_ID)));
+                data.setId(idNumber);
                 data.setRawColor(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_RAWCOLOR)));
                 data.setLock(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LOCK)));
                 data.setLp(cursor.getString(cursor.getColumnIndexOrThrow(Data.COLUMN_LP)));
@@ -292,8 +295,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         }
         db.close();
-        return data;
+        return dataGetAllOrdered;
     }
-
-
-}
+   }
