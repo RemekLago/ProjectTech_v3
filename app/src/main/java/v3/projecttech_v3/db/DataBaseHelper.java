@@ -22,6 +22,22 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "data_db";
+    public static String SORTEDBY_1 = " ASC";
+    public static String SORTEDBY_2 = " ASC";
+    public static String SORTEDBY_3 = " ASC";
+    public static String SORTEDBY_4 = " ASC";
+    public static String SORTEDBY_5 = " ASC";
+    public static String SORTEDBY_6 = " ASC";
+    public static String SORTEDBY_7 = " ASC";
+    public static String SORTEDBY_8 = " ASC";
+    public static String SORTEDBY_9 = " ASC";
+    public static String SORTEDBY_10 = " ASC";
+    public static String SORTEDBY_11 = " ASC";
+    public static String SORTEDBY_12 = " ASC";
+    public static String SORTEDBY_13 = " ASC";
+    public static String SORTEDBY_14 = " ASC";
+    public static String SORTEDBY_15 = " ASC";
+
 
     public DataBaseHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -253,7 +269,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     // Getting all Data and Ordered By Clicked Column by User
-    public static String SORTEDBY_3 = " ASC";
+
 
     public ArrayList<Data> getAllDataOrdered(String columnName) {
         ArrayList<Data> dataGetAllOrdered = new ArrayList<>();

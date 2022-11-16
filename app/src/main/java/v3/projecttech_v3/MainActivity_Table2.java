@@ -5,7 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_10;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_11;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_12;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_13;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_14;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_15;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_4;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_5;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_6;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_7;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_8;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_9;
 
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -240,23 +254,138 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView14name.setLayoutParams(params14);
         textView15name.setLayoutParams(params15);
 
+        textView1name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView1name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_1, Toast.LENGTH_LONG).show();
+            }
+        });
 
+        textView2name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView2name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_2, Toast.LENGTH_LONG).show();
+            }
+        });
 
         textView3name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 columnName = textView3name.getText().toString();
-
-
-
-//                Log.i("checking", "databaseSQL ordering: " + dataBaseSQL.getDataId(6).getLp());
-//                Log.i("checking", "databaseSQL ordering: " + dataBaseSQL.getDataId(12).getLp());
-//                Log.i("checking", "databaseSQL ordering: " + dataBaseSQL.getDataId(18).getLp());
-                //                finish();
                 updateView();
-
-
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_3, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView4name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView4name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_4, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView5name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView5name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_5, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView6name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView6name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_6, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView7name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView7name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_7, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView8name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView8name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_8, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView9name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView9name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_9, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView10name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView10name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_10, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView11name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView11name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_11, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView12name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView12name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_12, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView13name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView13name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_13, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView14name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView14name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_14, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        textView15name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                columnName = textView15name.getText().toString();
+                updateView();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_15, Toast.LENGTH_LONG).show();
             }
         });
 
