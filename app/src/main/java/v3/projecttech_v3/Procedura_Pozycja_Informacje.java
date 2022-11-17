@@ -1,5 +1,6 @@
 package v3.projecttech_v3;
 
+import static v3.projecttech_v3.MainActivity_enterdata.intent2;
 import static v3.projecttech_v3.MainActivity_progressBar.intent3;
 import android.util.Log;
 import java.sql.CallableStatement;
@@ -35,7 +36,7 @@ public class Procedura_Pozycja_Informacje {
 
             Firma = "750";
             UserId = "1";
-            Barcode = intent3.getStringExtra("barcodeInput2");
+            Barcode = intent3.getStringExtra("barcodeInput");
 //            intentScanner.getStringExtra("barcodeInput");
 //            Barcode = intentScanner.getStringExtra("barcodeInput");
 //            Barcode = 1|         1897 013 05|0,300|0|S300-2205||562105_1|749955|NEW|||124/A/05/22||||20.05.22|||||||""WYGPZ220168;

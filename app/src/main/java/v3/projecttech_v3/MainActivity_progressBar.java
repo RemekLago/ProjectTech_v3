@@ -1,6 +1,8 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.MainActivity_Scanner.intent2;
+
+import static v3.projecttech_v3.MainActivity_enterdata.intent2;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;

@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity_enterdata extends AppCompatActivity {
 
-    static String pozycja_input = "";
+    static String pozycja_input;
     static String status_input;
 
     static Intent intent1;
@@ -49,6 +49,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Pozycja is incorrect, try again", Toast.LENGTH_LONG).show();
                 } else {
                     String[] a = tmp_pozycja_input.split("");
+                    pozycja_input = "";
                     for (int i = 0; i < 9; i++) {
                         if (i == 4 || i == 7) {
                             pozycja_input = pozycja_input + " " + a[i];

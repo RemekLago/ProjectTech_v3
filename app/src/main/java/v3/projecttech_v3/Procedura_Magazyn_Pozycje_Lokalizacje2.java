@@ -49,7 +49,8 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
             Firma = "750";
             UserId = "1";
             Pozycja = tmpdata2.get("Pozycja");
-
+            Log.i("checking", "Pozycja: " + tmpdata2.get("Pozycja"));
+            Log.i("checking", "Pozycja: " + tmpdata2.get("Pozycja"));
 
             callableStatement.setInt("Firma", Integer.valueOf(Firma));
             callableStatement.setInt("UserId", Integer.valueOf(UserId));

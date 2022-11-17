@@ -1,8 +1,17 @@
 package v3.projecttech_v3;
 
+import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.MainActivity_Scanner.barcodeInput;
+import static v3.projecttech_v3.MainActivity_Scanner.intent3;
 import static v3.projecttech_v3.MainActivity_Table2.intent4;
+import static v3.projecttech_v3.MainActivity_Table2.searchCode;
 import static v3.projecttech_v3.MainActivity_enterdata.intent2;
+import static v3.projecttech_v3.MainActivity_enterdata.pozycja_input;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
+
 import android.util.Log;
+import android.widget.Toast;
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,9 +20,10 @@ import java.util.HashMap;
 
 public class Procedura_Pozycja_Informacje2 {
 
-    public static String rStatus, rKomunikat, rPozycja, rPozycjaNazwa;
+    public static String rStatus, rKomunikat, rPozycjaNazwa;
     public static String Firma, UserId, Barcode;
     static HashMap<String, String> tmpHashMap2 = new HashMap<String, String>();
+    static String rPozycja;
 
     public static HashMap<String, String> takingPositionInformation() {
 
@@ -28,7 +38,7 @@ public class Procedura_Pozycja_Informacje2 {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
             Connection connection = DriverManager.getConnection(URL, user, pass);
-            Log.i("checking", "Connected to: " + connection.toString());
+            Log.i("checking", "Connected2 to : " + connection.toString());
 
             CallableStatement callableStatement = connection.prepareCall(
                     "{call MT_Public_Pozycja_Informacje(?,?,?,?,?,?,?)}");
@@ -36,38 +46,25 @@ public class Procedura_Pozycja_Informacje2 {
 
             Firma = "750";
             UserId = "1";
-            if (! intent2.getStringExtra("pozycjaInput").isEmpty()) {
-                rPozycja = intent2.getStringExtra("pozycjaInput");
-            } else {
-                rPozycja = "";
-                String tmp_pozycja_input = intent4.getStringExtra("searchPozycja");
-                String[] a = tmp_pozycja_input.split("");
-                for (int i=0; i < 9; i++){
-                    if (i==4 || i==7){
-                        rPozycja = rPozycja + " " + a[i];
-                    } else {
-                        rPozycja = rPozycja + a[i];
-                    }
-
-                }
-
-            }
+            rPozycja = gettingrPozycja();
+            Log.i("checking", "rPozycja gettingrPozycja() " + gettingrPozycja());
 //            intentScanner.getStringExtra("barcodeInput");
 //            Barcode = intentScanner.getStringExtra("barcodeInput");
 //            Barcode = "WYGPZ2201681|         1897 013 05|0,300|0|S300-2205||562105_1|749955|NEW|||124/A/05/22||||20.05.22|||||||";
 //            Barcode = result.getText();
 //            Log.i("checking", "intentScanner " + intentScanner.getExtras());
-            Log.i("checking", "rPozycja " + rPozycja);
+//            Log.i("checking", "rPozycja " + rPozycja);
 
 
             callableStatement.setInt("Firma", Integer.valueOf(Firma));
             callableStatement.setInt("UserId", Integer.valueOf(UserId));
             callableStatement.setString("Barcode", rPozycja.trim());
-            Log.i("checking", "rPozycja " + rPozycja.trim());
+            Log.i("checking", "rPozycja Barcode " + rPozycja.trim());
 
             callableStatement.registerOutParameter("rStatus", java.sql.Types.INTEGER);
             callableStatement.registerOutParameter("rKomunikat", Types.VARCHAR);
             callableStatement.registerOutParameter("rPozycja", java.sql.Types.VARCHAR);
+            Log.i("checking", "rPozycja callableStatement.registerOutParameter " + rPozycja.trim());
             callableStatement.registerOutParameter("rPozycjaNazwa", java.sql.Types.VARCHAR);
 
             callableStatement.execute();
@@ -75,6 +72,7 @@ public class Procedura_Pozycja_Informacje2 {
             rStatus = callableStatement.getString("rStatus");
             rKomunikat = callableStatement.getString("rKomunikat");
             rPozycja = callableStatement.getString("rPozycja");
+            Log.i("checking", "rPozycja callablestatement.getString " + rPozycja);
             rPozycjaNazwa = callableStatement.getString("rPozycjaNazwa");
 
 
@@ -102,7 +100,44 @@ public class Procedura_Pozycja_Informacje2 {
 //            e.printStackTrace();
             Log.i("checking", "exception takingPositionInformation()" + e.toString());
         }
+        Log.i("checking", "Pozycja return tmpHashMap: " + tmpHashMap2.get("Pozycja"));
         return tmpHashMap2;
+    }
+
+    public static String gettingrPozycja() {
+        Log.i("checking", "rPozycja, inten2: " + pozycja_input);
+        Log.i("checking", "rPozycja, inten3: " + barcodeInput);
+        Log.i("checking", "rPozycja, inten4: " + searchCode);
+//        Log.i("checking", "rPozycja, inten4: " + searchCode);
+
+        if (pozycja_input != null) {
+//            rPozycja = intent2.getStringExtra("pozycjaInput");
+            rPozycja = pozycja_input;
+        }
+        else if ( barcodeInput != null) {
+//            rPozycja = intent3.getStringExtra("barcodeInput");
+            rPozycja = barcodeInput;
+        }
+        else if ( searchCode != null) {
+//            if ( searchCode != null && searchCode.length()>1) {
+            // do pobierania POZYCJI z boxu Search w MainActivity_table2
+//                rPozycja = "";
+//            String tmp_pozycja_input = intent4.getStringExtra("searchPozycja");
+            String tmp_pozycja_input = searchCode;
+            String[] a = tmp_pozycja_input.split("");
+            for (int i = 0; i < 9; i++) {
+                if (i == 4 || i == 7) {
+                    rPozycja = rPozycja + " " + a[i];
+                } else {
+                    rPozycja = rPozycja + a[i];
+                }
+            }
+        }
+        else {
+            rPozycja = "000000000";
+        }
+        Log.i("checking", "rPozycja gettingrPozycja return: " + rPozycja);
+        return rPozycja;
     }
 }
 

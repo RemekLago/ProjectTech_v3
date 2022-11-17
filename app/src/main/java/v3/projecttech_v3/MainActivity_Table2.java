@@ -53,7 +53,8 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public static String columnName;
     public static RecyclerView recyclerView;
     public static AdapterRecyclerView2 adapterRecyclerView2;
-//    private DataAdapter;
+//    private DataAdapter;.
+    static String searchCode;
 
     @SuppressLint("WrongThread")
     @Override
@@ -110,10 +111,9 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
          buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-////                intent2.putExtra("searchPozycja",textViewSearch.getText().toString());
-//                intent4.putExtra("searchPozycja",textViewSearch.getText().toString());
-//                finish();
-//                startActivity(getIntent());
+                searchCode = textViewSearch.getText().toString();
+                intent4.putExtra("searchPozycja",searchCode);
+                startActivity(intent4);
             }
         });
 
@@ -393,20 +393,20 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
 
     public void updateView() {
         ArrayList<Data> sortedData = dataBaseSQL.getAllDataOrdered(columnName);
-        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(1).getLp());
-        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(2).getLp());
-        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(3).getLp());
+//        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(1).getLp());
+//        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(2).getLp());
+//        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(3).getLp());
         dataBaseSQL.deleteAllData();
         Log.i("checking", "databaseSQL ordering columnname: " + columnName);
         for (int i=0; i<sortedData.size(); i++) {
             dataBaseSQL.insertData(sortedData.get(i));
-            Log.i("checking", "databaseSQL ordering: " + i);
-            Log.i("checking", "databaseSQL ordering LP: " + sortedData.get(i).getLp());
+//            Log.i("checking", "databaseSQL ordering: " + i);
+//            Log.i("checking", "databaseSQL ordering LP: " + sortedData.get(i).getLp());
 //            Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getDataId(i+1).getLp());
         }
-        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(1).getLp());
-        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(2).getLp());
-        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(3).getLp());
+//        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(1).getLp());
+//        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(2).getLp());
+//        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(3).getLp());
 
         adapterRecyclerView2.notifyDataSetChanged();
         recyclerView.setAdapter(adapterRecyclerView2);

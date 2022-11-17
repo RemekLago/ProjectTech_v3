@@ -4,7 +4,6 @@ package v3.projecttech_v3;
 import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.DataBaseChanges.ListWithColumnsNames;
 import static v3.projecttech_v3.DataBaseChanges.tmpdata;
-import static v3.projecttech_v3.MainActivity_Scanner.intent2;
 //import static v3.projecttech_v3.MainActivity_progressBar.intent3;
 
 import androidx.appcompat.app.AppCompatActivity;
