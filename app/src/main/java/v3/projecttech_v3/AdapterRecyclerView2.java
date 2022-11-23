@@ -215,6 +215,7 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
                     }
                 }
             });
+
         }
     }
 }

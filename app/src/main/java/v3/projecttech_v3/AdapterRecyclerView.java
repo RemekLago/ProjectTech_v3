@@ -1,19 +1,20 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.DataBaseChanges.ListWithCellColor;
 import static v3.projecttech_v3.MainActivity_Table.FinalListWithCellColor;
 import static v3.projecttech_v3.MainActivity_Table.FinalListWithColumnsAdjust;
 import static v3.projecttech_v3.MainActivity_Table.FinalListWithColumnsWidth;
 import static v3.projecttech_v3.MainActivity_Table.database;
 
+
 import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerView.ViewHolderRecyclerView> {
 
     private final RecyclerViewInterface recyclerViewInterface;
+    public static long position2;
 
     Context context;
     ArrayList<ArrayList<String>> data1;
@@ -191,6 +193,9 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
                 public void onClick(View view) {
                     if (recyclerViewInterface != null) {
                         int position = getAdapterPosition();
+                        position2 = AdapterRecyclerView.this.getItemId(position);
+//                        long positionChild = getItemId();
+
 
                         if (position != RecyclerView.NO_POSITION) {
                             recyclerViewInterface.onItemClick(position);
@@ -200,4 +205,5 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             });
         }
     }
+
 }

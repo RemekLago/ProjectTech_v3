@@ -15,6 +15,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
 
     static String pozycja_input;
     static String status_input;
+    static EditText editTextNumber;
 
     static Intent intent1;
     static Intent intent2;
@@ -36,7 +37,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
             }});
 
 
-        EditText editTextNumber = findViewById(R.id.editTextNumber);
+        editTextNumber = findViewById(R.id.editTextNumber);
         Button buttonSearch = findViewById(R.id.buttonSearch);
 
 
@@ -44,6 +45,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String tmp_pozycja_input = editTextNumber.getText().toString();
+
                 if (tmp_pozycja_input.isEmpty() || tmp_pozycja_input.length() < 9
                 || tmp_pozycja_input.length() > 9) {
                     Toast.makeText(getApplicationContext(), "Pozycja is incorrect, try again", Toast.LENGTH_LONG).show();
@@ -63,6 +65,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
                 startActivity(intent2.putExtra("pozycjaInput", pozycja_input.toString()));
 
                 Log.i("checking", "pozycjaInput: " + pozycja_input);
+
             }});
 
         Button btnScanBarcode = findViewById(R.id.buttonScanBarcode);

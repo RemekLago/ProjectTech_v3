@@ -51,7 +51,7 @@ public class DataBaseChanges2 extends AsyncTask <String, Void, ArrayList<ArrayLi
         try {
             for (int i = 0; i < columnsNames2.size(); i++) {
                 String tmpOneColumn = (columnsNames2.get(i).split("\\|")[1]);
-            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
+//            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
 //            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
                 ListWithColumnsNames.add(tmpOneColumn);
             }

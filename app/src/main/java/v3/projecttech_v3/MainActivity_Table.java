@@ -219,4 +219,5 @@ public class MainActivity_Table extends AppCompatActivity implements RecyclerVie
         Toast.makeText(getApplicationContext(), "Position: " + position, Toast.LENGTH_LONG).show();
     }
 
+
 }

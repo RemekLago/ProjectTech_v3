@@ -3,8 +3,12 @@ package v3.projecttech_v3;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
+import static v3.projecttech_v3.AdapterRecyclerView.position2;
 import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.MainActivity_enterdata.editTextNumber;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rKomunikat;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rStatus;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_10;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_11;
@@ -55,6 +59,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public static AdapterRecyclerView2 adapterRecyclerView2;
 //    private DataAdapter;.
     static String searchCode;
+    static TextView textViewSearch;
 
     @SuppressLint("WrongThread")
     @Override
@@ -93,6 +98,11 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         recyclerView.setAdapter(adapterRecyclerView2);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        String checkStatus = rStatus;
+        if (checkStatus.equals("0")) {
+            Toast.makeText(getApplicationContext(), rKomunikat, Toast.LENGTH_LONG).show();
+        }
+
 
         Button buttonScanCode = findViewById(R.id.buttonScanCode);
 
@@ -104,7 +114,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         });
 
         Button buttonSearch = findViewById(R.id.buttonSearch);
-        TextView textViewSearch = findViewById(R.id.editTextNumber);
+        textViewSearch = findViewById(R.id.editTextNumber);
 
         intent4 = new Intent(MainActivity_Table2.this, MainActivity_Table2.class);
 
@@ -112,8 +122,12 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             @Override
             public void onClick(View view) {
                 searchCode = textViewSearch.getText().toString();
+                textViewSearch.setText(null);
+                editTextNumber.setText(null);
                 intent4.putExtra("searchPozycja",searchCode);
+                Log.i("checking", "ButtonSearch: " + searchCode);
                 startActivity(intent4);
+
             }
         });
 
@@ -259,7 +273,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView1name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_1, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_1, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -268,7 +282,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView2name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_2, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_2, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -277,7 +291,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView3name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_3, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_3, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -286,7 +300,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView4name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_4, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_4, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -295,7 +309,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView5name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_5, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_5, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -304,7 +318,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView6name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_6, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_6, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -313,7 +327,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView7name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_7, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_7, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -322,7 +336,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView8name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_8, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_8, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -331,7 +345,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView9name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_9, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_9, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -340,7 +354,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView10name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_10, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_10, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -349,7 +363,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView11name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_11, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_11, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -358,7 +372,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView12name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_12, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_12, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -367,7 +381,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView13name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_13, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_13, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -376,7 +390,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView14name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_14, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_14, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -385,7 +399,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
             public void onClick(View view) {
                 columnName = textView15name.getText().toString();
                 updateView();
-                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_15, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_15, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -413,9 +427,13 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    public static int positionForDataBaseSQL;
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(getApplicationContext(), "Position: " + position, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
+        positionForDataBaseSQL = position;
+        Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.takingInformationAboutLocalisation();
     }
+
 
 }

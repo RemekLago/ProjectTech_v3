@@ -5,6 +5,8 @@ import static v3.projecttech_v3.MainActivity_Scanner.barcodeInput;
 import static v3.projecttech_v3.MainActivity_Scanner.intent3;
 import static v3.projecttech_v3.MainActivity_Table2.intent4;
 import static v3.projecttech_v3.MainActivity_Table2.searchCode;
+import static v3.projecttech_v3.MainActivity_Table2.textViewSearch;
+import static v3.projecttech_v3.MainActivity_enterdata.editTextNumber;
 import static v3.projecttech_v3.MainActivity_enterdata.intent2;
 import static v3.projecttech_v3.MainActivity_enterdata.pozycja_input;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
@@ -47,6 +49,7 @@ public class Procedura_Pozycja_Informacje2 {
             Firma = "750";
             UserId = "1";
             rPozycja = gettingrPozycja();
+
             Log.i("checking", "rPozycja gettingrPozycja() " + gettingrPozycja());
 //            intentScanner.getStringExtra("barcodeInput");
 //            Barcode = intentScanner.getStringExtra("barcodeInput");
@@ -92,14 +95,19 @@ public class Procedura_Pozycja_Informacje2 {
 //            Log.i("checking", "rPozycja: " + tmpHashMap.get("rPozycja"));
 //            Log.i("checking", "rPozycjaNazwa: " + tmpHashMap.get("rPozycjaNazwa"));
 
+
             callableStatement.close();
             connection.close();
+
 
 
         } catch (Exception e) {
 //            e.printStackTrace();
             Log.i("checking", "exception takingPositionInformation()" + e.toString());
         }
+
+        resetTextView();
+
         Log.i("checking", "Pozycja return tmpHashMap: " + tmpHashMap2.get("Pozycja"));
         return tmpHashMap2;
     }
@@ -109,6 +117,8 @@ public class Procedura_Pozycja_Informacje2 {
         Log.i("checking", "rPozycja, inten3: " + barcodeInput);
         Log.i("checking", "rPozycja, inten4: " + searchCode);
 //        Log.i("checking", "rPozycja, inten4: " + searchCode);
+
+        rPozycja = "";
 
         if (pozycja_input != null) {
 //            rPozycja = intent2.getStringExtra("pozycjaInput");
@@ -123,7 +133,8 @@ public class Procedura_Pozycja_Informacje2 {
             // do pobierania POZYCJI z boxu Search w MainActivity_table2
 //                rPozycja = "";
 //            String tmp_pozycja_input = intent4.getStringExtra("searchPozycja");
-            String tmp_pozycja_input = searchCode;
+            String tmp_pozycja_input = "";
+            tmp_pozycja_input = searchCode;
             String[] a = tmp_pozycja_input.split("");
             for (int i = 0; i < 9; i++) {
                 if (i == 4 || i == 7) {
@@ -137,7 +148,22 @@ public class Procedura_Pozycja_Informacje2 {
             rPozycja = "000000000";
         }
         Log.i("checking", "rPozycja gettingrPozycja return: " + rPozycja);
+
         return rPozycja;
+    }
+
+    public static void resetTextView(){
+        if (pozycja_input != null) {
+            editTextNumber.setText(null);
+            pozycja_input = null;
+        }
+        if (searchCode != null) {
+            textViewSearch.setText(null);
+            searchCode = null;
+        }
+        if (barcodeInput != null) {
+            searchCode = null;
+        }
     }
 }
 

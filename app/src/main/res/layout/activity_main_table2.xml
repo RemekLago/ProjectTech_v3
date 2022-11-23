@@ -50,8 +50,8 @@
                         android:id="@+id/editTextNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
-                        android:ems="9"
                         android:layout_margin="2dp"
+                        android:ems="9"
                         android:hint="podaj pozycję"
                         android:inputType="number"
                         android:textAlignment="center" />
