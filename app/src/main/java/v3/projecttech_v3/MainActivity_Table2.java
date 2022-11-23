@@ -432,7 +432,8 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public void onItemClick(int position) {
         Toast.makeText(getApplicationContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
         positionForDataBaseSQL = position;
-        Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.takingInformationAboutLocalisation();
+//        Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.takingInformationAboutLocalisation();
+        Procedura_Public_PozycjaPartia_HistoriaZycia.takingHistoryPosition();
     }
 
 
