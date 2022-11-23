@@ -45,24 +45,6 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
     @Override
     public void onBindViewHolder(@NonNull AdapterRecyclerView2.ViewHolderRecyclerView holder, int i) {
 
-//        Log.i("checking", "dana1: " + database2.get(i).get(2).toString());
-
-//        holder.textView1.setText(database2.get(i).get(0).toString());
-//        holder.textView2.setText(database2.get(i).get(1).toString());
-//        holder.textView3.setText(database2.get(i).get(2).toString());
-//        holder.textView4.setText(database2.get(i).get(3).toString());
-//        holder.textView5.setText(database2.get(i).get(4).toString());
-//        holder.textView6.setText(database2.get(i).get(5).toString());
-//        holder.textView7.setText(database2.get(i).get(6).toString());
-//        holder.textView8.setText(database2.get(i).get(7).toString());
-//        holder.textView9.setText(database2.get(i).get(8).toString());
-//        holder.textView10.setText(database2.get(i).get(9).toString());
-//        holder.textView11.setText(database2.get(i).get(10).toString());
-//        holder.textView12.setText(database2.get(i).get(11).toString());
-//        holder.textView13.setText(database2.get(i).get(12).toString());
-//        holder.textView14.setText(database2.get(i).get(13).toString());
-//        holder.textView15.setText(database2.get(i).get(14).toString());
-
         holder.textView1.setText(dataBaseSQL.getDataId(i+1).getRawColor());
         holder.textView2.setText(dataBaseSQL.getDataId(i+1).getLock());
         holder.textView3.setText(dataBaseSQL.getDataId(i+1).getLp());
@@ -156,8 +138,6 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
         holder.textView13.setLayoutParams(params13);
         holder.textView14.setLayoutParams(params14);
         holder.textView15.setLayoutParams(params15);
-
-
     }
 
     @Override

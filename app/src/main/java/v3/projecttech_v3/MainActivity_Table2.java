@@ -48,15 +48,28 @@ import v3.projecttech_v3.db.entity.Data;
 public class MainActivity_Table2 extends AppCompatActivity implements RecyclerViewInterface{
 
     public static ArrayList<ArrayList<String>> database2;
+    public static ArrayList<ArrayList<String>> database3;
+    public static ArrayList<ArrayList<String>> database4;
     public static ArrayList<String> FinalListWithCellColor;
     public static ArrayList<Integer> FinalListWithColumnsAdjust;
     public static ArrayList<Integer> FinalListWithColumnsWidth;
-    public static DataBaseChanges dataFinal;
+    public static ArrayList<String> FinalListWithCellColor3;
+    public static ArrayList<Integer> FinalListWithColumnsAdjust3;
+    public static ArrayList<Integer> FinalListWithColumnsWidth3;
+    public static ArrayList<String> FinalListWithCellColor4;
+    public static ArrayList<Integer> FinalListWithColumnsAdjust4;
+    public static ArrayList<Integer> FinalListWithColumnsWidth4;
+//    public static DataBaseChanges dataFinal;
+
     static Intent intent4;
     public static DataBaseHelper dataBaseSQL;
     public static String columnName;
+    public static String columnName3;
+    public static String columnName4;
     public static RecyclerView recyclerView;
     public static AdapterRecyclerView2 adapterRecyclerView2;
+    public static AdapterRecyclerView3 adapterRecyclerView3;
+    public static AdapterRecyclerView4 adapterRecyclerView4;
 //    private DataAdapter;.
     static String searchCode;
     static TextView textViewSearch;
@@ -97,6 +110,44 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         adapterRecyclerView2 = new AdapterRecyclerView2(this, database2, this);
         recyclerView.setAdapter(adapterRecyclerView2);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // For procedure Procedura_Public_PozycjaPartia_HistoriaZycia
+        DataBaseChanges3 dataFinal3 = new DataBaseChanges3();
+        ArrayList<ArrayList<String>> database03 = dataFinal3.doInBackground();
+        database3 = dataFinal3.cleaningDatabase(database03);
+
+        dataFinal3.columnsNames();
+        FinalListWithCellColor3 = dataFinal3.cellsColor(database3);
+        FinalListWithColumnsAdjust3 = dataFinal3.columnsAdjust();
+        FinalListWithColumnsWidth3 = dataFinal3.columnsWidth();
+
+        Log.i("checking", "database size: " + database3.size());
+
+        recyclerView = findViewById(R.id.recyclerView);
+
+        adapterRecyclerView3 = new AdapterRecyclerView3(this, database3, this);
+        recyclerView.setAdapter(adapterRecyclerView3);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // For procedure Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje
+        DataBaseChanges4 dataFinal4 = new DataBaseChanges4();
+        ArrayList<ArrayList<String>> database04 = dataFinal4.doInBackground();
+        database2 = dataFinal4.cleaningDatabase(database04);
+
+        dataFinal4.columnsNames();
+        FinalListWithCellColor4 = dataFinal4.cellsColor(database4);
+        FinalListWithColumnsAdjust4 = dataFinal4.columnsAdjust();
+        FinalListWithColumnsWidth4 = dataFinal4.columnsWidth();
+
+        Log.i("checking", "database size: " + database4.size());
+
+        recyclerView = findViewById(R.id.recyclerView);
+
+        adapterRecyclerView4 = new AdapterRecyclerView4(this, database4, this);
+        recyclerView.setAdapter(adapterRecyclerView4);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         String checkStatus = rStatus;
         if (checkStatus.equals("0")) {
