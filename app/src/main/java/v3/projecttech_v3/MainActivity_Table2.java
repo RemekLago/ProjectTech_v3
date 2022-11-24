@@ -3,7 +3,7 @@ package v3.projecttech_v3;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
-import static v3.projecttech_v3.AdapterRecyclerView.position2;
+//import static v3.projecttech_v3.AdapterRecyclerView.position2;
 import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
 import static v3.projecttech_v3.MainActivity_enterdata.editTextNumber;
@@ -67,6 +67,8 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public static String columnName3;
     public static String columnName4;
     public static RecyclerView recyclerView;
+    public static RecyclerView recyclerView3;
+    public static RecyclerView recyclerView4;
     public static AdapterRecyclerView2 adapterRecyclerView2;
     public static AdapterRecyclerView3 adapterRecyclerView3;
     public static AdapterRecyclerView4 adapterRecyclerView4;
@@ -111,41 +113,41 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         recyclerView.setAdapter(adapterRecyclerView2);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // For procedure Procedura_Public_PozycjaPartia_HistoriaZycia
-        DataBaseChanges3 dataFinal3 = new DataBaseChanges3();
-        ArrayList<ArrayList<String>> database03 = dataFinal3.doInBackground();
-        database3 = dataFinal3.cleaningDatabase(database03);
+//        // For procedure Procedura_Public_PozycjaPartia_HistoriaZycia
+//        DataBaseChanges3 dataFinal3 = new DataBaseChanges3();
+//        ArrayList<ArrayList<String>> database03 = dataFinal3.doInBackground();
+//        database3 = dataFinal3.cleaningDatabase(database03);
+//
+//        dataFinal3.columnsNames();
+//        FinalListWithCellColor3 = dataFinal3.cellsColor(database3);
+//        FinalListWithColumnsAdjust3 = dataFinal3.columnsAdjust();
+//        FinalListWithColumnsWidth3 = dataFinal3.columnsWidth();
+//
+//        Log.i("checking", "database size: " + database3.size());
+//
+//        recyclerView3 = findViewById(R.id.recyclerView3);
+//
+//        adapterRecyclerView3 = new AdapterRecyclerView3(this, database3, this);
+//        recyclerView3.setAdapter(adapterRecyclerView3);
+//        recyclerView3.setLayoutManager(new LinearLayoutManager(this));
 
-        dataFinal3.columnsNames();
-        FinalListWithCellColor3 = dataFinal3.cellsColor(database3);
-        FinalListWithColumnsAdjust3 = dataFinal3.columnsAdjust();
-        FinalListWithColumnsWidth3 = dataFinal3.columnsWidth();
-
-        Log.i("checking", "database size: " + database3.size());
-
-        recyclerView = findViewById(R.id.recyclerView);
-
-        adapterRecyclerView3 = new AdapterRecyclerView3(this, database3, this);
-        recyclerView.setAdapter(adapterRecyclerView3);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        // For procedure Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje
-        DataBaseChanges4 dataFinal4 = new DataBaseChanges4();
-        ArrayList<ArrayList<String>> database04 = dataFinal4.doInBackground();
-        database2 = dataFinal4.cleaningDatabase(database04);
-
-        dataFinal4.columnsNames();
-        FinalListWithCellColor4 = dataFinal4.cellsColor(database4);
-        FinalListWithColumnsAdjust4 = dataFinal4.columnsAdjust();
-        FinalListWithColumnsWidth4 = dataFinal4.columnsWidth();
-
-        Log.i("checking", "database size: " + database4.size());
-
-        recyclerView = findViewById(R.id.recyclerView);
-
-        adapterRecyclerView4 = new AdapterRecyclerView4(this, database4, this);
-        recyclerView.setAdapter(adapterRecyclerView4);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        // For procedure Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje
+//        DataBaseChanges4 dataFinal4 = new DataBaseChanges4();
+//        ArrayList<ArrayList<String>> database04 = dataFinal4.doInBackground();
+//        database4 = dataFinal4.cleaningDatabase(database04);
+//
+//        dataFinal4.columnsNames();
+//        FinalListWithCellColor4 = dataFinal4.cellsColor(database4);
+//        FinalListWithColumnsAdjust4 = dataFinal4.columnsAdjust();
+//        FinalListWithColumnsWidth4 = dataFinal4.columnsWidth();
+//
+//        Log.i("checking", "database size: " + database4.size());
+//
+//        recyclerView4 = findViewById(R.id.recyclerView4);
+//
+//        adapterRecyclerView4 = new AdapterRecyclerView4(this, database4, this);
+//        recyclerView4.setAdapter(adapterRecyclerView4);
+//        recyclerView4.setLayoutManager(new LinearLayoutManager(this));
 
 
 
@@ -483,7 +485,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public void onItemClick(int position) {
         Toast.makeText(getApplicationContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
         positionForDataBaseSQL = position;
-//        Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.takingInformationAboutLocalisation();
+        Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.takingInformationAboutLocalisation();
         Procedura_Public_PozycjaPartia_HistoriaZycia.takingHistoryPosition();
     }
 

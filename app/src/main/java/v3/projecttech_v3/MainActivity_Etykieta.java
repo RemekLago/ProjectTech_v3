@@ -1,8 +1,8 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.DataBaseChanges.tmpdata;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje.Barcode;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje.rKomunikat;
+import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.Barcode;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rKomunikat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -57,8 +57,8 @@ public class MainActivity_Etykieta extends AppCompatActivity {
 
 //        textView_Status.setText(tmpdata.get("Status"));
 //        textView_Komunikat.setText(tmpdata.get("Komunikat"));
-        textView_NazwaPozycja.setText( tmpdata.get("PozycjaNazwa"));
-        textView_Pozycja.setText(tmpdata.get("Pozycja"));
+        textView_NazwaPozycja.setText( tmpdata2.get("PozycjaNazwa"));
+        textView_Pozycja.setText(tmpdata2.get("Pozycja"));
 //        textView_Barcode.setText(Barcode);
 
 

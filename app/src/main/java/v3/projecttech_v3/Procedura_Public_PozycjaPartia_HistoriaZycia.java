@@ -65,7 +65,7 @@ public class Procedura_Public_PozycjaPartia_HistoriaZycia {
             for (int i = 1; i <= columnCount; i++) {
                 String columnName = rsmd.getColumnName(i);
                 columnsNames4.add(columnName);
-                Log.i("checking", "columnsNames: " + columnName);
+//                Log.i("checking", "columnsNames: " + columnName);
             }
             numberOfColumns4 = columnsNames4.size();
 
@@ -99,7 +99,7 @@ public class Procedura_Public_PozycjaPartia_HistoriaZycia {
 
                 for (int i = 1; i <= numberOfColumns4; i++) {
                     tmpRecord.add(rs.getString(i));
-                    Log.i("checking", "record from ResultSet: " + rs.getString(i));
+//                    Log.i("checking", "record from ResultSet: " + rs.getString(i));
 
                 }
 

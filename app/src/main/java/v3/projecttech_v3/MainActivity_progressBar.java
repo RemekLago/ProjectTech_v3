@@ -64,7 +64,7 @@ public class MainActivity_progressBar extends AppCompatActivity {
         String a = intent2.getStringExtra("barcodeInput");
         Log.i("checking", "String a " + a);
 
-        intent3 = new Intent(MainActivity_progressBar.this, MainActivity_Table.class);
+        intent3 = new Intent(MainActivity_progressBar.this, MainActivity_Table2.class);
         startActivity(intent3.putExtra("barcodeInput2", a));
 
      }

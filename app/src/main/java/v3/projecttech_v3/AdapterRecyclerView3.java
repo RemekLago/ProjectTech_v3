@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class AdapterRecyclerView3 extends RecyclerView.Adapter<v3.projecttech_v3.AdapterRecyclerView3.ViewHolderRecyclerView> {
+public class AdapterRecyclerView3 extends RecyclerView.Adapter<AdapterRecyclerView3.ViewHolderRecyclerView> {
 
     private final RecyclerViewInterface recyclerViewInterface;
 
