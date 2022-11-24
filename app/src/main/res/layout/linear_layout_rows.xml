@@ -169,14 +169,30 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:animateLayoutChanges="true"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textViewExpand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="aaaaaaaaaaaaaaaaaaaaaaaa"
-                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/button_PozycjaPartia_historia"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:textSize="10sp"
+                android:background="@drawable/ramkatextview"
+                android:text="Historia Partia"
+                android:visibility="visible"
+                />
+
+            <Button
+                android:id="@+id/button_Magazyn_Lokalizacja_Pozycja"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ramkatextview"
+                android:textSize="10sp"
+                android:text="Lokalizacja Pozycja"
+                android:visibility="visible"
+                />
+
+
 
         </LinearLayout>
 
