@@ -28,16 +28,21 @@ import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_9;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -75,6 +80,8 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
 //    private DataAdapter;.
     static String searchCode;
     static TextView textViewSearch;
+
+
 
     @SuppressLint("WrongThread")
     @Override
@@ -188,6 +195,8 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
 //        Log.i("checking", "rKomunikat: " + tmpdata2.get("rKomunikat"));
 //        Log.i("checking", "rPozycja: " + tmpdata2.get("rPozycja"));
 //        Log.i("checking", "rPozycjaNazwa: " + tmpdata2.get("rPozycjaNazwa"));
+
+
 
 
         TextView textView_NazwaPozycja = findViewById(R.id.textView_NazwaPozycja);
@@ -458,6 +467,9 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
 
     }
 
+
+
+
     public void updateView() {
         ArrayList<Data> sortedData = dataBaseSQL.getAllDataOrdered(columnName);
 //        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(1).getLp());
@@ -487,7 +499,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         positionForDataBaseSQL = position;
         Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.takingInformationAboutLocalisation();
         Procedura_Public_PozycjaPartia_HistoriaZycia.takingHistoryPosition();
-    }
 
+    }
 
 }

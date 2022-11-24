@@ -7,13 +7,17 @@ import static v3.projecttech_v3.MainActivity_Table2.FinalListWithColumnsWidth;
 import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
 import static v3.projecttech_v3.MainActivity_Table2.database2;
 
+import android.animation.LayoutTransition;
 import android.content.Context;
 import android.graphics.Color;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -138,6 +142,8 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
         holder.textView13.setLayoutParams(params13);
         holder.textView14.setLayoutParams(params14);
         holder.textView15.setLayoutParams(params15);
+
+        holder.linearLayoutExpand.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
     }
 
     @Override
@@ -163,6 +169,9 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
         TextView textView14;
         TextView textView15;
 
+        TextView textViewExpand;
+        LinearLayout linearLayoutExpand;
+
         public ViewHolderRecyclerView(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
 
@@ -183,11 +192,17 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
             textView14 = itemView.findViewById(R.id.textView14);
             textView15 = itemView.findViewById(R.id.textView15);
 
+            textViewExpand = itemView.findViewById(R.id.textViewExpand);
+            linearLayoutExpand = itemView.findViewById(R.id.layout_expand);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (recyclerViewInterface != null) {
                         int position = getAdapterPosition();
+                        int v = (textViewExpand.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
+                        TransitionManager.beginDelayedTransition(linearLayoutExpand, new AutoTransition());
+                        textViewExpand.setVisibility(v);
 
                         if (position != RecyclerView.NO_POSITION) {
                             recyclerViewInterface.onItemClick(position);
@@ -197,5 +212,9 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
             });
 
         }
+
     }
+
+
+
 }
