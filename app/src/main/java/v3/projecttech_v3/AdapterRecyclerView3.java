@@ -1,9 +1,9 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.MainActivity_Table2.FinalListWithCellColor;
-import static v3.projecttech_v3.MainActivity_Table2.FinalListWithColumnsAdjust;
-import static v3.projecttech_v3.MainActivity_Table2.FinalListWithColumnsWidth;
-import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
+import static v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia.FinalListWithCellColor3;
+import static v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia.FinalListWithColumnsAdjust3;
+import static v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia.FinalListWithColumnsWidth3;
+import static v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia.dataBaseSQL3;
 import static v3.projecttech_v3.MainActivity_Table2.database3;
 
 import android.content.Context;
@@ -18,56 +18,55 @@ import java.util.ArrayList;
 
 public class AdapterRecyclerView3 extends RecyclerView.Adapter<AdapterRecyclerView3.ViewHolderRecyclerView> {
 
-    private final RecyclerViewInterface recyclerViewInterface;
+    private final RecyclerViewInterface3 recyclerViewInterface3;
 
     Context context3;
     ArrayList<ArrayList<String>> data3;
 
-    public AdapterRecyclerView3 (Context context1, ArrayList<ArrayList<String>> dataIn, RecyclerViewInterface recyclerViewInterface) {
+    public AdapterRecyclerView3 (Context context1, ArrayList<ArrayList<String>> dataIn, RecyclerViewInterface3 recyclerViewInterface3) {
         this.context3 = context1;
         this.data3 = dataIn;
-        this.recyclerViewInterface = recyclerViewInterface;
+        this.recyclerViewInterface3 = recyclerViewInterface3;
     }
-
 
     @NonNull
     @Override
     public v3.projecttech_v3.AdapterRecyclerView3.ViewHolderRecyclerView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context3);
         View view = inflater.inflate(R.layout.linear_layout_rows2, parent, false);
-        return new v3.projecttech_v3.AdapterRecyclerView3.ViewHolderRecyclerView(view, recyclerViewInterface);
+        return new v3.projecttech_v3.AdapterRecyclerView3.ViewHolderRecyclerView(view, recyclerViewInterface3);
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull v3.projecttech_v3.AdapterRecyclerView3.ViewHolderRecyclerView holder, int i) {
 
-        holder.textView1_3.setText(dataBaseSQL.getDataId(i+1).getRawColor());
-        holder.textView2_3.setText(dataBaseSQL.getDataId(i+1).getLock());
-        holder.textView3_3.setText(dataBaseSQL.getDataId(i+1).getLp());
-        holder.textView4_3.setText(dataBaseSQL.getDataId(i+1).getMagazyn());
-        holder.textView5_3.setText(dataBaseSQL.getDataId(i+1).getLokalizacja());
-        holder.textView6_3.setText(dataBaseSQL.getDataId(i+1).getPartia());
-        holder.textView7_3.setText(dataBaseSQL.getDataId(i+1).getWariant());
-        holder.textView8_3.setText(dataBaseSQL.getDataId(i+1).getWariantOpis());
+        holder.textView1_3.setText(dataBaseSQL3.getDataId(i+1).getRawColor());
+        holder.textView2_3.setText(dataBaseSQL3.getDataId(i+1).getLock());
+        holder.textView3_3.setText(dataBaseSQL3.getDataId(i+1).getLp());
+        holder.textView4_3.setText(dataBaseSQL3.getDataId(i+1).getTypkonfekcji());
+        holder.textView5_3.setText(dataBaseSQL3.getDataId(i+1).getKonfekcja());
+        holder.textView6_3.setText(dataBaseSQL3.getDataId(i+1).getIlosc());
+        holder.textView7_3.setText(dataBaseSQL3.getDataId(i+1).getOperator());
+        holder.textView8_3.setText(dataBaseSQL3.getDataId(i+1).getAdddate());
 
-        holder.textView1_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor.get(i)));
-        holder.textView2_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor.get(i)));
-        holder.textView3_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor.get(i)));
-        holder.textView4_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor.get(i)));
-        holder.textView5_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor.get(i)));
-        holder.textView6_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor.get(i)));
-        holder.textView7_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor.get(i)));
-        holder.textView8_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor.get(i)));
+        holder.textView1_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor3.get(i)));
+        holder.textView2_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor3.get(i)));
+        holder.textView3_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor3.get(i)));
+        holder.textView4_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor3.get(i)));
+        holder.textView5_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor3.get(i)));
+        holder.textView6_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor3.get(i)));
+        holder.textView7_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor3.get(i)));
+        holder.textView8_3.setBackgroundColor(Color.parseColor(FinalListWithCellColor3.get(i)));
 
-        holder.textView1_3.setGravity(FinalListWithColumnsAdjust.get(0));
-        holder.textView2_3.setGravity(FinalListWithColumnsAdjust.get(1));
-        holder.textView3_3.setGravity(FinalListWithColumnsAdjust.get(2));
-        holder.textView4_3.setGravity(FinalListWithColumnsAdjust.get(3));
-        holder.textView5_3.setGravity(FinalListWithColumnsAdjust.get(4));
-        holder.textView6_3.setGravity(FinalListWithColumnsAdjust.get(5));
-        holder.textView7_3.setGravity(FinalListWithColumnsAdjust.get(6));
-        holder.textView8_3.setGravity(FinalListWithColumnsAdjust.get(7));
+        holder.textView1_3.setGravity(FinalListWithColumnsAdjust3.get(0));
+        holder.textView2_3.setGravity(FinalListWithColumnsAdjust3.get(1));
+        holder.textView3_3.setGravity(FinalListWithColumnsAdjust3.get(2));
+        holder.textView4_3.setGravity(FinalListWithColumnsAdjust3.get(3));
+        holder.textView5_3.setGravity(FinalListWithColumnsAdjust3.get(4));
+        holder.textView6_3.setGravity(FinalListWithColumnsAdjust3.get(5));
+        holder.textView7_3.setGravity(FinalListWithColumnsAdjust3.get(6));
+        holder.textView8_3.setGravity(FinalListWithColumnsAdjust3.get(7));
 
         ViewGroup.LayoutParams params1 = holder.textView1_3.getLayoutParams();
         ViewGroup.LayoutParams params2 = holder.textView2_3.getLayoutParams();
@@ -77,14 +76,14 @@ public class AdapterRecyclerView3 extends RecyclerView.Adapter<AdapterRecyclerVi
         ViewGroup.LayoutParams params6 = holder.textView6_3.getLayoutParams();
         ViewGroup.LayoutParams params7 = holder.textView7_3.getLayoutParams();
         ViewGroup.LayoutParams params8 = holder.textView8_3.getLayoutParams();
-        params1.width = FinalListWithColumnsWidth.get(0);
-        params2.width = FinalListWithColumnsWidth.get(1);
-        params3.width = FinalListWithColumnsWidth.get(2);
-        params4.width = FinalListWithColumnsWidth.get(3);
-        params5.width = FinalListWithColumnsWidth.get(4);
-        params6.width = FinalListWithColumnsWidth.get(5);
-        params7.width = FinalListWithColumnsWidth.get(6);
-        params8.width = FinalListWithColumnsWidth.get(7);
+        params1.width = FinalListWithColumnsWidth3.get(0);
+        params2.width = FinalListWithColumnsWidth3.get(1);
+        params3.width = FinalListWithColumnsWidth3.get(2);
+        params4.width = FinalListWithColumnsWidth3.get(3);
+        params5.width = FinalListWithColumnsWidth3.get(4);
+        params6.width = FinalListWithColumnsWidth3.get(5);
+        params7.width = FinalListWithColumnsWidth3.get(6);
+        params8.width = FinalListWithColumnsWidth3.get(7);
         holder.textView1_3.setLayoutParams(params1);
         holder.textView2_3.setLayoutParams(params2);
         holder.textView3_3.setLayoutParams(params3);
@@ -93,6 +92,8 @@ public class AdapterRecyclerView3 extends RecyclerView.Adapter<AdapterRecyclerVi
         holder.textView6_3.setLayoutParams(params6);
         holder.textView7_3.setLayoutParams(params7);
         holder.textView8_3.setLayoutParams(params8);
+
+
 
     }
 
@@ -113,7 +114,7 @@ public class AdapterRecyclerView3 extends RecyclerView.Adapter<AdapterRecyclerVi
         TextView textView8_3;
 
 
-        public ViewHolderRecyclerView(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
+        public ViewHolderRecyclerView(@NonNull View itemView, RecyclerViewInterface3 recyclerViewInterface3) {
             super(itemView);
 
 
@@ -130,11 +131,11 @@ public class AdapterRecyclerView3 extends RecyclerView.Adapter<AdapterRecyclerVi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (recyclerViewInterface != null) {
+                    if (recyclerViewInterface3 != null) {
                         int position = getAdapterPosition();
 
                         if (position != RecyclerView.NO_POSITION) {
-                            recyclerViewInterface.onItemClick(position);
+                            recyclerViewInterface3.onItemClick3(position);
                         }
                     }
                 }

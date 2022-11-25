@@ -1,14 +1,17 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.DataBaseChanges2.ListWithCellColor;
+
+
 import static v3.projecttech_v3.MainActivity_Table2.FinalListWithCellColor;
 import static v3.projecttech_v3.MainActivity_Table2.FinalListWithColumnsAdjust;
 import static v3.projecttech_v3.MainActivity_Table2.FinalListWithColumnsWidth;
 import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
 import static v3.projecttech_v3.MainActivity_Table2.database2;
+import static v3.projecttech_v3.MainActivity_Table2.intent10;
 
 import android.animation.LayoutTransition;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
@@ -17,6 +20,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -144,6 +148,15 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
         holder.textView15.setLayoutParams(params15);
 
         holder.linearLayoutExpand.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+
+        holder.button_PozycjaPartia_historia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent10 = new Intent(context2, MainActivity_Procedura_PozycjaPartia_HistoriaZycia.class);
+                context2.startActivity(intent10);
+            }
+        });
+
     }
 
     @Override
@@ -169,7 +182,8 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
         TextView textView14;
         TextView textView15;
 
-        TextView textViewExpand;
+        Button button_PozycjaPartia_historia;
+        Button button_Magazyn_Lokalizacja_Pozycja;
         LinearLayout linearLayoutExpand;
 
         public ViewHolderRecyclerView(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
@@ -192,17 +206,26 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
             textView14 = itemView.findViewById(R.id.textView14);
             textView15 = itemView.findViewById(R.id.textView15);
 
-            textViewExpand = itemView.findViewById(R.id.textViewExpand);
+            button_Magazyn_Lokalizacja_Pozycja = itemView.findViewById(R.id.button_Magazyn_Lokalizacja_Pozycja);
+            button_PozycjaPartia_historia = itemView.findViewById(R.id.button_PozycjaPartia_historia);
             linearLayoutExpand = itemView.findViewById(R.id.layout_expand);
+
+
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (recyclerViewInterface != null) {
                         int position = getAdapterPosition();
-                        int v = (textViewExpand.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
+                        int v = (button_PozycjaPartia_historia.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
                         TransitionManager.beginDelayedTransition(linearLayoutExpand, new AutoTransition());
-                        textViewExpand.setVisibility(v);
+                        button_PozycjaPartia_historia.setVisibility(v);
+
+
+                        int w = (button_Magazyn_Lokalizacja_Pozycja.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
+                        TransitionManager.beginDelayedTransition(linearLayoutExpand, new AutoTransition());
+                        button_Magazyn_Lokalizacja_Pozycja.setVisibility(w);
 
                         if (position != RecyclerView.NO_POSITION) {
                             recyclerViewInterface.onItemClick(position);
