@@ -58,18 +58,19 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public static ArrayList<String> FinalListWithCellColor;
     public static ArrayList<Integer> FinalListWithColumnsAdjust;
     public static ArrayList<Integer> FinalListWithColumnsWidth;
-    public static ArrayList<String> FinalListWithCellColor3;
-    public static ArrayList<Integer> FinalListWithColumnsAdjust3;
-    public static ArrayList<Integer> FinalListWithColumnsWidth3;
+//    public static ArrayList<String> FinalListWithCellColor3;
+//    public static ArrayList<Integer> FinalListWithColumnsAdjust3;
+//    public static ArrayList<Integer> FinalListWithColumnsWidth3;
     public static ArrayList<String> FinalListWithCellColor4;
     public static ArrayList<Integer> FinalListWithColumnsAdjust4;
     public static ArrayList<Integer> FinalListWithColumnsWidth4;
 //    public static DataBaseChanges dataFinal;
 
     static Intent intent4;
+    static Intent intent10;
     public static DataBaseHelper dataBaseSQL;
     public static String columnName;
-    public static String columnName3;
+//    public static String columnName3;
     public static String columnName4;
     public static RecyclerView recyclerView;
     public static RecyclerView recyclerView3;
@@ -497,9 +498,10 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public void onItemClick(int position) {
         Toast.makeText(getApplicationContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
         positionForDataBaseSQL = position;
-        Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.takingInformationAboutLocalisation();
         Procedura_Public_PozycjaPartia_HistoriaZycia.takingHistoryPosition();
 
     }
+
+
 
 }

@@ -1,7 +1,7 @@
 package v3.projecttech_v3.db;
 
-import static v3.projecttech_v3.db.entity.Data.CREATE_TABLE;
-import static v3.projecttech_v3.db.entity.Data.TABLE_NAME;
+import static v3.projecttech_v3.db.entity.Data3.CREATE_TABLE;
+import static v3.projecttech_v3.db.entity.Data3.TABLE_NAME;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -14,14 +14,13 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.db.entity.Data;
 import v3.projecttech_v3.db.entity.Data3;
 
 public class DataBaseHelper3 extends SQLiteOpenHelper {
 
 
     private static int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "data_db";
+    private static final String DATABASE_NAME = "data_db3";
     public static String SORTEDBY_1 = " ASC";
     public static String SORTEDBY_2 = " ASC";
     public static String SORTEDBY_3 = " ASC";
@@ -30,13 +29,6 @@ public class DataBaseHelper3 extends SQLiteOpenHelper {
     public static String SORTEDBY_6 = " ASC";
     public static String SORTEDBY_7 = " ASC";
     public static String SORTEDBY_8 = " ASC";
-    public static String SORTEDBY_9 = " ASC";
-    public static String SORTEDBY_10 = " ASC";
-    public static String SORTEDBY_11 = " ASC";
-    public static String SORTEDBY_12 = " ASC";
-    public static String SORTEDBY_13 = " ASC";
-    public static String SORTEDBY_14 = " ASC";
-    public static String SORTEDBY_15 = " ASC";
 
 
     public DataBaseHelper3(Context context){
@@ -51,7 +43,7 @@ public class DataBaseHelper3 extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(Data.CREATE_TABLE);
+        sqLiteDatabase.execSQL(Data3.CREATE_TABLE);
         Log.i("checking", CREATE_TABLE);
         DATABASE_VERSION++;
 
@@ -116,7 +108,7 @@ public class DataBaseHelper3 extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
         Data3 dataGetId = new Data3(
-                cursor.getInt(cursor.getColumnIndexOrThrow(Data.COLUMN_ID)),
+                cursor.getInt(cursor.getColumnIndexOrThrow(Data3.COLUMN_ID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data3.COLUMN_RAWCOLOR)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data3.COLUMN_LOCK)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data3.COLUMN_LP)),
@@ -174,14 +166,14 @@ public class DataBaseHelper3 extends SQLiteOpenHelper {
         values.put(Data3.COLUMN_ADDDATE, data3.getAdddate());
 
 
-        return db.update(TABLE_NAME, values, Data.COLUMN_ID + " = ? ",
+        return db.update(TABLE_NAME, values, Data3.COLUMN_ID + " = ? ",
                 new String[]{String.valueOf(data3.getId())}
         );
     }
 
     public void deleteDataId (Data3 data3){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, Data.COLUMN_ID + " = ?",
+        db.delete(TABLE_NAME, Data3.COLUMN_ID + " = ?",
                 new String[]{String.valueOf(data3.getId())}
         );
         db.close();

@@ -144,7 +144,7 @@ public class Data3 {
                     COLUMN_KONFEKCJA + " TEXT, " +
                     COLUMN_ILOSC + " TEXT, " +
                     COLUMN_OPERATOR + " TEXT, " +
-                    COLUMN_ADDDATE + " TEXT, " +
+                    COLUMN_ADDDATE + " TEXT " +
                     ")";
 
 }

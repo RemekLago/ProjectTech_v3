@@ -1,8 +1,8 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Procedura_Public_PozycjaPartia_HistoriaZycia.columnsNames4;
-import static v3.projecttech_v3.Procedura_Public_PozycjaPartia_HistoriaZycia.numberOfColumns4;
 
+import static v3.projecttech_v3.Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.columnsNames4;
+import static v3.projecttech_v3.Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.numberOfColumns4;
 
 import android.os.AsyncTask;
 import android.util.Log;

@@ -19,10 +19,10 @@ public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
 
     public static String Firma, Magazyn, Lokalizacja;
     static String UserId;
-    static int numberOfColumns3;
+    static int numberOfColumns4;
     static ResultSet rs;
-    static ArrayList<String> columnsNames3 = new ArrayList<>();
-    static ArrayList<ArrayList<String>> Result3 = new ArrayList<>();
+    static ArrayList<String> columnsNames4 = new ArrayList<>();
+    static ArrayList<ArrayList<String>> Result4 = new ArrayList<>();
 
     public static ArrayList<ArrayList<String>> takingInformationAboutLocalisation(){
         //connecting to database
@@ -62,15 +62,15 @@ public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
             int columnCount = rsmd.getColumnCount();
             Log.i("checking", "columnCount: " + columnCount);
 
-            columnsNames3.clear();
+            columnsNames4.clear();
             for (int i = 1; i <= columnCount; i++) {
                 String columnName = rsmd.getColumnName(i);
-                columnsNames3.add(columnName);
+                columnsNames4.add(columnName);
 //                Log.i("checking", "columnsNames: " + columnName);
             }
-            numberOfColumns3 = columnsNames3.size();
+            numberOfColumns4 = columnsNames4.size();
 
-            Result3.clear();
+            Result4.clear();
 //            dataBaseSQL.deleteAllData();
 
             boolean a;
@@ -98,13 +98,13 @@ public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
 //                );
 //                dataBaseSQL.insertData(tmpInsertData);
 
-                for (int i = 1; i <= numberOfColumns3; i++) {
+                for (int i = 1; i <= numberOfColumns4; i++) {
                     tmpRecord.add(rs.getString(i));
 //                    Log.i("checking", "record from ResultSet: " + rs.getString(i));
 
                 }
 
-                Result3.add(tmpRecord); //database with all records for SQL
+                Result4.add(tmpRecord); //database with all records for SQL
 //                b++;
             }
 
@@ -115,7 +115,7 @@ public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
         } catch (Exception e) {
             Log.i("checking", "exception takingInformationAboutLocalisation()" + e.toString());
         }
-        return Result3;
+        return Result4;
 
     }
 }

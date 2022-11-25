@@ -1,6 +1,7 @@
 package v3.projecttech_v3;
 
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia.dataBaseSQL3;
 import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
 import static v3.projecttech_v3.MainActivity_Table2.positionForDataBaseSQL;
 
@@ -14,13 +15,15 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
+import v3.projecttech_v3.db.entity.Data3;
+
 public class Procedura_Public_PozycjaPartia_HistoriaZycia {
     public static String Firma, Pozycja, Partia;
     static String UserId;
-    static int numberOfColumns4;
+    static int numberOfColumns3;
     static ResultSet rs;
-    static ArrayList<String> columnsNames4 = new ArrayList<>();
-    static ArrayList<ArrayList<String>> Result4 = new ArrayList<>();
+    static ArrayList<String> columnsNames3 = new ArrayList<>();
+    static ArrayList<ArrayList<String>> Result3 = new ArrayList<>();
 
     public static ArrayList<ArrayList<String>> takingHistoryPosition(){
         //connecting to database
@@ -61,15 +64,15 @@ public class Procedura_Public_PozycjaPartia_HistoriaZycia {
             int columnCount = rsmd.getColumnCount();
             Log.i("checking", "columnCount: " + columnCount);
 
-            columnsNames4.clear();
+            columnsNames3.clear();
             for (int i = 1; i <= columnCount; i++) {
                 String columnName = rsmd.getColumnName(i);
-                columnsNames4.add(columnName);
+                columnsNames3.add(columnName);
 //                Log.i("checking", "columnsNames: " + columnName);
             }
-            numberOfColumns4 = columnsNames4.size();
+            numberOfColumns3 = columnsNames3.size();
 
-            Result4.clear();
+            Result3.clear();
 //            dataBaseSQL.deleteAllData();
 
             boolean a;
@@ -77,33 +80,26 @@ public class Procedura_Public_PozycjaPartia_HistoriaZycia {
             int idNumber = 0;
             while (rs.next()) {
                 ArrayList<String> tmpRecord = new ArrayList<>();
-//                idNumber++;
-//                Data tmpInsertData = new Data( idNumber,
-//                        rs.getString(1),
-//                        rs.getString(2),
-//                        rs.getString(3),
-//                        rs.getString(4),
-//                        rs.getString(5),
-//                        rs.getString(6),
-//                        rs.getString(7),
-//                        rs.getString(8),
-//                        rs.getString(9),
-//                        rs.getString(10),
-//                        rs.getString(11),
-//                        rs.getString(12),
-//                        rs.getString(13),
-//                        rs.getString(14),
-//                        rs.getString(15)
-//                );
-//                dataBaseSQL.insertData(tmpInsertData);
+                idNumber++;
+                Data3 tmpInsertData = new Data3( idNumber,
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)
+                );
+                dataBaseSQL3.insertData(tmpInsertData);
 
-                for (int i = 1; i <= numberOfColumns4; i++) {
+                for (int i = 1; i <= numberOfColumns3; i++) {
                     tmpRecord.add(rs.getString(i));
 //                    Log.i("checking", "record from ResultSet: " + rs.getString(i));
 
                 }
 
-                Result4.add(tmpRecord); //database with all records for SQL
+                Result3.add(tmpRecord); //database with all records for SQL
 //                b++;
             }
 
@@ -114,7 +110,7 @@ public class Procedura_Public_PozycjaPartia_HistoriaZycia {
         } catch (Exception e) {
             Log.i("checking", "exception takingHistoryPosition()" + e.toString());
         }
-        return Result4;
+        return Result3;
 
     }
 }

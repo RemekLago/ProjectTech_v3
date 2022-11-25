@@ -1,8 +1,7 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.columnsNames3;
-import static v3.projecttech_v3.Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje.numberOfColumns3;
-
+import static v3.projecttech_v3.Procedura_Public_PozycjaPartia_HistoriaZycia.columnsNames3;
+import static v3.projecttech_v3.Procedura_Public_PozycjaPartia_HistoriaZycia.numberOfColumns3;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -47,9 +46,10 @@ public class DataBaseChanges3 extends AsyncTask<String, Void, ArrayList<ArrayLis
         try {
             for (int i = 0; i < columnsNames3.size(); i++) {
                 String tmpOneColumn = (columnsNames3.get(i).split("\\|")[1]);
-//            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
-//            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
+            Log.i("checking", "ColumnName3: " + i + " " + tmpOneColumn);
+
                 ListWithColumnsNames3.add(tmpOneColumn);
+
             }
         } catch(Exception e){
             Log.i("checking", "exception method ColumnsNames" + e.toString());
