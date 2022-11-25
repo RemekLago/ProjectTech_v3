@@ -1,6 +1,7 @@
 package v3.projecttech_v3;
 
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.dataBaseSQL4;
 import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
 import static v3.projecttech_v3.MainActivity_Table2.positionForDataBaseSQL;
 
@@ -14,6 +15,7 @@ import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
 import v3.projecttech_v3.db.entity.Data;
+import v3.projecttech_v3.db.entity.Data4;
 
 public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
 
@@ -60,7 +62,7 @@ public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
             //taking metadata and checking how many columns is in downloaded data
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
-            Log.i("checking", "columnCount: " + columnCount);
+            Log.i("checking", "columnCount4: " + columnCount);
 
             columnsNames4.clear();
             for (int i = 1; i <= columnCount; i++) {
@@ -71,7 +73,7 @@ public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
             numberOfColumns4 = columnsNames4.size();
 
             Result4.clear();
-//            dataBaseSQL.deleteAllData();
+            dataBaseSQL4.deleteAllData();
 
             boolean a;
             int b = 1;
@@ -105,7 +107,7 @@ public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
                 }
 
                 Result4.add(tmpRecord); //database with all records for SQL
-//                b++;
+                b++;
             }
 
 

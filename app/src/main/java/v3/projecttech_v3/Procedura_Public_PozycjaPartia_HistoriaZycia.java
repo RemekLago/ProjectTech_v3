@@ -73,7 +73,7 @@ public class Procedura_Public_PozycjaPartia_HistoriaZycia {
             numberOfColumns3 = columnsNames3.size();
 
             Result3.clear();
-//            dataBaseSQL.deleteAllData();
+            dataBaseSQL3.deleteAllData();
 
             boolean a;
             int b = 1;
@@ -100,7 +100,7 @@ public class Procedura_Public_PozycjaPartia_HistoriaZycia {
                 }
 
                 Result3.add(tmpRecord); //database with all records for SQL
-//                b++;
+                b++;
             }
 
 

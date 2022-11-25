@@ -1,21 +1,9 @@
 package v3.projecttech_v3;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
-//import static v3.projecttech_v3.AdapterRecyclerView.position2;
-import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
-import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
-import static v3.projecttech_v3.MainActivity_enterdata.editTextNumber;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rKomunikat;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rStatus;
+import static v3.projecttech_v3.DataBaseChanges4.ListWithColumnsNames4;
+import static v3.projecttech_v3.MainActivity_Table2.database4;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_10;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_11;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_12;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_13;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_14;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_15;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_4;
@@ -24,53 +12,43 @@ import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_6;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_7;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_8;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_9;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_10;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_11;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_12;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_13;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_14;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_15;
 
-
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.transition.AutoTransition;
-import android.transition.TransitionManager;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 
-import v3.projecttech_v3.db.DataBaseHelper;
-import v3.projecttech_v3.db.entity.Data;
+import v3.projecttech_v3.db.DataBaseHelper4;
+import v3.projecttech_v3.db.entity.Data4;
 
-public class MainActivity_Table2 extends AppCompatActivity implements RecyclerViewInterface{
+public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja extends AppCompatActivity implements RecyclerViewInterface4{
 
-    public static ArrayList<ArrayList<String>> database2;
-    public static ArrayList<ArrayList<String>> database3;
-    public static ArrayList<ArrayList<String>> database4;
-    public static ArrayList<String> FinalListWithCellColor;
-    public static ArrayList<Integer> FinalListWithColumnsAdjust;
-    public static ArrayList<Integer> FinalListWithColumnsWidth;
-    static Intent intent4;
-    static Intent intent10;
-    static Intent intent11;
-    public static DataBaseHelper dataBaseSQL;
-    public static String columnName;
-    public static RecyclerView recyclerView;
-    public static RecyclerView recyclerView3;
+    public static ArrayList<String> FinalListWithCellColor4;
+    public static ArrayList<Integer> FinalListWithColumnsAdjust4;
+    public static ArrayList<Integer> FinalListWithColumnsWidth4;
+    public static String columnName4;
     public static RecyclerView recyclerView4;
-    public static AdapterRecyclerView2 adapterRecyclerView2;
-
-    static String searchCode;
-    static TextView textViewSearch;
-
+    public static AdapterRecyclerView4 adapterRecyclerView4;
+    public static DataBaseHelper4 dataBaseSQL4;
 
 
     @SuppressLint("WrongThread")
@@ -87,106 +65,77 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_table2);
+        setContentView(R.layout.activity_main_procedura_pozycja_partia_historia_zycia);
 
-        dataBaseSQL = new DataBaseHelper(MainActivity_Table2.this);
+        dataBaseSQL4 = new DataBaseHelper4(MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.this);
 
-        Log.i("checking", dataBaseSQL.toString());
+        Log.i("checking", "database4: " + dataBaseSQL4.toString());
 
-        DataBaseChanges2 dataFinal = new DataBaseChanges2();
-        ArrayList<ArrayList<String>> database0 = dataFinal.doInBackground();
-        database2 = dataFinal.cleaningDatabase(database0);
+        // For procedure Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja
+        DataBaseChanges4 dataFinal4 = new DataBaseChanges4();
+        ArrayList<ArrayList<String>> database04 = dataFinal4.doInBackground();
+        database4 = dataFinal4.cleaningDatabase(database04);
 
-        dataFinal.columnsNames();
-        FinalListWithCellColor = dataFinal.cellsColor(database2);
-        FinalListWithColumnsAdjust = dataFinal.columnsAdjust();
-        FinalListWithColumnsWidth = dataFinal.columnsWidth();
+        dataFinal4.columnsNames();
+        FinalListWithCellColor4 = dataFinal4.cellsColor(database4);
+        FinalListWithColumnsAdjust4 = dataFinal4.columnsAdjust();
+        FinalListWithColumnsWidth4 = dataFinal4.columnsWidth();
 
-        Log.i("checking", "database size: " + database2.size());
+        Log.i("checking", "database4 size: " + database4.size());
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView4 = findViewById(R.id.recyclerView4);
 
-        adapterRecyclerView2 = new AdapterRecyclerView2(this, database2, this);
-        recyclerView.setAdapter(adapterRecyclerView2);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapterRecyclerView4 = new AdapterRecyclerView4(this, database4, this);
+        recyclerView4.setAdapter(adapterRecyclerView4);
+        recyclerView4.setLayoutManager(new LinearLayoutManager(this));
 
-        String checkStatus = rStatus;
-        if (checkStatus.equals("0")) {
-            Toast.makeText(getApplicationContext(), rKomunikat, Toast.LENGTH_LONG).show();
-        }
+        Button buttonBack = findViewById(R.id.buttonBack);
 
-
-        Button buttonScanCode = findViewById(R.id.buttonScanCode);
-
-        buttonScanCode.setOnClickListener(new View.OnClickListener() {
+        buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity_Table2.this, MainActivity_Scanner.class));
+                startActivity(new Intent(MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.this, MainActivity_Table2.class));
             }
         });
-
-        Button buttonSearch = findViewById(R.id.buttonSearch);
-        textViewSearch = findViewById(R.id.editTextNumber);
-
-        intent4 = new Intent(MainActivity_Table2.this, MainActivity_Table2.class);
-
-         buttonSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                searchCode = textViewSearch.getText().toString();
-                textViewSearch.setText(null);
-                editTextNumber.setText(null);
-                intent4.putExtra("searchPozycja",searchCode);
-                Log.i("checking", "ButtonSearch: " + searchCode);
-                startActivity(intent4);
-
-            }
-        });
-
-//        Log.i("checking", "rStatus: " + tmpdata2.get("rStatus"));
-//        Log.i("checking", "rKomunikat: " + tmpdata2.get("rKomunikat"));
-//        Log.i("checking", "rPozycja: " + tmpdata2.get("rPozycja"));
-//        Log.i("checking", "rPozycjaNazwa: " + tmpdata2.get("rPozycjaNazwa"));
-
-
-
 
         TextView textView_NazwaPozycja = findViewById(R.id.textView_NazwaPozycja);
         TextView textView_Pozycja = findViewById(R.id.textView_Pozycja);
-        textView_NazwaPozycja.setText( tmpdata2.get("PozycjaNazwa"));
-        textView_Pozycja.setText((tmpdata2.get("Pozycja")));
+        textView_NazwaPozycja.setText("PozycjaNazwa");
+        textView_Pozycja.setText("Pozycja");
+//        textView_NazwaPozycja.setText( tmpdata3.get("PozycjaNazwa"));
+//        textView_Pozycja.setText((tmpdata3.get("Pozycja")));
 
-        TextView textView1name = findViewById(R.id.textView1name);
-        TextView textView2name = findViewById(R.id.textView2name);
-        TextView textView3name = findViewById(R.id.textView3name);
-        TextView textView4name = findViewById(R.id.textView4name);
-        TextView textView5name = findViewById(R.id.textView5name);
-        TextView textView6name = findViewById(R.id.textView6name);
-        TextView textView7name = findViewById(R.id.textView7name);
-        TextView textView8name = findViewById(R.id.textView8name);
-        TextView textView9name = findViewById(R.id.textView9name);
-        TextView textView10name = findViewById(R.id.textView10name);
-        TextView textView11name = findViewById(R.id.textView11name);
-        TextView textView12name = findViewById(R.id.textView12name);
-        TextView textView13name = findViewById(R.id.textView13name);
-        TextView textView14name = findViewById(R.id.textView14name);
-        TextView textView15name = findViewById(R.id.textView15name);
+        TextView textView1name = findViewById(R.id.textView1name4);
+        TextView textView2name = findViewById(R.id.textView2name4);
+        TextView textView3name = findViewById(R.id.textView3name4);
+        TextView textView4name = findViewById(R.id.textView4name4);
+        TextView textView5name = findViewById(R.id.textView5name4);
+        TextView textView6name = findViewById(R.id.textView6name4);
+        TextView textView7name = findViewById(R.id.textView7name4);
+        TextView textView8name = findViewById(R.id.textView8name4);
+        TextView textView9name = findViewById(R.id.textView9name4);
+        TextView textView10name = findViewById(R.id.textView10name4);
+        TextView textView11name = findViewById(R.id.textView11name4);
+        TextView textView12name = findViewById(R.id.textView12name4);
+        TextView textView13name = findViewById(R.id.textView13name4);
+        TextView textView14name = findViewById(R.id.textView14name4);
+        TextView textView15name = findViewById(R.id.textView15name4);
 
-        textView1name.setText(ListWithColumnsNames.get(0));
-        textView2name.setText(ListWithColumnsNames.get(1));
-        textView3name.setText(ListWithColumnsNames.get(2));
-        textView4name.setText(ListWithColumnsNames.get(3));
-        textView5name.setText(ListWithColumnsNames.get(4));
-        textView6name.setText(ListWithColumnsNames.get(5));
-        textView7name.setText(ListWithColumnsNames.get(6));
-        textView8name.setText(ListWithColumnsNames.get(7));
-        textView9name.setText(ListWithColumnsNames.get(8));
-        textView10name.setText(ListWithColumnsNames.get(9));
-        textView11name.setText(ListWithColumnsNames.get(10));
-        textView12name.setText(ListWithColumnsNames.get(11));
-        textView13name.setText(ListWithColumnsNames.get(12));
-        textView14name.setText(ListWithColumnsNames.get(13));
-        textView15name.setText(ListWithColumnsNames.get(14));
+        textView1name.setText(ListWithColumnsNames4.get(0));
+        textView2name.setText(ListWithColumnsNames4.get(1));
+        textView3name.setText(ListWithColumnsNames4.get(2));
+        textView4name.setText(ListWithColumnsNames4.get(3));
+        textView5name.setText(ListWithColumnsNames4.get(4));
+        textView6name.setText(ListWithColumnsNames4.get(5));
+        textView7name.setText(ListWithColumnsNames4.get(6));
+        textView8name.setText(ListWithColumnsNames4.get(7));
+        textView8name.setText(ListWithColumnsNames4.get(8));
+        textView8name.setText(ListWithColumnsNames4.get(9));
+        textView8name.setText(ListWithColumnsNames4.get(10));
+        textView8name.setText(ListWithColumnsNames4.get(11));
+        textView8name.setText(ListWithColumnsNames4.get(12));
+        textView8name.setText(ListWithColumnsNames4.get(13));
+        textView8name.setText(ListWithColumnsNames4.get(14));
 
         textView1name.setTextColor(Color.WHITE);
         textView2name.setTextColor(Color.WHITE);
@@ -220,21 +169,23 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView14name.setBackgroundColor(rgb(3, 37, 76));
         textView15name.setBackgroundColor(rgb(3, 37, 76));
 
-        textView1name.setGravity(FinalListWithColumnsAdjust.get(0));
-        textView2name.setGravity(FinalListWithColumnsAdjust.get(1));
-        textView3name.setGravity(FinalListWithColumnsAdjust.get(2));
-        textView4name.setGravity(FinalListWithColumnsAdjust.get(3));
-        textView5name.setGravity(FinalListWithColumnsAdjust.get(4));
-        textView6name.setGravity(FinalListWithColumnsAdjust.get(5));
-        textView7name.setGravity(FinalListWithColumnsAdjust.get(6));
-        textView8name.setGravity(FinalListWithColumnsAdjust.get(7));
-        textView9name.setGravity(FinalListWithColumnsAdjust.get(8));
-        textView10name.setGravity(FinalListWithColumnsAdjust.get(9));
-        textView11name.setGravity(FinalListWithColumnsAdjust.get(10));
-        textView12name.setGravity(FinalListWithColumnsAdjust.get(11));
-        textView13name.setGravity(FinalListWithColumnsAdjust.get(12));
-        textView14name.setGravity(FinalListWithColumnsAdjust.get(13));
-        textView15name.setGravity(FinalListWithColumnsAdjust.get(14));
+
+        textView1name.setGravity(FinalListWithColumnsAdjust4.get(0));
+        textView2name.setGravity(FinalListWithColumnsAdjust4.get(1));
+        textView3name.setGravity(FinalListWithColumnsAdjust4.get(2));
+        textView4name.setGravity(FinalListWithColumnsAdjust4.get(3));
+        textView5name.setGravity(FinalListWithColumnsAdjust4.get(4));
+        textView6name.setGravity(FinalListWithColumnsAdjust4.get(5));
+        textView7name.setGravity(FinalListWithColumnsAdjust4.get(6));
+        textView8name.setGravity(FinalListWithColumnsAdjust4.get(7));
+        textView9name.setGravity(FinalListWithColumnsAdjust4.get(8));
+        textView10name.setGravity(FinalListWithColumnsAdjust4.get(9));
+        textView11name.setGravity(FinalListWithColumnsAdjust4.get(10));
+        textView12name.setGravity(FinalListWithColumnsAdjust4.get(11));
+        textView13name.setGravity(FinalListWithColumnsAdjust4.get(12));
+        textView14name.setGravity(FinalListWithColumnsAdjust4.get(13));
+        textView15name.setGravity(FinalListWithColumnsAdjust4.get(14));
+
 
         ViewGroup.LayoutParams params1 = textView1name.getLayoutParams();
         ViewGroup.LayoutParams params2 = textView2name.getLayoutParams();
@@ -244,28 +195,29 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         ViewGroup.LayoutParams params6 = textView6name.getLayoutParams();
         ViewGroup.LayoutParams params7 = textView7name.getLayoutParams();
         ViewGroup.LayoutParams params8 = textView8name.getLayoutParams();
-        ViewGroup.LayoutParams params9 = textView9name.getLayoutParams();
-        ViewGroup.LayoutParams params10 = textView10name.getLayoutParams();
-        ViewGroup.LayoutParams params11 = textView11name.getLayoutParams();
-        ViewGroup.LayoutParams params12 = textView12name.getLayoutParams();
-        ViewGroup.LayoutParams params13 = textView13name.getLayoutParams();
-        ViewGroup.LayoutParams params14 = textView14name.getLayoutParams();
-        ViewGroup.LayoutParams params15 = textView15name.getLayoutParams();
-        params1.width = FinalListWithColumnsWidth.get(0);
-        params2.width = FinalListWithColumnsWidth.get(1);
-        params3.width = FinalListWithColumnsWidth.get(2);
-        params4.width = FinalListWithColumnsWidth.get(3);
-        params5.width = FinalListWithColumnsWidth.get(4);
-        params6.width = FinalListWithColumnsWidth.get(5);
-        params7.width = FinalListWithColumnsWidth.get(6);
-        params8.width = FinalListWithColumnsWidth.get(7);
-        params9.width = FinalListWithColumnsWidth.get(8);
-        params10.width = FinalListWithColumnsWidth.get(9);
-        params11.width = FinalListWithColumnsWidth.get(10);
-        params12.width = FinalListWithColumnsWidth.get(11);
-        params13.width = FinalListWithColumnsWidth.get(12);
-        params14.width = FinalListWithColumnsWidth.get(13);
-        params15.width = FinalListWithColumnsWidth.get(14);
+        ViewGroup.LayoutParams params9 = textView8name.getLayoutParams();
+        ViewGroup.LayoutParams params10 = textView8name.getLayoutParams();
+        ViewGroup.LayoutParams params11 = textView8name.getLayoutParams();
+        ViewGroup.LayoutParams params12 = textView8name.getLayoutParams();
+        ViewGroup.LayoutParams params13 = textView8name.getLayoutParams();
+        ViewGroup.LayoutParams params14 = textView8name.getLayoutParams();
+        ViewGroup.LayoutParams params15 = textView8name.getLayoutParams();
+
+        params1.width = FinalListWithColumnsWidth4.get(0);
+        params2.width = FinalListWithColumnsWidth4.get(1);
+        params3.width = FinalListWithColumnsWidth4.get(2);
+        params4.width = FinalListWithColumnsWidth4.get(3);
+        params5.width = FinalListWithColumnsWidth4.get(4);
+        params6.width = FinalListWithColumnsWidth4.get(5);
+        params7.width = FinalListWithColumnsWidth4.get(6);
+        params8.width = FinalListWithColumnsWidth4.get(7);
+        params9.width = FinalListWithColumnsWidth4.get(8);
+        params10.width = FinalListWithColumnsWidth4.get(9);
+        params11.width = FinalListWithColumnsWidth4.get(10);
+        params12.width = FinalListWithColumnsWidth4.get(11);
+        params13.width = FinalListWithColumnsWidth4.get(12);
+        params14.width = FinalListWithColumnsWidth4.get(13);
+        params15.width = FinalListWithColumnsWidth4.get(14);
         textView1name.setLayoutParams(params1);
         textView2name.setLayoutParams(params2);
         textView3name.setLayoutParams(params3);
@@ -285,7 +237,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView1name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView1name.getText().toString();
+                columnName4 = textView1name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_1, Toast.LENGTH_SHORT).show();
             }
@@ -294,7 +246,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView2name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView2name.getText().toString();
+                columnName4 = textView2name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_2, Toast.LENGTH_SHORT).show();
             }
@@ -303,7 +255,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView3name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView3name.getText().toString();
+                columnName4 = textView3name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_3, Toast.LENGTH_SHORT).show();
             }
@@ -312,7 +264,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView4name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView4name.getText().toString();
+                columnName4 = textView4name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_4, Toast.LENGTH_SHORT).show();
             }
@@ -321,7 +273,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView5name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView5name.getText().toString();
+                columnName4 = textView5name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_5, Toast.LENGTH_SHORT).show();
             }
@@ -330,7 +282,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView6name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView6name.getText().toString();
+                columnName4 = textView6name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_6, Toast.LENGTH_SHORT).show();
             }
@@ -339,7 +291,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView7name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView7name.getText().toString();
+                columnName4 = textView7name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_7, Toast.LENGTH_SHORT).show();
             }
@@ -348,7 +300,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView8name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView8name.getText().toString();
+                columnName4 = textView8name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_8, Toast.LENGTH_SHORT).show();
             }
@@ -357,7 +309,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView9name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView9name.getText().toString();
+                columnName4 = textView9name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_9, Toast.LENGTH_SHORT).show();
             }
@@ -366,7 +318,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView10name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView10name.getText().toString();
+                columnName4 = textView10name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_10, Toast.LENGTH_SHORT).show();
             }
@@ -375,7 +327,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView11name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView11name.getText().toString();
+                columnName4 = textView11name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_11, Toast.LENGTH_SHORT).show();
             }
@@ -384,7 +336,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView12name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView12name.getText().toString();
+                columnName4 = textView12name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_12, Toast.LENGTH_SHORT).show();
             }
@@ -393,7 +345,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView13name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView13name.getText().toString();
+                columnName4 = textView13name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_13, Toast.LENGTH_SHORT).show();
             }
@@ -402,7 +354,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView14name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView14name.getText().toString();
+                columnName4 = textView14name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_14, Toast.LENGTH_SHORT).show();
             }
@@ -411,26 +363,22 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         textView15name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                columnName = textView15name.getText().toString();
+                columnName4 = textView15name.getText().toString();
                 updateView();
                 Toast.makeText(getApplicationContext(), "Sorting on: " + SORTEDBY_15, Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
-
-
-
     public void updateView() {
-        ArrayList<Data> sortedData = dataBaseSQL.getAllDataOrdered(columnName);
+        ArrayList<Data4> sortedData = dataBaseSQL4.getAllDataOrdered(columnName4);
 //        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(1).getLp());
 //        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(2).getLp());
 //        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(3).getLp());
-        dataBaseSQL.deleteAllData();
-        Log.i("checking", "databaseSQL ordering columnname: " + columnName);
+        dataBaseSQL4.deleteAllData();
+        Log.i("checking", "databaseSQL4 ordering columnname: " + columnName4);
         for (int i=0; i<sortedData.size(); i++) {
-            dataBaseSQL.insertData(sortedData.get(i));
+            dataBaseSQL4.insertData(sortedData.get(i));
 //            Log.i("checking", "databaseSQL ordering: " + i);
 //            Log.i("checking", "databaseSQL ordering LP: " + sortedData.get(i).getLp());
 //            Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getDataId(i+1).getLp());
@@ -439,19 +387,16 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
 //        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(2).getLp());
 //        Log.i("checking", "databaseSQL ordering ID: " + dataBaseSQL.getAllData().get(3).getLp());
 
-        adapterRecyclerView2.notifyDataSetChanged();
-        recyclerView.setAdapter(adapterRecyclerView2);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapterRecyclerView4.notifyDataSetChanged();
+        recyclerView4.setAdapter(adapterRecyclerView4);
+        recyclerView4.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public static int positionForDataBaseSQL;
+    public static int positionFordataBaseSQL4;
     @Override
-    public void onItemClick(int position) {
+    public void onItemClick4(int position) {
         Toast.makeText(getApplicationContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
-        positionForDataBaseSQL = position;
+        positionFordataBaseSQL4 = position;
 
     }
-
-
-
 }
