@@ -8,6 +8,8 @@ import static v3.projecttech_v3.MainActivity_Table2.FinalListWithColumnsWidth;
 import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
 import static v3.projecttech_v3.MainActivity_Table2.database2;
 import static v3.projecttech_v3.MainActivity_Table2.intent10;
+import static v3.projecttech_v3.MainActivity_Table2.intent11;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rPozycja;
 
 import android.animation.LayoutTransition;
 import android.content.Context;
@@ -153,7 +155,15 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
             @Override
             public void onClick(View view) {
                 intent10 = new Intent(context2, MainActivity_Procedura_PozycjaPartia_HistoriaZycia.class);
-                context2.startActivity(intent10);
+                context2.startActivity(intent10.putExtra("rPozycjaBack1", rPozycja));
+            }
+        });
+
+        holder.button_Magazyn_Lokalizacja_Pozycja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent11 = new Intent(context2, MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.class);
+                context2.startActivity(intent11.putExtra("rPozycjaBack1", rPozycja));
             }
         });
 

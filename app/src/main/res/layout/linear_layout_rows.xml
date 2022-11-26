@@ -168,30 +168,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:animateLayoutChanges="true"
-            android:orientation="horizontal">
+            android:animateLayoutChanges="true">
 
 
             <Button
                 android:id="@+id/button_PozycjaPartia_historia"
                 android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:textSize="10sp"
-                android:background="@drawable/ramkatextview"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/greyColor"
                 android:text="Historia Partia"
-                android:visibility="visible"
-                />
+                android:textSize="10sp"
+                android:padding="2dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/button_Magazyn_Lokalizacja_Pozycja"
                 android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:background="@drawable/ramkatextview"
-                android:textSize="10sp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/greyColor"
                 android:text="Lokalizacja Pozycja"
-                android:visibility="visible"
-                />
-
+                android:textSize="10sp"
+                android:padding="2dp"
+                android:visibility="gone" />
 
 
         </LinearLayout>

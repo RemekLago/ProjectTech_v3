@@ -3,6 +3,7 @@ package v3.projecttech_v3;
 import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.DataBaseChanges4.ListWithColumnsNames4;
 import static v3.projecttech_v3.MainActivity_Table2.database4;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rPozycja;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
@@ -65,7 +66,7 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
         }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_procedura_pozycja_partia_historia_zycia);
+        setContentView(R.layout.activity_main_procedura_magazyn_lsv_magazyn_lokalizacja_pozycja);
 
         dataBaseSQL4 = new DataBaseHelper4(MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.this);
 
@@ -94,7 +95,7 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.this, MainActivity_Table2.class));
+//                startActivity(new Intent(MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.this, MainActivity_Table2.class).putExtra("rPozycjaBack1", rPozycja));
             }
         });
 
