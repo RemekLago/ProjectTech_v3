@@ -10,6 +10,7 @@ import static v3.projecttech_v3.MainActivity_Table2.database2;
 import static v3.projecttech_v3.MainActivity_Table2.intent10;
 import static v3.projecttech_v3.MainActivity_Table2.intent11;
 import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rPozycja;
+import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 
 import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;
@@ -21,17 +22,24 @@ import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.MenuPopupWindow;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerView2.ViewHolderRecyclerView> {
+public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerView2.ViewHolderRecyclerView> implements PopupMenu.OnMenuItemClickListener {
 
     private final RecyclerViewInterface recyclerViewInterface;
 
@@ -170,6 +178,7 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
 
         holder.linearLayoutExpand.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
+
         holder.button_PozycjaPartia_historia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -186,11 +195,44 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
             }
         });
 
+        holder.imageButton_Menu.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+            showPopupMenu(view);
+           }
+       }
+        );
+
+    }
+
+    private void showPopupMenu(View view){
+        PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
+        popupMenu.inflate(R.menu.menu_recyclerview);
+        popupMenu.setOnMenuItemClickListener(this);
+
+        popupMenu.show();
     }
 
     @Override
     public int getItemCount() {
         return database2.size();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_delete:
+                Toast.makeText(context2, "Option DELETE has been chosen" + item.getItemId(), Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.menu_edit:
+                Toast.makeText(context2, "Option EDIT has been chosen", Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return false;
+
+        }
     }
 
     public class ViewHolderRecyclerView extends RecyclerView.ViewHolder {
@@ -214,6 +256,8 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
         Button button_PozycjaPartia_historia;
         Button button_Magazyn_Lokalizacja_Pozycja;
         LinearLayout linearLayoutExpand;
+        ImageButton imageButton_Menu;
+
 
         public ViewHolderRecyclerView(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
@@ -239,6 +283,9 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
             button_PozycjaPartia_historia = itemView.findViewById(R.id.button_PozycjaPartia_historia);
             linearLayoutExpand = itemView.findViewById(R.id.layout_expand);
 
+            imageButton_Menu = itemView.findViewById(R.id.imageMenu1);
+
+
 
 
 
@@ -255,6 +302,8 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
                         int w = (button_Magazyn_Lokalizacja_Pozycja.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
                         TransitionManager.beginDelayedTransition(linearLayoutExpand, new AutoTransition());
                         button_Magazyn_Lokalizacja_Pozycja.setVisibility(w);
+
+
 
                         if (position != RecyclerView.NO_POSITION) {
                             recyclerViewInterface.onItemClick(position);

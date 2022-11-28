@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -10,12 +11,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:orientation="horizontal">
 
             <!--            row1-->
+            <ImageButton
+                android:id="@+id/imageMenu1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/dots_menu"
+                android:padding="4dp" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -163,6 +171,7 @@
 
         </LinearLayout>
 
+
         <LinearLayout
             android:id="@+id/layout_expand"
             android:layout_width="match_parent"
@@ -193,8 +202,22 @@
                 android:padding="2dp"
                 android:visibility="gone" />
 
-
         </LinearLayout>
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:animateLayoutChanges="true">-->
+
+<!--            <ImageButton-->
+<!--                android:id="@+id/imageMenu2"-->
+<!--                android:layout_width="28dp"-->
+<!--                android:layout_height="28dp"-->
+<!--                android:background="@drawable/dots_menu"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:visibility="visible"/>-->
+
+<!--        </RelativeLayout>-->
 
 
     </androidx.cardview.widget.CardView>
