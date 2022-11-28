@@ -33,6 +33,7 @@ import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.transition.AutoTransition;
@@ -152,7 +153,9 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
 
 
         TextView textView_NazwaPozycja = findViewById(R.id.textView_NazwaPozycja);
+        textView_NazwaPozycja.setPaintFlags(textView_NazwaPozycja.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         TextView textView_Pozycja = findViewById(R.id.textView_Pozycja);
+        textView_Pozycja.setPaintFlags(textView_Pozycja.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         textView_NazwaPozycja.setText( tmpdata2.get("PozycjaNazwa"));
         textView_Pozycja.setText((tmpdata2.get("Pozycja")));
 

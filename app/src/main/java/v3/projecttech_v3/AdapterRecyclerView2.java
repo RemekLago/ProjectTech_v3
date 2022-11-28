@@ -12,6 +12,7 @@ import static v3.projecttech_v3.MainActivity_Table2.intent11;
 import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rPozycja;
 
 import android.animation.LayoutTransition;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,6 +21,7 @@ import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -52,6 +54,7 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
 
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(@NonNull AdapterRecyclerView2.ViewHolderRecyclerView holder, int i) {
 
@@ -163,6 +166,7 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
         holder.textView13.setLayoutParams(params13);
         holder.textView14.setLayoutParams(params14);
         holder.textView15.setLayoutParams(params15);
+
 
         holder.linearLayoutExpand.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
