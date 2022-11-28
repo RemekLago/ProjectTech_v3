@@ -165,15 +165,23 @@ public class MainActivity_Procedura_PozycjaPartia_HistoriaZycia extends AppCompa
         ViewGroup.LayoutParams params6 = textView6name.getLayoutParams();
         ViewGroup.LayoutParams params7 = textView7name.getLayoutParams();
         ViewGroup.LayoutParams params8 = textView8name.getLayoutParams();
- 
-        params1.width = FinalListWithColumnsWidth3.get(0);
-        params2.width = FinalListWithColumnsWidth3.get(1);
-        params3.width = FinalListWithColumnsWidth3.get(2);
-        params4.width = FinalListWithColumnsWidth3.get(3);
-        params5.width = FinalListWithColumnsWidth3.get(4);
-        params6.width = FinalListWithColumnsWidth3.get(5);
-        params7.width = FinalListWithColumnsWidth3.get(6);
-        params8.width = FinalListWithColumnsWidth3.get(7);
+//
+//        params1.width = FinalListWithColumnsWidth3.get(0);
+//        params2.width = FinalListWithColumnsWidth3.get(1);
+//        params3.width = FinalListWithColumnsWidth3.get(2);
+//        params4.width = FinalListWithColumnsWidth3.get(3);
+//        params5.width = FinalListWithColumnsWidth3.get(4);
+//        params6.width = FinalListWithColumnsWidth3.get(5);
+//        params7.width = FinalListWithColumnsWidth3.get(6);
+//        params8.width = FinalListWithColumnsWidth3.get(7);
+        params1.width = 0;
+        params2.width = 0;
+        params3.width = 100;
+        params4.width = 350;
+        params5.width = 350;
+        params6.width = 200;
+        params7.width = 500;
+        params8.width = 300;
         textView1name.setLayoutParams(params1);
         textView2name.setLayoutParams(params2);
         textView3name.setLayoutParams(params3);
