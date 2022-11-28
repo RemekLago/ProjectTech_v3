@@ -229,6 +229,16 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
                 Toast.makeText(context2, "Option EDIT has been chosen", Toast.LENGTH_SHORT).show();
                 return true;
 
+            case R.id.menu_lokalizacja_pozycja:
+                intent11 = new Intent(context2, MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.class);
+                context2.startActivity(intent11);
+                return true;
+
+            case R.id.menu_historia:
+                intent10 = new Intent(context2, MainActivity_Procedura_PozycjaPartia_HistoriaZycia.class);
+                context2.startActivity(intent10);
+                return true;
+
             default:
                 return false;
 
@@ -298,12 +308,13 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
                         TransitionManager.beginDelayedTransition(linearLayoutExpand, new AutoTransition());
                         button_PozycjaPartia_historia.setVisibility(v);
 
-
                         int w = (button_Magazyn_Lokalizacja_Pozycja.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
                         TransitionManager.beginDelayedTransition(linearLayoutExpand, new AutoTransition());
                         button_Magazyn_Lokalizacja_Pozycja.setVisibility(w);
 
-
+                        int z = (imageButton_Menu.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
+                        TransitionManager.beginDelayedTransition(linearLayoutExpand, new AutoTransition());
+                        imageButton_Menu.setVisibility(z);
 
                         if (position != RecyclerView.NO_POSITION) {
                             recyclerViewInterface.onItemClick(position);

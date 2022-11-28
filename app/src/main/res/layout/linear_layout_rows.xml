@@ -20,10 +20,11 @@
             <!--            row1-->
             <ImageButton
                 android:id="@+id/imageMenu1"
-                android:layout_width="30dp"
+                android:layout_width="20dp"
                 android:layout_height="30dp"
                 android:background="@drawable/dots_menu"
-                android:padding="4dp" />
+                android:padding="4dp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/textView1"
