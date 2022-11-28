@@ -3,6 +3,8 @@ package v3.projecttech_v3;
 import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.DataBaseChanges4.ListWithColumnsNames4;
 import static v3.projecttech_v3.MainActivity_Table2.database4;
+import static v3.projecttech_v3.MainActivity_Table2.intent10;
+import static v3.projecttech_v3.MainActivity_Table2.intent11;
 import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rPozycja;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
@@ -92,10 +94,12 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
 
         Button buttonBack = findViewById(R.id.buttonBack);
 
+        Intent intent12 = new Intent(this, MainActivity_Table2.class);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.this, MainActivity_Table2.class).putExtra("rPozycjaBack1", rPozycja));
+                intent12.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent12);
             }
         });
 

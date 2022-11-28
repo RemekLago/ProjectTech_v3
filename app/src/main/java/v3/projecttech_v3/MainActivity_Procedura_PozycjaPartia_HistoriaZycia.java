@@ -96,10 +96,12 @@ public class MainActivity_Procedura_PozycjaPartia_HistoriaZycia extends AppCompa
 
         Button buttonBack = findViewById(R.id.buttonBack);
 
+        Intent intent13 = new Intent(this, MainActivity_Table2.class);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity_Procedura_PozycjaPartia_HistoriaZycia.this, MainActivity_Table2.class));
+                intent13.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent13);
             }
         });
 

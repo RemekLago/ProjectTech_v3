@@ -170,7 +170,7 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
             @Override
             public void onClick(View view) {
                 intent10 = new Intent(context2, MainActivity_Procedura_PozycjaPartia_HistoriaZycia.class);
-                context2.startActivity(intent10.putExtra("rPozycjaBack1", rPozycja));
+                context2.startActivity(intent10);
             }
         });
 
@@ -178,7 +178,7 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
             @Override
             public void onClick(View view) {
                 intent11 = new Intent(context2, MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.class);
-                context2.startActivity(intent11.putExtra("rPozycjaBack1", rPozycja));
+                context2.startActivity(intent11);
             }
         });
 
