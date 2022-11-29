@@ -1,6 +1,7 @@
 package v3.projecttech_v3.db.entity;
 
 public class Data4 {
+    // for Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja
 
     // Constants for Database
     public static final String TABLE_NAME = "DATABASE_4";

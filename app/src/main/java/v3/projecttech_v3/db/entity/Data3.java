@@ -1,6 +1,8 @@
 package v3.projecttech_v3.db.entity;
 
 public class Data3 {
+    // for Procedura_PozycjaPartia_HistoriaZycia
+
 
     // Constants for Database
     public static final String TABLE_NAME = "DATABASE_3";

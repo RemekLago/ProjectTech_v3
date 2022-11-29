@@ -18,6 +18,7 @@ import v3.projecttech_v3.db.entity.Data4;
 
 public class DataBaseHelper4 extends SQLiteOpenHelper {
 
+    // for Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja
 
     private static int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "data_db4";

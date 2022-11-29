@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 import v3.projecttech_v3.db.entity.Data3;
 
+// for Procedura_PozycjaPartia_HistoriaZycia
+
 public class DataBaseHelper3 extends SQLiteOpenHelper {
 
 
