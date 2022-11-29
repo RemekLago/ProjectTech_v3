@@ -29,11 +29,15 @@ public class Data5 {
     private int telefon;
     private int dzialID;
     private int stanowiskoID;
-    private DateTime addDate;
+    private String addDate;
     private int statusID;
 
+    public Data5() {
+
+    }
+
     public Data5(int id, String imie, String nazwisko, int lokalizacjaID, String mail, int telefon,
-                 int dzialID, int stanowiskoID, DateTime addDate, int statusID) {
+                 int dzialID, int stanowiskoID, String addDate, int statusID) {
         this.id = id;
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -110,11 +114,11 @@ public class Data5 {
         this.stanowiskoID = stanowiskoID;
     }
 
-    public DateTime getAddDate() {
+    public String getAddDate() {
         return addDate;
     }
 
-    public void setAddDate(DateTime addDate) {
+    public void setAddDate(String addDate) {
         this.addDate = addDate;
     }
 
