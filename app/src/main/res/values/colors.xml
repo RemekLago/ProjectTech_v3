@@ -10,8 +10,8 @@
     <color name="mainColor">#F70C3363</color>
     <color name="greyColor">#808080</color>
 
-    <color name="colorPrimaryDark">#32622C4</color>
+    <color name="colorPrimaryDark">#3262C4</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorRed">#11515</color>
+    <color name="colorRed">#C11515 </color>
 </resources>
