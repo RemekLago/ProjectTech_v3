@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+        <item
+            android:id="@+id/menu_login"
+            android:title="Zaloguj"
+            android:icon="@drawable/icon_edit_menu"
+            />
+
+        <item
+            android:id="@+id/menu_logout"
+            android:title="Wyloguj"
+            android:icon="@drawable/icon_delete_menu"
+            />
+
+        <item
+            android:id="@+id/menu_search"
+            android:title="Szukaj danych"
+            android:icon="@android:drawable/ic_menu_info_details"
+            />
+        <item
+            android:id="@+id/menu_editdata"
+            android:title="Edutuj profil"
+            android:icon="@android:drawable/ic_menu_info_details"
+            />
+
+    </menu>

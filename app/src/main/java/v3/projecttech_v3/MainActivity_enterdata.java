@@ -2,10 +2,15 @@ package v3.projecttech_v3;
 
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_5;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -77,5 +82,49 @@ public class MainActivity_enterdata extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.bar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_login:
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_Login.class);
+                startActivity(intentLogin);
+                return true;
+
+            case R.id.menu_logout:
+                SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("remember", "false");
+                editor.apply();
+
+                finish();
+
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_Login.class);
+                startActivity(intentLogOut);
+                return true;
+
+            case R.id.menu_editdata:
+//               Intent  intentEditdata = new Intent(getApplicationContext(), MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.class);
+//                startActivity(intentEditdata);
+                return true;
+
+            case R.id.menu_search:
+                Intent intentEnterdata = new Intent(getApplicationContext(), MainActivity_enterdata.class);
+                startActivity(intentEnterdata);
+                return true;
+
+            default:
+                return false;
+
+        }
     }
 }
