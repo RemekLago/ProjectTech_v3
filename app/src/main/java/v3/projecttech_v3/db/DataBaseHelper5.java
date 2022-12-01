@@ -56,16 +56,17 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(Data5.COLUMN_ID, data5.getId());
+//        values.put(Data5.COLUMN_ID, data5.getId());
         values.put(Data5.COLUMN_IMIE, data5.getImie());
         values.put(Data5.COLUMN_NAZWISKO, data5.getNazwisko());
-        values.put(Data5.COLUMN_LOKALIZACJAID, data5.getLokalizacjaID());
         values.put(Data5.COLUMN_MAIL, data5.getMail());
         values.put(Data5.COLUMN_TELEFON, data5.getTelefon());
+        values.put(Data5.COLUMN_LOKALIZACJAID, data5.getLokalizacjaID());
         values.put(Data5.COLUMN_DZIALID, data5.getDzialID());
         values.put(Data5.COLUMN_STANOWISKOID, data5.getStanowiskoID());
         values.put(Data5.COLUMN_ADDDATE, data5.getAddDate());
         values.put(Data5.COLUMN_STATUSID, data5.getStatusID());
+        values.put(Data5.COLUMN_PASSWORD, data5.getPassword());
 
 
         long insert = db.insert(TABLE_NAME, null, values);
@@ -84,13 +85,14 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                         Data5.COLUMN_ID,
                         Data5.COLUMN_IMIE,
                         Data5.COLUMN_NAZWISKO,
-                        Data5.COLUMN_LOKALIZACJAID,
                         Data5.COLUMN_MAIL,
                         Data5.COLUMN_TELEFON,
+                        Data5.COLUMN_LOKALIZACJAID,
                         Data5.COLUMN_DZIALID,
                         Data5.COLUMN_STANOWISKOID,
                         Data5.COLUMN_ADDDATE,
-                        Data5.COLUMN_STATUSID
+                        Data5.COLUMN_STATUSID,
+                        Data5.COLUMN_PASSWORD
                 },
                 Data5.COLUMN_ID + "=?",
                 new String[]{
@@ -108,13 +110,14 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                 cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_ID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_IMIE)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_NAZWISKO)),
-                cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_MAIL)),
-                cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)),
-                cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)),
-                cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_STANOWISKOID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_STANOWISKOID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_ADDDATE)),
-                cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_STATUSID))
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_STATUSID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_PASSWORD))
         );
 
         cursor.close();
@@ -135,13 +138,14 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                 data5.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_ID)));
                 data5.setImie(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_IMIE)));
                 data5.setNazwisko(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_NAZWISKO)));
-                data5.setLokalizacjaID(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)));
                 data5.setMail(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_MAIL)));
-                data5.setTelefon(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)));
-                data5.setDzialID(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)));
-                data5.setStanowiskoID(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_STANOWISKOID)));
+                data5.setTelefon(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)));
+                data5.setLokalizacjaID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)));
+                data5.setDzialID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)));
+                data5.setStanowiskoID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_STANOWISKOID)));
                 data5.setAddDate(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_ADDDATE)));
-                data5.setStatusID(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_STATUSID)));
+                data5.setStatusID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_STATUSID)));
+                data5.setStatusID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_PASSWORD)));
           
                 dataGetAll.add(data5);
             } while(cursor.moveToNext());
@@ -158,13 +162,14 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Data5.COLUMN_IMIE, data5.getImie());
         values.put(Data5.COLUMN_NAZWISKO, data5.getNazwisko());
-        values.put(Data5.COLUMN_LOKALIZACJAID, data5.getLokalizacjaID());
         values.put(Data5.COLUMN_MAIL, data5.getMail());
         values.put(Data5.COLUMN_TELEFON, data5.getTelefon());
+        values.put(Data5.COLUMN_LOKALIZACJAID, data5.getLokalizacjaID());
         values.put(Data5.COLUMN_DZIALID, data5.getDzialID());
         values.put(Data5.COLUMN_STANOWISKOID, data5.getStanowiskoID());
         values.put(Data5.COLUMN_ADDDATE, data5.getAddDate());
         values.put(Data5.COLUMN_STATUSID, data5.getStatusID());
+        values.put(Data5.COLUMN_PASSWORD, data5.getPassword());
 
         return db.update(Data5.TABLE_NAME, values, Data5.COLUMN_ID + " = ? ",
                 new String[]{String.valueOf(data5.getId())}
@@ -208,13 +213,14 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                 data5.setId(idNumber);
                 data5.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_IMIE)));
                 data5.setNazwisko(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_NAZWISKO)));
-                data5.setLokalizacjaID(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)));
                 data5.setMail(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_MAIL)));
-                data5.setTelefon(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)));
-                data5.setDzialID(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)));
-                data5.setStanowiskoID(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_STANOWISKOID)));
+                data5.setTelefon(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)));
+                data5.setLokalizacjaID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)));
+                data5.setDzialID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)));
+                data5.setStanowiskoID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_STANOWISKOID)));
                 data5.setAddDate(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_ADDDATE)));
-                data5.setStatusID(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_STATUSID)));
+                data5.setStatusID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_STATUSID)));
+                data5.setPassword(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_PASSWORD)));
 
                 dataGetAllOrdered.add(data5);
             } while(cursor.moveToNext());
@@ -223,6 +229,99 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
         db.close();
         return dataGetAllOrdered;
     }
-    
+
+    public Data5 getDataMail (String mail) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME,
+                new String[]{
+                        Data5.COLUMN_ID,
+                        Data5.COLUMN_IMIE,
+                        Data5.COLUMN_NAZWISKO,
+                        Data5.COLUMN_MAIL,
+                        Data5.COLUMN_TELEFON,
+                        Data5.COLUMN_LOKALIZACJAID,
+                        Data5.COLUMN_DZIALID,
+                        Data5.COLUMN_STANOWISKOID,
+                        Data5.COLUMN_ADDDATE,
+                        Data5.COLUMN_STATUSID,
+                        Data5.COLUMN_PASSWORD
+                },
+                Data5.COLUMN_MAIL + "=?",
+                new String[]{
+                        String.valueOf(mail)
+                },
+                null,
+                null,
+                null,
+                null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Data5 dataGetMail = new Data5(
+                cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_ID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_IMIE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_NAZWISKO)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_MAIL)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_STANOWISKOID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_ADDDATE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_STATUSID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_PASSWORD))
+        );
+
+        cursor.close();
+        return dataGetMail;
+    }
+
+    public Data5 getDataPassword (String password) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME,
+                new String[]{
+                        Data5.COLUMN_ID,
+                        Data5.COLUMN_IMIE,
+                        Data5.COLUMN_NAZWISKO,
+                        Data5.COLUMN_MAIL,
+                        Data5.COLUMN_TELEFON,
+                        Data5.COLUMN_LOKALIZACJAID,
+                        Data5.COLUMN_DZIALID,
+                        Data5.COLUMN_STANOWISKOID,
+                        Data5.COLUMN_ADDDATE,
+                        Data5.COLUMN_STATUSID,
+                        Data5.COLUMN_PASSWORD
+                },
+                Data5.COLUMN_PASSWORD + "=?",
+                new String[]{
+                        String.valueOf(password)
+                },
+                null,
+                null,
+                null,
+                null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Data5 dataGetPassword = new Data5(
+                cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_ID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_IMIE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_NAZWISKO)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_MAIL)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_STANOWISKOID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_ADDDATE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_STATUSID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_PASSWORD))
+        );
+
+        cursor.close();
+        return dataGetPassword;
+    }
     
 }
