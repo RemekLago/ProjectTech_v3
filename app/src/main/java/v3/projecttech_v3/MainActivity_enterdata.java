@@ -1,6 +1,7 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_5;
+import static v3.projecttech_v3.Activity_Login.enterMail;
+import static v3.projecttech_v3.Activity_Login.userLoginCheck;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -88,7 +89,14 @@ public class MainActivity_enterdata extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.bar_menu, menu);
+
+        if(userLoginCheck == 1)
+        {
+            menuInflater.inflate(R.menu.bar_menu_login, menu);
+        } else
+        {
+            menuInflater.inflate(R.menu.bar_menu_logout, menu);
+        }
         return true;
     }
 
@@ -101,10 +109,15 @@ public class MainActivity_enterdata extends AppCompatActivity {
                 return true;
 
             case R.id.menu_logout:
-                SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("remember", "false");
-                editor.apply();
+//                SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+//                SharedPreferences.Editor editor = preferences.edit();
+//                editor.putString("remember", "false");
+//                editor.apply();
+
+                SharedPreferences preferencesLogin = getSharedPreferences("ShearedUserLogin", MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = preferencesLogin.edit();
+                editor2.putInt("userLoginCheck", 0);
+                editor2.apply();
 
                 finish();
 
@@ -113,8 +126,9 @@ public class MainActivity_enterdata extends AppCompatActivity {
                 return true;
 
             case R.id.menu_editdata:
-//               Intent  intentEditdata = new Intent(getApplicationContext(), MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.class);
-//                startActivity(intentEditdata);
+                Intent intentEditdata = new Intent(getApplicationContext(), Activity_EditUser.class);
+                intentEditdata.putExtra("emailUser", enterMail);
+                startActivity(intentEditdata);
                 return true;
 
             case R.id.menu_search:

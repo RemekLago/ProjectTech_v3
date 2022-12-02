@@ -1,13 +1,22 @@
 package v3.projecttech_v3;
 
+import static v3.projecttech_v3.Activity_Login.dataBaseSQLUser;
+import static v3.projecttech_v3.Activity_Login.enterMail;
+import static v3.projecttech_v3.Activity_Login.intentEditdata;
+import static v3.projecttech_v3.Activity_Login.userLoginCheck;
 import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rKomunikat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -38,7 +47,6 @@ public class Activity_Register extends AppCompatActivity {
     TextView inputHasloPotwierdz;
     TextView textViewRejestracja;
     TextView textViewMaszJuzKonto;
-    public static DataBaseHelper5 dataBaseSQLUser;
     public static Data5 tmpInsertData;
     public static String tmpstatusID;
 
@@ -63,7 +71,7 @@ public class Activity_Register extends AppCompatActivity {
         Button buttonRejestracja = findViewById(R.id.buttonRejestracja);
 
 
-        dataBaseSQLUser = new DataBaseHelper5(Activity_Register.this);
+
 
 
 
@@ -263,5 +271,62 @@ public class Activity_Register extends AppCompatActivity {
             Log.i("checking", inputHasloPotwierdz.toString());
             return true;
         }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+
+        if(userLoginCheck == 1)
+        {
+            menuInflater.inflate(R.menu.bar_menu_login, menu);
+        } else
+        {
+            menuInflater.inflate(R.menu.bar_menu_logout, menu);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_login:
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_Login.class);
+                startActivity(intentLogin);
+                return true;
+
+            case R.id.menu_logout:
+//                SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+//                SharedPreferences.Editor editor = preferences.edit();
+//                editor.putString("remember", "false");
+//                editor.apply();
+
+                SharedPreferences preferencesLogin = getSharedPreferences("ShearedUserLogin", MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = preferencesLogin.edit();
+                editor2.putInt("userLoginCheck", 0);
+                editor2.apply();
+
+                finish();
+
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_Login.class);
+                startActivity(intentLogOut);
+                return true;
+
+            case R.id.menu_editdata:
+                intentEditdata = new Intent(getApplicationContext(), Activity_EditUser.class);
+                intentEditdata.putExtra("emailUser", enterMail);
+                startActivity(intentEditdata);
+                return true;
+
+            case R.id.menu_search:
+                Intent intentEnterdata = new Intent(getApplicationContext(), MainActivity_enterdata.class);
+                startActivity(intentEnterdata);
+                return true;
+
+            default:
+                return false;
+
+        }
+    }
 
 }

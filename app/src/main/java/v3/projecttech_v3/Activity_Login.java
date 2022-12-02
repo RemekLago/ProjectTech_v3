@@ -1,8 +1,5 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Activity_Register.dataBaseSQLUser;
-import static v3.projecttech_v3.MainActivity_Table2.intent10;
-import static v3.projecttech_v3.MainActivity_Table2.intent11;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,16 +22,27 @@ import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.ResultSetMetaData;
 import java.time.LocalDateTime;
 
+import v3.projecttech_v3.db.DataBaseHelper5;
 import v3.projecttech_v3.db.entity.Data5;
+import v3.projecttech_v3.AddingUsersToDatabase;
 
 public class Activity_Login extends AppCompatActivity {
+    public static DataBaseHelper5 dataBaseSQLUser;
+    public static Intent intentEnterData;
+    public static Intent intentEditdata;
+    public static String enterMail;
+    public static String enterPassword;
+    public static int userLoginCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
 
         TextView textView_ZapiszSie = findViewById(R.id.textView_ZapiszSie);
         TextView textView_NieMaszJeszczeKonta = findViewById(R.id.textView_NieMaszJeszczeKonta);
@@ -46,20 +55,38 @@ public class Activity_Login extends AppCompatActivity {
         Button buttonLogin = findViewById(R.id.buttonLogin);
         ImageView imageLogo1 = findViewById(R.id.imageLogo1);
 
+        dataBaseSQLUser = new DataBaseHelper5(Activity_Login.this);
+        AddingUsersToDatabase.addingUser();
+
+        intentEnterData = new Intent(Activity_Login.this, MainActivity_enterdata.class);
+
+        SharedPreferences preferencesLogin2 = getSharedPreferences("ShearedUserLogin", MODE_PRIVATE);
+        SharedPreferences.Editor editor2 = preferencesLogin2.edit();
+        editor2.putInt("userLoginCheck", 0);
+        editor2.apply();
+        userLoginCheck = preferencesLogin2.getInt("userLoginCheck",0);
+        Log.i("checking", "statusLogin1: " + userLoginCheck);
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentEnterData = new Intent(Activity_Login.this, MainActivity_enterdata.class);
-                String enterMail = inputEmail.getText().toString();
-                String enterPassword = inputHaslo.getText().toString();
+
+
+                enterMail = inputEmail.getText().toString();
+                enterPassword = inputHaslo.getText().toString();
                 String mailDatabase = "";
                 String passwordDatabase = "";
 
                 Log.i("checking", "EnteredEmail: " + enterMail);
                 Log.i("checking", "EnteredPassword: " + enterPassword);
 
+                intentEditdata = new Intent(getApplicationContext(), Activity_EditUser.class);
+                intentEditdata.putExtra("emailUser", enterMail);
+                Log.i("checking", "enterMail : " + enterMail);
+
+
                 try {
-                    mailDatabase = dataBaseSQLUser.getDataMail(enterMail).getMail();
+                    mailDatabase = dataBaseSQLUser.getDataMail(enterMail.trim()).getMail();
                 } catch(Exception e){
                     Log.i("checking", "exception mainDatabase" + e.toString());
                 }
@@ -72,12 +99,40 @@ public class Activity_Login extends AppCompatActivity {
                 Log.i("checking", "EmailfromDataBase: " + mailDatabase);
                 Log.i("checking", "PasswordfromDatabase: " + passwordDatabase);
 
-                if (enterMail.equals(mailDatabase) && enterPassword.equals(passwordDatabase)) {
+                if ( enterMail.equals(mailDatabase) && enterPassword.equals(passwordDatabase)) {
                     Toast.makeText(getApplicationContext(), "Logowanie przebiegło pomyślnie", Toast.LENGTH_LONG).show();
-                    //                startActivity(intentEnterData);
+                    inputEmail.setText("");
+                    inputHaslo.setText("");
+
+                    startActivity(intentEnterData);
+
                 } else {
-                    Toast.makeText(getApplicationContext(), "Wprowadzone dane są niepoprawne", Toast.LENGTH_LONG).show();
-                }
+                    try {
+                        if (!dataBaseSQLUser.getDataMail(enterMail).getMail().equals(enterMail)) {
+                            inputEmail.setError("Check Email");
+                        }
+                    } catch (Exception e) {
+                        inputEmail.setError("Check Email");
+                        Log.i("checking", "exception checkingMailWhenLogin" + e.toString()); }
+                    try {
+                        if ( !dataBaseSQLUser.getDataMail(enterMail).getPassword().equals(enterPassword)) {
+                            inputHaslo.setError("Check Hasło");
+                        }
+                    } catch (Exception e) {
+                        inputHaslo.setError("Check Hasło");
+                        Log.i("checking", "exception checkingPassWhenLogin" + e.toString());
+                    }
+                        Toast.makeText(getApplicationContext(), "Wprowadzone dane są niepoprawne", Toast.LENGTH_LONG).show();
+                    }
+
+
+
+                SharedPreferences preferencesLogin = getSharedPreferences("ShearedUserLogin", MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = preferencesLogin.edit();
+                editor2.putInt("userLoginCheck", 1);
+                editor2.apply();
+                userLoginCheck = preferencesLogin.getInt("userLoginCheck",0);
+                Log.i("checking", "statusLogin2: " + userLoginCheck);
 
 
             }
@@ -97,7 +152,7 @@ public class Activity_Login extends AppCompatActivity {
             Intent intentGoToEnterData = new Intent(Activity_Login.this, MainActivity_enterdata.class);
             startActivity(intentGoToEnterData);
         } else if (checkbox.equals("false")){
-            Toast.makeText(Activity_Login.this, "Proszę zarejestruj się", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity_Login.this, "Proszę zaloguj się", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -121,14 +176,20 @@ public class Activity_Login extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.bar_menu, menu);
+
+        if(userLoginCheck == 1)
+        {
+            menuInflater.inflate(R.menu.bar_menu_login, menu);
+        } else
+        {
+            menuInflater.inflate(R.menu.bar_menu_logout, menu);
+        }
         return true;
     }
 
@@ -141,10 +202,15 @@ public class Activity_Login extends AppCompatActivity {
                 return true;
 
             case R.id.menu_logout:
-                SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("remember", "false");
-                editor.apply();
+//                SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+//                SharedPreferences.Editor editor = preferences.edit();
+//                editor.putString("remember", "false");
+//                editor.apply();
+
+                SharedPreferences preferencesLogin = getSharedPreferences("ShearedUserLogin", MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = preferencesLogin.edit();
+                editor2.putInt("userLoginCheck", 0);
+                editor2.apply();
 
                 finish();
 
@@ -153,11 +219,12 @@ public class Activity_Login extends AppCompatActivity {
                 return true;
 
             case R.id.menu_editdata:
-//               Intent  intentEditdata = new Intent(getApplicationContext(), MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.class);
-//                startActivity(intentEditdata);
+
+
+                startActivity(intentEditdata);
                 return true;
 
-            case R.id.menu_enterdata:
+            case R.id.menu_search:
                 Intent intentEnterdata = new Intent(getApplicationContext(), MainActivity_enterdata.class);
                 startActivity(intentEnterdata);
                 return true;
