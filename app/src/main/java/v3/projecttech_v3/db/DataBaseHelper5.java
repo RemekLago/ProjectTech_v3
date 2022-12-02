@@ -75,6 +75,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
         } else {
             return true;
         }
+
     }
 
     public Data5 getDataId (long id) {
@@ -129,7 +130,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
 
         String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY " +
                 Data5.COLUMN_ID + " DESC";
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()){
@@ -176,6 +177,26 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
         );
     }
 
+    public int updateDataByMail(Data5 data5) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(Data5.COLUMN_IMIE, data5.getImie());
+        values.put(Data5.COLUMN_NAZWISKO, data5.getNazwisko());
+        values.put(Data5.COLUMN_MAIL, data5.getMail());
+        values.put(Data5.COLUMN_TELEFON, data5.getTelefon());
+        values.put(Data5.COLUMN_LOKALIZACJAID, data5.getLokalizacjaID());
+        values.put(Data5.COLUMN_DZIALID, data5.getDzialID());
+        values.put(Data5.COLUMN_STANOWISKOID, data5.getStanowiskoID());
+        values.put(Data5.COLUMN_ADDDATE, data5.getAddDate());
+        values.put(Data5.COLUMN_STATUSID, data5.getStatusID());
+        values.put(Data5.COLUMN_PASSWORD, data5.getPassword());
+
+        return db.update(Data5.TABLE_NAME, values, Data5.COLUMN_MAIL + " = ? ",
+                new String[]{String.valueOf(data5.getId())}
+        );
+    }
+
     public void deleteDataId (Data5 data5){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(Data5.TABLE_NAME, Data5.COLUMN_ID + " = ?",
@@ -202,7 +223,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
 
         String selectQuery = "SELECT * FROM " + Data5.TABLE_NAME + " ORDER BY " +
                 columnName + " " + SORTEDBY_5;
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         int idNumber = 0;
         if (cursor.moveToFirst()){
@@ -258,6 +279,8 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
 
         if (cursor != null)
             cursor.moveToFirst();
+
+
 
         Data5 dataGetMail = new Data5(
                 cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_ID)),
