@@ -1,6 +1,8 @@
 package v3.projecttech_v3;
 
 import static android.graphics.Color.rgb;
+import static v3.projecttech_v3.Activity_Login.intentEditdata;
+import static v3.projecttech_v3.Activity_Login.userLoginCheck;
 import static v3.projecttech_v3.DataBaseChanges4.ListWithColumnsNames4;
 import static v3.projecttech_v3.MainActivity_Table2.database4;
 import static v3.projecttech_v3.MainActivity_Table2.intent10;
@@ -22,16 +24,21 @@ import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_13;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_14;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_15;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -418,5 +425,61 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
         Toast.makeText(getApplicationContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
         positionFordataBaseSQL4 = position;
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+
+        if(userLoginCheck == 1)
+        {
+            menuInflater.inflate(R.menu.bar_menu_login, menu);
+        } else
+        {
+            menuInflater.inflate(R.menu.bar_menu_logout, menu);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_login:
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_Login.class);
+                startActivity(intentLogin);
+                return true;
+
+            case R.id.menu_logout:
+//                SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+//                SharedPreferences.Editor editor = preferences.edit();
+//                editor.putString("remember", "false");
+//                editor.apply();
+
+                SharedPreferences preferencesLogin = getSharedPreferences("ShearedUserLogin", MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = preferencesLogin.edit();
+                editor2.putInt("userLoginCheck", 0);
+                editor2.apply();
+
+                finish();
+
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_Login.class);
+                startActivity(intentLogOut);
+                return true;
+
+            case R.id.menu_editdata:
+
+                startActivity(intentEditdata);
+                return true;
+
+            case R.id.menu_search:
+                Intent intentEnterdata = new Intent(getApplicationContext(), MainActivity_enterdata.class);
+                startActivity(intentEnterdata);
+                return true;
+
+            default:
+                return false;
+
+        }
     }
 }

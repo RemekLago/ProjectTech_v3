@@ -220,7 +220,6 @@ public class Activity_Login extends AppCompatActivity {
 
             case R.id.menu_editdata:
 
-
                 startActivity(intentEditdata);
                 return true;
 

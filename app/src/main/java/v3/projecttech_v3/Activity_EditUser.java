@@ -314,8 +314,7 @@ public class Activity_EditUser extends AppCompatActivity {
                 return true;
 
             case R.id.menu_editdata:
-                intentEditdata = new Intent(getApplicationContext(), Activity_EditUser.class);
-                intentEditdata.putExtra("emailUser", enterMail);
+
                 startActivity(intentEditdata);
                 return true;
 

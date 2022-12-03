@@ -1,6 +1,7 @@
 package v3.projecttech_v3;
 
 import static v3.projecttech_v3.Activity_Login.enterMail;
+import static v3.projecttech_v3.Activity_Login.intentEditdata;
 import static v3.projecttech_v3.Activity_Login.userLoginCheck;
 
 import androidx.annotation.NonNull;
@@ -126,8 +127,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
                 return true;
 
             case R.id.menu_editdata:
-                Intent intentEditdata = new Intent(getApplicationContext(), Activity_EditUser.class);
-                intentEditdata.putExtra("emailUser", enterMail);
+
                 startActivity(intentEditdata);
                 return true;
 
