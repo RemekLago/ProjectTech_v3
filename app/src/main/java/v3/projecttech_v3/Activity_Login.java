@@ -110,16 +110,22 @@ public class Activity_Login extends AppCompatActivity {
                     try {
                         if (!dataBaseSQLUser.getDataMail(enterMail).getMail().equals(enterMail)) {
                             inputEmail.setError("Check Email");
+                            inputEmail.setText("");
+                            inputHaslo.setText("");
                         }
                     } catch (Exception e) {
                         inputEmail.setError("Check Email");
+                        inputEmail.setText("");
+                        inputHaslo.setText("");
                         Log.i("checking", "exception checkingMailWhenLogin" + e.toString()); }
                     try {
                         if ( !dataBaseSQLUser.getDataMail(enterMail).getPassword().equals(enterPassword)) {
                             inputHaslo.setError("Check Hasło");
+                            inputHaslo.setText("");
                         }
                     } catch (Exception e) {
                         inputHaslo.setError("Check Hasło");
+                        inputHaslo.setText("");
                         Log.i("checking", "exception checkingPassWhenLogin" + e.toString());
                     }
                         Toast.makeText(getApplicationContext(), "Wprowadzone dane są niepoprawne", Toast.LENGTH_LONG).show();

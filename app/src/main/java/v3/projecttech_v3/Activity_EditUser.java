@@ -178,6 +178,7 @@ public class Activity_EditUser extends AppCompatActivity {
             return false;
         } else if (!matcherEmail.matches()) {
             inputEmail.setError("Email is incorrect");
+            inputEmail.setText("");
 //            Log.i("checkingEmail", inputEmail.toString());
             return false;
         } else {
@@ -234,6 +235,7 @@ public class Activity_EditUser extends AppCompatActivity {
 
         if (inputHaslo.length() == 0) {
             inputHaslo.setError("Password is required");
+            inputHaslo.setText("");
             return false;
         } else if (!matcherPassword.matches()) {
             inputHaslo.setError("Password should contain minimum 8 characters, 1 digit, " +
@@ -264,6 +266,7 @@ public class Activity_EditUser extends AppCompatActivity {
             return false;
         } else if (!matcherPassword.matches()) {
             inputHasloPotwierdz.setError("Password should contain minimum 4 characters");
+            inputHaslo.setText("");
             return false; }
 //            } else if (!inputHasloPotwierdz.toString().equals(inputHaslo.toString())) {
 //                inputHasloPotwierdz.setError("Check password, it must be the same");
