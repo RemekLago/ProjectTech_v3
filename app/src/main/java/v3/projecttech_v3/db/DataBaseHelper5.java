@@ -1,5 +1,6 @@
 package v3.projecttech_v3.db;
 
+import static v3.projecttech_v3.db.entity.Data5.COLUMN_MAIL;
 import static v3.projecttech_v3.db.entity.Data5.CREATE_TABLE;
 import static v3.projecttech_v3.db.entity.Data5.TABLE_NAME;
 
@@ -59,7 +60,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
 //        values.put(Data5.COLUMN_ID, data5.getId());
         values.put(Data5.COLUMN_IMIE, data5.getImie());
         values.put(Data5.COLUMN_NAZWISKO, data5.getNazwisko());
-        values.put(Data5.COLUMN_MAIL, data5.getMail());
+        values.put(COLUMN_MAIL, data5.getMail());
         values.put(Data5.COLUMN_TELEFON, data5.getTelefon());
         values.put(Data5.COLUMN_LOKALIZACJAID, data5.getLokalizacjaID());
         values.put(Data5.COLUMN_DZIALID, data5.getDzialID());
@@ -86,7 +87,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                         Data5.COLUMN_ID,
                         Data5.COLUMN_IMIE,
                         Data5.COLUMN_NAZWISKO,
-                        Data5.COLUMN_MAIL,
+                        COLUMN_MAIL,
                         Data5.COLUMN_TELEFON,
                         Data5.COLUMN_LOKALIZACJAID,
                         Data5.COLUMN_DZIALID,
@@ -111,7 +112,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                 cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_ID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_IMIE)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_NAZWISKO)),
-                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_MAIL)),
+                cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MAIL)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)),
@@ -139,7 +140,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                 data5.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_ID)));
                 data5.setImie(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_IMIE)));
                 data5.setNazwisko(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_NAZWISKO)));
-                data5.setMail(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_MAIL)));
+                data5.setMail(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MAIL)));
                 data5.setTelefon(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)));
                 data5.setLokalizacjaID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)));
                 data5.setDzialID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)));
@@ -163,7 +164,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Data5.COLUMN_IMIE, data5.getImie());
         values.put(Data5.COLUMN_NAZWISKO, data5.getNazwisko());
-        values.put(Data5.COLUMN_MAIL, data5.getMail());
+        values.put(COLUMN_MAIL, data5.getMail());
         values.put(Data5.COLUMN_TELEFON, data5.getTelefon());
         values.put(Data5.COLUMN_LOKALIZACJAID, data5.getLokalizacjaID());
         values.put(Data5.COLUMN_DZIALID, data5.getDzialID());
@@ -183,7 +184,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Data5.COLUMN_IMIE, data5.getImie());
         values.put(Data5.COLUMN_NAZWISKO, data5.getNazwisko());
-        values.put(Data5.COLUMN_MAIL, data5.getMail());
+        values.put(COLUMN_MAIL, data5.getMail());
         values.put(Data5.COLUMN_TELEFON, data5.getTelefon());
         values.put(Data5.COLUMN_LOKALIZACJAID, data5.getLokalizacjaID());
         values.put(Data5.COLUMN_DZIALID, data5.getDzialID());
@@ -192,7 +193,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
         values.put(Data5.COLUMN_STATUSID, data5.getStatusID());
         values.put(Data5.COLUMN_PASSWORD, data5.getPassword());
 
-        return db.update(Data5.TABLE_NAME, values, Data5.COLUMN_MAIL + " = ? ",
+        return db.update(Data5.TABLE_NAME, values, COLUMN_MAIL + " = ? ",
                 new String[]{String.valueOf(data5.getId())}
         );
     }
@@ -234,7 +235,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                 data5.setId(idNumber);
                 data5.setId(cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_IMIE)));
                 data5.setNazwisko(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_NAZWISKO)));
-                data5.setMail(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_MAIL)));
+                data5.setMail(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MAIL)));
                 data5.setTelefon(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)));
                 data5.setLokalizacjaID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)));
                 data5.setDzialID(cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)));
@@ -251,6 +252,32 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
         return dataGetAllOrdered;
     }
 
+    public boolean ifMailExists(String mail) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(
+//        "SELECT" + " *" + " FROM " + TABLE_NAME + " WHERE" + " EXISTS (" +
+//                "SELECT " + "1" + " FROM " + TABLE_NAME + " WHERE " + COLUMN_MAIL + " = " + mail + ")", null
+//        );
+
+        int a = 0;
+        Cursor cursor = db.rawQuery(
+        "IF EXISTS (" + "SELECT" + " *" + " FROM " + TABLE_NAME + " WHERE " + COLUMN_MAIL + " = " + mail + ")"
+                + "SET " + "a" + " = " + 1 + " ELSE " + "SET " + "a" + " = " + 0
+                , null
+        );
+
+        if (cursor.equals(true)) {
+            return true;
+        }
+        else if (cursor.equals(false)) {
+            return false;
+        }
+        return false;
+    }
+
+
+
     public Data5 getDataMail (String mail) {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -259,7 +286,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                         Data5.COLUMN_ID,
                         Data5.COLUMN_IMIE,
                         Data5.COLUMN_NAZWISKO,
-                        Data5.COLUMN_MAIL,
+                        COLUMN_MAIL,
                         Data5.COLUMN_TELEFON,
                         Data5.COLUMN_LOKALIZACJAID,
                         Data5.COLUMN_DZIALID,
@@ -268,7 +295,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                         Data5.COLUMN_STATUSID,
                         Data5.COLUMN_PASSWORD
                 },
-                Data5.COLUMN_MAIL + "=?",
+                COLUMN_MAIL + "=?",
                 new String[]{
                         String.valueOf(mail)
                 },
@@ -286,7 +313,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                 cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_ID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_IMIE)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_NAZWISKO)),
-                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_MAIL)),
+                cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MAIL)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)),
@@ -308,7 +335,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                         Data5.COLUMN_ID,
                         Data5.COLUMN_IMIE,
                         Data5.COLUMN_NAZWISKO,
-                        Data5.COLUMN_MAIL,
+                        COLUMN_MAIL,
                         Data5.COLUMN_TELEFON,
                         Data5.COLUMN_LOKALIZACJAID,
                         Data5.COLUMN_DZIALID,
@@ -333,7 +360,7 @@ public class DataBaseHelper5 extends SQLiteOpenHelper {
                 cursor.getInt(cursor.getColumnIndexOrThrow(Data5.COLUMN_ID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_IMIE)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_NAZWISKO)),
-                cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_MAIL)),
+                cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MAIL)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_TELEFON)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_LOKALIZACJAID)),
                 cursor.getString(cursor.getColumnIndexOrThrow(Data5.COLUMN_DZIALID)),

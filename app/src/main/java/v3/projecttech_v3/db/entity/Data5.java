@@ -199,5 +199,4 @@ public class Data5 {
                     COLUMN_PASSWORD + " TEXT" +
                     ")";
 
-
 }

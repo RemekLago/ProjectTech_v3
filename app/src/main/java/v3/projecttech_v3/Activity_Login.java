@@ -88,7 +88,7 @@ public class Activity_Login extends AppCompatActivity {
                 try {
                     mailDatabase = dataBaseSQLUser.getDataMail(enterMail.trim()).getMail();
                 } catch(Exception e){
-                    Log.i("checking", "exception mainDatabase" + e.toString());
+                    Log.i("checking", "exception mailDatabase" + e.toString());
                 }
                 try {
                     passwordDatabase = dataBaseSQLUser.getDataPassword(enterPassword).getPassword();

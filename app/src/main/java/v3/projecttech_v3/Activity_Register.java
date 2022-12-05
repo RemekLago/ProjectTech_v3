@@ -172,6 +172,7 @@ public class Activity_Register extends AppCompatActivity {
 
             Matcher matcherEmail = patternEmail.matcher(tmpInsertData.getMail().trim());
 
+            String mailDatabaseInput = null;
             if (inputEmail.length() == 0) {
                 inputEmail.setError("This field is required");
                 return false;
@@ -179,10 +180,16 @@ public class Activity_Register extends AppCompatActivity {
                 inputEmail.setError("Email is incorrect");
                 Log.i("checkingEmail", inputEmail.toString());
                 return false;
+
+//            } else if ( !dataBaseSQLUser.ifMailExists(inputEmail.getText().toString())) {
+//                inputEmail.setError("This email already exists in database");
+//                Log.i("checkingEmail", inputEmail.toString());
+//                return false;
             } else {
                 Log.i("checkingEmail", inputEmail.toString());
                 return true;
-            }}
+            }
+        }
 
         public boolean inputTelefon() {
             if (inputTelefon.length() == 0) {
