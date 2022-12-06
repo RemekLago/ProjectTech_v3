@@ -96,7 +96,7 @@
                     android:id="@+id/image3"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:background="@drawable/lokalizacja_pozycji_LKO"
+                    android:background="@drawable/lokalizacja_pozycji_lko"
                     android:layout_gravity="start|center_horizontal"
                     />
 
