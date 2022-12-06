@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_activity_backgroud"
+    tools:context=".Activity_Home_Lokalizacje" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="2dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:padding="2dp"
+            android:layout_margin="2dp"
+            android:orientation="horizontal">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view1"
+                android:layout_gravity="center"
+                android:layout_margin="3dp"
+                android:layout_width="130dp"
+                android:layout_height="150dp" >
+
+                <ImageButton
+                    android:id="@+id/image1"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:background="@drawable/lokalizacja_pozycji"
+                    android:layout_gravity="start|center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/info_text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:background="@color/mainColor"
+                    android:textColor="@color/white"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center"
+                    android:text="Lokalizacja pozycji" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view2"
+                android:layout_gravity="center"
+                android:layout_margin="3dp"
+                android:background="@color/white"
+                android:layout_width="130dp"
+                android:layout_height="150dp" >
+
+                <ImageButton
+                    android:id="@+id/image2"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:foregroundGravity="center"
+                    android:background="@drawable/zawartosc_lokalizacji"
+                    android:layout_gravity="start|center_horizontal"
+                    />
+
+
+                <TextView
+                    android:id="@+id/info_text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:background="@color/mainColor"
+                    android:textColor="@color/white"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center"
+                    android:text="Zawartość lokalizacji" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view3"
+                android:layout_gravity="center"
+                android:layout_margin="3dp"
+                android:background="@color/white"
+                android:layout_width="130dp"
+                android:layout_height="150dp" >
+
+                <ImageButton
+                    android:id="@+id/image3"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:background="@drawable/lokalizacja_pozycji_LKO"
+                    android:layout_gravity="start|center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/info_text3"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:background="@color/mainColor"
+                    android:textColor="@color/white"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center"
+                    android:text="Lokalizacja pozycji LKO" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/layout2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:padding="2dp"-->
+<!--            android:layout_margin="2dp"-->
+<!--            android:orientation="horizontal">-->
+
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/card_view4"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_margin="3dp"-->
+<!--                android:background="@color/white"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="150dp" >-->
+
+<!--                <ImageButton-->
+<!--                    android:id="@+id/image4"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="110dp"-->
+<!--                    android:background="@drawable/paletowanie"-->
+<!--                    android:layout_gravity="start|center_horizontal"-->
+<!--                    />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/info_text4"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:textSize="15sp"-->
+<!--                    android:background="@color/greyColor"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_gravity="bottom|center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Paletowanie" />-->
+
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/card_view5"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_margin="3dp"-->
+<!--                android:background="@color/white"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="150dp" >-->
+
+<!--                <ImageButton-->
+<!--                    android:id="@+id/image5"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="110dp"-->
+<!--                    android:foregroundGravity="center"-->
+<!--                    android:background="@drawable/wywoz"-->
+<!--                    android:layout_gravity="start|center_horizontal"-->
+<!--                    />-->
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/info_text5"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:textSize="15sp"-->
+<!--                    android:background="@color/greyColor"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_gravity="bottom|center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Wywóz" />-->
+
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/card_view6"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_margin="3dp"-->
+<!--                android:background="@color/white"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="150dp"-->
+<!--                android:visibility="invisible">-->
+
+<!--                <ImageButton-->
+<!--                    android:id="@+id/image6"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="110dp"-->
+<!--                    android:background="@drawable/zwrot"-->
+<!--                    android:layout_gravity="start|center_horizontal"-->
+<!--                    />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/info_text6"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:textSize="15sp"-->
+<!--                    android:background="@color/greyColor"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_gravity="bottom|center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Zwrot" />-->
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+<!--        </LinearLayout>-->
+
+        <!--            </ScrollView>-->
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
