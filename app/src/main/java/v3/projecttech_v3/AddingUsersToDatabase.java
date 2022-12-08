@@ -3,8 +3,7 @@ package v3.projecttech_v3;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-import static v3.projecttech_v3.Activity_Login.dataBaseSQLUser;
-import static v3.projecttech_v3.Activity_Register.tmpstatusID;
+import static v3.projecttech_v3.Activity_User_Login.dataBaseSQLUser;
 
 import android.os.Build;
 
