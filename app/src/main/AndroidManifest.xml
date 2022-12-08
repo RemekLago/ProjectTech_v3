@@ -39,21 +39,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_HomeScreen"
+            android:name=".Activity_User_Login"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_EditUser"
+            android:name=".Activity_User_EditUser"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_Register"
+            android:name=".Activity_User_Register"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -130,7 +130,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_Login"
+            android:name=".Activity_Home_Main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

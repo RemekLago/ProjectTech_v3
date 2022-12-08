@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,18 +16,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.sql.ResultSetMetaData;
-import java.time.LocalDateTime;
-
 import v3.projecttech_v3.db.DataBaseHelper5;
-import v3.projecttech_v3.db.entity.Data5;
-import v3.projecttech_v3.AddingUsersToDatabase;
 
-public class Activity_Login extends AppCompatActivity {
+public class Activity_User_Login extends AppCompatActivity {
     public static DataBaseHelper5 dataBaseSQLUser;
     public static Intent intentEnterData;
     public static Intent intentEditdata;
@@ -40,7 +32,7 @@ public class Activity_Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_user_login);
 
 
 
@@ -55,10 +47,10 @@ public class Activity_Login extends AppCompatActivity {
         Button buttonLogin = findViewById(R.id.buttonLogin);
         ImageView imageLogo1 = findViewById(R.id.imageLogo1);
 
-        dataBaseSQLUser = new DataBaseHelper5(Activity_Login.this);
+        dataBaseSQLUser = new DataBaseHelper5(Activity_User_Login.this);
         AddingUsersToDatabase.addingUser();
 
-        intentEnterData = new Intent(Activity_Login.this, MainActivity_enterdata.class);
+        intentEnterData = new Intent(Activity_User_Login.this, MainActivity_enterdata.class);
 
         SharedPreferences preferencesLogin2 = getSharedPreferences("ShearedUserLogin", MODE_PRIVATE);
         SharedPreferences.Editor editor2 = preferencesLogin2.edit();
@@ -80,7 +72,7 @@ public class Activity_Login extends AppCompatActivity {
                 Log.i("checking", "EnteredEmail: " + enterMail);
                 Log.i("checking", "EnteredPassword: " + enterPassword);
 
-                intentEditdata = new Intent(getApplicationContext(), Activity_EditUser.class);
+                intentEditdata = new Intent(getApplicationContext(), Activity_User_EditUser.class);
                 intentEditdata.putExtra("emailUser", enterMail);
                 Log.i("checking", "enterMail : " + enterMail);
 
@@ -147,7 +139,7 @@ public class Activity_Login extends AppCompatActivity {
         textView_ZapiszSie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentIdzDoRejestracja = new Intent(Activity_Login.this, Activity_Register.class);
+                Intent intentIdzDoRejestracja = new Intent(Activity_User_Login.this, Activity_User_Register.class);
                 startActivity(intentIdzDoRejestracja);
             }
         });
@@ -155,10 +147,10 @@ public class Activity_Login extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
         String checkbox = preferences.getString("remember", "");
         if(checkbox.equals("true")){
-            Intent intentGoToEnterData = new Intent(Activity_Login.this, MainActivity_enterdata.class);
+            Intent intentGoToEnterData = new Intent(Activity_User_Login.this, MainActivity_enterdata.class);
             startActivity(intentGoToEnterData);
         } else if (checkbox.equals("false")){
-            Toast.makeText(Activity_Login.this, "Proszę zaloguj się", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity_User_Login.this, "Proszę zaloguj się", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -171,14 +163,14 @@ public class Activity_Login extends AppCompatActivity {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("remember", "true");
                     editor.apply();
-                    Toast.makeText(Activity_Login.this, "Checked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_User_Login.this, "Checked", Toast.LENGTH_SHORT).show();
 
                 } else if ( !compoundButton.isChecked()){
                     SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("remember", "false");
                     editor.apply();
-                    Toast.makeText(Activity_Login.this, "Unchecked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_User_Login.this, "Unchecked", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -203,7 +195,7 @@ public class Activity_Login extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -220,7 +212,7 @@ public class Activity_Login extends AppCompatActivity {
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
                 startActivity(intentLogOut);
                 return true;
 
