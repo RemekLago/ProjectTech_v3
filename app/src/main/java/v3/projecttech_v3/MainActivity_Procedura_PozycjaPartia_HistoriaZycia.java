@@ -1,20 +1,11 @@
 package v3.projecttech_v3;
 
 import static android.graphics.Color.rgb;
-import static v3.projecttech_v3.Activity_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_Login.userLoginCheck;
-import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
-import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
+import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
 import static v3.projecttech_v3.DataBaseChanges3.ListWithColumnsNames3;
 import static v3.projecttech_v3.MainActivity_Table2.database3;
-import static v3.projecttech_v3.MainActivity_Table2.recyclerView;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_10;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_11;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_12;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_13;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_14;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_15;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_4;
@@ -22,7 +13,6 @@ import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_5;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_6;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_7;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_8;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_9;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,9 +37,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.db.DataBaseHelper;
 import v3.projecttech_v3.db.DataBaseHelper3;
-import v3.projecttech_v3.db.entity.Data;
 import v3.projecttech_v3.db.entity.Data3;
 
 public class MainActivity_Procedura_PozycjaPartia_HistoriaZycia extends AppCompatActivity implements RecyclerViewInterface3{
@@ -322,7 +310,7 @@ public class MainActivity_Procedura_PozycjaPartia_HistoriaZycia extends AppCompa
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -339,7 +327,7 @@ public class MainActivity_Procedura_PozycjaPartia_HistoriaZycia extends AppCompa
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
                 startActivity(intentLogOut);
                 return true;
 

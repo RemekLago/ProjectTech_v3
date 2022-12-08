@@ -1,13 +1,10 @@
 package v3.projecttech_v3;
 
 import static android.graphics.Color.rgb;
-import static v3.projecttech_v3.Activity_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_Login.userLoginCheck;
+import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
+import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
 import static v3.projecttech_v3.DataBaseChanges4.ListWithColumnsNames4;
 import static v3.projecttech_v3.MainActivity_Table2.database4;
-import static v3.projecttech_v3.MainActivity_Table2.intent10;
-import static v3.projecttech_v3.MainActivity_Table2.intent11;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rPozycja;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
@@ -446,7 +443,7 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -463,7 +460,7 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
                 startActivity(intentLogOut);
                 return true;
 

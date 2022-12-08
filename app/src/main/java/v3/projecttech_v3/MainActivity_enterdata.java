@@ -1,8 +1,7 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Activity_Login.enterMail;
-import static v3.projecttech_v3.Activity_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_Login.userLoginCheck;
+import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
+import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -105,7 +104,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -122,7 +121,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
                 startActivity(intentLogOut);
                 return true;
 

@@ -1,10 +1,9 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Activity_Login.enterMail;
-import static v3.projecttech_v3.Activity_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_Login.userLoginCheck;
+import static v3.projecttech_v3.Activity_User_Login.enterMail;
+import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
+import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.Barcode;
 import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rKomunikat;
 
 import androidx.annotation.NonNull;
@@ -18,12 +17,8 @@ import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.HashMap;
 
 
 public class MainActivity_Etykieta extends AppCompatActivity {
@@ -101,7 +96,7 @@ public class MainActivity_Etykieta extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -118,12 +113,12 @@ public class MainActivity_Etykieta extends AppCompatActivity {
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
                 startActivity(intentLogOut);
                 return true;
 
             case R.id.menu_editdata:
-                intentEditdata = new Intent(getApplicationContext(), Activity_EditUser.class);
+                intentEditdata = new Intent(getApplicationContext(), Activity_User_EditUser.class);
                 intentEditdata.putExtra("emailUser", enterMail);
                 startActivity(intentEditdata);
                 return true;
