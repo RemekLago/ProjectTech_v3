@@ -3,15 +3,21 @@ package v3.projecttech_v3;
 import static v3.projecttech_v3.AdapterRecyclerView_Home.tmpUserSettings2;
 import static v3.projecttech_v3.InputExampleToActivity_Home.gettingRandomUser1;
 import static v3.projecttech_v3.InputExampleToActivity_Home.inputtingExampleData;
+import static v3.projecttech_v3.Procedura_Drzewko_Kafelki_prcAccountFormTree.takingUserSettings;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.takingPositionInformation;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Activity_Home_Main extends AppCompatActivity {
     RecyclerView recyclerView_dataList;
@@ -20,15 +26,35 @@ public class Activity_Home_Main extends AppCompatActivity {
     AdapterRecyclerView_Home adapterRecyclerView_home;
     ArrayList<ArrayList<String>> userSettings;
     public static ArrayList<ArrayList<String>> userSettings2;
+    public static HashMap<String, ArrayList<String>> listWithUserSettings;
 
+    @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_main);
 
+
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    DataBaseChanges5_home databaseUserSettings = new DataBaseChanges5_home();
+                    listWithUserSettings = databaseUserSettings.doInBackground();
+                } catch (Exception e) {
+                    Log.i("checking", "exception Procedura_Drzewko_Kafelki_prcAccountFormTree2" + e.toString());
+                }
+            }
+        });
+        thread.start();
+
         // for test - take random user with some settings
         inputtingExampleData();
         userSettings = gettingRandomUser1();
+
+
+
 
         try {
             userSettings2 = tmpUserSettings2;

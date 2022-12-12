@@ -5,6 +5,7 @@ import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
 import static v3.projecttech_v3.MainActivity_enterdata.intent2;
 import static v3.projecttech_v3.MainActivity_enterdata.pozycja_input;
 
+import android.os.AsyncTask;
 import android.util.Log;
 import android.util.SparseArray;
 
@@ -26,6 +27,7 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
     static int numberOfColumns2;
     static ResultSet rs;
     static ArrayList<String> columnsNames2 = new ArrayList<>();
+
 
     public ArrayList<ArrayList<String>> takingLocalizationPosition() {
 
@@ -128,4 +130,6 @@ public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
         return Result2;
 //        return dataBaseSQL;
     }
+
+
 }
