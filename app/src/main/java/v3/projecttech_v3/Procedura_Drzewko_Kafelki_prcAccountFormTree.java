@@ -1,6 +1,11 @@
 package v3.projecttech_v3;
 
+import static v3.projecttech_v3.Activity_Home_Main.userAccessLevel;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,15 +24,15 @@ import java.util.Set;
 
 public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
     public static String Firma;
-    public static String TreeNodeId;
+    public static int TreeNodeId;
     static String UserId;
     static int numberOfColumns;
     static ResultSet rs;
     static ArrayList<String> columnsNames = new ArrayList<>();
-    public static HashMap<String, ArrayList<String>> tmpListWithUserSettings;
+    public static ArrayList<ArrayList<String>> tmpListWithUserSettings;
 
 
-    public static HashMap<String, ArrayList<String>> takingUserSettings() {
+    public static ArrayList<ArrayList<String>> takingUserSettings() {
 
         //connecting to database
         try {
@@ -48,11 +53,12 @@ public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
 
 
             UserId = "1";
-            TreeNodeId = "9"; // tymczasowo, do pobrania po kliknięciu w kafelek
+            TreeNodeId = 0;
+//            TreeNodeId = userAccessLevel; // user zawsze zaczyna z uprawnieniami 0
             Log.i("checking", "TreeNodeId: " + TreeNodeId);
 
             callableStatement.setInt("UserId", Integer.valueOf(UserId));
-            callableStatement.setInt("TreeNodeId", Integer.valueOf(TreeNodeId));
+            callableStatement.setInt("TreeNodeId", TreeNodeId);
 
             ResultSet rs;
             rs = callableStatement.executeQuery();
@@ -65,27 +71,30 @@ public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
             for (int i = 1; i <= columnCount; i++) {
                 String columnName = rsmd.getColumnName(i);
                 columnsNames.add(columnName);
-//                Log.i("checking", "columnsNames: " + columnName);
+                Log.i("checking", "columnsNames: " + columnName);
             }
             numberOfColumns = columnsNames.size();
-//            Log.i("checking", "numberOfColumns: " + numberOfColumns);
+            Log.i("checking", "numberOfColumns: " + numberOfColumns);
 //            Log.i("checking", "ResultSet: " + rs.next());
 
-            ArrayList<String> tmpRecord = new ArrayList<>();
-            tmpListWithUserSettings = new HashMap<>();
 
+
+            tmpListWithUserSettings = new ArrayList<>();
 
             while (rs.next()) {
-
+                ArrayList<String> tmpRecord = new ArrayList<>();
+//                tmpRecord.clear();
                 for (int i=1; i <= numberOfColumns; i++) {
                     tmpRecord.add(rs.getString(i));
                 }
 
-//                Log.i("checking", "tmpRecord: " + tmpRecord.get(1));
-//                Log.i("checking", "tmpRecord: " + tmpRecord);
-                tmpListWithUserSettings.put(tmpRecord.get(1), tmpRecord);
-//                Log.i("checking", "tmpListWithUserSettings: " + tmpListWithUserSettings.get(tmpRecord.get(1)));
-                tmpRecord.clear();
+                Log.i("checking", "tmpRecord: " + tmpRecord.get(1));
+                Log.i("checking", "tmpRecord: " + tmpRecord);
+
+                tmpListWithUserSettings.add(tmpRecord);
+//                Log.i("checking", "tmpListWithUserSettings: " + tmpListWithUserSettings.get(0).get(1));
+                Log.i("checking", "tmpListWithUserSettings: " + tmpListWithUserSettings);
+
             }
             callableStatement.close();
             connection.close();
@@ -93,6 +102,7 @@ public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
         } catch (Exception e) {
             Log.i("checking", "exception Procedura_Drzewko_Kafelki_prcAccountFormTree" + e.toString());
         }
+        Log.i("checking", "return tmpListWithUserSettings: " + tmpListWithUserSettings.size());
         return tmpListWithUserSettings;
 
     }
