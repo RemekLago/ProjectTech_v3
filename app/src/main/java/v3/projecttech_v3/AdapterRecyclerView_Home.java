@@ -11,6 +11,7 @@ import static v3.projecttech_v3.InputExampleToActivity_Home2.user1_2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,12 +28,12 @@ import java.util.ArrayList;
 public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecyclerView_Home.ViewHolder> {
 
     ArrayList<String> tmpTitles;
-    ArrayList<Integer> tmpImages;
+    ArrayList<Bitmap> tmpImages;
     LayoutInflater inflater;
     public static ArrayList<ArrayList<String>> tmpUserSettings2;
 
 
-    public AdapterRecyclerView_Home(Context context, ArrayList<String> tmpTitles, ArrayList<Integer> tmpImages) {
+    public AdapterRecyclerView_Home(Context context, ArrayList<String> tmpTitles, ArrayList<Bitmap> tmpImages) {
         this.tmpTitles = tmpTitles;
         this.tmpImages = tmpImages;
         this.inflater = LayoutInflater.from(context);
@@ -48,7 +49,7 @@ public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecycl
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.title.setText(tmpTitles.get(position));
-        holder.gridIcon.setImageResource(tmpImages.get(position));
+        holder.gridIcon.setImageBitmap(tmpImages.get(position));
 
     }
 
