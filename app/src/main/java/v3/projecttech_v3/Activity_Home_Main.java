@@ -6,6 +6,7 @@ import static v3.projecttech_v3.InputExampleToActivity_Home.inputtingExampleData
 import static v3.projecttech_v3.Procedura_Drzewko_Kafelki_prcAccountFormTree.takingUserSettings;
 import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.takingPositionInformation;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,6 +36,7 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
     public static ArrayList<ArrayList<String>> userSettings2;
     public static ArrayList<ArrayList<String>> listWithUserSettings;
     public static int userAccessLevel;
+    public static SharedPreferences preferences;
 
     @SuppressLint("WrongThread")
     @Override
@@ -52,28 +54,35 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_main);
 
-        // ustawienie zmiennej userAccessLevel na początkową wartość: 0,
-        // potem w zależności jaki box będzie kliknięty w procedurze wartość ta ulegnie zmianie
-        SharedPreferences preferences = getSharedPreferences("UserSettings", MODE_PRIVATE);
-        SharedPreferences.Editor editor2 = preferences.edit();
-        editor2.putInt("UserSettings", 0);
-        editor2.apply();
-        userAccessLevel = preferences.getInt("UserSettings",0);
-
         listWithUserSettings = new ArrayList<>();
 
-//        Thread thread = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-                    DataBaseChanges5_home databaseUserSettings = new DataBaseChanges5_home();
-                    listWithUserSettings = databaseUserSettings.doInBackground();
-//                } catch (Exception e) {
-//                    Log.i("checking", "exception Procedura_Drzewko_Kafelki_prcAccountFormTree2" + e.toString());
-//                }
-//            }
-//        });
-//        thread.start();
+        // ustawienie zmiennej userAccessLevel na początkową wartość: 0,
+        // potem w zależności jaki box będzie kliknięty w procedurze wartość ta ulegnie zmianie
+
+        preferences = getSharedPreferences("UserSettings", MODE_PRIVATE);
+        userAccessLevel = preferences.getInt("UserSettings",0);
+//        SharedPreferences.Editor editor2 = preferences.edit();
+//        editor2.putInt("UserSettings", 0);
+//        editor2.apply();
+//        userAccessLevel = preferences.getInt("UserSettings",0);
+
+        Log.i("checking", "userAccessLevel_1: " + userAccessLevel);
+
+        if (userAccessLevel != 0){
+            DataBaseChanges5_home databaseUserSettings = new DataBaseChanges5_home();
+            listWithUserSettings = databaseUserSettings.doInBackground();
+
+        } else {
+            preferences = getSharedPreferences("UserSettings", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("UserSettings", 0);
+            editor.apply();
+
+            DataBaseChanges5_home databaseUserSettings = new DataBaseChanges5_home();
+            listWithUserSettings = databaseUserSettings.doInBackground();
+
+        }
+
 
 
 
@@ -92,8 +101,8 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
         titles = new ArrayList<>();
         images = new ArrayList<>();
 
-        Log.i("checking", "listWithUserSettings1 size: " + listWithUserSettings.size());
-        Log.i("checking", "listWithUserSettings1: " + listWithUserSettings.get(0));
+//        Log.i("checking", "listWithUserSettings1 size: " + listWithUserSettings.size());
+//        Log.i("checking", "listWithUserSettings1: " + listWithUserSettings.get(0));
 //
         for (int i=0; i < listWithUserSettings.size(); i++) {
             Log.i("checking", "listWithUserSettings: " + listWithUserSettings.get(i));
@@ -138,6 +147,26 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
         recyclerView_dataList.setLayoutManager(gridLayoutManager);
         recyclerView_dataList.setAdapter(adapterRecyclerView_home);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        userAccessLevel = preferences.getInt("UserSettings",0);
+        Log.i("checking", "userAccessLevel_callback1: " + userAccessLevel);
+
+        preferences = getSharedPreferences("UserSettings", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("UserSettings", 0);
+        editor.apply();
+        userAccessLevel = preferences.getInt("UserSettings",0);
+
+        Log.i("checking", "userAccessLevel_callback2: " + userAccessLevel);
+
+        Intent goBack =new Intent(getApplicationContext(), Activity_Home_Main.class);
+        startActivity(goBack);
+
+//        super.onBackPressed();
     }
 
     @Override

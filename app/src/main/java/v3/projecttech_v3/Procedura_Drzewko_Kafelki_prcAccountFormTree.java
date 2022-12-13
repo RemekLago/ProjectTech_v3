@@ -52,9 +52,9 @@ public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
             Log.i("checking", "CallableStatement: " + callableStatement.toString());
 
 
-            UserId = "1";
-            TreeNodeId = 0;
-//            TreeNodeId = userAccessLevel; // user zawsze zaczyna z uprawnieniami 0
+            UserId = "25";
+//            TreeNodeId = 0;
+            TreeNodeId = userAccessLevel; // user zawsze zaczyna z uprawnieniami 0
             Log.i("checking", "TreeNodeId: " + TreeNodeId);
 
             callableStatement.setInt("UserId", Integer.valueOf(UserId));
@@ -88,12 +88,12 @@ public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
                     tmpRecord.add(rs.getString(i));
                 }
 
-                Log.i("checking", "tmpRecord: " + tmpRecord.get(1));
-                Log.i("checking", "tmpRecord: " + tmpRecord);
+//                Log.i("checking", "tmpRecord: " + tmpRecord.get(1));
+//                Log.i("checking", "tmpRecord: " + tmpRecord);
 
                 tmpListWithUserSettings.add(tmpRecord);
 //                Log.i("checking", "tmpListWithUserSettings: " + tmpListWithUserSettings.get(0).get(1));
-                Log.i("checking", "tmpListWithUserSettings: " + tmpListWithUserSettings);
+//                Log.i("checking", "tmpListWithUserSettings: " + tmpListWithUserSettings);
 
             }
             callableStatement.close();
@@ -102,7 +102,7 @@ public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
         } catch (Exception e) {
             Log.i("checking", "exception Procedura_Drzewko_Kafelki_prcAccountFormTree" + e.toString());
         }
-        Log.i("checking", "return tmpListWithUserSettings: " + tmpListWithUserSettings.size());
+//        Log.i("checking", "return tmpListWithUserSettings: " + tmpListWithUserSettings.size());
         return tmpListWithUserSettings;
 
     }
