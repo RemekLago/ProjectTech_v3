@@ -1,6 +1,5 @@
 package v3.projecttech_v3.db;
 
-import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
 import static v3.projecttech_v3.db.entity.Data.CREATE_TABLE;
 import static v3.projecttech_v3.db.entity.Data.TABLE_NAME;
 

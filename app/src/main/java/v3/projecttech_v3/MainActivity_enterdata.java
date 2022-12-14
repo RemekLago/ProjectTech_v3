@@ -32,7 +32,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
         setContentView(R.layout.activity_main_enterdata);
 
         intent1 = new Intent(MainActivity_enterdata.this, MainActivity_Scanner.class);
-        intent2 = new Intent(MainActivity_enterdata.this, MainActivity_Table2.class);
+        intent2 = new Intent(MainActivity_enterdata.this, Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
 
         Button button_scan = findViewById(R.id.buttonSearch);
         button_scan.setOnClickListener(new View.OnClickListener() {

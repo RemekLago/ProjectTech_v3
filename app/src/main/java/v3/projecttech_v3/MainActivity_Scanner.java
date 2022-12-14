@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
-import com.google.zxing.Result;
 
 public class MainActivity_Scanner extends AppCompatActivity {
 
@@ -28,7 +27,7 @@ public class MainActivity_Scanner extends AppCompatActivity {
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
 //        intent = new Intent(MainActivity_Scanner.this, MainActivity_Table.class);
 //        intent2 = new Intent(MainActivity_Scanner.this, MainActivity_progressBar.class);
-        intent3 = new Intent(MainActivity_Scanner.this, MainActivity_Table2.class);
+        intent3 = new Intent(MainActivity_Scanner.this, Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
         mCodeScanner = new CodeScanner(this, scannerView);
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override

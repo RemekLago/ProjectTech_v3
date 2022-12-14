@@ -81,7 +81,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity_Table2"
+            android:name=".Activity_Home_Main"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -130,7 +130,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_Home_Main"
+            android:name=".Formularz1_InformacjeOPozycji_MainActivity_Table2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

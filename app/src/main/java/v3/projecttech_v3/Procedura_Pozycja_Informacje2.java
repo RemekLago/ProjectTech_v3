@@ -1,18 +1,12 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
 import static v3.projecttech_v3.MainActivity_Scanner.barcodeInput;
-import static v3.projecttech_v3.MainActivity_Scanner.intent3;
-import static v3.projecttech_v3.MainActivity_Table2.intent4;
-import static v3.projecttech_v3.MainActivity_Table2.searchCode;
-import static v3.projecttech_v3.MainActivity_Table2.textViewSearch;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.searchCode;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.textViewSearch;
 import static v3.projecttech_v3.MainActivity_enterdata.editTextNumber;
-import static v3.projecttech_v3.MainActivity_enterdata.intent2;
 import static v3.projecttech_v3.MainActivity_enterdata.pozycja_input;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;

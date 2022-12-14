@@ -4,7 +4,7 @@ import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
 import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
 import static v3.projecttech_v3.DataBaseChanges4.ListWithColumnsNames4;
-import static v3.projecttech_v3.MainActivity_Table2.database4;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.database4;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
@@ -98,7 +98,7 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
 
         Button buttonBack = findViewById(R.id.buttonBack);
 
-        Intent intent12 = new Intent(this, MainActivity_Table2.class);
+        Intent intent12 = new Intent(this, Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -16,6 +16,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -31,6 +33,8 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
     RecyclerView recyclerView_dataList;
     ArrayList<String> titles;
     ArrayList<Bitmap> images;
+//    ArrayList<Drawable> images;
+
     AdapterRecyclerView_Home adapterRecyclerView_home;
     ArrayList<ArrayList<String>> userSettings;
     public static ArrayList<ArrayList<String>> userSettings2;
@@ -111,6 +115,7 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
             byte[] decodedString = Base64.decode(base64String, Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
             images.add(decodedByte);
+//            images.add(getDrawable(R.drawable.informacja));
         }
 
 

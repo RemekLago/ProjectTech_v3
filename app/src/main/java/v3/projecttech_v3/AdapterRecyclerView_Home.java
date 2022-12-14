@@ -17,6 +17,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,7 @@ import java.util.ArrayList;
 public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecyclerView_Home.ViewHolder> {
 
     ArrayList<String> tmpTitles;
+//    ArrayList<Drawable> tmpImages;
     ArrayList<Bitmap> tmpImages;
     LayoutInflater inflater;
     public static ArrayList<ArrayList<String>> tmpUserSettings2;
@@ -56,6 +58,7 @@ public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecycl
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.title.setText(tmpTitles.get(position));
         holder.gridIcon.setImageBitmap(tmpImages.get(position));
+//        holder.gridIcon.setImageDrawable(tmpImages.get(position));
 
     }
 

@@ -2,15 +2,12 @@ package v3.projecttech_v3;
 
 
 
-import static v3.projecttech_v3.MainActivity_Table2.FinalListWithCellColor;
-import static v3.projecttech_v3.MainActivity_Table2.FinalListWithColumnsAdjust;
-import static v3.projecttech_v3.MainActivity_Table2.FinalListWithColumnsWidth;
-import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
-import static v3.projecttech_v3.MainActivity_Table2.database2;
-import static v3.projecttech_v3.MainActivity_Table2.intent10;
-import static v3.projecttech_v3.MainActivity_Table2.intent11;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rPozycja;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.FinalListWithCellColor;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.FinalListWithColumnsAdjust;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.database2;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.intent10;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.intent11;
 
 import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;
@@ -19,13 +16,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -35,7 +27,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.MenuPopupWindow;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;

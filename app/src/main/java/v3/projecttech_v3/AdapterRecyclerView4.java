@@ -2,9 +2,8 @@ package v3.projecttech_v3;
 
 import static v3.projecttech_v3.MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.FinalListWithCellColor4;
 import static v3.projecttech_v3.MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.FinalListWithColumnsAdjust4;
-import static v3.projecttech_v3.MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.FinalListWithColumnsWidth4;
 import static v3.projecttech_v3.MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.dataBaseSQL4;
-import static v3.projecttech_v3.MainActivity_Table2.database4;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.database4;
 
 import android.content.Context;
 import android.graphics.Color;

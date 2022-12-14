@@ -1,13 +1,9 @@
 package v3.projecttech_v3;
 
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
-import static v3.projecttech_v3.MainActivity_Table2.dataBaseSQL;
-import static v3.projecttech_v3.MainActivity_enterdata.intent2;
-import static v3.projecttech_v3.MainActivity_enterdata.pozycja_input;
+import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
 
-import android.os.AsyncTask;
 import android.util.Log;
-import android.util.SparseArray;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -16,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
-import v3.projecttech_v3.db.DataBaseHelper;
 import v3.projecttech_v3.db.entity.Data;
 
 public class Procedura_Magazyn_Pozycje_Lokalizacje2 {

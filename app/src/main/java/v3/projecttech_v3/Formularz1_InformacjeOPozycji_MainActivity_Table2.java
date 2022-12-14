@@ -1,14 +1,15 @@
 package v3.projecttech_v3;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
 //import static v3.projecttech_v3.AdapterRecyclerView.position2;
 import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
 import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
-import static v3.projecttech_v3.MainActivity_enterdata.editTextNumber;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.gettingrPozycja;
 import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rKomunikat;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rPozycja;
 import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rStatus;
+import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.tmpHashMap2;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_10;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_11;
@@ -29,29 +30,25 @@ import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_9;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.transition.AutoTransition;
-import android.transition.TransitionManager;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import v3.projecttech_v3.db.DataBaseHelper;
 import v3.projecttech_v3.db.entity.Data;
 
-public class MainActivity_Table2 extends AppCompatActivity implements RecyclerViewInterface{
+public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompatActivity implements RecyclerViewInterface{
 
     public static ArrayList<ArrayList<String>> database2;
     public static ArrayList<ArrayList<String>> database3;
@@ -65,8 +62,6 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
     public static DataBaseHelper dataBaseSQL;
     public static String columnName;
     public static RecyclerView recyclerView;
-    public static RecyclerView recyclerView3;
-    public static RecyclerView recyclerView4;
     public static AdapterRecyclerView2 adapterRecyclerView2;
 
     static String searchCode;
@@ -90,7 +85,7 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_table2);
 
-        dataBaseSQL = new DataBaseHelper(MainActivity_Table2.this);
+        dataBaseSQL = new DataBaseHelper(Formularz1_InformacjeOPozycji_MainActivity_Table2.this);
 
         Log.i("checking", dataBaseSQL.toString());
 
@@ -112,7 +107,12 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         String checkStatus = rStatus;
-        if (checkStatus.equals("0")) {
+        String checkPozycja = gettingrPozycja();
+
+        if (checkStatus.equals("0") && checkPozycja.equals("000000000")) {
+            Toast.makeText(getApplicationContext(), "Wpisz numer pozycji lub zeskanuj", Toast.LENGTH_LONG).show();
+        }
+        else if (checkStatus.equals("0")) {
             Toast.makeText(getApplicationContext(), rKomunikat, Toast.LENGTH_LONG).show();
         }
 
@@ -122,21 +122,25 @@ public class MainActivity_Table2 extends AppCompatActivity implements RecyclerVi
         buttonScanCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity_Table2.this, MainActivity_Scanner.class));
+                startActivity(new Intent(Formularz1_InformacjeOPozycji_MainActivity_Table2.this, MainActivity_Scanner.class));
             }
         });
 
         Button buttonSearch = findViewById(R.id.buttonSearch);
         textViewSearch = findViewById(R.id.editTextNumber);
 
-        intent4 = new Intent(MainActivity_Table2.this, MainActivity_Table2.class);
+        intent4 = new Intent(Formularz1_InformacjeOPozycji_MainActivity_Table2.this, Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
 
          buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 searchCode = textViewSearch.getText().toString();
                 textViewSearch.setText(null);
-                editTextNumber.setText(null);
+//                editTextNumber.setText(null); // textview form Activity EnterData
+                    if( searchCode.length() != 9) {
+                        Toast.makeText(getApplicationContext(), "Pozycja musi mieć 9 cyfr", Toast.LENGTH_LONG).show();
+                }
+
                 intent4.putExtra("searchPozycja",searchCode);
                 Log.i("checking", "ButtonSearch: " + searchCode);
                 startActivity(intent4);
