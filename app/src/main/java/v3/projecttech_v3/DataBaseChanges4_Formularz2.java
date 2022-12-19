@@ -1,41 +1,48 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Procedura_Magazyn_Pozycje_Lokalizacje2.columnsNames2;
-import static v3.projecttech_v3.Procedura_Magazyn_Pozycje_Lokalizacje2.numberOfColumns2;
+
+
+import static v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2.columnsNames4;
+import static v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2.numberOfColumns4;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class DataBaseChanges2 extends AsyncTask <String, Void, ArrayList<ArrayList<String>>> {
+import v3.projecttech_v3.procedury.Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2;
+import v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2;
 
-    static ArrayList<ArrayList<String>> ArrayListWithFinalData = new ArrayList<>();
-    public static HashMap<String, String> tmpdata2;
+public class DataBaseChanges4_Formularz2 extends AsyncTask <String, Void, ArrayList<ArrayList<String>>> {
 
-    static ArrayList<String> ListWithColumnsNames = new ArrayList<>();
-    ArrayList<Integer> ListWithColumnsWidth = new ArrayList<>();
-    static ArrayList<Integer> ListWithColumnsAdjust = new ArrayList<>();
-    static ArrayList<String > ListWithCellColor = new ArrayList<>();
+    static ArrayList<ArrayList<String>> ArrayListWithFinalData4 = new ArrayList<>();
+    public static HashMap<String, String> tmpdata5;
+
+    public static ArrayList<String> ListWithColumnsNames4 = new ArrayList<>();
+    ArrayList<Integer> ListWithColumnsWidth4 = new ArrayList<>();
+    static ArrayList<Integer> ListWithColumnsAdjust4 = new ArrayList<>();
+    static ArrayList<String > ListWithCellColor4 = new ArrayList<>();
 
     @Override
-    protected ArrayList<ArrayList<String>> doInBackground(String... strings) {
+    public ArrayList<ArrayList<String>> doInBackground(String... strings) {
 
-        Procedura_Pozycja_Informacje2 informacje = new Procedura_Pozycja_Informacje2();
-        tmpdata2 = informacje.takingPositionInformation();
+        // HashMap with data: rStatus, rKomunikat, rMagazyn, rLokalizacja
+        Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2 procedura = new Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2();
+        tmpdata5 = procedura.takingMagazynLokalzacja();
 
-        Procedura_Magazyn_Pozycje_Lokalizacje2 procedura = new Procedura_Magazyn_Pozycje_Lokalizacje2();
-        ArrayListWithFinalData = procedura.takingLocalizationPosition();
-        Log.i("checking", "method_doInBackground " + ArrayListWithFinalData.size());
+//        if (Objects.equals(tmpdata5.get("rStatus"), "1")) {
+            Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2 procedura2 = new Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2();
+            ArrayListWithFinalData4 = procedura2.takingLocalizationPosition(tmpdata5.get("Magazyn"), tmpdata5.get("Lokalizacja"));
+//        }
 
-        return ArrayListWithFinalData;
+        return ArrayListWithFinalData4;
     }
-
 
     public ArrayList<ArrayList<String>> cleaningDatabase(ArrayList<ArrayList<String>> dataIn){
         for (int i = 0; i < dataIn.size(); i++){
-            for (int j = 0; j < numberOfColumns2; j++){
+            for (int j = 0; j < numberOfColumns4; j++){
                 if (dataIn.get(i).get(j) == null || dataIn.get(i).get(j).isEmpty()) {
 //                    Log.i("checking", "method celaningDatabase: " + i + " " + dataIn.get(i).get(j));
                     dataIn.get(i).set(j,"0");
@@ -49,43 +56,44 @@ public class DataBaseChanges2 extends AsyncTask <String, Void, ArrayList<ArrayLi
     public ArrayList<String> columnsNames() {
 
         try {
-            for (int i = 0; i < columnsNames2.size(); i++) {
-                String tmpOneColumn = (columnsNames2.get(i).split("\\|")[1]);
+            for (int i = 0; i < columnsNames4.size(); i++) {
+                String tmpOneColumn = (columnsNames4.get(i).split("\\|")[1]);
+            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
 //            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
-//            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
-                ListWithColumnsNames.add(tmpOneColumn);
+                ListWithColumnsNames4.add(tmpOneColumn);
             }
         } catch(Exception e){
             Log.i("checking", "exception method ColumnsNames" + e.toString());
         }
-        return ListWithColumnsNames;
+        Log.i("checking", "ListWithColumnsNames4: " + ListWithColumnsNames4.size());
+        return ListWithColumnsNames4;
     }
 
     public ArrayList<Integer> columnsWidth() {
         try {
 
-            for (int i = 0; i < columnsNames2.size(); i++) {
-                String tmpOneColumn = (columnsNames2.get(i).split("\\|")[2]);
+            for (int i = 0; i < columnsNames4.size(); i++) {
+                String tmpOneColumn = (columnsNames4.get(i).split("\\|")[2]);
 //                Log.i("checking", "method-columnsWidth1: " + tmpOneColumn);
                 int tmpOneColumnInt = Integer.parseInt(tmpOneColumn);
 //                Log.i("checking", "method-columnsWidth1: " + tmpOneColumnInt);
 
-                ListWithColumnsWidth.add(4 * tmpOneColumnInt);
+                ListWithColumnsWidth4.add(4 * tmpOneColumnInt);
             }
 //            Log.i("checking", "parameterColumn2: " + tmpOneColumn);
 
         } catch (Exception e) {
             Log.i("checking", "exception method-columnsWidth1" + e.toString());
         }
-        return ListWithColumnsWidth;
+        return ListWithColumnsWidth4;
     }
 
     public ArrayList<Integer> columnsAdjust() {
         int tmpOneColumnInt;
 
         try {
-            for (int i = 0; i < columnsNames2.size(); i++) {
-                String tmpOneColumn = (columnsNames2.get(i).split("\\|")[3]);
+            for (int i = 0; i < columnsNames4.size(); i++) {
+                String tmpOneColumn = (columnsNames4.get(i).split("\\|")[3]);
 //                Log.i("checking", "method-columnsAdjust1: " + tmpOneColumn);
 
                 switch (tmpOneColumn) {
@@ -102,13 +110,13 @@ public class DataBaseChanges2 extends AsyncTask <String, Void, ArrayList<ArrayLi
                         tmpOneColumnInt = 0; //NO GRAVITY - NO ALIGNMENT
                 }
 //                Log.i("checking", "method-columnsAdjust2: " + tmpOneColumnInt);
-                ListWithColumnsAdjust.add((int) tmpOneColumnInt);
+                ListWithColumnsAdjust4.add((int) tmpOneColumnInt);
             }
         }
         catch(Exception e) {
             Log.i("checking", "exception method-columnsAdjust1" + e.toString());
         }
-        return ListWithColumnsAdjust;
+        return ListWithColumnsAdjust4;
     }
 
     public ArrayList<String> cellsColor(ArrayList<ArrayList<String>> records) {
@@ -133,20 +141,13 @@ public class DataBaseChanges2 extends AsyncTask <String, Void, ArrayList<ArrayLi
                 }
 
 //                Log.i("checking", "method-cellsColor2: " + tmpOneRow);
-                ListWithCellColor.add(tmpOneRow);
+                ListWithCellColor4.add(tmpOneRow);
             }
         } catch(Exception e){
             Log.i("checking", "exception method-cellsColor1" + e.toString());
         }
-        return ListWithCellColor;
+        return ListWithCellColor4;
     }
-
-//    public void layoutSetOnDataBase(ArrayList<ArrayList<String>> data) {
-//        ArrayList<String> tmpColumnsNames = columnsNames(data);
-//        for (int i = 0; i < numberOfColumns; i++){
-//            data.get(0).set(i, tmpColumnsNames.get(i));
-//}
-//    }
 
 }
 
