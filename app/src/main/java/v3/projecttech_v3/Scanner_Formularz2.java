@@ -13,21 +13,22 @@ import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 
-public class MainActivity_Scanner extends AppCompatActivity {
+import v3.projecttech_v3.Formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
+import v3.projecttech_v3.procedury.Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2;
+
+public class Scanner_Formularz2 extends AppCompatActivity {
 
     private CodeScanner mCodeScanner;
-//    static Result result;
-    static Intent intent3;
-    static String barcodeInput;
+    //    static Result result;
+    static Intent intentBarcode;
+    public static String barcodeInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_scanner);
+        setContentView(R.layout.scanner_formularz2);
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
-//        intent = new Intent(MainActivity_Scanner.this, MainActivity_Table.class);
-//        intent2 = new Intent(MainActivity_Scanner.this, MainActivity_progressBar.class);
-        intent3 = new Intent(MainActivity_Scanner.this, Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
+        intentBarcode = new Intent(Scanner_Formularz2.this, Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2.class);
         mCodeScanner = new CodeScanner(this, scannerView);
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
@@ -35,9 +36,9 @@ public class MainActivity_Scanner extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MainActivity_Scanner.this, result.getText(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Scanner_Formularz2.this, result.getText(), Toast.LENGTH_SHORT).show();
                         barcodeInput = result.toString();
-                        startActivity(intent3.putExtra("barcodeInput", barcodeInput));
+                        startActivity(intentBarcode.putExtra("barcodeInput", barcodeInput));
                         Log.i("checking", "barcodeInput " + result.getText());
                     }
                 });
