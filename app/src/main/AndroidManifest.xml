@@ -25,14 +25,21 @@
         android:theme="@style/Theme.ProjectTech_v3"
         tools:targetApi="31">
         <activity
-            android:name=".Activity_Home_Lokalizacje"
+            android:name=".Etykieta_Formularz2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_Home_ZdanieProdukcji"
+            android:name=".Scanner_Formularz2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -81,7 +88,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_Home_Main"
+            android:name=".Formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -95,7 +102,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity_Scanner"
+            android:name=".Scanner_Formularz1"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -123,14 +130,14 @@
         <!-- android:value="" /> -->
         <!-- </activity> -->
         <activity
-            android:name=".MainActivity_Etykieta"
+            android:name=".Etykieta_Formularz1"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Formularz1_InformacjeOPozycji_MainActivity_Table2"
+            android:name=".Activity_Home_Main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

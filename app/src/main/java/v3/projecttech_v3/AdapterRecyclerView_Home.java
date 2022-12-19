@@ -1,17 +1,10 @@
 package v3.projecttech_v3;
 
-import static android.content.Context.MODE_PRIVATE;
+import static v3.projecttech_v3.Activity_Home_Main.dataBaseSQLHome;
 import static v3.projecttech_v3.Activity_Home_Main.listWithUserSettings;
 import static v3.projecttech_v3.Activity_Home_Main.preferences;
 import static v3.projecttech_v3.Activity_Home_Main.userAccessLevel;
-import static v3.projecttech_v3.Activity_Home_Main.userSettings2;
-import static v3.projecttech_v3.InputExampleToActivity_Home2.addLokalizacja;
-import static v3.projecttech_v3.InputExampleToActivity_Home2.addPrzesuniecia;
-import static v3.projecttech_v3.InputExampleToActivity_Home2.addZadania;
-import static v3.projecttech_v3.InputExampleToActivity_Home2.addZdanieProdukcji;
-import static v3.projecttech_v3.InputExampleToActivity_Home2.gettingRandomUser2;
-import static v3.projecttech_v3.InputExampleToActivity_Home2.inputtingExampleData2;
-import static v3.projecttech_v3.InputExampleToActivity_Home2.user1_2;
+
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,11 +19,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import v3.projecttech_v3.Formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
+import v3.projecttech_v3.Formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja;
 
 public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecyclerView_Home.ViewHolder> {
 
@@ -88,13 +83,16 @@ public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecycl
                     int groupType = 0;
                     Log.i("checking", "tmpNodeId_1: " + tmpNodeId);
 
+                    int sizeOfDataInDatabase = dataBaseSQLHome.getAllData().size();
 
-
-                    for (int i=0; i < listWithUserSettings.size(); i++ ) {
-                        if (clickedTitle.equals(listWithUserSettings.get(i).get(1))) {
-                            tmpNodeId = Integer.parseInt(listWithUserSettings.get(i).get(0));
+                    for (int i=0; i < sizeOfDataInDatabase; i++ ) {
+                        if (clickedTitle.equals(dataBaseSQLHome.getAllData().get(i).getName())) {
+                            Log.i("checking", "clickedTitlefromDatabase: " + dataBaseSQLHome.getAllData().get(i).getName());
+                            Log.i("checking", "clickedTitlefromDatabase: " + dataBaseSQLHome.getAllData().get(i).getParentId());
+                            Log.i("checking", "clickedTitlefromDatabase: " + dataBaseSQLHome.getAllData().get(i).getChildId());
+                            tmpNodeId = Integer.parseInt(dataBaseSQLHome.getAllData().get(i).getChildId());
                             Log.i("checking", "tmpNodeId_2: " + tmpNodeId);
-                            if (listWithUserSettings.get(i).get(2).equals("G")) {
+                            if (dataBaseSQLHome.getAllData().get(i).getType().equals("G")) {
                                 groupType = 1;              // 1 odpowiada G
                             } else {
                                 groupType = 0;              // 0 odpowiada F
@@ -105,13 +103,37 @@ public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecycl
                     SharedPreferences.Editor editor3 = preferences.edit();
                     editor3.putInt("UserSettings", tmpNodeId);
                     editor3.apply();
-                    userAccessLevel = preferences.getInt("UserSettings",0);
-                    Log.i("checking", "userAccessLevel_2: " + userAccessLevel);
+                    userAccessLevel = preferences.getInt("UserSettings",-1);
+                    Log.i("checking", "userAccessLevel_Procedura: " + userAccessLevel);
 
-                    if (groupType == 0) {
-                        Toast.makeText(v.getContext(), "Formularz ", Toast.LENGTH_SHORT).show();
+//                    if (groupType == 0) {
+                        if (groupType == 1) { //for testing set 1
+
 //                        Intent goToFormularz = new Intent(v.getContext(), Activity_Home_Main.class);
 //                        v.getContext().startActivity(goToFormularz);
+                        switch (clickedTitle) {
+                            case "Informacje o pozycji":
+//                                Intent goToInformacjeOPozycji = new Intent(v.getContext(), Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
+//                                v.getContext().startActivity(goToInformacjeOPozycji);
+                                break;
+
+                            case "Pozycja lokalizacje":
+//                                Intent goToPozycjaLokalizacje = new Intent(v.getContext(), Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.class);
+//                                v.getContext().startActivity(goToPozycjaLokalizacje);
+                                break;
+
+                            case "Lokalizacja":
+                                Intent goToPozycjaLokalizacje = new Intent(v.getContext(), Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.class);
+                                v.getContext().startActivity(goToPozycjaLokalizacje);
+//                                Intent goToInformacjeOPozycji = new Intent(v.getContext(), Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
+//                                v.getContext().startActivity(goToInformacjeOPozycji);
+
+                                break;
+
+                            default:
+                                Toast.makeText(v.getContext(), "Formularz ", Toast.LENGTH_SHORT).show();
+                        }
+
                     } else {
                         Intent goToHome =new Intent(v.getContext(), Activity_Home_Main.class);
                         v.getContext().startActivity(goToHome);
@@ -185,8 +207,6 @@ public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecycl
 //                    Toast.makeText(v.getContext(), "Clicked " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
                 }
             });
-
-
         }
     }
 }

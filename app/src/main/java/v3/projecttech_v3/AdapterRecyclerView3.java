@@ -3,7 +3,7 @@ package v3.projecttech_v3;
 import static v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia.FinalListWithCellColor3;
 import static v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia.FinalListWithColumnsAdjust3;
 import static v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia.dataBaseSQL3;
-import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.database3;
+import static v3.projecttech_v3.Formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.database3;
 
 import android.content.Context;
 import android.graphics.Color;
