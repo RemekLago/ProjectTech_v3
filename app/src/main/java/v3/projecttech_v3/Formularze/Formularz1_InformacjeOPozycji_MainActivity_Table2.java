@@ -1,15 +1,13 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.Formularze;
 
 import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
 //import static v3.projecttech_v3.AdapterRecyclerView.position2;
-import static v3.projecttech_v3.DataBaseChanges2.ListWithColumnsNames;
-import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.gettingrPozycja;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rKomunikat;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rPozycja;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rStatus;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.tmpHashMap2;
+import static v3.projecttech_v3.DataBaseChanges2_Formularz1.ListWithColumnsNames;
+import static v3.projecttech_v3.DataBaseChanges2_Formularz1.tmpdata2;
+import static v3.projecttech_v3.procedury.Procedura_Pozycja_Informacje2_Formularz1.gettingrPozycja;
+import static v3.projecttech_v3.procedury.Procedura_Pozycja_Informacje2_Formularz1.rKomunikat;
+import static v3.projecttech_v3.procedury.Procedura_Pozycja_Informacje2_Formularz1.rStatus;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_10;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_11;
@@ -43,12 +41,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
-import java.util.Objects;
 
+import v3.projecttech_v3.AdapterRecyclerView2;
+import v3.projecttech_v3.BuildConfig;
+import v3.projecttech_v3.DataBaseChanges2_Formularz1;
+import v3.projecttech_v3.Scanner_Formularz1;
+import v3.projecttech_v3.R;
+import v3.projecttech_v3.RecyclerViewInterface;
 import v3.projecttech_v3.db.DataBaseHelper;
 import v3.projecttech_v3.db.entity.Data;
 
-public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompatActivity implements RecyclerViewInterface{
+public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompatActivity implements RecyclerViewInterface {
 
     public static ArrayList<ArrayList<String>> database2;
     public static ArrayList<ArrayList<String>> database3;
@@ -56,16 +59,16 @@ public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompat
     public static ArrayList<String> FinalListWithCellColor;
     public static ArrayList<Integer> FinalListWithColumnsAdjust;
     public static ArrayList<Integer> FinalListWithColumnsWidth;
-    static Intent intent4;
-    static Intent intent10;
-    static Intent intent11;
+    public static Intent intent4;
+    public static Intent intent10;
+    public static Intent intent11;
     public static DataBaseHelper dataBaseSQL;
     public static String columnName;
     public static RecyclerView recyclerView;
     public static AdapterRecyclerView2 adapterRecyclerView2;
 
-    static String searchCode;
-    static TextView textViewSearch;
+    public static String searchCode;
+    public static TextView textViewSearch;
 
 
 
@@ -83,13 +86,13 @@ public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompat
         }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_table2);
+        setContentView(R.layout.formularz1_activity_main_table2);
 
         dataBaseSQL = new DataBaseHelper(Formularz1_InformacjeOPozycji_MainActivity_Table2.this);
 
         Log.i("checking", dataBaseSQL.toString());
 
-        DataBaseChanges2 dataFinal = new DataBaseChanges2();
+        DataBaseChanges2_Formularz1 dataFinal = new DataBaseChanges2_Formularz1();
         ArrayList<ArrayList<String>> database0 = dataFinal.doInBackground();
         database2 = dataFinal.cleaningDatabase(database0);
 
@@ -122,7 +125,7 @@ public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompat
         buttonScanCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Formularz1_InformacjeOPozycji_MainActivity_Table2.this, MainActivity_Scanner.class));
+                startActivity(new Intent(Formularz1_InformacjeOPozycji_MainActivity_Table2.this, Scanner_Formularz1.class));
             }
         });
 
