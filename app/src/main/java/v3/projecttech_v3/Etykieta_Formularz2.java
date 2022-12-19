@@ -3,8 +3,9 @@ package v3.projecttech_v3;
 import static v3.projecttech_v3.Activity_User_Login.enterMail;
 import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
 import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
-import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
-import static v3.projecttech_v3.Procedura_Pozycja_Informacje2.rKomunikat;
+import static v3.projecttech_v3.DataBaseChanges2_Formularz1.tmpdata2;
+import static v3.projecttech_v3.DataBaseChanges4_Formularz2.tmpdata5;
+import static v3.projecttech_v3.procedury.Procedura_Pozycja_Informacje2_Formularz1.rKomunikat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity_Etykieta extends AppCompatActivity {
+public class Etykieta_Formularz2 extends AppCompatActivity {
 
 
     @SuppressLint("WrongThread")
@@ -38,7 +39,7 @@ public class MainActivity_Etykieta extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main_etykieta);
+        setContentView(R.layout.etykieta_formularz2);
 
 //        Procedura_Pozycja_Informacje informacje = new Procedura_Pozycja_Informacje();
 //        tmpdata = informacje.takingPositionInformation();
@@ -54,14 +55,14 @@ public class MainActivity_Etykieta extends AppCompatActivity {
         //set data from Result1 into TextViews to show in layout
 //        TextView textView_Status = findViewById(R.id.textView_Status);
 //        TextView textView_Komunikat = findViewById(R.id.textView_Komunikat);
-        TextView textView_NazwaPozycja = findViewById(R.id.textView_NazwaPozycja);
-        TextView textView_Pozycja = findViewById(R.id.textView_Pozycja);
+        TextView textView_Magazyn = findViewById(R.id.textView_Magazyn);
+        TextView textView_Lokalizacja = findViewById(R.id.textView_Lokalizacja);
 //        TextView textView_Barcode = findViewById(R.id.textView_Barcode);
 
 //        textView_Status.setText(tmpdata.get("Status"));
 //        textView_Komunikat.setText(tmpdata.get("Komunikat"));
-        textView_NazwaPozycja.setText( tmpdata2.get("PozycjaNazwa"));
-        textView_Pozycja.setText(tmpdata2.get("Pozycja"));
+        textView_Magazyn.setText( tmpdata5.get("Magazyn"));
+        textView_Lokalizacja.setText(tmpdata5.get("Lokalizacja"));
 //        textView_Barcode.setText(Barcode);
 
 

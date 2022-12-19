@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="2dp"
-    tools:context=".MainActivity_Etykieta">
+    tools:context=".Etykieta_Formularz1">
 
     <!--    <TextView-->
     <!--        android:id="@+id/textView_Status"-->
