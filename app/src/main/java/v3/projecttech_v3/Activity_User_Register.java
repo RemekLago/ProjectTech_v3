@@ -51,19 +51,12 @@ public class Activity_User_Register extends AppCompatActivity {
         inputNazwisko = findViewById(R.id.inputNazwisko);
         inputEmail = findViewById(R.id.inputEmail);
         inputTelefon = findViewById(R.id.inputTelefon);
-        inputLokalizacja = findViewById(R.id.inputLokalizacja);
-        inputDzial = findViewById(R.id.inputDzial);
-        inputStanowisko = findViewById(R.id.inputStanowisko);
-        inputHaslo = findViewById(R.id.inputHaslo);
-        inputHasloPotwierdz = findViewById(R.id.inputHasloPotwierdz);
+
         textViewRejestracja = findViewById(R.id.textViewRejestracja);
         textViewMaszJuzKonto = findViewById(R.id.textViewMaszJuzKonto);
 
         ImageView imageLogo2 = findViewById(R.id.imageLogo2);
         Button buttonRejestracja = findViewById(R.id.buttonRejestracja);
-
-
-
 
 
 
@@ -96,7 +89,7 @@ public class Activity_User_Register extends AppCompatActivity {
 
 
 
-// taking values from input textviews
+    // taking values from input textviews
     public Data5 takingValuesFromInputTextView() {
 //            String imie = inputImie.getText().toString();
 //            String nazwisko = inputNazwisko.getText().toString();
@@ -107,21 +100,21 @@ public class Activity_User_Register extends AppCompatActivity {
 //            String stanowisko = inputStanowisko.getText().toString();
 //            String haslo = inputHaslo.getText().toString();
 //            String hasloPotwierdz = inputHasloPotwierdz.getText().toString();
-            tmpstatusID = "1";
+        tmpstatusID = "1";
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             tmpInsertData = new Data5(
-                inputImie.getText().toString(),
-                inputNazwisko.getText().toString(),
-                inputEmail.getText().toString(),
-                inputTelefon.getText().toString(),
-                inputLokalizacja.getText().toString(),
-                inputDzial.getText().toString(),
-                inputStanowisko.getText().toString(),
-                LocalDateTime.now().toString(),             // addDate
-                tmpstatusID,                 // statusID
-                inputHaslo.getText().toString(),
-                inputHasloPotwierdz.getText().toString()
+                    inputImie.getText().toString(),
+                    inputNazwisko.getText().toString(),
+                    inputEmail.getText().toString(),
+                    inputTelefon.getText().toString(),
+                    inputLokalizacja.getText().toString(),
+                    inputDzial.getText().toString(),
+                    inputStanowisko.getText().toString(),
+                    LocalDateTime.now().toString(),             // addDate
+                    tmpstatusID,                 // statusID
+                    inputHaslo.getText().toString(),
+                    inputHasloPotwierdz.getText().toString()
             );
         }
         return tmpInsertData;
@@ -141,82 +134,82 @@ public class Activity_User_Register extends AppCompatActivity {
     }
 
 
-        public boolean validateImie() {
-            if (inputImie.length() == 0) {
-                inputImie.setError("This field is required");
-                return false;
-            } else {
+    public boolean validateImie() {
+        if (inputImie.length() == 0) {
+            inputImie.setError("This field is required");
+            return false;
+        } else {
             return true;
-            }}
+        }}
 
-        public boolean validateNazwisko() {
-            if (inputNazwisko.length() == 0) {
-                inputNazwisko.setError("This field is required");
-                return false;
-            } else {
-                return true;
-            }}
+    public boolean validateNazwisko() {
+        if (inputNazwisko.length() == 0) {
+            inputNazwisko.setError("This field is required");
+            return false;
+        } else {
+            return true;
+        }}
 
-        public boolean inputEmail() {
+    public boolean inputEmail() {
 //            Pattern patternEmail = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$");
 //            Pattern patternEmail = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
-            Pattern patternEmail = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
+        Pattern patternEmail = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
 
-            Matcher matcherEmail = patternEmail.matcher(tmpInsertData.getMail().trim());
+        Matcher matcherEmail = patternEmail.matcher(tmpInsertData.getMail().trim());
 
-            String mailDatabaseInput = null;
-            if (inputEmail.length() == 0) {
-                inputEmail.setError("This field is required");
-                return false;
-            } else if (!matcherEmail.matches()) {
-                inputEmail.setError("Email is incorrect");
-                Log.i("checkingEmail", inputEmail.toString());
-                return false;
+        String mailDatabaseInput = null;
+        if (inputEmail.length() == 0) {
+            inputEmail.setError("This field is required");
+            return false;
+        } else if (!matcherEmail.matches()) {
+            inputEmail.setError("Email is incorrect");
+            Log.i("checkingEmail", inputEmail.toString());
+            return false;
 
 //            } else if ( !dataBaseSQLUser.ifMailExists(inputEmail.getText().toString())) {
 //                inputEmail.setError("This email already exists in database");
 //                Log.i("checkingEmail", inputEmail.toString());
 //                return false;
-            } else {
-                Log.i("checkingEmail", inputEmail.toString());
-                return true;
-            }
+        } else {
+            Log.i("checkingEmail", inputEmail.toString());
+            return true;
         }
+    }
 
-        public boolean inputTelefon() {
-            if (inputTelefon.length() == 0) {
-                inputTelefon.setError("This field is required");
-                return false;
-            } else {
-                return true;
-            }}
+    public boolean inputTelefon() {
+        if (inputTelefon.length() == 0) {
+            inputTelefon.setError("This field is required");
+            return false;
+        } else {
+            return true;
+        }}
 
-        public boolean inputLokalizacja() {
-            if (inputLokalizacja.length() == 0) {
-                inputLokalizacja.setError("This field is required");
-                return false;
-            } else {
-                return true;
-            }}
+    public boolean inputLokalizacja() {
+        if (inputLokalizacja.length() == 0) {
+            inputLokalizacja.setError("This field is required");
+            return false;
+        } else {
+            return true;
+        }}
 
-        public boolean inputDzial() {
-            if (inputDzial.length() == 0) {
-                inputDzial.setError("This field is required");
-                return false;
-            } else {
-                return true;
-            }}
+    public boolean inputDzial() {
+        if (inputDzial.length() == 0) {
+            inputDzial.setError("This field is required");
+            return false;
+        } else {
+            return true;
+        }}
 
-        public boolean inputStanowisko() {
-            if (inputStanowisko.length() == 0) {
-                inputStanowisko.setError("This field is required");
-                return false;
-            } else {
-                return true;
-            }}
+    public boolean inputStanowisko() {
+        if (inputStanowisko.length() == 0) {
+            inputStanowisko.setError("This field is required");
+            return false;
+        } else {
+            return true;
+        }}
 
-        public boolean inputHaslo() {
-                Pattern patternPassword = Pattern.compile(
+    public boolean inputHaslo() {
+        Pattern patternPassword = Pattern.compile(
 //                    "^" +
 //                    "(?=.*[0-9])" +         //at least 1 digit
 //                    "(?=.*[a-z])" +         //at least 1 lower case letter
@@ -226,24 +219,24 @@ public class Activity_User_Register extends AppCompatActivity {
 //                    "(?=S+$)" +           //no white spaces
 //                    ".{4,}" +               //at least 4 characters
 //                    "$"
-                    "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$"
-                               );
-            Matcher matcherPassword = patternPassword.matcher(tmpInsertData.getPassword().trim());
+                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$"
+        );
+        Matcher matcherPassword = patternPassword.matcher(tmpInsertData.getPassword().trim());
 
-            if (inputHaslo.length() == 0) {
-                inputHaslo.setError("Password is required");
+        if (inputHaslo.length() == 0) {
+            inputHaslo.setError("Password is required");
             return false;
-            } else if (!matcherPassword.matches()) {
+        } else if (!matcherPassword.matches()) {
             inputHaslo.setError("Password should contain minimum 8 characters, 1 digit, " +
                     "1 lower case letter, 1 upper case letter, 1 special character");
-                return false;
-            }
-            Log.i("checking", inputHaslo.toString());
-            return true;
-            }
+            return false;
+        }
+        Log.i("checking", inputHaslo.toString());
+        return true;
+    }
 
-        public boolean inputHasloPotwierdz() {
-            Pattern patternPassword = Pattern.compile(
+    public boolean inputHasloPotwierdz() {
+        Pattern patternPassword = Pattern.compile(
 //                    "^" +
 //                    "(?=.*[0-9])" +         //at least 1 digit
 //                    "(?=.*[a-z])" +         //at least 1 lower case letter
@@ -254,22 +247,22 @@ public class Activity_User_Register extends AppCompatActivity {
 //                    ".{4,}" +               //at least 4 characters
 //                    "$"
 
-                    "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$"
-            );
-            Matcher matcherPassword = patternPassword.matcher(tmpInsertData.getPasswordConfirm());
-            if (inputHasloPotwierdz.length() == 0) {
-                inputHasloPotwierdz.setError("Password is required");
-                return false;
-            } else if (!matcherPassword.matches()) {
-                inputHasloPotwierdz.setError("Password should contain minimum 4 characters");
-                return false; }
+                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$"
+        );
+        Matcher matcherPassword = patternPassword.matcher(tmpInsertData.getPasswordConfirm());
+        if (inputHasloPotwierdz.length() == 0) {
+            inputHasloPotwierdz.setError("Password is required");
+            return false;
+        } else if (!matcherPassword.matches()) {
+            inputHasloPotwierdz.setError("Password should contain minimum 4 characters");
+            return false; }
 //            } else if (!inputHasloPotwierdz.toString().equals(inputHaslo.toString())) {
 //                inputHasloPotwierdz.setError("Check password, it must be the same");
 //                return false;
 //            }
-            Log.i("checking", inputHasloPotwierdz.toString());
-            return true;
-        }
+        Log.i("checking", inputHasloPotwierdz.toString());
+        return true;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

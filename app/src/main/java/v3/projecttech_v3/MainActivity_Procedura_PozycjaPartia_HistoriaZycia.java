@@ -4,7 +4,7 @@ import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
 import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
 import static v3.projecttech_v3.DataBaseChanges3.ListWithColumnsNames3;
-import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.database3;
+import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.database3;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
@@ -37,6 +37,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
 import v3.projecttech_v3.db.DataBaseHelper3;
 import v3.projecttech_v3.db.entity.Data3;
 

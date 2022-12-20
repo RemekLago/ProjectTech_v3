@@ -46,7 +46,7 @@ tools:context=".MainActivity_Table">
                         android:text="scan new barcode" />
                 </LinearLayout>
 
-                <include layout="@layout/activity_main_etykieta" />
+                <include layout="@layout/etykieta_formularz1" />
                 <include layout="@layout/columns_names" />
 
 

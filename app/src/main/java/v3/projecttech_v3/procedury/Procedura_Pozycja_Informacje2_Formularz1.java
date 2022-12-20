@@ -1,8 +1,8 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.procedury;
 
-import static v3.projecttech_v3.MainActivity_Scanner.barcodeInput;
-import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.searchCode;
-import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.textViewSearch;
+import static v3.projecttech_v3.Scanner_Formularz1.barcodeInput;
+import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.searchCode;
+import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.textViewSearch;
 import static v3.projecttech_v3.MainActivity_enterdata.editTextNumber;
 import static v3.projecttech_v3.MainActivity_enterdata.pozycja_input;
 
@@ -14,7 +14,9 @@ import java.sql.DriverManager;
 import java.sql.Types;
 import java.util.HashMap;
 
-public class Procedura_Pozycja_Informacje2 {
+import v3.projecttech_v3.Pass;
+
+public class Procedura_Pozycja_Informacje2_Formularz1 {
 
     public static String rStatus, rKomunikat, rPozycjaNazwa;
     public static String Firma, UserId, Barcode;

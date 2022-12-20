@@ -25,6 +25,27 @@
         android:theme="@style/Theme.ProjectTech_v3"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_User_Verification"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Activity_User_Register"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Activity_User_Login"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Etykieta_Formularz2"
             android:exported="false">
             <meta-data
@@ -39,14 +60,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2"
+            android:name=".formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_User_Login"
+            android:name=".Activity_Home_Main"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -58,14 +79,13 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <activity
-            android:name=".Activity_User_Register"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+        </activity> <!-- <activity -->
+        <!-- android:name=".Activity_User_Register_old" -->
+        <!-- android:exported="false" > -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.lib_name" -->
+        <!-- android:value="" /> -->
+        <!-- </activity> -->
         <activity
             android:name=".MainActivity_enterdata"
             android:exported="false">
@@ -88,7 +108,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja"
+            android:name=".formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -108,27 +128,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity> <!-- <activity -->
-        <!-- android:name=".EmailActivity" -->
-        <!-- android:windowSoftInputMode="adjustPan" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".Activity_scanned_barcode" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name=".MainActivity_Table" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
         <activity
             android:name=".Etykieta_Formularz1"
             android:exported="false">
@@ -137,7 +136,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_Home_Main"
+            android:name=".Login_User_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

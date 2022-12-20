@@ -1,14 +1,8 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.procedury;
 
-import static v3.projecttech_v3.Activity_Home_Main.userAccessLevel;
+import static v3.projecttech_v3.Activity_Home_Main.dataBaseSQLHome;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.util.Log;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -16,13 +10,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
+import v3.projecttech_v3.Pass;
+import v3.projecttech_v3.db.entity.Data_Home;
 
-public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
+public class Procedura_Drzewko_Kafelki_prcAccountFormTreeAll {
     public static String Firma;
     public static int TreeNodeId;
     static String UserId;
@@ -30,6 +22,8 @@ public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
     static ResultSet rs;
     static ArrayList<String> columnsNames = new ArrayList<>();
     public static ArrayList<ArrayList<String>> tmpListWithUserSettings;
+    static ArrayList<ArrayList<String>> Result = new ArrayList<>();
+
 
 
     public static ArrayList<ArrayList<String>> takingUserSettings() {
@@ -48,17 +42,12 @@ public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
             Log.i("checking", "Connected to: " + connection.toString());
 
             CallableStatement callableStatement = connection.prepareCall(
-                    "{call prcAccountFormTree(?,?)}");
+                    "{call prcAccountFormTreeAll(?)}");
             Log.i("checking", "CallableStatement: " + callableStatement.toString());
 
 
-            UserId = "25";
-//            TreeNodeId = 0;
-            TreeNodeId = userAccessLevel; // user zawsze zaczyna z uprawnieniami 0
-            Log.i("checking", "TreeNodeId: " + TreeNodeId);
-
+            UserId = "22";
             callableStatement.setInt("UserId", Integer.valueOf(UserId));
-            callableStatement.setInt("TreeNodeId", TreeNodeId);
 
             ResultSet rs;
             rs = callableStatement.executeQuery();
@@ -77,33 +66,40 @@ public class Procedura_Drzewko_Kafelki_prcAccountFormTree {
             Log.i("checking", "numberOfColumns: " + numberOfColumns);
 //            Log.i("checking", "ResultSet: " + rs.next());
 
-
-
-            tmpListWithUserSettings = new ArrayList<>();
+            dataBaseSQLHome.deleteAllData();
 
             while (rs.next()) {
                 ArrayList<String> tmpRecord = new ArrayList<>();
-//                tmpRecord.clear();
-                for (int i=1; i <= numberOfColumns; i++) {
+
+                Data_Home tmpInsertData = new Data_Home(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6)
+                );
+                dataBaseSQLHome.insertData(tmpInsertData);
+
+                for (int i = 1; i <= numberOfColumns; i++) {
                     tmpRecord.add(rs.getString(i));
                 }
 
-//                Log.i("checking", "tmpRecord: " + tmpRecord.get(1));
-//                Log.i("checking", "tmpRecord: " + tmpRecord);
-
-                tmpListWithUserSettings.add(tmpRecord);
-//                Log.i("checking", "tmpListWithUserSettings: " + tmpListWithUserSettings.get(0).get(1));
-//                Log.i("checking", "tmpListWithUserSettings: " + tmpListWithUserSettings);
+                Result.add(tmpRecord); //database with all records for SQL
 
             }
+
             callableStatement.close();
             connection.close();
 
         } catch (Exception e) {
             Log.i("checking", "exception Procedura_Drzewko_Kafelki_prcAccountFormTree" + e.toString());
         }
-//        Log.i("checking", "return tmpListWithUserSettings: " + tmpListWithUserSettings.size());
-        return tmpListWithUserSettings;
+//        Log.i("checking", "return Result: " + Result.size());
 
+        return Result;
     }
+
+
+
 }

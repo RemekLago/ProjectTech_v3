@@ -1,8 +1,7 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.procedury;
 
-import static v3.projecttech_v3.MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja.dataBaseSQL4;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.positionForDataBaseSQL;
+import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.dataBaseSQL4;
+
 
 import android.util.Log;
 
@@ -13,18 +12,21 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
+import v3.projecttech_v3.Pass;
 import v3.projecttech_v3.db.entity.Data4;
 
-public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
+public class Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2 {
 
     public static String Firma, Magazyn, Lokalizacja;
     static String UserId;
-    static int numberOfColumns4;
+    public static int numberOfColumns4;
     static ResultSet rs;
-    static ArrayList<String> columnsNames4 = new ArrayList<>();
+    public static ArrayList<String> columnsNames4 = new ArrayList<>();
     static ArrayList<ArrayList<String>> Result4 = new ArrayList<>();
 
-    public static ArrayList<ArrayList<String>> takingInformationAboutLocalisation(){
+
+    public ArrayList<ArrayList<String>> takingLocalizationPosition(String MagazynInput, String LokalizacjaInput) {
+
         //connecting to database
         try {
             String user = Pass.user;
@@ -44,13 +46,13 @@ public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
 
             Firma = "750";
             UserId = "1";
-            Magazyn = dataBaseSQL.getDataId(positionForDataBaseSQL + 1).getMagazyn();
-            Lokalizacja = dataBaseSQL.getDataId(positionForDataBaseSQL + 1).getLokalizacja();
+            Magazyn = MagazynInput;
+            Lokalizacja = LokalizacjaInput;
             Log.i("checking", "Magazyn: " + Magazyn);
             Log.i("checking", "Lokalizacja: " + Lokalizacja);
 
-            callableStatement.setInt("Firma", Integer.valueOf(Firma));
-            callableStatement.setInt("UserId", Integer.valueOf(UserId));
+            callableStatement.setInt("Firma", Integer.parseInt(Firma));
+            callableStatement.setInt("UserId", Integer.parseInt(UserId));
             callableStatement.setString("Magazyn", Magazyn);
             callableStatement.setString("Lokalizacja", Lokalizacja);
 
@@ -113,7 +115,7 @@ public class Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycje {
             connection.close();
 
         } catch (Exception e) {
-            Log.i("checking", "exception takingInformationAboutLocalisation()" + e.toString());
+            Log.i("checking", "exception takingLocalizationPosition()" + e.toString());
         }
         return Result4;
 

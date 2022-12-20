@@ -17,11 +17,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
+
 public class MainActivity_enterdata extends AppCompatActivity {
 
-    static String pozycja_input;
+    public static String pozycja_input;
     static String status_input;
-    static EditText editTextNumber;
+    public static EditText editTextNumber;
 
     static Intent intent1;
     static Intent intent2;
@@ -31,7 +33,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_enterdata);
 
-        intent1 = new Intent(MainActivity_enterdata.this, MainActivity_Scanner.class);
+        intent1 = new Intent(MainActivity_enterdata.this, Scanner_Formularz1.class);
         intent2 = new Intent(MainActivity_enterdata.this, Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
 
         Button button_scan = findViewById(R.id.buttonSearch);

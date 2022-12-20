@@ -1,9 +1,9 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.DataBaseChanges2_Formularz1.tmpdata2;
 import static v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia.dataBaseSQL3;
-import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
-import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.positionForDataBaseSQL;
+import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
+import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.positionForDataBaseSQL;
 
 
 import android.util.Log;
@@ -20,9 +20,9 @@ import v3.projecttech_v3.db.entity.Data3;
 public class Procedura_Public_PozycjaPartia_HistoriaZycia {
     public static String Firma, Pozycja, Partia;
     static String UserId;
-    static int numberOfColumns3;
+    public static int numberOfColumns3;
     static ResultSet rs;
-    static ArrayList<String> columnsNames3 = new ArrayList<>();
+    public static ArrayList<String> columnsNames3 = new ArrayList<>();
     static ArrayList<ArrayList<String>> Result3 = new ArrayList<>();
 
     public static ArrayList<ArrayList<String>> takingHistoryPosition(){

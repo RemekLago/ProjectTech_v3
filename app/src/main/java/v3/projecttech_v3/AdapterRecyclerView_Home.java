@@ -1,7 +1,6 @@
 package v3.projecttech_v3;
 
 import static v3.projecttech_v3.Activity_Home_Main.dataBaseSQLHome;
-import static v3.projecttech_v3.Activity_Home_Main.listWithUserSettings;
 import static v3.projecttech_v3.Activity_Home_Main.preferences;
 import static v3.projecttech_v3.Activity_Home_Main.userAccessLevel;
 
@@ -10,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,8 +22,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.Formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
-import v3.projecttech_v3.Formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja;
+import v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
+import v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja;
 
 public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecyclerView_Home.ViewHolder> {
 
@@ -106,29 +104,29 @@ public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecycl
                     userAccessLevel = preferences.getInt("UserSettings",-1);
                     Log.i("checking", "userAccessLevel_Procedura: " + userAccessLevel);
 
-//                    if (groupType == 0) {
-                        if (groupType == 1) { //for testing set 1
+                    if (groupType == 0) {
+//                        if (groupType == 1) { //for testing set 1
 
 //                        Intent goToFormularz = new Intent(v.getContext(), Activity_Home_Main.class);
 //                        v.getContext().startActivity(goToFormularz);
                         switch (clickedTitle) {
                             case "Informacje o pozycji":
-//                                Intent goToInformacjeOPozycji = new Intent(v.getContext(), Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
-//                                v.getContext().startActivity(goToInformacjeOPozycji);
+                                Intent goToInformacjeOPozycji = new Intent(v.getContext(), Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
+                                v.getContext().startActivity(goToInformacjeOPozycji);
                                 break;
 
                             case "Pozycja lokalizacje":
-//                                Intent goToPozycjaLokalizacje = new Intent(v.getContext(), Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.class);
-//                                v.getContext().startActivity(goToPozycjaLokalizacje);
-                                break;
-
-                            case "Lokalizacja":
                                 Intent goToPozycjaLokalizacje = new Intent(v.getContext(), Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.class);
                                 v.getContext().startActivity(goToPozycjaLokalizacje);
+                                break;
+
+//                            case "Lokalizacja":
+//                                Intent goToPozycjaLokalizacje = new Intent(v.getContext(), Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.class);
+//                                v.getContext().startActivity(goToPozycjaLokalizacje);
 //                                Intent goToInformacjeOPozycji = new Intent(v.getContext(), Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
 //                                v.getContext().startActivity(goToInformacjeOPozycji);
 
-                                break;
+//                                break;
 
                             default:
                                 Toast.makeText(v.getContext(), "Formularz ", Toast.LENGTH_SHORT).show();

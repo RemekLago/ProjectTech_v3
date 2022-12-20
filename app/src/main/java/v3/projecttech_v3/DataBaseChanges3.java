@@ -13,7 +13,7 @@ public class DataBaseChanges3 extends AsyncTask<String, Void, ArrayList<ArrayLis
 
     static ArrayList<ArrayList<String>> ArrayListWithFinalData3 = new ArrayList<>();
 
-    static ArrayList<String> ListWithColumnsNames3 = new ArrayList<>();
+    public static ArrayList<String> ListWithColumnsNames3 = new ArrayList<>();
     ArrayList<Integer> ListWithColumnsWidth3 = new ArrayList<>();
     static ArrayList<Integer> ListWithColumnsAdjust3 = new ArrayList<>();
     static ArrayList<String > ListWithCellColor3 = new ArrayList<>();

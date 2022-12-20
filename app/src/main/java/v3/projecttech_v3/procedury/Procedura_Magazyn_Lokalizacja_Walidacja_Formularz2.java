@@ -1,9 +1,9 @@
 package v3.projecttech_v3.procedury;
 
-import static v3.projecttech_v3.Formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.searchCode;
-import static v3.projecttech_v3.Formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.textViewSearch;
-import static v3.projecttech_v3.MainActivity_Scanner.barcodeInput;
-import static v3.projecttech_v3.Formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.editTextNumber;
+import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.searchCode;
+import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.textViewSearch;
+import static v3.projecttech_v3.Scanner_Formularz2.barcodeInput;
+
 
 import android.util.Log;
 import java.sql.CallableStatement;
@@ -15,12 +15,16 @@ import v3.projecttech_v3.Pass;
 
 
 public class Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2 {
-    public static String Firma;
+    public static String Firma, UserId;
     public static String rPozycja, rMagazyn, rStatus, rLokalizacja, rKomunikat;
     static HashMap<String, String> tmpHashMap = new HashMap<String, String>();
+    static String PozycjaAndrMagazynInput;
+    static String tmp_pozycja_input;
 
 
-    public HashMap<String, String> takingLocalizationPosition() {
+
+
+    public HashMap<String, String> takingMagazynLokalzacja() {
 
         //connecting to database
         try {
@@ -36,16 +40,18 @@ public class Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2 {
             Log.i("checking", "Connected to: " + connection.toString());
 
             CallableStatement callableStatement = connection.prepareCall(
-                    "{call MT_Public_Magazyn_Lokalizacja_Walidacja(?,?)}");
+                    "{call MT_Public_Magazyn_Lokalizacja_Walidacja(?,?,?,?,?,?,?)}");
             Log.i("checking", "CallableStatement: " + callableStatement.toString());
 
             Firma = "750";
-            rPozycja = "MAL120|N0013B"; // barcode from scanner or from textView editTextNumber from Layout
+            UserId = "1";
+            PozycjaAndrMagazynInput = gettingMagazynLokalzacja(); // example "MAL120|N0013B" barcode from scanner or from textView editTextNumber from Layout
 
-            Log.i("checking", "rPozycja: " + rPozycja);
+            Log.i("checking", "PozycjaAndrMagazynInput: " + PozycjaAndrMagazynInput);
 
-            callableStatement.setInt("rStatus", Integer.valueOf(Firma));
-            callableStatement.setString("Barcode", rPozycja.trim());
+            callableStatement.setInt("Firma", Integer.parseInt(Firma));
+            callableStatement.setString("UserId", UserId.trim());
+            callableStatement.setString("Barcode", PozycjaAndrMagazynInput);
 
             callableStatement.registerOutParameter("rStatus", java.sql.Types.INTEGER);
             callableStatement.registerOutParameter("rKomunikat", java.sql.Types.VARCHAR);
@@ -61,64 +67,47 @@ public class Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2 {
 
             tmpHashMap.put("Status", rStatus);
             tmpHashMap.put("Komunikat", rKomunikat);
-            tmpHashMap.put("Pozycja", rMagazyn);
-            tmpHashMap.put("PozycjaNazwa", rLokalizacja);
+            tmpHashMap.put("Magazyn", rMagazyn);
+            tmpHashMap.put("Lokalizacja", rLokalizacja);
 
-            Log.i("checking", "Procedura Informacje rStatus: " + rStatus);
-            Log.i("checking", "Procedura Informacje rKomunikat: " + rKomunikat);
-            Log.i("checking", "Procedura Informacje rPozycja: " + rMagazyn);
-            Log.i("checking", "Procedura Informacje rPozycjaNazwa: " + rLokalizacja);
+            Log.i("checking", "Procedura Informacje rStatus: " + tmpHashMap.get("Status"));
+            Log.i("checking", "Procedura Informacje rKomunikat: " + tmpHashMap.get("Komunikat"));
+            Log.i("checking", "Procedura Informacje rPozycja: " + tmpHashMap.get("Magazyn"));
+            Log.i("checking", "Procedura Informacje rPozycjaNazwa: " + tmpHashMap.get("Lokalizacja"));
 
             callableStatement.close();
             connection.close();
 
         } catch (Exception e) {
-            Log.i("checking", "exception takingInformationAboutLocalisation()" + e.toString());
+            Log.i("checking", "exception takingMagazynLokalzacja()" + e.toString());
         }
         return tmpHashMap;
 
     }
-    public static String gettingrPozycja() {
-        Log.i("checking", "rPozycja, inten2: " + pozycja_input);
-        Log.i("checking", "rPozycja, inten3: " + barcodeInput);
-        Log.i("checking", "rPozycja, inten4: " + searchCode);
+    public static String gettingMagazynLokalzacja() {
+        Log.i("checking", "tmp_pozycja_input, intentBarcode: " + barcodeInput);
+        Log.i("checking", "tmp_pozycja_input, inten4: " + searchCode);
 //        Log.i("checking", "rPozycja, inten4: " + searchCode);
 
-        rPozycja = "";
+        rMagazyn = "";
+        rLokalizacja = "";
 
         if ( barcodeInput != null) {
-//            rPozycja = intent3.getStringExtra("barcodeInput");
-            rPozycja = barcodeInput;
+            tmp_pozycja_input = barcodeInput.trim();
         }
         else if ( searchCode != null) {
-//            if ( searchCode != null && searchCode.length()>1) {
-            // do pobierania POZYCJI z boxu Search w MainActivity_table2
-//                rPozycja = "";
-//            String tmp_pozycja_input = intent4.getStringExtra("searchPozycja");
-            String tmp_pozycja_input = "";
             tmp_pozycja_input = searchCode;
-            String[] a = tmp_pozycja_input.split("");
-            for (int i = 0; i < 9; i++) {
-                if (i == 4 || i == 7) {
-                    rPozycja = rPozycja + " " + a[i];
-                } else {
-                    rPozycja = rPozycja + a[i];
-                }
-            }
         }
         else {
-            rPozycja = "000000000";
+            tmp_pozycja_input = "000000000";
         }
-        Log.i("checking", "rPozycja gettingrPozycja return: " + rPozycja);
+        Log.i("checking", "tmp_pozycja_input return: " + tmp_pozycja_input);
 
-        return rPozycja;
+
+        return tmp_pozycja_input;
     }
 
     public static void resetTextView(){
-        if (pozycja_input != null) {
-            editTextNumber.setText(null);
-            pozycja_input = null;
-        }
         if (searchCode != null) {
             textViewSearch.setText(null);
             searchCode = null;

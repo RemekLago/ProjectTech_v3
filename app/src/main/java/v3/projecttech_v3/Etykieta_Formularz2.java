@@ -3,7 +3,6 @@ package v3.projecttech_v3;
 import static v3.projecttech_v3.Activity_User_Login.enterMail;
 import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
 import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
-import static v3.projecttech_v3.DataBaseChanges2_Formularz1.tmpdata2;
 import static v3.projecttech_v3.DataBaseChanges4_Formularz2.tmpdata5;
 import static v3.projecttech_v3.procedury.Procedura_Pozycja_Informacje2_Formularz1.rKomunikat;
 

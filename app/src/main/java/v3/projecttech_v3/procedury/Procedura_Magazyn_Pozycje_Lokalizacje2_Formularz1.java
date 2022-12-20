@@ -1,7 +1,7 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.procedury;
 
-import static v3.projecttech_v3.DataBaseChanges2.tmpdata2;
-import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
+import static v3.projecttech_v3.DataBaseChanges2_Formularz1.tmpdata2;
+import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
 
 import android.util.Log;
 
@@ -12,16 +12,17 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
+import v3.projecttech_v3.Pass;
 import v3.projecttech_v3.db.entity.Data;
 
-public class Procedura_Magazyn_Pozycje_Lokalizacje2 {
+public class Procedura_Magazyn_Pozycje_Lokalizacje2_Formularz1 {
 
     static ArrayList<ArrayList<String>> Result2 = new ArrayList<>();
     public static String Firma, Pozycja;
     static String UserId;
-    static int numberOfColumns2;
+    public static int numberOfColumns2;
     static ResultSet rs;
-    static ArrayList<String> columnsNames2 = new ArrayList<>();
+    public static ArrayList<String> columnsNames2 = new ArrayList<>();
 
 
     public ArrayList<ArrayList<String>> takingLocalizationPosition() {

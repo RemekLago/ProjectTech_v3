@@ -3,8 +3,8 @@ package v3.projecttech_v3;
 import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
 import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
-import static v3.projecttech_v3.DataBaseChanges4.ListWithColumnsNames4;
-import static v3.projecttech_v3.Formularz1_InformacjeOPozycji_MainActivity_Table2.database4;
+import static v3.projecttech_v3.DataBaseChanges4_Formularz2.ListWithColumnsNames4;
+import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.database4;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
 import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
@@ -44,6 +44,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
 import v3.projecttech_v3.db.DataBaseHelper4;
 import v3.projecttech_v3.db.entity.Data4;
 
@@ -79,7 +80,7 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
         Log.i("checking", "database4: " + dataBaseSQL4.toString());
 
         // For procedure Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja
-        DataBaseChanges4 dataFinal4 = new DataBaseChanges4();
+        DataBaseChanges4_Formularz2 dataFinal4 = new DataBaseChanges4_Formularz2();
         ArrayList<ArrayList<String>> database04 = dataFinal4.doInBackground();
         database4 = dataFinal4.cleaningDatabase(database04);
 
