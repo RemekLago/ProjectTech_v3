@@ -76,7 +76,7 @@
         android:drawableLeft="@drawable/ic_email_white"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Mail"
+        android:hint="Login"
         android:inputType="textEmailAddress"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"

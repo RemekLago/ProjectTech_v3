@@ -139,7 +139,7 @@ public class Activity_User_Login extends AppCompatActivity {
         textView_ZapiszSie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentIdzDoRejestracja = new Intent(Activity_User_Login.this, Activity_User_Register.class);
+                Intent intentIdzDoRejestracja = new Intent(Activity_User_Login.this, Activity_User_Register_old.class);
                 startActivity(intentIdzDoRejestracja);
             }
         });
