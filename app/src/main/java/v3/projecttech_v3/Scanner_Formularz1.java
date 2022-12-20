@@ -13,7 +13,7 @@ import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 
-import v3.projecttech_v3.Formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
+import v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
 
 public class Scanner_Formularz1 extends AppCompatActivity {
 
