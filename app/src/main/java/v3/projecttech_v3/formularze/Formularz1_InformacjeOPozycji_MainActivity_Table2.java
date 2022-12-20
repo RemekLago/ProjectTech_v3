@@ -1,4 +1,4 @@
-package v3.projecttech_v3.Formularze;
+package v3.projecttech_v3.formularze;
 
 import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
@@ -38,6 +38,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompat
 
     public static String searchCode;
     public static TextView textViewSearch;
-
+    public static ProgressBar progressBar;
 
 
     @SuppressLint("WrongThread")
@@ -88,6 +89,8 @@ public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompat
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formularz1_activity_main_table2);
 
+        progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+
         dataBaseSQL = new DataBaseHelper(Formularz1_InformacjeOPozycji_MainActivity_Table2.this);
 
         Log.i("checking", dataBaseSQL.toString());
@@ -95,6 +98,8 @@ public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompat
         DataBaseChanges2_Formularz1 dataFinal = new DataBaseChanges2_Formularz1();
         ArrayList<ArrayList<String>> database0 = dataFinal.doInBackground();
         database2 = dataFinal.cleaningDatabase(database0);
+
+        progressBar.setVisibility(ProgressBar.INVISIBLE);
 
         dataFinal.columnsNames();
         FinalListWithCellColor = dataFinal.cellsColor(database2);
@@ -137,6 +142,7 @@ public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompat
          buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(ProgressBar.VISIBLE);
                 searchCode = textViewSearch.getText().toString();
                 textViewSearch.setText(null);
 //                editTextNumber.setText(null); // textview form Activity EnterData

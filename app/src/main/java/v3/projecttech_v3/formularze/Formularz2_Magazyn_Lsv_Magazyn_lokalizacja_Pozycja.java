@@ -1,4 +1,4 @@
-package v3.projecttech_v3.Formularze;
+package v3.projecttech_v3.formularze;
 
 import static android.graphics.Color.rgb;
 import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
@@ -90,9 +90,9 @@ public class Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja extends AppCompa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formularz2_magazyn_lsv_magazyn_lokalizacja_pozycja);
 
-
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
-        progressBar.setVisibility(ProgressBar.VISIBLE);
+
+
 
         dataBaseSQL4 = new DataBaseHelper4(Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.this);
 
@@ -103,7 +103,7 @@ public class Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja extends AppCompa
         ArrayList<ArrayList<String>> database04 = dataFinal4.doInBackground();
         database4 = dataFinal4.cleaningDatabase(database04);
 
-
+        progressBar.setVisibility(ProgressBar.INVISIBLE);
 
         dataFinal4.columnsNames();
         FinalListWithCellColor4 = dataFinal4.cellsColor(database4);
@@ -157,11 +157,14 @@ public class Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja extends AppCompa
         Button buttonSearch = findViewById(R.id.buttonSearch);
         textViewSearch = findViewById(R.id.editTextNumber);
 
+
+
         intent4 = new Intent(Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.this, Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.class);
 
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(ProgressBar.VISIBLE);
                 searchCode = textViewSearch.getText().toString();
                 textViewSearch.setText(null);
 //                editTextNumber.setText(null); // textview form Activity EnterData
