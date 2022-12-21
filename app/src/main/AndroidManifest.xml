@@ -25,6 +25,20 @@
         android:theme="@style/Theme.ProjectTech_v3"
         tools:targetApi="31">
         <activity
+            android:name=".Formularz4_Wydanie_Pozycji"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Formularz3_Przewijanie_Pozycji_LKO"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Activity_User_Verification"
             android:exported="false">
             <meta-data
