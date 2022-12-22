@@ -4,483 +4,501 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e2e2e2"
+    android:background="@drawable/gradient_background_4"
     tools:context=".formularze.Formularz3_Przewijanie_Pozycji_LKO">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="2dp"
-        android:orientation="vertical">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <LinearLayout
-            android:id="@+id/layout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:padding="2dp"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textViewZlecenie"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Zlecenie / Zbiór"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="2"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textViewLinia"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Linia / KP"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="4"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/editTextZlecenie"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="zbiór"
-                android:background="@color/colorWhite"
-                android:inputType="text"
-                android:layout_weight="2"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/editTextLinia"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:background="@color/colorWhite"
-                android:hint="linia"
-                android:inputType="text"
-                android:layout_weight="4"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textViewLokalizacja"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Lokalizacja"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="2"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textViewZapas"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Zapas"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="4"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/editTextLokalizacja"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="#f9ffd8"
-                android:inputType="text"
-                android:layout_weight="2"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/editTextWydano"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="#f9ffd8"
-                android:inputType="text"
-                android:layout_weight="4"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textViewInformacjeOWydanymWyrobie"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Informacje o wydanym wyrobie"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="2dp">
 
             <LinearLayout
-                android:id="@+id/layout9"
+                android:id="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewZlecenie"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Zlecenie / Zbiór"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="2"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewLinia"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Linia / KP"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="4"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextZlecenie"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/input_background_grey_full"
+                    android:ems="9"
+                    android:hint="zbiór"
+                    android:textColorHint="@color/greyColor"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="@color/greyColor" />
+
+                <EditText
+                    android:id="@+id/editTextLinia"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:ems="9"
+                    android:background="@drawable/input_background_grey_full"
+                    android:hint="linia"
+                    android:textColorHint="@color/greyColor"
+                    android:inputType="text"
+                    android:layout_weight="4"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewLokalizacja"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Lokalizacja"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="2"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewZapas"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Zapas"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="4"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextLokalizacja"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:ems="9"
+                    android:hint="..."
+                    android:background="@drawable/input_background_grey_full"
+                    android:inputType="text"
+                    android:layout_weight="2"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/editTextWydano"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:ems="9"
+                    android:hint="..."
+                    android:background="@drawable/input_background_grey_full"
+                    android:inputType="text"
+                    android:layout_weight="4"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewInformacjeOWydanymWyrobie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Informacje o wydanym wyrobie"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp">
+
+                <LinearLayout
+                    android:id="@+id/layout9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextInformacjeOWydanymWyrobie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="90dp"
+                        android:layout_margin="2dp"
+                        android:ems="9"
+                        android:hint="..."
+                        android:background="@drawable/input_background_grey_full"
+                        android:inputType="text"
+                        android:layout_weight="1"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+            </ScrollView>
+
+
+            <LinearLayout
+                android:id="@+id/layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewPrzywieszkaWyrobu"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Przywieszka/Partia wyrobu"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="2"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewMetrazStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Met start"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="4"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextWydanePozycje"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/input_background_grey_full"
+                    android:ems="9"
+                    android:hint="..."
+                    android:inputType="text"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/editTextMetrazStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:ems="9"
+                    android:hint="..."
+                    android:background="@drawable/input_background_grey_full"
+                    android:inputType="text"
+                    android:layout_weight="4"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewResztaKonfekcja1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="NA konfekcja"
+                    android:textSize="18sp"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewIlosc1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Ilość"
+                    android:textSize="18sp"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="6"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewMetrazKoniec"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Met koniec"
+                    android:textSize="18sp"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextKonfekcja"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:ems="9"
+                    android:hint="..."
+                    android:background="@drawable/input_background_grey_full"
+                    android:inputType="text"
+                    android:layout_weight="4"
+                    android:textSize="18sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/editTextIlosc1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:ems="9"
+                    android:hint="..."
+                    android:background="@drawable/input_background_grey_full"
+                    android:inputType="text"
+                    android:layout_weight="6"
+                    android:textSize="18sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/editTextMetrazKoniec"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:ems="9"
+                    android:hint="..."
+                    android:background="@drawable/input_background_grey_full"
+                    android:inputType="text"
+                    android:layout_weight="5"
+                    android:textSize="18sp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewResztaKonfekcja2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="RESZTA konfekcja"
+                    android:textSize="18sp"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewIlosc2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Ilość"
+                    android:textSize="18sp"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="6"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewLokalizacja2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:text="Lokalizacja"
+                    android:textSize="18sp"
+                    android:background="@drawable/input_background_white2"
+                    android:textColor="@color/white"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextResztaKonfekcja"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:ems="9"
+                    android:hint="..."
+                    android:background="@drawable/input_background_grey_full"
+                    android:inputType="text"
+                    android:layout_weight="4"
+                    android:textSize="18sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/editTextIlosc2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:ems="9"
+                    android:hint="..."
+                    android:background="@drawable/input_background_grey_full"
+                    android:inputType="text"
+                    android:layout_weight="6"
+                    android:textSize="18sp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/editTextLokalizacja2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:ems="9"
+                    android:hint="..."
+                    android:background="@drawable/input_background_grey_full"
+                    android:inputType="text"
+                    android:layout_weight="5"
+                    android:textSize="18sp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextInformacjeOWydanymWyrobie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="90dp"
+                    android:id="@+id/editTextX"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_margin="2dp"
                     android:ems="9"
                     android:hint="..."
-                    android:background="#f9ffd8"
+                    android:background="@drawable/input_background_grey_full"
                     android:inputType="text"
-                    android:layout_weight="1"
+                    android:layout_weight="4"
+                    android:textSize="18sp"
                     android:textAlignment="center" />
 
+                <Button
+                    android:id="@+id/buttonCar"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/ic_car_white"
+                    />
+
             </LinearLayout>
-        </ScrollView>
-
-
-        <LinearLayout
-            android:id="@+id/layout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textViewPrzywieszkaWyrobu"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Przywieszka/Partia wyrobu"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="2"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textViewMetrazStart"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Met start"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="4"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/editTextWydanePozycje"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="@color/colorWhite"
-                android:inputType="text"
-                android:layout_weight="2"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/editTextMetrazStart"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="@color/colorWhite"
-                android:inputType="text"
-                android:layout_weight="4"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textViewResztaKonfekcja1"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="NA konfekcja"
-                android:textSize="20sp"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="4"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textViewIlosc1"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Ilość"
-                android:textSize="20sp"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="6"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textViewMetrazKoniec"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Met koniec"
-                android:textSize="20sp"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/layout11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/editTextKonfekcja"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="@color/colorWhite"
-                android:inputType="text"
-                android:layout_weight="4"
-                android:textSize="20sp"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/editTextIlosc1"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="@color/colorWhite"
-                android:inputType="text"
-                android:layout_weight="6"
-                android:textSize="20sp"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/editTextMetrazKoniec"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="@color/colorWhite"
-                android:inputType="text"
-                android:layout_weight="5"
-                android:textSize="20sp"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textViewResztaKonfekcja2"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="RESZTA konfekcja"
-                android:textSize="20sp"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="4"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textViewIlosc2"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Ilość"
-                android:textSize="20sp"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="6"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textViewLokalizacja2"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:text="Lokalizacja"
-                android:textSize="20sp"
-                android:background="@color/mainColor"
-                android:textColor="@color/white"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/layout6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/editTextResztaKonfekcja"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="@color/colorWhite"
-                android:inputType="text"
-                android:layout_weight="4"
-                android:textSize="20sp"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/editTextIlosc2"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="@color/colorWhite"
-                android:inputType="text"
-                android:layout_weight="6"
-                android:textSize="20sp"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/editTextLokalizacja2"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="@color/colorWhite"
-                android:inputType="text"
-                android:layout_weight="5"
-                android:textSize="20sp"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/editTextX"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:ems="9"
-                android:hint="..."
-                android:background="#f9ffd8"
-                android:inputType="text"
-                android:layout_weight="4"
-                android:textSize="20sp"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/buttonSearch"
-                android:layout_width="50dp"
-                android:layout_height="48dp"
-                android:layout_margin="2dp"
-                android:backgroundTint="@color/mainColor"
-                android:background="@drawable/ic_car_white"
-                />
-
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
