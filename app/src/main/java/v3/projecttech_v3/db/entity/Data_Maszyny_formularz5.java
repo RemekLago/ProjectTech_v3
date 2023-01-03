@@ -3,7 +3,7 @@ package v3.projecttech_v3.db.entity;
 public class Data_Maszyny_formularz5 {
 
     // Constants for Database
-    public static final String TABLE_NAME = "DATABASE_MASZYNY";
+    public static final String TABLE_NAME = "MASZYNY";
     public static final String COLUMN_ID = "Id";
     public static final String COLUMN_KOD = "Kod";
     public static final String COLUMN_NAZWA = "Nazwa";
@@ -63,8 +63,8 @@ public class Data_Maszyny_formularz5 {
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY, " +
-                    COLUMN_KOD + " TEXT, " +
-                    COLUMN_NAZWA + " TEXT" +
+                    COLUMN_KOD + " VARCHAR, " +
+                    COLUMN_NAZWA + " VARCHAR" +
                     ")";
 
 }
