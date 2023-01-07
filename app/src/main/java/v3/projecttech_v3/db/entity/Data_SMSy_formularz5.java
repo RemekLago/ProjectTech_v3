@@ -16,12 +16,12 @@ public class Data_SMSy_formularz5 {
     private int id;
     private int numer;
     private String tresc;
-    private boolean czyWyslano;
-    private DateTime addDate;
+    private String czyWyslano;
+    private String addDate;
 
     // Constructor
 
-    public Data_SMSy_formularz5(int id, int numer, String tresc, boolean czyWyslano, DateTime addDate) {
+    public Data_SMSy_formularz5(int id, int numer, String tresc, String czyWyslano, String addDate) {
         this.id = id;
         this.numer = numer;
         this.tresc = tresc;
@@ -29,7 +29,7 @@ public class Data_SMSy_formularz5 {
         this.addDate = addDate;
     }
 
-    public Data_SMSy_formularz5(int numer, String tresc, boolean czyWyslano, DateTime addDate) {
+    public Data_SMSy_formularz5(int numer, String tresc, String czyWyslano, String addDate) {
         this.numer = numer;
         this.tresc = tresc;
         this.czyWyslano = czyWyslano;
@@ -66,19 +66,19 @@ public class Data_SMSy_formularz5 {
         this.tresc = tresc;
     }
 
-    public boolean isCzyWyslano() {
+    public String getCzyWyslano() {
         return czyWyslano;
     }
 
-    public void setCzyWyslano(boolean czyWyslano) {
+    public void setCzyWyslano(String czyWyslano) {
         this.czyWyslano = czyWyslano;
     }
 
-    public DateTime getAddDate() {
+    public String getAddDate() {
         return addDate;
     }
 
-    public void setAddDate(DateTime addDate) {
+    public void setAddDate(String addDate) {
         this.addDate = addDate;
     }
 
