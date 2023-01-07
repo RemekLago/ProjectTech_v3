@@ -22,17 +22,17 @@ public class Data_Kontrola_formularz5 {
     private int maszynaId;
     private int operatorId;
     private int przewinienieId;
-    private boolean sms;
+    private String sms;
     private int smsNumer;
     private String smsTresc;
     private String  uwaga;
     private int addUserId;
-    private DateTime addDate;
+    private String addDate;
 
 
     // Constructor
 
-    public Data_Kontrola_formularz5(int id, int maszynaId, int operatorId, int przewinienieId, boolean sms, int smsNumer, String smsTresc, String uwaga, int addUserId, DateTime addDate) {
+    public Data_Kontrola_formularz5(int id, int maszynaId, int operatorId, int przewinienieId, String sms, int smsNumer, String smsTresc, String uwaga, int addUserId, String addDate) {
         this.id = id;
         this.maszynaId = maszynaId;
         this.operatorId = operatorId;
@@ -45,7 +45,7 @@ public class Data_Kontrola_formularz5 {
         this.addDate = addDate;
     }
 
-    public Data_Kontrola_formularz5(int maszynaId, int operatorId, int przewinienieId, boolean sms, int smsNumer, String smsTresc, String uwaga, int addUserId, DateTime addDate) {
+    public Data_Kontrola_formularz5(int maszynaId, int operatorId, int przewinienieId, String sms, int smsNumer, String smsTresc, String uwaga, int addUserId, String addDate) {
         this.maszynaId = maszynaId;
         this.operatorId = operatorId;
         this.przewinienieId = przewinienieId;
@@ -95,11 +95,11 @@ public class Data_Kontrola_formularz5 {
         this.przewinienieId = przewinienieId;
     }
 
-    public boolean isSms() {
+    public String getSms() {
         return sms;
     }
 
-    public void setSms(boolean sms) {
+    public void setSms(String sms) {
         this.sms = sms;
     }
 
@@ -135,11 +135,11 @@ public class Data_Kontrola_formularz5 {
         this.addUserId = addUserId;
     }
 
-    public DateTime getAddDate() {
+    public String getAddDate() {
         return addDate;
     }
 
-    public void setAddDate(DateTime addDate) {
+    public void setAddDate(String addDate) {
         this.addDate = addDate;
     }
 
@@ -147,21 +147,15 @@ public class Data_Kontrola_formularz5 {
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY, " +
-                    COLUMN_MASZYNAID + " INTEGER, " +
-                    COLUMN_OPERATORID + " INTEGER, " +
-                    COLUMN_PRZEWINIENIEID + " INTEGER, " +
+                    COLUMN_MASZYNAID + " INTEGER FOREIGN KEY REFERENCES " + "MASZYNY" + "(" + Data_Maszyny_formularz5.COLUMN_ID + "), " +
+                    COLUMN_OPERATORID + " INTEGER FOREIGN KEY REFERENCES " + "OPERATOR" + "(" + Data_Operator_formularz5.COLUMN_ID + "), " +
+                    COLUMN_PRZEWINIENIEID + " INTEGER FOREIGN KEY REFERENCES " + "PRZEWINIENIE" + "(" + Data_Przewinienia_formularz5.COLUMN_ID+ "), " +
                     COLUMN_SMS + " BIT, " +
                     COLUMN_SMSNUMER + " INTEGER, " +
                     COLUMN_SMSTRESC + " VARCHAR, " +
                     COLUMN_UWAGA + " VARCHAR, " +
                     COLUMN_ADDUSERID + " INTEGER, " +
-                    COLUMN_ADDDATE + " DATETIME, " +
-                    "FOREIGN KEY " + "(" + COLUMN_MASZYNAID + ") " +
-                    "REFERENCES " + "MASZYNY" + "(" + COLUMN_MASZYNAID+ ")" +
-                    "FOREIGN KEY " + "(" + COLUMN_OPERATORID + ") " +
-                    "REFERENCES " + "OPERATOR" + "(" + COLUMN_OPERATORID+ ")" +
-                    "FOREIGN KEY " + "(" + COLUMN_PRZEWINIENIEID + ") " +
-                    "REFERENCES " + "PRZEWINIENIE" + "(" + COLUMN_PRZEWINIENIEID+ ")" +
+                    COLUMN_ADDDATE + " DATETIME" +
                     ")";
 
 }
