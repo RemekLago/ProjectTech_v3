@@ -15,19 +15,19 @@ public class Data_KontrolaZdjecia_formularz5 {
     private int id;
     private int kontrolaId;
     private String base64;
-    private DateTime addDate;
+    private String addDate;
 
 
     // Constructor
 
-    public Data_KontrolaZdjecia_formularz5(int id, int kontrolaId, String base64, DateTime addDate) {
+    public Data_KontrolaZdjecia_formularz5(int id, int kontrolaId, String base64, String addDate) {
         this.id = id;
         this.kontrolaId = kontrolaId;
         this.base64 = base64;
         this.addDate = addDate;
     }
 
-    public Data_KontrolaZdjecia_formularz5(int kontrolaId, String base64, DateTime addDate) {
+    public Data_KontrolaZdjecia_formularz5(int kontrolaId, String base64, String addDate) {
         this.kontrolaId = kontrolaId;
         this.base64 = base64;
         this.addDate = addDate;
@@ -62,11 +62,11 @@ public class Data_KontrolaZdjecia_formularz5 {
         this.base64 = base64;
     }
 
-    public DateTime getAddDate() {
+    public String getAddDate() {
         return addDate;
     }
 
-    public void setAddDate(DateTime addDate) {
+    public void setAddDate(String addDate) {
         this.addDate = addDate;
     }
 
@@ -78,7 +78,7 @@ public class Data_KontrolaZdjecia_formularz5 {
                     COLUMN_KONTROLAID + " INTEGER, " +
                     COLUMN_BASE64 + " VARCHAR, " +
                     COLUMN_ADDDATE + " DATETIME, " +
-                    "FOREIGN KEY " + "(" + COLUMN_KONTROLAID + ") " +
-                    "REFERENCES " + "KONTROLA" + "(" + COLUMN_KONTROLAID+ ")" +
+                    "FOREIGN KEY " + "(" + Data_Kontrola_formularz5.COLUMN_ID + ") " +
+                    "REFERENCES " + "KONTROLA" + "(" + Data_Kontrola_formularz5.COLUMN_ID+ ")" +
                     ")";
 }
