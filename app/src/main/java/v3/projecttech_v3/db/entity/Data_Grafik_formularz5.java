@@ -18,15 +18,15 @@ public class Data_Grafik_formularz5 {
     //Variables
     private int id;
     private int kontrolaId;
-    private Date dataPracy;
+    private String dataPracy;
     private int zmianaId;
     private int maszynaId;
     private int operatorId;
-    private DateTime addDate;
+    private String addDate;
 
     // Constructor
 
-    public Data_Grafik_formularz5(int id, int kontrolaId, Date dataPracy, int zmianaId, int maszynaId, int operatorId, DateTime addDate) {
+    public Data_Grafik_formularz5(int id, int kontrolaId, String dataPracy, int zmianaId, int maszynaId, int operatorId, String addDate) {
         this.id = id;
         this.kontrolaId = kontrolaId;
         this.dataPracy = dataPracy;
@@ -36,7 +36,7 @@ public class Data_Grafik_formularz5 {
         this.addDate = addDate;
     }
 
-    public Data_Grafik_formularz5(int kontrolaId, Date dataPracy, int zmianaId, int maszynaId, int operatorId, DateTime addDate) {
+    public Data_Grafik_formularz5(int kontrolaId, String dataPracy, int zmianaId, int maszynaId, int operatorId, String addDate) {
         this.kontrolaId = kontrolaId;
         this.dataPracy = dataPracy;
         this.zmianaId = zmianaId;
@@ -68,11 +68,11 @@ public class Data_Grafik_formularz5 {
         this.kontrolaId = kontrolaId;
     }
 
-    public Date getDataPracy() {
+    public String getDataPracy() {
         return dataPracy;
     }
 
-    public void setDataPracy(Date dataPracy) {
+    public void setDataPracy(String dataPracy) {
         this.dataPracy = dataPracy;
     }
 
@@ -100,11 +100,11 @@ public class Data_Grafik_formularz5 {
         this.operatorId = operatorId;
     }
 
-    public DateTime getAddDate() {
+    public String getAddDate() {
         return addDate;
     }
 
-    public void setAddDate(DateTime addDate) {
+    public void setAddDate(String addDate) {
         this.addDate = addDate;
     }
 
@@ -117,11 +117,11 @@ public class Data_Grafik_formularz5 {
                     COLUMN_MASZYNAID + " INTEGER, " +
                     COLUMN_OPERATORID + " INTEGER, " +
                     COLUMN_ADDDATE + " DATETIME, " +
-                    "FOREIGN KEY " + "(" + COLUMN_ZMIANAID + ") " +
-                    "REFERENCES " + "ZMIANA" + "(" + COLUMN_ZMIANAID+ ")" +
-                    "FOREIGN KEY " + "(" + COLUMN_MASZYNAID + ") " +
-                    "REFERENCES " + "MASZYNY" + "(" + COLUMN_MASZYNAID+ ")" +
-                    "FOREIGN KEY " + "(" + COLUMN_OPERATORID + ") " +
-                    "REFERENCES " + "OPERATOR" + "(" + COLUMN_OPERATORID+ ")" +
+                    "FOREIGN KEY " + "(" + Data_Zmiana_formularz5.COLUMN_ID + ") " +
+                    "REFERENCES " + "ZMIANA" + "(" + Data_Zmiana_formularz5.COLUMN_ID + ")" +
+                    "FOREIGN KEY " + "(" + Data_Maszyny_formularz5.COLUMN_ID + ") " +
+                    "REFERENCES " + "MASZYNY" + "(" + Data_Maszyny_formularz5.COLUMN_ID  + ")" +
+                    "FOREIGN KEY " + "(" + Data_Operator_formularz5.COLUMN_ID + ") " +
+                    "REFERENCES " + "OPERATOR" + "(" + Data_Operator_formularz5.COLUMN_ID+ ")" +
                     ")";
 }
