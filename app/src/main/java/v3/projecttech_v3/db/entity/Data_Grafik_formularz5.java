@@ -118,10 +118,10 @@ public class Data_Grafik_formularz5 {
                     COLUMN_OPERATORID + " INTEGER, " +
                     COLUMN_ADDDATE + " DATETIME, " +
                     "FOREIGN KEY " + "(" + Data_Zmiana_formularz5.COLUMN_ID + ") " +
-                    "REFERENCES " + "ZMIANA" + "(" + Data_Zmiana_formularz5.COLUMN_ID + ")" +
+                    "REFERENCES " + "ZMIANA" + "(" + Data_Zmiana_formularz5.COLUMN_ID + ")," +
                     "FOREIGN KEY " + "(" + Data_Maszyny_formularz5.COLUMN_ID + ") " +
-                    "REFERENCES " + "MASZYNY" + "(" + Data_Maszyny_formularz5.COLUMN_ID  + ")" +
+                    "REFERENCES " + "MASZYNY" + "(" + Data_Maszyny_formularz5.COLUMN_ID  + ")," +
                     "FOREIGN KEY " + "(" + Data_Operator_formularz5.COLUMN_ID + ") " +
-                    "REFERENCES " + "OPERATOR" + "(" + Data_Operator_formularz5.COLUMN_ID+ ")" +
+                    "REFERENCES " + "OPERATOR" + "(" + Data_Operator_formularz5.COLUMN_ID + ")" +
                     ")";
 }

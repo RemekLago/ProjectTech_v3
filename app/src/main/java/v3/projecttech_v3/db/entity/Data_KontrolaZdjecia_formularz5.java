@@ -79,6 +79,6 @@ public class Data_KontrolaZdjecia_formularz5 {
                     COLUMN_BASE64 + " VARCHAR, " +
                     COLUMN_ADDDATE + " DATETIME, " +
                     "FOREIGN KEY " + "(" + Data_Kontrola_formularz5.COLUMN_ID + ") " +
-                    "REFERENCES " + "KONTROLA" + "(" + Data_Kontrola_formularz5.COLUMN_ID+ ")" +
+                    "REFERENCES " + "KONTROLA" + "(" + Data_Kontrola_formularz5.COLUMN_ID + ")" +
                     ")";
 }
