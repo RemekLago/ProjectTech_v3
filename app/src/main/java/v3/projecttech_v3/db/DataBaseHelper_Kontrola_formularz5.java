@@ -86,7 +86,7 @@ public class DataBaseHelper_Kontrola_formularz5 extends SQLiteOpenHelper {
                         Data_Kontrola_formularz5.COLUMN_SMSNUMER,
                         Data_Kontrola_formularz5.COLUMN_SMSTRESC,
                         Data_Kontrola_formularz5.COLUMN_UWAGA,
-                        Data_Kontrola_formularz5.COLUMN_ADDDATE,
+                        Data_Kontrola_formularz5.COLUMN_ADDUSERID,
                         Data_Kontrola_formularz5.COLUMN_ADDDATE
                 },
                 Data_Kontrola_formularz5.COLUMN_ID + "=?",
