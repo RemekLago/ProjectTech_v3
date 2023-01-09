@@ -63,8 +63,8 @@ public class Data_Maszyny_formularz5 {
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY, " +
-                    COLUMN_KOD + " VARCHAR, " +
-                    COLUMN_NAZWA + " VARCHAR" +
+                    COLUMN_KOD + " VARCHAR(300), " +
+                    COLUMN_NAZWA + " VARCHAR(300)" +
                     ")";
 
 }

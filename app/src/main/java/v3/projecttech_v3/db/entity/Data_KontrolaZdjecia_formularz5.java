@@ -76,7 +76,7 @@ public class Data_KontrolaZdjecia_formularz5 {
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY, " +
                     COLUMN_KONTROLAID + " INTEGER, " +
-                    COLUMN_BASE64 + " VARCHAR, " +
+                    COLUMN_BASE64 + " VARCHAR(2000), " +
                     COLUMN_ADDDATE + " DATETIME, " +
                     "FOREIGN KEY " + "(" + Data_Kontrola_formularz5.COLUMN_ID + ") " +
                     "REFERENCES " + "KONTROLA" + "(" + Data_Kontrola_formularz5.COLUMN_ID + ")" +

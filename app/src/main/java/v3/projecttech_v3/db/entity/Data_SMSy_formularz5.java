@@ -88,7 +88,7 @@ public class Data_SMSy_formularz5 {
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY, " +
                     COLUMN_NUMER + " INTEGER, " +
-                    COLUMN_TRESC + " VARCHAR, " +
+                    COLUMN_TRESC + " VARCHAR(300), " +
                     COLUMN_CZYWYSLANO + " BIT, " +
                     COLUMN_ADDDATE + " DATETIME" +
                     ")";

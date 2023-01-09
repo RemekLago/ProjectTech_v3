@@ -50,6 +50,6 @@ public class Data_Zmiana_formularz5 {
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY, " +
-                    COLUMN_NAZWA + " VARCHAR" +
+                    COLUMN_NAZWA + " VARCHAR(300)" +
                     ")";
 }

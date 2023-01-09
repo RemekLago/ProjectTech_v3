@@ -152,8 +152,8 @@ public class Data_Kontrola_formularz5 {
                     COLUMN_PRZEWINIENIEID + " INTEGER FOREIGN KEY REFERENCES " + "PRZEWINIENIE" + "(" + Data_Przewinienia_formularz5.COLUMN_ID+ "), " +
                     COLUMN_SMS + " BIT, " +
                     COLUMN_SMSNUMER + " INTEGER, " +
-                    COLUMN_SMSTRESC + " VARCHAR, " +
-                    COLUMN_UWAGA + " VARCHAR, " +
+                    COLUMN_SMSTRESC + " VARCHAR(300), " +
+                    COLUMN_UWAGA + " VARCHAR(300), " +
                     COLUMN_ADDUSERID + " INTEGER, " +
                     COLUMN_ADDDATE + " DATETIME" +
                     ")";
