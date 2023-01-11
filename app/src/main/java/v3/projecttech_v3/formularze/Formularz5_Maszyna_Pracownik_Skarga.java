@@ -2,29 +2,24 @@ package v3.projecttech_v3.formularze;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ExpandableListAdapter;
-import android.widget.ExpandableListView;
 
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import v3.projecttech_v3.CustomizedExpandableListAdapter;
-import v3.projecttech_v3.ExpandableListDataItems;
-import v3.projecttech_v3.Photo_Activity;
+import v3.projecttech_v3.BuildConfig;
+import v3.projecttech_v3.Przewinienie_Activity_v2;
 import v3.projecttech_v3.R;
+import v3.projecttech_v3.procedury.Procedura_Maszyna_Pracownik_Skarga_formularz5;
 
 public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
 
-
+    Intent intent_szukaj_przewinienie;
+    Intent intent_dodaj_przewinienie;
 
 //    ExpandableListView expandableListView1;
 //    ExpandableListView expandableListView2;
@@ -43,14 +38,49 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
 //    HashMap<String, List<String>> expandableDetailList3;
 //    HashMap<String, List<String>> expandableDetailList4;
 //
+
+    @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if (BuildConfig.DEBUG) {
+            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                    .detectDiskReads()
+                    .detectDiskWrites()
+                    .detectNetwork()   // or .detectAll() for all detectable problems
+                    .penaltyLog()
+                    .build());
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formularz5_maszyna_magazyn_skarga2);
+
+        Procedura_Maszyna_Pracownik_Skarga_formularz5 procedura = new Procedura_Maszyna_Pracownik_Skarga_formularz5();
+        procedura.createTables();
+
+        Button buttonDodajPrzewinienie = findViewById(R.id.buttonDodajPrzewinienie);
+        Button buttonSzukajPrzewinienie = findViewById(R.id.buttonSzukajPrzewinienie);
 
         ImageView image1 = findViewById(R.id.imageView1);
         ImageView image2 = findViewById(R.id.imageView2);
         ImageView image3 = findViewById(R.id.imageView3);
+
+
+//        buttonDodajPrzewinienie.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                intent_dodaj_przewinienie = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Przewinienie_Activity.class);
+//                startActivity(intent_dodaj_przewinienie);
+//            }
+//        });
+
+        buttonSzukajPrzewinienie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent_szukaj_przewinienie = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Przewinienie_Activity_v2.class);
+                startActivity(intent_szukaj_przewinienie);
+            }
+        });
 
 
 //        TextView textViewMaszyna = findViewById(R.id.textViewMaszyna);

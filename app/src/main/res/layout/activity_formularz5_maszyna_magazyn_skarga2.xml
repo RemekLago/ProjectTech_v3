@@ -114,18 +114,42 @@
             <LinearLayout
                 android:id="@+id/linearLayout4_1"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/inputPrzewinienie"
+                <LinearLayout
+                    android:id="@+id/linearLayout_search1"
                     android:layout_width="300dp"
-                    android:layout_height="match_parent"
-                    android:gravity="start"
-                    android:hint="przewinienie"
-                    android:inputType="textMultiLine"
-                    android:textColor="@color/mainColor"
-                    android:textColorHint="@color/mainColor" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/searchView_przewinienie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:iconifiedByDefault="false"
+                        android:hint="przewinienie"
+                        android:iconifiedByDefault="false"
+                        android:showAsAction="always|collapseActionView"
+                        />
+
+                    <ListView
+                        android:id="@+id/listView_przewinienie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                         />
+
+                </LinearLayout>
+<!--                <EditText-->
+<!--                    android:id="@+id/inputPrzewinienie"-->
+<!--                    android:layout_width="300dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:gravity="start"-->
+<!--                    android:hint="przewinienie"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:textColor="@color/mainColor"-->
+<!--                    android:textColorHint="@color/mainColor" />-->
 
                 <Button
                     android:id="@+id/buttonDodajPrzewinienie"
@@ -136,7 +160,7 @@
                 <Button
                     android:id="@+id/buttonSzukajPrzewinienie"
                     android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="50dp"
                     android:background="@drawable/ic_search_24" />
 
             </LinearLayout>
