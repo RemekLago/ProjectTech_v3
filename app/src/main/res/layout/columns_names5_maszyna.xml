@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="wrap_content"
     android:layout_height="30dp"
     android:orientation="horizontal"
@@ -8,27 +9,18 @@
     <!--            row1-->
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="fill"
-        android:padding="4dp"
-        android:background="@drawable/ramkatextview"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewName1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="fill"
 
         android:padding="4dp"
-        android:background="@drawable/ramkatextview"
 
+        android:background="@drawable/ramkatextview"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="fill"
@@ -39,7 +31,18 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="fill"
+
+        android:padding="4dp"
+        android:background="@drawable/ramkatextview"
+
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewName4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -49,7 +52,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewName5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -59,7 +62,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textViewName6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -69,7 +72,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textViewName7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -77,5 +80,7 @@
         android:background="@drawable/ramkatextview"
 
         android:text="TextView" />
+
+
 
 </LinearLayout>
