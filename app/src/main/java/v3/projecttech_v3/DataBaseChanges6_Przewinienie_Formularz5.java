@@ -1,7 +1,8 @@
 package v3.projecttech_v3;
 
+import static android.content.Intent.getIntent;
+import static v3.projecttech_v3.Przewinienie_Activity.przewinienie_searchText;
 import static v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2.columnsNames4;
-import static v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2.numberOfColumns4;
 import static v3.projecttech_v3.procedury.Procedura_Przewinienie_Formularz5.columnsNames;
 import static v3.projecttech_v3.procedury.Procedura_Przewinienie_Formularz5.numberOfColumns;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 import v3.projecttech_v3.procedury.Procedura_Przewinienie_Formularz5;
 
-public class DataBaseChanges6_Formularz5  extends AsyncTask<String, Void, ArrayList<ArrayList<String>>> {
+public class DataBaseChanges6_Przewinienie_Formularz5 extends AsyncTask<String, Void, ArrayList<ArrayList<String>>> {
 
     static ArrayList<ArrayList<String>> ArrayListWithFinalData = new ArrayList<>();
     public static ArrayList<String> ListWithColumnsNames = new ArrayList<>();
@@ -23,9 +24,8 @@ public class DataBaseChanges6_Formularz5  extends AsyncTask<String, Void, ArrayL
     @Override
     public ArrayList<ArrayList<String>> doInBackground(String... strings) {
 
-
         Procedura_Przewinienie_Formularz5 procedura = new Procedura_Przewinienie_Formularz5();
-        ArrayListWithFinalData = procedura.takingPrzewinienie();
+        ArrayListWithFinalData = procedura.takingPrzewinienie("", przewinienie_searchText);
 
         return ArrayListWithFinalData;
     }
@@ -64,9 +64,9 @@ public class DataBaseChanges6_Formularz5  extends AsyncTask<String, Void, ArrayL
 
             for (int i = 0; i < columnsNames.size(); i++) {
                 String tmpOneColumn = (columnsNames.get(i).split("\\|")[2]);
-//                Log.i("checking", "method-columnsWidth1: " + tmpOneColumn);
+                Log.i("checking", "method-columnsWidth: " + tmpOneColumn);
                 int tmpOneColumnInt = Integer.parseInt(tmpOneColumn);
-//                Log.i("checking", "method-columnsWidth1: " + tmpOneColumnInt);
+//                Log.i("checking", "method-columnsWidth: " + tmpOneColumnInt);
 
                 ListWithColumnsWidth.add(4 * tmpOneColumnInt);
             }
@@ -82,7 +82,7 @@ public class DataBaseChanges6_Formularz5  extends AsyncTask<String, Void, ArrayL
         int tmpOneColumnInt;
 
         try {
-            for (int i = 0; i < columnsNames4.size(); i++) {
+            for (int i = 0; i < columnsNames.size(); i++) {
                 String tmpOneColumn = (columnsNames.get(i).split("\\|")[3]);
 //                Log.i("checking", "method-columnsAdjust: " + tmpOneColumn);
 
