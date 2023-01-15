@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:orientation="horizontal"
+    android:padding="2dp">
+
+    <!--            row1-->
+
+    <TextView
+        android:id="@+id/textViewName1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="fill"
+
+        android:padding="4dp"
+
+        android:background="@drawable/ramkatextview"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="fill"
+
+        android:padding="4dp"
+        android:background="@drawable/ramkatextview"
+
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="fill"
+
+        android:padding="4dp"
+        android:background="@drawable/ramkatextview"
+
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewName4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:padding="4dp"
+        android:background="@drawable/ramkatextview"
+
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewName5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:padding="4dp"
+        android:background="@drawable/ramkatextview"
+
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewName6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:padding="4dp"
+        android:background="@drawable/ramkatextview"
+
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewName7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:padding="4dp"
+        android:background="@drawable/ramkatextview"
+
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewName8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:padding="4dp"
+        android:background="@drawable/ramkatextview"
+
+        android:text="TextView" />
+
+
+
+
+
+</LinearLayout>
