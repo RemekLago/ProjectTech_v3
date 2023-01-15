@@ -22,19 +22,28 @@
             android:id="@+id/linearLayout_search1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView_przewinienie"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:iconifiedByDefault="false"
+
+            <EditText
+                android:id="@+id/inputPrzewinienie2"
+                android:layout_width="340dp"
+                android:layout_height="match_parent"
+                android:gravity="start"
                 android:hint="przewinienie"
-                android:iconifiedByDefault="true"
-                android:showAsAction="always|collapseActionView"
-                />
+                android:inputType="text"
+                android:textColor="@color/mainColor"
+                android:textColorHint="@color/greyColor" />
 
-<!--            <ListView-->
+            <Button
+                android:id="@+id/buttonSzukajOperator2"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_search_24" />
+
+
+
+            <!--            <ListView-->
 <!--                android:id="@+id/listView_przewinienie"-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="wrap_content"-->
@@ -59,7 +68,7 @@
                     android:orientation="vertical">
 
 
-                    <include layout="@layout/columns_names5" />
+                    <include layout="@layout/columns_names5_przewinienie" />
 
 
                     <androidx.recyclerview.widget.RecyclerView
