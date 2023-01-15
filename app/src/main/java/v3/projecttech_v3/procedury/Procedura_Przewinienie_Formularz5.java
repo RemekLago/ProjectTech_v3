@@ -28,7 +28,7 @@ public class Procedura_Przewinienie_Formularz5 {
     static ArrayList<ArrayList<String>> Result = new ArrayList<>();
 
 
-    public static ArrayList<ArrayList<String>> takingPrzewinienie() {
+    public static ArrayList<ArrayList<String>> takingPrzewinienie(String parameters, String searchText) {
 
         //connecting to database
         try {
@@ -50,9 +50,9 @@ public class Procedura_Przewinienie_Formularz5 {
             Firma = "750";
             UserId = "1";
             FormName = "FormularzMaszynaPracownikSkarga";
-            TextBoxName = "textViewOperator";
-            Parameters = "";
-            SearchText = "";
+            TextBoxName = "textViewPrzewinienia";
+            Parameters = parameters;
+            SearchText = searchText;
 
             callableStatement.setInt("Firma", Integer.parseInt(Firma));
             callableStatement.setInt("UserId", Integer.parseInt(UserId));
@@ -86,8 +86,9 @@ public class Procedura_Przewinienie_Formularz5 {
 
                 for (int i = 1; i <= numberOfColumns; i++) {
                     tmpRecord.add(rs.getString(i));
-                    Result.add(tmpRecord); //database-array with all records from SQL
+
                 }
+                Result.add(tmpRecord); //database-array with all records from SQL
                 Log.i("checking", "Result: " + Result.get(a));
                 a++;
             }
