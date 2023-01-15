@@ -9,7 +9,7 @@
     <!--            row1-->
 
     <TextView
-        android:id="@+id/textView1name4"
+        android:id="@+id/textViewName1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="fill"
@@ -20,7 +20,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView2name4"
+        android:id="@+id/textViewName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="fill"
@@ -31,7 +31,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView3name4"
+        android:id="@+id/textViewName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="fill"
@@ -42,7 +42,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView4name4"
+        android:id="@+id/textViewName4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -52,7 +52,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView5name4"
+        android:id="@+id/textViewName5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -62,7 +62,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView6name4"
+        android:id="@+id/textViewName6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -72,7 +72,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView7name4"
+        android:id="@+id/textViewName7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -82,7 +82,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView8name4"
+        android:id="@+id/textViewName8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
