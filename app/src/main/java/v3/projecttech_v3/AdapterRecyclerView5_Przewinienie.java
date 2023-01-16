@@ -4,6 +4,8 @@ package v3.projecttech_v3;
 import static v3.projecttech_v3.Przewinienie_Activity.FinalListWithCellColor;
 import static v3.projecttech_v3.Przewinienie_Activity.FinalListWithColumnsAdjust;
 import static v3.projecttech_v3.Przewinienie_Activity.database_Przewinienie;
+import static v3.projecttech_v3.Przewinienie_Activity.inputPrzewinienie2;
+
 
 import android.content.Context;
 import android.graphics.Color;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 public class AdapterRecyclerView5_Przewinienie extends RecyclerView.Adapter<AdapterRecyclerView5_Przewinienie.ViewHolderRecyclerView> {
 
     int positionAdapterPrzewinienie;
+    String positionAdapterPrzewinienieText;
 
     private final RecyclerViewInterface5_Przewinienie recyclerViewInterface;
     Context context;
@@ -137,7 +140,9 @@ public class AdapterRecyclerView5_Przewinienie extends RecyclerView.Adapter<Adap
                 public void onClick(View view) {
                     if (recyclerViewInterface != null) {
                         positionAdapterPrzewinienie = getAdapterPosition();
-                        Toast.makeText(context, "Position: " + positionAdapterPrzewinienie, Toast.LENGTH_SHORT).show();
+                        positionAdapterPrzewinienieText = database_Przewinienie.get(positionAdapterPrzewinienie).get(3).toString();
+                        inputPrzewinienie2.setText(positionAdapterPrzewinienieText);
+                        Toast.makeText(context, "Position: " + positionAdapterPrzewinienieText, Toast.LENGTH_SHORT).show();
 
                         if (positionAdapterPrzewinienie != RecyclerView.NO_POSITION) {
                             recyclerViewInterface.onItemClick(positionAdapterPrzewinienie);
