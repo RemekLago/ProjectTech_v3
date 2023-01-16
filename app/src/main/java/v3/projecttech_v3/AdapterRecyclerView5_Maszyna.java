@@ -3,6 +3,9 @@ package v3.projecttech_v3;
 import static v3.projecttech_v3.Maszyna_Activity.FinalListWithCellColor;
 import static v3.projecttech_v3.Maszyna_Activity.FinalListWithColumnsAdjust;
 import static v3.projecttech_v3.Maszyna_Activity.database_Maszyna;
+import static v3.projecttech_v3.Maszyna_Activity.inputMaszyna2;
+import static v3.projecttech_v3.Przewinienie_Activity.database_Przewinienie;
+import static v3.projecttech_v3.Przewinienie_Activity.inputPrzewinienie2;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -20,6 +23,7 @@ import java.util.ArrayList;
 public class AdapterRecyclerView5_Maszyna extends RecyclerView.Adapter<AdapterRecyclerView5_Maszyna.ViewHolderRecyclerView> {
 
     int positionAdapterMaszyna;
+    String positionAdapterMaszynaText;
 
     private final RecyclerViewInterface5_Maszyna recyclerViewInterface;
     Context context;
@@ -128,6 +132,8 @@ public class AdapterRecyclerView5_Maszyna extends RecyclerView.Adapter<AdapterRe
                 public void onClick(View view) {
                     if (recyclerViewInterface != null) {
                         positionAdapterMaszyna = getAdapterPosition();
+                        positionAdapterMaszynaText = database_Maszyna.get(positionAdapterMaszyna).get(3).toString();
+                        inputMaszyna2.setText(positionAdapterMaszynaText);
                         Toast.makeText(context, "Position: " + positionAdapterMaszyna, Toast.LENGTH_SHORT).show();
 
                         if (positionAdapterMaszyna != RecyclerView.NO_POSITION) {
