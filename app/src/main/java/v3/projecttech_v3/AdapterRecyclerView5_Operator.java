@@ -3,6 +3,9 @@ package v3.projecttech_v3;
 import static v3.projecttech_v3.Operator_Activity.FinalListWithCellColor;
 import static v3.projecttech_v3.Operator_Activity.FinalListWithColumnsAdjust;
 import static v3.projecttech_v3.Operator_Activity.database_Operator;
+import static v3.projecttech_v3.Operator_Activity.inputOperator2;
+import static v3.projecttech_v3.Przewinienie_Activity.database_Przewinienie;
+import static v3.projecttech_v3.Przewinienie_Activity.inputPrzewinienie2;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -20,6 +23,7 @@ import java.util.ArrayList;
 public class AdapterRecyclerView5_Operator extends RecyclerView.Adapter<AdapterRecyclerView5_Operator.ViewHolderRecyclerView> {
 
     int positionAdapterOperator;
+    String positionAdapterOperatorText;
 
     private final RecyclerViewInterface5_Operator recyclerViewInterface;
     Context context;
@@ -136,6 +140,8 @@ public class AdapterRecyclerView5_Operator extends RecyclerView.Adapter<AdapterR
                 public void onClick(View view) {
                     if (recyclerViewInterface != null) {
                         positionAdapterOperator = getAdapterPosition();
+                        positionAdapterOperatorText = database_Operator.get(positionAdapterOperator).get(3).toString();
+                        inputOperator2.setText(positionAdapterOperatorText);
                         Toast.makeText(context, "Position: " + positionAdapterOperator, Toast.LENGTH_SHORT).show();
 
                         if (positionAdapterOperator != RecyclerView.NO_POSITION) {
