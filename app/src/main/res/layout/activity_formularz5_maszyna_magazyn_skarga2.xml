@@ -38,19 +38,25 @@
 
                 <EditText
                     android:id="@+id/inputMaszyna"
-                    android:layout_width="340dp"
+                    android:layout_width="290dp"
                     android:layout_height="match_parent"
                     android:gravity="start"
                     android:hint="maszyna"
                     android:inputType="text"
                     android:textColor="@color/mainColor"
-                    android:textColorHint="@color/mainColor" />
+                    android:textColorHint="@color/greyColor" />
 
                 <Button
                     android:id="@+id/buttonScanBarcodeMaszyna"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/ic_scanner_24" />
+
+                <Button
+                    android:id="@+id/buttonSzukajMaszyna"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_search_24" />
 
             </LinearLayout>
 
@@ -85,7 +91,8 @@
                     android:hint="operator"
                     android:inputType="text"
                     android:textColor="@color/mainColor"
-                    android:textColorHint="@color/mainColor" />
+                    android:textColorHint="@color/greyColor"
+                    />
 
                 <Button
                     android:id="@+id/buttonSzukajOperator"
@@ -123,22 +130,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <androidx.appcompat.widget.SearchView
-                        android:id="@+id/searchView_przewinienie"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:iconifiedByDefault="false"
+                    <EditText
+                        android:id="@+id/inputPrzewinienie"
+                        android:layout_width="300dp"
+                        android:layout_height="match_parent"
+                        android:gravity="start"
                         android:hint="przewinienie"
-                        android:iconifiedByDefault="false"
-                        android:showAsAction="always|collapseActionView"
+                        android:inputType="text"
+                        android:textColor="@color/mainColor"
+                        android:textColorHint="@color/greyColor"
                         />
-
-                    <ListView
-                        android:id="@+id/listView_przewinienie"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                         />
 
                 </LinearLayout>
 <!--                <EditText-->
@@ -238,7 +239,7 @@
                     android:hint="telefon"
                     android:inputType="text"
                     android:textColor="@color/mainColor"
-                    android:textColorHint="@color/mainColor" />
+                    android:textColorHint="@color/greyColor" />
 
             </LinearLayout>
         </LinearLayout>
@@ -278,7 +279,7 @@
                     android:hint="SMS"
                     android:inputType="text"
                     android:textColor="@color/mainColor"
-                    android:textColorHint="@color/mainColor" />
+                    android:textColorHint="@color/greyColor" />
 
 
             </LinearLayout>
@@ -313,7 +314,7 @@
                     android:hint="uwaga"
                     android:inputType="textMultiLine"
                     android:textColor="@color/mainColor"
-                    android:textColorHint="@color/mainColor" />
+                    android:textColorHint="@color/greyColor" />
 
             </LinearLayout>
         </LinearLayout>
