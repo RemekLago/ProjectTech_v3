@@ -27,7 +27,7 @@ public class Przewinienie_Activity_v2 extends AppCompatActivity {
         SearchView searchView_przewinienie = findViewById(R.id.searchView_przewinienie);
         ListView listView_przewinienie = findViewById(R.id.listView_przewinienie);
 
-        Procedura_Przewinienie_Formularz5.takingPrzewinienie();
+//        Procedura_Przewinienie_Formularz5.takingPrzewinienie();
 
         String[] list_przewinienie = {"przewinienie", "uwaga", "skarga", "donos",
                 "zaniedbanie", "pracownika", "reklamacja", "brak", "dom", "chatka", "mieszkanie"};
