@@ -50,7 +50,7 @@ public class Procedura_Przewinienie_Formularz5 {
             Firma = "750";
             UserId = "1";
             FormName = "FormularzMaszynaPracownikSkarga";
-            TextBoxName = "textViewPrzewinienia";
+            TextBoxName = "textViewPrzewinienie";
             Parameters = parameters;
             SearchText = searchText;
 
