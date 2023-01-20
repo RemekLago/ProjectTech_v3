@@ -7,18 +7,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewInterface5_Przewinienie {
+import v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga;
+
+public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewInterface5_Maszyna {
 
     public static ArrayList<String> FinalListWithCellColor;
     public static ArrayList<Integer> FinalListWithColumnsAdjust;
@@ -26,11 +31,12 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
     public static ArrayList<String> FinalListWithColumnsNames;
     public static String columnName;
     public static RecyclerView recyclerView;
-    public static AdapterRecyclerView5_Przewinienie adapterRecyclerView;
-    public static ArrayList<ArrayList<String>> database_Przewinienie;
+    public static AdapterRecyclerView5_Maszyna adapterRecyclerView;
+    public static ArrayList<ArrayList<String>> database_Maszyna;
     public static ArrayList<ArrayList<String>> database2;
     public static ProgressBar progressBar;
-    public static String przewinienie_searchText;
+    public static String maszyna_searchText;
+    public static EditText inputMaszyna2;
 
     @SuppressLint("WrongThread")
     @Override
@@ -45,38 +51,48 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
                     .build());
         }
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_przewinienie);
+        setContentView(R.layout.activity_maszyna);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
 
 
-        EditText inputPrzewinienie2 = findViewById(R.id.inputPrzewinienie2);
-        ListView listView_przewinienie = findViewById(R.id.listView_przewinienie);
+        inputMaszyna2 = findViewById(R.id.inputMaszyna2);
 
-        // Intent from Procedura_Przewinienie_Formularz5
-        String przewinienie_searchText = getIntent().getStringExtra("przewinienie");
-        inputPrzewinienie2.setText(przewinienie_searchText);
+        // Intent from Procedura_Maszyna_Formularz5
+        maszyna_searchText = getIntent().getStringExtra("maszyna");
+        inputMaszyna2.setText(maszyna_searchText);
 
-        DataBaseChanges6_Przewinienie_Formularz5 dataFinal = new DataBaseChanges6_Przewinienie_Formularz5();
+        DataBaseChanges6_Maszyna_Formularz5 dataFinal = new DataBaseChanges6_Maszyna_Formularz5();
         ArrayList<ArrayList<String>> database = dataFinal.doInBackground();
-        database_Przewinienie = dataFinal.cleaningDatabase(database);
+        database_Maszyna = dataFinal.cleaningDatabase(database);
 
         FinalListWithColumnsNames = dataFinal.columnsNames();
-        FinalListWithCellColor = dataFinal.cellsColor(database_Przewinienie);
+        FinalListWithCellColor = dataFinal.cellsColor(database_Maszyna);
         FinalListWithColumnsAdjust = dataFinal.columnsAdjust();
         FinalListWithColumnsWidth = dataFinal.columnsWidth();
 
 
+        recyclerView = findViewById(R.id.recyclerViewMaszyna);
 
-
-
-
-
-        recyclerView = findViewById(R.id.recyclerViewPrzewinienie);
-
-        adapterRecyclerView = new AdapterRecyclerView5_Przewinienie(this, database2, this);
+        adapterRecyclerView = new AdapterRecyclerView5_Maszyna(this, database2, this);
         recyclerView.setAdapter(adapterRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Button button_zatwierdz = findViewById(R.id.button_zatwierdz);
+
+        button_zatwierdz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMaszynaBack = new Intent(Maszyna_Activity.this, Formularz5_Maszyna_Pracownik_Skarga.class);
+//                intentMaszynaBack.putExtra("operatorBack", inputMaszyna2.getText().toString());
+                startActivity(intentMaszynaBack);
+
+                SharedPreferences preferencesMaszyna = getSharedPreferences("preferencesMaszyna", MODE_PRIVATE);
+                SharedPreferences.Editor editorMaszyna = preferencesMaszyna.edit();
+                editorMaszyna.putString("preferencesMaszyna", inputMaszyna2.getText().toString());
+                editorMaszyna.apply();
+            }
+        });
 
 
 
@@ -87,7 +103,6 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
         TextView textView5name = findViewById(R.id.textViewName5);
         TextView textView6name = findViewById(R.id.textViewName6);
         TextView textView7name = findViewById(R.id.textViewName7);
-        TextView textView8name = findViewById(R.id.textViewName8);
 
         textView1name.setText(FinalListWithColumnsNames.get(0));
         textView2name.setText(FinalListWithColumnsNames.get(1));
@@ -96,7 +111,6 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
         textView5name.setText(FinalListWithColumnsNames.get(4));
         textView6name.setText(FinalListWithColumnsNames.get(5));
         textView7name.setText(FinalListWithColumnsNames.get(6));
-        textView8name.setText(FinalListWithColumnsNames.get(7));
 
 
         textView1name.setTextColor(Color.WHITE);
@@ -106,7 +120,6 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
         textView5name.setTextColor(Color.WHITE);
         textView6name.setTextColor(Color.WHITE);
         textView7name.setTextColor(Color.WHITE);
-        textView8name.setTextColor(Color.WHITE);
 
         textView1name.setBackgroundColor(rgb(3, 37, 76));
         textView2name.setBackgroundColor(rgb(3, 37, 76));
@@ -115,7 +128,6 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
         textView5name.setBackgroundColor(rgb(3, 37, 76));
         textView6name.setBackgroundColor(rgb(3, 37, 76));
         textView7name.setBackgroundColor(rgb(3, 37, 76));
-        textView8name.setBackgroundColor(rgb(3, 37, 76));
 
         textView1name.setGravity(FinalListWithColumnsAdjust.get(0));
         textView2name.setGravity(FinalListWithColumnsAdjust.get(1));
@@ -124,7 +136,6 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
         textView5name.setGravity(FinalListWithColumnsAdjust.get(4));
         textView6name.setGravity(FinalListWithColumnsAdjust.get(5));
         textView7name.setGravity(FinalListWithColumnsAdjust.get(6));
-        textView8name.setGravity(FinalListWithColumnsAdjust.get(7));
 
 
         ViewGroup.LayoutParams params1 = textView1name.getLayoutParams();
@@ -134,7 +145,6 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
         ViewGroup.LayoutParams params5 = textView5name.getLayoutParams();
         ViewGroup.LayoutParams params6 = textView6name.getLayoutParams();
         ViewGroup.LayoutParams params7 = textView7name.getLayoutParams();
-        ViewGroup.LayoutParams params8 = textView8name.getLayoutParams();
 
         params1.width = 0;
         params2.width = 0;
@@ -143,7 +153,6 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
         params5.width = 400;
         params6.width = 400;
         params7.width = 250;
-        params8.width = 0;
 
         textView1name.setLayoutParams(params1);
         textView2name.setLayoutParams(params2);
@@ -152,7 +161,6 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
         textView5name.setLayoutParams(params5);
         textView6name.setLayoutParams(params6);
         textView7name.setLayoutParams(params7);
-        textView8name.setLayoutParams(params8);
 
     }
 
