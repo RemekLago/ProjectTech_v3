@@ -1,25 +1,52 @@
 package v3.projecttech_v3.formularze;
 
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import android.widget.ImageView;
+import android.widget.EditText;
 
+import java.util.ArrayList;
+
+import v3.projecttech_v3.AdapertRecyclerView5_Zdjęcie;
 import v3.projecttech_v3.BuildConfig;
-import v3.projecttech_v3.Przewinienie_Activity_v2;
+import v3.projecttech_v3.Maszyna_Activity;
+import v3.projecttech_v3.Operator_Activity;
+import v3.projecttech_v3.Photo_Activity;
+import v3.projecttech_v3.Przewinienie_Activity;
 import v3.projecttech_v3.R;
-import v3.projecttech_v3.procedury.Procedura_Maszyna_Pracownik_Skarga_formularz5;
+
 
 public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
 
     Intent intent_szukaj_przewinienie;
     Intent intent_dodaj_przewinienie;
+    Intent intent_szukaj_maszyna;
+    Intent intent_szukaj_operator;
+    Intent intent_zdjecie;
+    String przewinienieBack;
+    String maszynaBack;
+    String operatorBack;
+    String przewinienieBackInput;
+    String maszynaBackInput;
+    String operatorBackInput;
+    RecyclerView recyclerViewImages;
+    AdapertRecyclerView5_Zdjęcie adapterRecyclerView;
+    public static ArrayList<Bitmap> images;
+    public static ArrayList<String> imagesFromPhotoActivity;
+
 
 //    ExpandableListView expandableListView1;
 //    ExpandableListView expandableListView2;
@@ -55,15 +82,39 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formularz5_maszyna_magazyn_skarga2);
 
-        Procedura_Maszyna_Pracownik_Skarga_formularz5 procedura = new Procedura_Maszyna_Pracownik_Skarga_formularz5();
-        procedura.createTables();
+
+        EditText inputMaszyna = findViewById(R.id.inputMaszyna);
+        EditText inputOperator = findViewById(R.id.inputOperator);
+        EditText inputPrzewinienie = findViewById(R.id.inputPrzewinienie);
+        EditText inputTelefon = findViewById(R.id.inputTelefon);
+        EditText inputSMS = findViewById(R.id.inputSMS);
+        EditText inputUwaga = findViewById(R.id.inputUwaga);
 
         Button buttonDodajPrzewinienie = findViewById(R.id.buttonDodajPrzewinienie);
         Button buttonSzukajPrzewinienie = findViewById(R.id.buttonSzukajPrzewinienie);
+        Button buttonSzukajMaszyna = findViewById(R.id.buttonSzukajMaszyna);
+        Button buttonSzukajOperator = findViewById(R.id.buttonSzukajOperator);
+        Button buttonZdjecie = findViewById(R.id.buttonZdjecie);
 
-        ImageView image1 = findViewById(R.id.imageView1);
-        ImageView image2 = findViewById(R.id.imageView2);
-        ImageView image3 = findViewById(R.id.imageView3);
+        images = new ArrayList<Bitmap>();
+//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_photo_size_select_large_24);
+//        images.add(bitmap);
+
+        Intent intentFormPhotoActivity = getIntent();
+        imagesFromPhotoActivity = intentFormPhotoActivity.getStringArrayListExtra("imagesByte");
+
+
+
+        recyclerViewImages = findViewById(R.id.recyclerViewZdjecia);
+        Log.i("Checking", "Images size2 " + Formularz5_Maszyna_Pracownik_Skarga.images.size());
+        adapterRecyclerView = new AdapertRecyclerView5_Zdjęcie(this, images);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,3, GridLayoutManager.VERTICAL, false);
+        recyclerViewImages.setLayoutManager(gridLayoutManager);
+        recyclerViewImages.setAdapter(adapterRecyclerView);
+
+
+
 
 
 //        buttonDodajPrzewinienie.setOnClickListener(new View.OnClickListener() {
@@ -77,10 +128,61 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
         buttonSzukajPrzewinienie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent_szukaj_przewinienie = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Przewinienie_Activity_v2.class);
+                intent_szukaj_przewinienie = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Przewinienie_Activity.class);
+                intent_szukaj_przewinienie.putExtra("przewinienie", inputPrzewinienie.getText().toString());
+                Log.i("checking", "intent_szukaj_przewinienie putExtra: " + inputPrzewinienie.getText().toString());
+
+
                 startActivity(intent_szukaj_przewinienie);
             }
         });
+
+        buttonSzukajMaszyna.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent_szukaj_maszyna = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Maszyna_Activity.class);
+                intent_szukaj_maszyna.putExtra("operator", inputMaszyna.getText().toString());
+                Log.i("checking", "intent_szukaj_operator putExtra: " + inputMaszyna.getText().toString());
+
+
+                startActivity(intent_szukaj_maszyna);
+            }
+        });
+
+        buttonSzukajOperator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent_szukaj_operator = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Operator_Activity.class);
+                intent_szukaj_operator.putExtra("operator", inputOperator.getText().toString());
+                Log.i("checking", "intent_szukaj_operator putExtra: " + inputOperator.getText().toString());
+
+
+                startActivity(intent_szukaj_operator);
+            }
+        });
+
+        SharedPreferences preferencesPrzewinienie = getSharedPreferences("preferencesPrzewinienie", MODE_PRIVATE);
+        przewinienieBackInput = preferencesPrzewinienie.getString("preferencesPrzewinienie","");
+
+        SharedPreferences preferencesMaszyna = getSharedPreferences("preferencesMaszyna", MODE_PRIVATE);
+        maszynaBackInput = preferencesMaszyna.getString("preferencesMaszyna","");
+
+        SharedPreferences preferencesOperator = getSharedPreferences("preferencesOperator", MODE_PRIVATE);
+        operatorBackInput = preferencesOperator.getString("preferencesOperator","");
+
+
+        inputPrzewinienie.setText(przewinienieBackInput);
+        inputMaszyna.setText(maszynaBackInput);
+        inputOperator.setText(operatorBackInput);
+
+        buttonZdjecie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent_zdjecie = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Photo_Activity.class);
+                startActivity(intent_zdjecie);
+            }
+        });
+
 
 
 //        TextView textViewMaszyna = findViewById(R.id.textViewMaszyna);
