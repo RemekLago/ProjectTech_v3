@@ -1,5 +1,7 @@
 package v3.projecttech_v3;
 
+import static v3.projecttech_v3.ConvertStringToBitmap.tmpBitmapsPhotos;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -9,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -43,7 +47,8 @@ public class Photo_Activity extends AppCompatActivity {
     ImageView imageViewMini2;
     ImageView imageViewMini3;
     ImageView imageViewMini4;
-
+    RecyclerView recyclerViewImages;
+    AdapertRecyclerView5_Zdjęcie adapterRecyclerView;
 
 
     public static final int CAMERA_ACTION_CODE = 1;
@@ -55,22 +60,29 @@ public class Photo_Activity extends AppCompatActivity {
                     int requestCode = activityResult.getResultCode();
                     Intent data = activityResult.getData();
 
+
                     if (requestCode == RESULT_OK && data != null) {
                         Bitmap bitmapPhoto = (Bitmap) data.getExtras().get("data");
                         imageViewPhoto.setImageBitmap(bitmapPhoto);
 
                         bitmapsPhotos.add(bitmapPhoto);
-                        Log.i("Checking", "Bitmaps size " + bitmapsPhotos.size());
+                        Log.i("Checking", "Bitmaps size: " + bitmapsPhotos.size());
 
-                        if (Formularz5_Maszyna_Pracownik_Skarga.images.size() > 0) {
-                            imageViewMini1.setImageBitmap(bitmapPhoto);
-                        }
+                        ConvertStringToBitmap.converting(bitmapPhoto);
+                        recyclerViewImages.setAdapter(adapterRecyclerView);
+//
+//                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//                        bitmapPhoto.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+//                        byte[] byteArrayImage = byteArrayOutputStream .toByteArray();
+//                        String encodedByteArrayImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
+////                        Log.i("Checking", "encodedByteArrayImage: " + encodedByteArrayImage.toString());
+//
+//                        bytesPhotos.add(encodedByteArrayImage);
+//                        Log.i("Checking", "Bytesmaps size: " + bytesPhotos.size());
 
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        bitmapPhoto.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                        byte[] byteArrayImage = byteArrayOutputStream .toByteArray();
-                        String encodedByteArrayImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
-                        bytesPhotos.add(encodedByteArrayImage);
+//                        if (Formularz5_Maszyna_Pracownik_Skarga.images.size() > 0) {
+//                            imageViewMini1.setImageBitmap(bitmapPhoto);
+//                        }
 
                     }
                 }
@@ -86,17 +98,17 @@ public class Photo_Activity extends AppCompatActivity {
         imageViewPhoto = findViewById(R.id.imageViewPhoto);
         buttonPhoto = findViewById(R.id.buttonPhoto);
         buttonPhotoZatwierdz = findViewById(R.id.buttonPhotoZatwierdz);
-        imageViewMini1 = findViewById(R.id.imageViewMini1);
-        imageViewMini2 = findViewById(R.id.imageViewMini2);
-        imageViewMini3 = findViewById(R.id.imageViewMini3);
-        imageViewMini4 = findViewById(R.id.imageViewMini4);
 
         bitmapsPhotos = new ArrayList<Bitmap>();
+        bytesPhotos = new ArrayList<String>();
+        tmpBitmapsPhotos = new ArrayList<>();
 
-        imageViewMini1.setImageResource(R.drawable.ic_photo_size_select_large_24);
-        imageViewMini2.setImageResource(R.drawable.ic_photo_size_select_large_24);
-        imageViewMini3.setImageResource(R.drawable.ic_photo_size_select_large_24);
-        imageViewMini4.setImageResource(R.drawable.ic_photo_size_select_large_24);
+        recyclerViewImages = findViewById(R.id.recyclerViewZdjeciaMini);
+        adapterRecyclerView = new AdapertRecyclerView5_Zdjęcie(getApplicationContext(), tmpBitmapsPhotos);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,4, GridLayoutManager.VERTICAL, false);
+        recyclerViewImages.setLayoutManager(gridLayoutManager);
+
 
 
         // Request for camera runtime permission
