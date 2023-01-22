@@ -38,7 +38,7 @@
 
                 <EditText
                     android:id="@+id/inputMaszyna"
-                    android:layout_width="290dp"
+                    android:layout_width="270dp"
                     android:layout_height="match_parent"
                     android:gravity="start"
                     android:hint="maszyna"
@@ -85,7 +85,7 @@
 
                 <EditText
                     android:id="@+id/inputOperator"
-                    android:layout_width="340dp"
+                    android:layout_width="320dp"
                     android:layout_height="match_parent"
                     android:gravity="start"
                     android:hint="operator"
@@ -126,7 +126,7 @@
 
                 <LinearLayout
                     android:id="@+id/linearLayout_search1"
-                    android:layout_width="300dp"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
@@ -186,13 +186,16 @@
             <LinearLayout
                 android:id="@+id/linearLayout5"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewZdjecia"
-                    android:layout_width="340dp"
-                    android:layout_height="match_parent" />
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    />
 
                 <Button
                     android:id="@+id/buttonZdjecie"
