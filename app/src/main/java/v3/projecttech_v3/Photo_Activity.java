@@ -38,17 +38,13 @@ import v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga;
 
 public class Photo_Activity extends AppCompatActivity {
 
-    ImageView imageViewPhoto;
+    public static ImageView imageViewPhoto;
     Button buttonPhoto;
     Button buttonPhotoZatwierdz;
     public static ArrayList<Bitmap> bitmapsPhotos;
     public static ArrayList<String> bytesPhotos;
-    ImageView imageViewMini1;
-    ImageView imageViewMini2;
-    ImageView imageViewMini3;
-    ImageView imageViewMini4;
     RecyclerView recyclerViewImages;
-    AdapertRecyclerView5_Zdjęcie adapterRecyclerView;
+    AdapterRecyclerView5_ZdjecieMini adapterRecyclerView;
 
 
     public static final int CAMERA_ACTION_CODE = 1;
@@ -70,20 +66,6 @@ public class Photo_Activity extends AppCompatActivity {
 
                         ConvertStringToBitmap.converting(bitmapPhoto);
                         recyclerViewImages.setAdapter(adapterRecyclerView);
-//
-//                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//                        bitmapPhoto.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-//                        byte[] byteArrayImage = byteArrayOutputStream .toByteArray();
-//                        String encodedByteArrayImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
-////                        Log.i("Checking", "encodedByteArrayImage: " + encodedByteArrayImage.toString());
-//
-//                        bytesPhotos.add(encodedByteArrayImage);
-//                        Log.i("Checking", "Bytesmaps size: " + bytesPhotos.size());
-
-//                        if (Formularz5_Maszyna_Pracownik_Skarga.images.size() > 0) {
-//                            imageViewMini1.setImageBitmap(bitmapPhoto);
-//                        }
-
                     }
                 }
             }
@@ -104,7 +86,7 @@ public class Photo_Activity extends AppCompatActivity {
         tmpBitmapsPhotos = new ArrayList<>();
 
         recyclerViewImages = findViewById(R.id.recyclerViewZdjeciaMini);
-        adapterRecyclerView = new AdapertRecyclerView5_Zdjęcie(getApplicationContext(), tmpBitmapsPhotos);
+        adapterRecyclerView = new AdapterRecyclerView5_ZdjecieMini(getApplicationContext(), tmpBitmapsPhotos);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,4, GridLayoutManager.VERTICAL, false);
         recyclerViewImages.setLayoutManager(gridLayoutManager);
