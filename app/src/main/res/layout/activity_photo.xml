@@ -7,84 +7,97 @@
     android:layout_height="match_parent"
     tools:context=".Photo_Activity">
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:padding="2dp"
+        >
 
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageViewPhoto"
-        android:layout_width="402dp"
-        android:layout_height="427dp"
-        android:layout_marginTop="4dp"
-        android:layout_weight="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+            <LinearLayout
+                android:id="@+id/layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <Button
-        android:id="@+id/buttonPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button_background"
-        android:text="Zrób Zdjęcie"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPhoto" />
+                <ImageView
+                    android:id="@+id/imageViewPhoto"
+                    android:layout_width="390dp"
+                    android:layout_height="430dp"
+                    android:layout_gravity="center"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/buttonPhotoZatwierdz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:background="@drawable/button_background"
-        android:text="Zatwierdź"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPhoto"
-        app:layout_constraintVertical_bias="0.0" />
+                <Button
+                    android:id="@+id/buttonPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_background"
+                    android:text="Zrób Zdjęcie"
+                    android:layout_margin="2dp"
+                    android:textStyle="bold" />
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewZdjeciaMini"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp" />
 
-    <ImageView
-        android:id="@+id/imageViewMini1"
-        android:layout_width="64dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPhoto"
-        tools:srcCompat="@tools:sample/avatars" />
+                <Button
+                    android:id="@+id/buttonPhotoZatwierdz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:text="Zatwierdź"
+                    android:layout_gravity="center"
+                    android:layout_margin="2dp"
+                    android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imageViewMini2"
-        android:layout_width="64dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewMini1"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPhoto"
-        tools:srcCompat="@tools:sample/avatars" />
+            </LinearLayout>
+        </ScrollView>
+    </HorizontalScrollView>
 
-    <ImageView
-        android:id="@+id/imageViewMini3"
-        android:layout_width="64dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewMini2"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPhoto"
-        tools:srcCompat="@tools:sample/avatars" />
+    <!--    <ImageView-->
+<!--        android:id="@+id/imageViewMini1"-->
+<!--        android:layout_width="64dp"-->
+<!--        android:layout_height="49dp"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/buttonPhoto"-->
+<!--        tools:srcCompat="@tools:sample/avatars" />-->
 
-    <ImageView
-        android:id="@+id/imageViewMini4"
-        android:layout_width="64dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewMini3"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPhoto"
-        tools:srcCompat="@tools:sample/avatars" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageViewMini2"-->
+<!--        android:layout_width="64dp"-->
+<!--        android:layout_height="49dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageViewMini1"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/buttonPhoto"-->
+<!--        tools:srcCompat="@tools:sample/avatars" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageViewMini3"-->
+<!--        android:layout_width="64dp"-->
+<!--        android:layout_height="49dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageViewMini2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/buttonPhoto"-->
+<!--        tools:srcCompat="@tools:sample/avatars" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageViewMini4"-->
+<!--        android:layout_width="64dp"-->
+<!--        android:layout_height="49dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageViewMini3"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/buttonPhoto"-->
+<!--        tools:srcCompat="@tools:sample/avatars" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
