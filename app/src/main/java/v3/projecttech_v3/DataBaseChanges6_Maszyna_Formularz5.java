@@ -1,6 +1,6 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText;
+import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText2;
 import static v3.projecttech_v3.procedury.Procedura_Maszyna_Formularz5.columnsNames;
 import static v3.projecttech_v3.procedury.Procedura_Maszyna_Formularz5.numberOfColumns;
 
@@ -23,7 +23,7 @@ public class DataBaseChanges6_Maszyna_Formularz5 extends AsyncTask<String, Void,
     public ArrayList<ArrayList<String>> doInBackground(String... strings) {
 
         Procedura_Maszyna_Formularz5 procedura = new Procedura_Maszyna_Formularz5();
-        ArrayListWithFinalData = procedura.takingMaszyna("", maszyna_searchText);
+        ArrayListWithFinalData = procedura.takingMaszyna("", maszyna_searchText2);
 
         return ArrayListWithFinalData;
     }
