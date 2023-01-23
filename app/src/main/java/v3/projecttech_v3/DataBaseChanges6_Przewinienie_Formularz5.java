@@ -1,7 +1,7 @@
 package v3.projecttech_v3;
 
 import static android.content.Intent.getIntent;
-import static v3.projecttech_v3.Przewinienie_Activity.przewinienie_searchText;
+import static v3.projecttech_v3.Przewinienie_Activity.przewinienie_searchText1;
 import static v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2.columnsNames4;
 import static v3.projecttech_v3.procedury.Procedura_Przewinienie_Formularz5.columnsNames;
 import static v3.projecttech_v3.procedury.Procedura_Przewinienie_Formularz5.numberOfColumns;
@@ -25,7 +25,7 @@ public class DataBaseChanges6_Przewinienie_Formularz5 extends AsyncTask<String, 
     public ArrayList<ArrayList<String>> doInBackground(String... strings) {
 
         Procedura_Przewinienie_Formularz5 procedura = new Procedura_Przewinienie_Formularz5();
-        ArrayListWithFinalData = procedura.takingPrzewinienie("", przewinienie_searchText);
+        ArrayListWithFinalData = procedura.takingPrzewinienie("", przewinienie_searchText1);
 
         return ArrayListWithFinalData;
     }
