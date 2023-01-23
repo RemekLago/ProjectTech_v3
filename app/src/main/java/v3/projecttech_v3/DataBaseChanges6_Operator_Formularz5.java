@@ -1,6 +1,6 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Operator_Activity.operator_searchText;
+import static v3.projecttech_v3.Operator_Activity.operator_searchText1;
 import static v3.projecttech_v3.procedury.Procedura_Operator_Formularz5.columnsNames;
 import static v3.projecttech_v3.procedury.Procedura_Operator_Formularz5.numberOfColumns;
 
@@ -23,7 +23,7 @@ public class DataBaseChanges6_Operator_Formularz5 extends AsyncTask<String, Void
     public ArrayList<ArrayList<String>> doInBackground(String... strings) {
 
         Procedura_Operator_Formularz5 procedura = new Procedura_Operator_Formularz5();
-        ArrayListWithFinalData = procedura.takingOperator("", operator_searchText);
+        ArrayListWithFinalData = procedura.takingOperator("", operator_searchText1);
 
         return ArrayListWithFinalData;
     }
