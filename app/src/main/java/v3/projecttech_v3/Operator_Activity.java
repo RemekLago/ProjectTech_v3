@@ -2,6 +2,8 @@ package v3.projecttech_v3;
 
 import static android.graphics.Color.rgb;
 
+import static v3.projecttech_v3.AdapterRecyclerView5_Operator.positionAdapterOperatorTelefon;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,8 +38,11 @@ public class Operator_Activity extends AppCompatActivity implements RecyclerView
     public static ArrayList<ArrayList<String>> database_Operator;
     public static ArrayList<ArrayList<String>> database2;
     public static ProgressBar progressBar;
-    public static String operator_searchText;
+    public static String operator_searchText1;
+    public static String operator_searchText12;
     public static EditText inputOperator2;
+    public static String inputOperatorTelefon;
+
 
     @SuppressLint("WrongThread")
     @Override
@@ -59,9 +64,16 @@ public class Operator_Activity extends AppCompatActivity implements RecyclerView
 
         inputOperator2 = findViewById(R.id.inputOperator2);
 
+        // Intent from Formularz5_Maszyna_Pracownik_Skarga
+        operator_searchText12 = getIntent().getStringExtra("operator");
         // Intent from Procedura_Operator_Formularz5
-        operator_searchText = getIntent().getStringExtra("operator");
-        inputOperator2.setText(operator_searchText);
+        operator_searchText1 = getIntent().getStringExtra("operatorFormularz");
+
+        if (operator_searchText1 == null) {
+            inputOperator2.setText(operator_searchText12);
+        } else {
+            inputOperator2.setText(operator_searchText1);
+        }
 
         DataBaseChanges6_Operator_Formularz5 dataFinal = new DataBaseChanges6_Operator_Formularz5();
         ArrayList<ArrayList<String>> database = dataFinal.doInBackground();
@@ -81,17 +93,23 @@ public class Operator_Activity extends AppCompatActivity implements RecyclerView
 
         Button button_zatwierdz = findViewById(R.id.button_zatwierdz);
 
+
         button_zatwierdz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentOperatorBack = new Intent(Operator_Activity.this, Formularz5_Maszyna_Pracownik_Skarga.class);
-//                intentOperatorBack.putExtra("operatorBack", inputOperator2.getText().toString());
                 startActivity(intentOperatorBack);
+
 
                 SharedPreferences preferencesOperator = getSharedPreferences("preferencesOperator", MODE_PRIVATE);
                 SharedPreferences.Editor editorOperator = preferencesOperator.edit();
                 editorOperator.putString("preferencesOperator", inputOperator2.getText().toString());
                 editorOperator.apply();
+
+                SharedPreferences preferencesTelefon = getSharedPreferences("preferencesTelefon", MODE_PRIVATE);
+                SharedPreferences.Editor editorTelefon = preferencesTelefon.edit();
+                editorTelefon.putString("preferencesTelefon", positionAdapterOperatorTelefon);
+                editorTelefon.apply();
             }
         });
 
