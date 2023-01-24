@@ -86,11 +86,11 @@ public class AdapterRecyclerView5_Przewinienie extends RecyclerView.Adapter<Adap
         params1.width = 0;
         params2.width = 0;
         params3.width = 100;
-        params4.width = 300;
-        params5.width = 400;
-        params6.width = 400;
-        params7.width = 250;
-        params8.width = 0;
+        params4.width = 500;
+        params5.width = 0;
+        params6.width = 0;
+        params7.width = 400;
+        params8.width = 400;
 
         holder.textView1.setLayoutParams(params1);
         holder.textView2.setLayoutParams(params2);
