@@ -38,7 +38,8 @@ public class Przewinienie_Activity extends AppCompatActivity implements Recycler
     public static ArrayList<ArrayList<String>> database_Przewinienie;
     public static ArrayList<ArrayList<String>> database2;
     public static ProgressBar progressBar;
-    public static String przewinienie_searchText;
+    public static String przewinienie_searchText1;
+    public static String przewinienie_searchText12;
     public static EditText inputPrzewinienie2;
 
     @SuppressLint("WrongThread")
@@ -62,9 +63,21 @@ public class Przewinienie_Activity extends AppCompatActivity implements Recycler
         inputPrzewinienie2 = findViewById(R.id.inputPrzewinienie2);
 //        ListView listView_przewinienie = findViewById(R.id.listView_przewinienie);
 
+
+        // Intent from Formularz5_Maszyna_Pracownik_Skarga
+        przewinienie_searchText12 = getIntent().getStringExtra("przewinienie");
         // Intent from Procedura_Przewinienie_Formularz5
-        przewinienie_searchText = getIntent().getStringExtra("przewinienie");
-        inputPrzewinienie2.setText(przewinienie_searchText);
+        przewinienie_searchText1 = getIntent().getStringExtra("przewinienieFormularz");
+
+        if (przewinienie_searchText1 == null) {
+            inputPrzewinienie2.setText(przewinienie_searchText12);
+        } else {
+            inputPrzewinienie2.setText(przewinienie_searchText1);
+        }
+
+
+        przewinienie_searchText1 = getIntent().getStringExtra("przewinienie");
+        inputPrzewinienie2.setText(przewinienie_searchText1);
 
         DataBaseChanges6_Przewinienie_Formularz5 dataFinal = new DataBaseChanges6_Przewinienie_Formularz5();
         ArrayList<ArrayList<String>> database = dataFinal.doInBackground();
@@ -145,7 +158,6 @@ public class Przewinienie_Activity extends AppCompatActivity implements Recycler
         textView7name.setGravity(FinalListWithColumnsAdjust.get(6));
         textView8name.setGravity(FinalListWithColumnsAdjust.get(7));
 
-
         ViewGroup.LayoutParams params1 = textView1name.getLayoutParams();
         ViewGroup.LayoutParams params2 = textView2name.getLayoutParams();
         ViewGroup.LayoutParams params3 = textView3name.getLayoutParams();
@@ -158,11 +170,11 @@ public class Przewinienie_Activity extends AppCompatActivity implements Recycler
         params1.width = 0;
         params2.width = 0;
         params3.width = 100;
-        params4.width = 300;
-        params5.width = 400;
-        params6.width = 400;
-        params7.width = 250;
-        params8.width = 0;
+        params4.width = 500;
+        params5.width = 0;
+        params6.width = 0;
+        params7.width = 400;
+        params8.width = 400;
 
         textView1name.setLayoutParams(params1);
         textView2name.setLayoutParams(params2);
