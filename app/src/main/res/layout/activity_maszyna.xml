@@ -42,7 +42,6 @@
                 android:background="@drawable/ic_search_24" />
 
 
-
             <!--            <ListView-->
             <!--                android:id="@+id/listView_przewinienie"-->
             <!--                android:layout_width="match_parent"-->
