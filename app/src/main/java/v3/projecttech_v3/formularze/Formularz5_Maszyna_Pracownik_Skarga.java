@@ -1,6 +1,8 @@
 package v3.projecttech_v3.formularze;
 
 
+import static v3.projecttech_v3.ConvertStringToBitmap.tmpBitmapsPhotos;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,14 +12,25 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import v3.projecttech_v3.AdapertRecyclerView5_Zdjęcie;
@@ -27,44 +40,34 @@ import v3.projecttech_v3.Operator_Activity;
 import v3.projecttech_v3.Photo_Activity;
 import v3.projecttech_v3.Przewinienie_Activity;
 import v3.projecttech_v3.R;
+import v3.projecttech_v3.Scanner_Formularz5;
 
 
-public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
+public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity{
 
     Intent intent_szukaj_przewinienie;
     Intent intent_dodaj_przewinienie;
     Intent intent_szukaj_maszyna;
     Intent intent_szukaj_operator;
-    Intent intent_zdjecie;
+    Intent intent_GoToPhotoActivity;
     String przewinienieBack;
     String maszynaBack;
     String operatorBack;
     String przewinienieBackInput;
     String maszynaBackInput;
     String operatorBackInput;
+    String telefonBackInput;
+    String SMSBackInput;
+    String uwagaBackInput;
+    String checkBoxSMSBackInput;
+    String barcodeMaszynaInput;
+    String telefonOperatorInput;
     RecyclerView recyclerViewImages;
     AdapertRecyclerView5_Zdjęcie adapterRecyclerView;
     public static ArrayList<Bitmap> images;
     public static ArrayList<String> imagesFromPhotoActivity;
+    boolean checkboxStatus;
 
-
-//    ExpandableListView expandableListView1;
-//    ExpandableListView expandableListView2;
-//    ExpandableListView expandableListView3;
-//    ExpandableListView expandableListView4;
-//    ExpandableListAdapter expandableListAdapter1;
-//    ExpandableListAdapter expandableListAdapter2;
-//    ExpandableListAdapter expandableListAdapter3;
-//    ExpandableListAdapter expandableListAdapter4;
-//    List<String> expandableTitleList1;
-//    List<String> expandableTitleList2;
-//    List<String> expandableTitleList3;
-//    List<String> expandableTitleList4;
-//    HashMap<String, List<String>> expandableDetailList1;
-//    HashMap<String, List<String>> expandableDetailList2;
-//    HashMap<String, List<String>> expandableDetailList3;
-//    HashMap<String, List<String>> expandableDetailList4;
-//
 
     @SuppressLint("WrongThread")
     @Override
@@ -89,24 +92,43 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
         EditText inputTelefon = findViewById(R.id.inputTelefon);
         EditText inputSMS = findViewById(R.id.inputSMS);
         EditText inputUwaga = findViewById(R.id.inputUwaga);
+        CheckBox checkBoxSMS = findViewById(R.id.checkboxSMS);
 
         Button buttonDodajPrzewinienie = findViewById(R.id.buttonDodajPrzewinienie);
         Button buttonSzukajPrzewinienie = findViewById(R.id.buttonSzukajPrzewinienie);
         Button buttonSzukajMaszyna = findViewById(R.id.buttonSzukajMaszyna);
         Button buttonSzukajOperator = findViewById(R.id.buttonSzukajOperator);
         Button buttonZdjecie = findViewById(R.id.buttonZdjecie);
+        Button buttonScanBarcodeMaszyna = findViewById(R.id.buttonScanBarcodeMaszyna);
+
+        // set edittext with SMS message as inactive on start
+        inputSMS.setEnabled(false);
+
+
+        inputOperator.setEnabled(false);
+        inputPrzewinienie.setEnabled(false);
+        inputTelefon.setEnabled(false);
+
+        // data/intent from Scanner with scanned barcode
+        barcodeMaszynaInput = getIntent().getStringExtra("barcodeInput");
+        Log.i("Checking", "barcodeMaszynaInput " + barcodeMaszynaInput);
+
+//        // data/intent from OperatorActivity (telefon)
+//        telefonOperatorInput = getIntent().getStringExtra("telefonInput");
+//        Log.i("Checking", "telefonOperatorInput " + telefonOperatorInput);
+//        inputTelefon.setText(telefonOperatorInput);
 
         images = new ArrayList<Bitmap>();
-//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_photo_size_select_large_24);
-//        images.add(bitmap);
+//        imagesFromPhotoActivity = new ArrayList<>();
+        imagesFromPhotoActivity = null;
 
-        Intent intentFormPhotoActivity = getIntent();
-        imagesFromPhotoActivity = intentFormPhotoActivity.getStringArrayListExtra("imagesByte");
-
+        if (tmpBitmapsPhotos != null) {
+            images = tmpBitmapsPhotos;
+        }
 
 
         recyclerViewImages = findViewById(R.id.recyclerViewZdjecia);
-        Log.i("Checking", "Images size2 " + Formularz5_Maszyna_Pracownik_Skarga.images.size());
+        Log.i("Checking", "Images size1 " + Formularz5_Maszyna_Pracownik_Skarga.images.size());
         adapterRecyclerView = new AdapertRecyclerView5_Zdjęcie(this, images);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,3, GridLayoutManager.VERTICAL, false);
@@ -114,7 +136,170 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
         recyclerViewImages.setAdapter(adapterRecyclerView);
 
 
+        SharedPreferences preferencesPrzewinienie = getSharedPreferences("preferencesPrzewinienie", MODE_PRIVATE);
+        przewinienieBackInput = preferencesPrzewinienie.getString("preferencesPrzewinienie","");
 
+        if (barcodeMaszynaInput == null) {
+        SharedPreferences preferencesMaszyna = getSharedPreferences("preferencesMaszyna", MODE_PRIVATE);
+        maszynaBackInput = preferencesMaszyna.getString("preferencesMaszyna","");
+            inputMaszyna.setText(maszynaBackInput);
+        } else {
+            inputMaszyna.setText(barcodeMaszynaInput);
+        }
+
+
+        SharedPreferences preferencesOperator = getSharedPreferences("preferencesOperator", MODE_PRIVATE);
+        operatorBackInput = preferencesOperator.getString("preferencesOperator","");
+
+        SharedPreferences preferencesTelefon = getSharedPreferences("preferencesTelefon", MODE_PRIVATE);
+        telefonBackInput = preferencesTelefon.getString("preferencesTelefon","");
+
+        SharedPreferences preferencesSMS = getSharedPreferences("preferencesSMS", MODE_PRIVATE);
+        SMSBackInput = preferencesSMS.getString("preferencesSMS","");
+
+        SharedPreferences preferencesUwaga = getSharedPreferences("preferencesUwaga", MODE_PRIVATE);
+        uwagaBackInput = preferencesUwaga.getString("preferencesUwaga","");
+
+        SharedPreferences preferencesCheckBoxSMS = getSharedPreferences("preferencesCheckBoxSMS", MODE_PRIVATE);
+        checkBoxSMSBackInput = preferencesCheckBoxSMS.getString("preferencesCheckBoxSMS","0");
+
+
+        inputPrzewinienie.setText(przewinienieBackInput);
+
+        inputOperator.setText(operatorBackInput);
+        inputTelefon.setText(telefonBackInput);
+        inputSMS.setText(SMSBackInput);
+        inputUwaga.setText(uwagaBackInput);
+
+
+        if (checkBoxSMSBackInput.equals("1")) {
+            checkBoxSMS.setChecked(true);
+        } else {
+            checkBoxSMS.setChecked(false);
+        }
+
+        inputMaszyna.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                inputOperator.setEnabled(true);
+                inputTelefon.setEnabled(true);
+            }
+        });
+
+        inputOperator.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                inputPrzewinienie.setEnabled(true);
+
+            }
+        });
+
+
+
+        inputSMS.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                SharedPreferences preferencesSMS = getSharedPreferences("preferencesSMS", MODE_PRIVATE);
+                SharedPreferences.Editor editorSMS = preferencesSMS.edit();
+                editorSMS.putString("preferencesSMS", inputSMS.getText().toString());
+                editorSMS.apply();
+            }
+        });
+
+        inputUwaga.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                SharedPreferences preferencesUwaga = getSharedPreferences("preferencesUwaga", MODE_PRIVATE);
+                SharedPreferences.Editor editorUwaga = preferencesUwaga.edit();
+                editorUwaga.putString("preferencesUwaga", inputUwaga.getText().toString());
+                editorUwaga.apply();
+            }
+        });
+
+        inputTelefon.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                SharedPreferences preferencesTelefon = getSharedPreferences("preferencesTelefon", MODE_PRIVATE);
+                SharedPreferences.Editor editorTelefon = preferencesTelefon.edit();
+                editorTelefon.putString("preferencesTelefon", inputTelefon.getText().toString());
+                editorTelefon.apply();
+            }
+        });
+
+
+        buttonZdjecie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent_GoToPhotoActivity = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Photo_Activity.class);
+                startActivity(intent_GoToPhotoActivity);
+            }
+        });
+
+
+        checkBoxSMS.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    inputSMS.setEnabled(true);
+                    SharedPreferences preferencesCheckBoxSMS = getSharedPreferences("preferencesCheckBoxSMS", MODE_PRIVATE);
+                    SharedPreferences.Editor editorCheckBoxSMS = preferencesCheckBoxSMS.edit();
+                    editorCheckBoxSMS.putString("preferencesCheckBoxSMS", "1");
+                    editorCheckBoxSMS.apply();
+                } else {
+                    inputSMS.setEnabled(false);
+                }
+            }
+        });
 
 
 //        buttonDodajPrzewinienie.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +314,7 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 intent_szukaj_przewinienie = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Przewinienie_Activity.class);
-                intent_szukaj_przewinienie.putExtra("przewinienie", inputPrzewinienie.getText().toString());
+                intent_szukaj_przewinienie.putExtra("przewinienieFormularz", inputPrzewinienie.getText().toString());
                 Log.i("checking", "intent_szukaj_przewinienie putExtra: " + inputPrzewinienie.getText().toString());
 
 
@@ -141,9 +326,8 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 intent_szukaj_maszyna = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Maszyna_Activity.class);
-                intent_szukaj_maszyna.putExtra("operator", inputMaszyna.getText().toString());
-                Log.i("checking", "intent_szukaj_operator putExtra: " + inputMaszyna.getText().toString());
-
+                intent_szukaj_maszyna.putExtra("maszynaFormularz", inputMaszyna.getText().toString());
+                Log.i("checking", "intent_szukaj_maszyna putExtra: " + inputMaszyna.getText().toString());
 
                 startActivity(intent_szukaj_maszyna);
             }
@@ -153,7 +337,7 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 intent_szukaj_operator = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Operator_Activity.class);
-                intent_szukaj_operator.putExtra("operator", inputOperator.getText().toString());
+                intent_szukaj_operator.putExtra("operatorFormularz", inputOperator.getText().toString());
                 Log.i("checking", "intent_szukaj_operator putExtra: " + inputOperator.getText().toString());
 
 
@@ -161,30 +345,65 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
             }
         });
 
-        SharedPreferences preferencesPrzewinienie = getSharedPreferences("preferencesPrzewinienie", MODE_PRIVATE);
-        przewinienieBackInput = preferencesPrzewinienie.getString("preferencesPrzewinienie","");
-
-        SharedPreferences preferencesMaszyna = getSharedPreferences("preferencesMaszyna", MODE_PRIVATE);
-        maszynaBackInput = preferencesMaszyna.getString("preferencesMaszyna","");
-
-        SharedPreferences preferencesOperator = getSharedPreferences("preferencesOperator", MODE_PRIVATE);
-        operatorBackInput = preferencesOperator.getString("preferencesOperator","");
-
-
-        inputPrzewinienie.setText(przewinienieBackInput);
-        inputMaszyna.setText(maszynaBackInput);
-        inputOperator.setText(operatorBackInput);
-
-        buttonZdjecie.setOnClickListener(new View.OnClickListener() {
+        buttonScanBarcodeMaszyna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent_zdjecie = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Photo_Activity.class);
-                startActivity(intent_zdjecie);
+                Intent intentGoToScanner = new Intent(Formularz5_Maszyna_Pracownik_Skarga.this, Scanner_Formularz5.class);
+                startActivity(intentGoToScanner);
             }
         });
 
 
+    }
 
+    public Bitmap StringToBitMap(String imageString){
+        try{
+            byte [] encodeByte=Base64.decode(imageString, Base64.DEFAULT);
+
+            InputStream inputStream  = new ByteArrayInputStream(encodeByte);
+            Bitmap bitmapImage  = BitmapFactory.decodeStream(inputStream);
+            return bitmapImage;
+        }catch(Exception e){
+            e.getMessage();
+            return null;
+        }
+    }
+
+    public String BitMapToString(Bitmap imageBitmap){
+        try{
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] byteArrayImage = byteArrayOutputStream .toByteArray();
+            String encodedByteArrayImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
+//                        Log.i("Checking", "encodedByteArrayImage: " + encodedByteArrayImage.toString());
+
+            return encodedByteArrayImage;
+        }catch(Exception e){
+            e.getMessage();
+            return null;
+        }
+    }
+}
+
+
+
+//    ExpandableListView expandableListView1;
+//    ExpandableListView expandableListView2;
+//    ExpandableListView expandableListView3;
+//    ExpandableListView expandableListView4;
+//    ExpandableListAdapter expandableListAdapter1;
+//    ExpandableListAdapter expandableListAdapter2;
+//    ExpandableListAdapter expandableListAdapter3;
+//    ExpandableListAdapter expandableListAdapter4;
+//    List<String> expandableTitleList1;
+//    List<String> expandableTitleList2;
+//    List<String> expandableTitleList3;
+//    List<String> expandableTitleList4;
+//    HashMap<String, List<String>> expandableDetailList1;
+//    HashMap<String, List<String>> expandableDetailList2;
+//    HashMap<String, List<String>> expandableDetailList3;
+//    HashMap<String, List<String>> expandableDetailList4;
+//
 //        TextView textViewMaszyna = findViewById(R.id.textViewMaszyna);
 //        TextView textViewOperator = findViewById(R.id.textViewOperator);
 //        TextView textViewZmiana = findViewById(R.id.textViewGodzinyZmiana);
@@ -364,6 +583,3 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity {
 //
 //            }
 //        });
-    }
-
-}
