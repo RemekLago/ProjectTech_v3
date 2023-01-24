@@ -1,5 +1,10 @@
 package v3.projecttech_v3.procedury;
 
+import static v3.projecttech_v3.Maszyna_Activity.inputMaszyna2;
+import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText1;
+import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText2;
+import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText3;
+
 import android.util.Log;
 
 import java.sql.CallableStatement;
@@ -48,8 +53,16 @@ public class Procedura_Maszyna_Formularz5 {
             UserId = "1";
             FormName = "FormularzMaszynaPracownikSkarga";
             TextBoxName = "textViewMaszyna";
-            Parameters = parameters;
-            SearchText = searchText;
+            Parameters = parameters; // numer zlecenia np. id Maszyny=143
+            SearchText = ""; // np. tampo
+//            if (maszyna_searchText1 != null) {
+//                SearchText = maszyna_searchText1;
+//            } else if (maszyna_searchText2 != null) {
+//                SearchText = maszyna_searchText2;
+//            } else {
+//                SearchText = maszyna_searchText3;
+//            }
+
 
             callableStatement.setInt("Firma", Integer.parseInt(Firma));
             callableStatement.setInt("UserId", Integer.parseInt(UserId));
