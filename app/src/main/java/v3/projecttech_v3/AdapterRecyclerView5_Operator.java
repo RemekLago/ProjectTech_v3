@@ -24,6 +24,7 @@ public class AdapterRecyclerView5_Operator extends RecyclerView.Adapter<AdapterR
 
     int positionAdapterOperator;
     String positionAdapterOperatorText;
+    public static String positionAdapterOperatorTelefon;
 
     private final RecyclerViewInterface5_Operator recyclerViewInterface;
     Context context;
@@ -142,6 +143,7 @@ public class AdapterRecyclerView5_Operator extends RecyclerView.Adapter<AdapterR
                         positionAdapterOperator = getAdapterPosition();
                         positionAdapterOperatorText = database_Operator.get(positionAdapterOperator).get(3).toString();
                         inputOperator2.setText(positionAdapterOperatorText);
+                        positionAdapterOperatorTelefon = database_Operator.get(positionAdapterOperator).get(5).toString();
                         Toast.makeText(context, "Position: " + positionAdapterOperator, Toast.LENGTH_SHORT).show();
 
                         if (positionAdapterOperator != RecyclerView.NO_POSITION) {
