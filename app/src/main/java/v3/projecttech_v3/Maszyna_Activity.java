@@ -35,7 +35,9 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
     public static ArrayList<ArrayList<String>> database_Maszyna;
     public static ArrayList<ArrayList<String>> database2;
     public static ProgressBar progressBar;
-    public static String maszyna_searchText;
+    public static String maszyna_searchText1;
+    public static String maszyna_searchText2;
+    public static String maszyna_searchText3;
     public static EditText inputMaszyna2;
 
     @SuppressLint("WrongThread")
@@ -58,9 +60,22 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
 
         inputMaszyna2 = findViewById(R.id.inputMaszyna2);
 
+        // Intent from Formularz5_Maszyna_Pracownik_Skarga
+        maszyna_searchText2 = getIntent().getStringExtra("maszyna");
         // Intent from Procedura_Maszyna_Formularz5
-        maszyna_searchText = getIntent().getStringExtra("maszyna");
-        inputMaszyna2.setText(maszyna_searchText);
+        maszyna_searchText1 = getIntent().getStringExtra("maszynaFormularz");
+        // Intent from refresh Maszyna_Activity
+        maszyna_searchText3 = getIntent().getStringExtra("searchMaszyna");
+
+        if (maszyna_searchText1 != null) {
+            inputMaszyna2.setText(maszyna_searchText1);
+        } else if (maszyna_searchText2 != null ){
+            inputMaszyna2.setText(maszyna_searchText2);
+        } else {
+            inputMaszyna2.setText(maszyna_searchText3);
+        }
+
+
 
         DataBaseChanges6_Maszyna_Formularz5 dataFinal = new DataBaseChanges6_Maszyna_Formularz5();
         ArrayList<ArrayList<String>> database = dataFinal.doInBackground();
@@ -79,6 +94,7 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Button button_zatwierdz = findViewById(R.id.button_zatwierdz);
+        Button buttonSzukajMaszyna2 = findViewById(R.id.buttonSzukajMaszyna2);
 
         button_zatwierdz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +107,15 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
                 SharedPreferences.Editor editorMaszyna = preferencesMaszyna.edit();
                 editorMaszyna.putString("preferencesMaszyna", inputMaszyna2.getText().toString());
                 editorMaszyna.apply();
+            }
+        });
+
+        buttonSzukajMaszyna2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentRefreshMaszyna = new Intent(Maszyna_Activity.this, Maszyna_Activity.class);
+                intentRefreshMaszyna.putExtra("searchMaszyna", inputMaszyna2.getText().toString());
+                startActivity(intentRefreshMaszyna);
             }
         });
 
@@ -150,9 +175,9 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
         params2.width = 0;
         params3.width = 100;
         params4.width = 300;
-        params5.width = 400;
-        params6.width = 400;
-        params7.width = 250;
+        params5.width = 0;
+        params6.width = 600;
+        params7.width = 400;
 
         textView1name.setLayoutParams(params1);
         textView2name.setLayoutParams(params2);
