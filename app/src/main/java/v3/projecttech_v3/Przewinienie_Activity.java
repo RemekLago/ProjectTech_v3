@@ -39,7 +39,8 @@ public class Przewinienie_Activity extends AppCompatActivity implements Recycler
     public static ArrayList<ArrayList<String>> database2;
     public static ProgressBar progressBar;
     public static String przewinienie_searchText1;
-    public static String przewinienie_searchText12;
+    public static String przewinienie_searchText2;
+    public static String przewinienie_searchText3;
     public static EditText inputPrzewinienie2;
 
     @SuppressLint("WrongThread")
@@ -65,19 +66,22 @@ public class Przewinienie_Activity extends AppCompatActivity implements Recycler
 
 
         // Intent from Formularz5_Maszyna_Pracownik_Skarga
-        przewinienie_searchText12 = getIntent().getStringExtra("przewinienie");
+        przewinienie_searchText2 = getIntent().getStringExtra("przewinienie");
         // Intent from Procedura_Przewinienie_Formularz5
         przewinienie_searchText1 = getIntent().getStringExtra("przewinienieFormularz");
-
-        if (przewinienie_searchText1 == null) {
-            inputPrzewinienie2.setText(przewinienie_searchText12);
-        } else {
+        // Intent from refresh Przewinienie_Activity
+        przewinienie_searchText3 = getIntent().getStringExtra("searchPrzewinienie");
+        
+        if (przewinienie_searchText1 != null) {
             inputPrzewinienie2.setText(przewinienie_searchText1);
+        } else if (przewinienie_searchText2 != null ){
+            inputPrzewinienie2.setText(przewinienie_searchText2);
+        } else if (przewinienie_searchText3 != null ) {
+            inputPrzewinienie2.setText(przewinienie_searchText3);
+        } else {
+            inputPrzewinienie2.setText("");
         }
 
-
-        przewinienie_searchText1 = getIntent().getStringExtra("przewinienie");
-        inputPrzewinienie2.setText(przewinienie_searchText1);
 
         DataBaseChanges6_Przewinienie_Formularz5 dataFinal = new DataBaseChanges6_Przewinienie_Formularz5();
         ArrayList<ArrayList<String>> database = dataFinal.doInBackground();
@@ -96,6 +100,7 @@ public class Przewinienie_Activity extends AppCompatActivity implements Recycler
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Button button_zatwierdz = findViewById(R.id.button_zatwierdz);
+        Button buttonSzukajPrzewinienie2 = findViewById(R.id.buttonSzukajPrzewinienie2);
 
         button_zatwierdz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +113,15 @@ public class Przewinienie_Activity extends AppCompatActivity implements Recycler
                 SharedPreferences.Editor editorPrzewinienie = preferencesPrzewinienie.edit();
                 editorPrzewinienie.putString("preferencesPrzewinienie", inputPrzewinienie2.getText().toString());
                 editorPrzewinienie.apply();
+            }
+        });
+
+        buttonSzukajPrzewinienie2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentRefreshPrzewinienie = new Intent(Przewinienie_Activity.this, Przewinienie_Activity.class);
+                intentRefreshPrzewinienie.putExtra("searchPrzewinienie", inputPrzewinienie2.getText().toString());
+                startActivity(intentRefreshPrzewinienie);
             }
         });
 
