@@ -1,6 +1,12 @@
 package v3.projecttech_v3.procedury;
 
+import static v3.projecttech_v3.AdapterRecyclerView5_Maszyna.clickedMaszynaId;
+import static v3.projecttech_v3.Operator_Activity.operator_searchText1;
+import static v3.projecttech_v3.Przewinienie_Activity.przewinienie_searchText1;
+import static v3.projecttech_v3.Przewinienie_Activity.przewinienie_searchText2;
+import static v3.projecttech_v3.Przewinienie_Activity.przewinienie_searchText3;
 import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.dataBaseSQL4;
+import static v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga.resultBarcodeWalidacja;
 
 import android.util.Log;
 
@@ -51,8 +57,18 @@ public class Procedura_Przewinienie_Formularz5 {
             UserId = "1";
             FormName = "FormularzMaszynaPracownikSkarga";
             TextBoxName = "textViewPrzewinienie";
-            Parameters = parameters;
-            SearchText = searchText;
+            Parameters = "MaszynaId=" + clickedMaszynaId; // pobiera MaszynaId z Formularza5
+            if (przewinienie_searchText1 != null && !przewinienie_searchText1.equals("")) {
+                SearchText = przewinienie_searchText1;
+            } else if (przewinienie_searchText2 != null && !przewinienie_searchText2.equals("")) {
+                SearchText = przewinienie_searchText2;
+            } else if (przewinienie_searchText3 != null  && !przewinienie_searchText3.equals("")) {
+                SearchText = przewinienie_searchText3;
+            } else {
+                SearchText = "";
+            }
+            Log.i("checking", "Parameters: " + Parameters);
+            Log.i("checking", "SearchText: " + SearchText);
 
             callableStatement.setInt("Firma", Integer.parseInt(Firma));
             callableStatement.setInt("UserId", Integer.parseInt(UserId));
