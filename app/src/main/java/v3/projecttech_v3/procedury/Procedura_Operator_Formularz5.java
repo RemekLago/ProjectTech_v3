@@ -1,5 +1,14 @@
 package v3.projecttech_v3.procedury;
 
+import static v3.projecttech_v3.AdapterRecyclerView5_Maszyna.clickedMaszynaId;
+import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText1;
+import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText2;
+import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText3;
+import static v3.projecttech_v3.Operator_Activity.operator_searchText1;
+import static v3.projecttech_v3.Operator_Activity.operator_searchText2;
+import static v3.projecttech_v3.Operator_Activity.operator_searchText3;
+import static v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga.resultBarcodeWalidacja;
+
 import android.util.Log;
 
 import java.sql.CallableStatement;
@@ -48,8 +57,19 @@ public class Procedura_Operator_Formularz5 {
             UserId = "1";
             FormName = "FormularzMaszynaPracownikSkarga";
             TextBoxName = "textViewOperator";
-            Parameters = parameters;
-            SearchText = searchText;
+            Parameters = "MaszynaId=" + clickedMaszynaId; // pobiera MaszynaId z Formularza5
+            // SearchText np. wytłaczarka lub 143 - szukanie po elementach nazwy
+            if (operator_searchText1 != null && !operator_searchText1.equals("")) {
+                SearchText = operator_searchText1;
+            } else if (operator_searchText2 != null && !operator_searchText2.equals("")) {
+                SearchText = operator_searchText2;
+            } else if (operator_searchText3 != null && !operator_searchText3.equals("")) {
+                SearchText = operator_searchText3;
+            } else {
+                SearchText = "";
+            }
+            Log.i("checking", "Parameters: " + Parameters);
+            Log.i("checking", "SearchText: " + SearchText);
 
             callableStatement.setInt("Firma", Integer.parseInt(Firma));
             callableStatement.setInt("UserId", Integer.parseInt(UserId));
