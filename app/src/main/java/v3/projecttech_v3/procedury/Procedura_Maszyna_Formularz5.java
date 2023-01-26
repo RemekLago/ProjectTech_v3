@@ -53,15 +53,18 @@ public class Procedura_Maszyna_Formularz5 {
             UserId = "1";
             FormName = "FormularzMaszynaPracownikSkarga";
             TextBoxName = "textViewMaszyna";
-            Parameters = parameters; // numer zlecenia np. id Maszyny=143
-            SearchText = ""; // np. tampo
-//            if (maszyna_searchText1 != null) {
-//                SearchText = maszyna_searchText1;
-//            } else if (maszyna_searchText2 != null) {
-//                SearchText = maszyna_searchText2;
-//            } else {
-//                SearchText = maszyna_searchText3;
-//            }
+            Parameters = "";                // w activity Maszyna parameters zawsze są Puste to numer maszyny
+            // SearchText np. wytłaczarka lub 143 - szukanie po elementach nazwy
+            if (maszyna_searchText1 != null && !maszyna_searchText1.equals("")) {
+                SearchText = maszyna_searchText1;
+            } else if (maszyna_searchText2 != null && !maszyna_searchText2.equals("")) {
+                SearchText = maszyna_searchText2;
+            } else if (maszyna_searchText3 != null && !maszyna_searchText3.equals("")) {
+                SearchText = maszyna_searchText3;
+            } else {
+                SearchText = "";
+            }
+            Log.i("checking", "SearchText: " + SearchText);
 
 
             callableStatement.setInt("Firma", Integer.parseInt(Firma));
@@ -102,6 +105,7 @@ public class Procedura_Maszyna_Formularz5 {
                 Log.i("checking", "Result: " + Result.get(a));
                 a++;
             }
+            Log.i("checking", "A: " + a);
 
             callableStatement.close();
             connection.close();
