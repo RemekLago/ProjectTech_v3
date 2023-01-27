@@ -39,7 +39,8 @@ public class Operator_Activity extends AppCompatActivity implements RecyclerView
     public static ArrayList<ArrayList<String>> database2;
     public static ProgressBar progressBar;
     public static String operator_searchText1;
-    public static String operator_searchText12;
+    public static String operator_searchText2;
+    public static String operator_searchText3;
     public static EditText inputOperator2;
     public static String inputOperatorTelefon;
 
@@ -65,14 +66,21 @@ public class Operator_Activity extends AppCompatActivity implements RecyclerView
         inputOperator2 = findViewById(R.id.inputOperator2);
 
         // Intent from Formularz5_Maszyna_Pracownik_Skarga
-        operator_searchText12 = getIntent().getStringExtra("operator");
+        operator_searchText2 = getIntent().getStringExtra("operator");
         // Intent from Procedura_Operator_Formularz5
         operator_searchText1 = getIntent().getStringExtra("operatorFormularz");
+        // Intent from refresh Operator_Activity
+        operator_searchText3 = getIntent().getStringExtra("searchOperator");
 
-        if (operator_searchText1 == null) {
-            inputOperator2.setText(operator_searchText12);
-        } else {
+
+        if (operator_searchText1 != null) {
             inputOperator2.setText(operator_searchText1);
+        } else if (operator_searchText2 != null ){
+            inputOperator2.setText(operator_searchText2);
+        } else if (operator_searchText3 != null) {
+            inputOperator2.setText(operator_searchText3);
+        } else {
+            inputOperator2.setText("");
         }
 
         DataBaseChanges6_Operator_Formularz5 dataFinal = new DataBaseChanges6_Operator_Formularz5();
@@ -92,7 +100,7 @@ public class Operator_Activity extends AppCompatActivity implements RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Button button_zatwierdz = findViewById(R.id.button_zatwierdz);
-
+        Button buttonSzukajOperator2 = findViewById(R.id.buttonSzukajOperator2);
 
         button_zatwierdz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +118,15 @@ public class Operator_Activity extends AppCompatActivity implements RecyclerView
                 SharedPreferences.Editor editorTelefon = preferencesTelefon.edit();
                 editorTelefon.putString("preferencesTelefon", positionAdapterOperatorTelefon);
                 editorTelefon.apply();
+            }
+        });
+
+        buttonSzukajOperator2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentRefreshOperator = new Intent(Operator_Activity.this, Operator_Activity.class);
+                intentRefreshOperator.putExtra("searchOperator", inputOperator2.getText().toString());
+                startActivity(intentRefreshOperator);
             }
         });
 
