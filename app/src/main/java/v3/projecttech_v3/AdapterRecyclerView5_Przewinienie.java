@@ -1,6 +1,7 @@
 package v3.projecttech_v3;
 
 
+import static v3.projecttech_v3.Maszyna_Activity.database_Maszyna;
 import static v3.projecttech_v3.Przewinienie_Activity.FinalListWithCellColor;
 import static v3.projecttech_v3.Przewinienie_Activity.FinalListWithColumnsAdjust;
 import static v3.projecttech_v3.Przewinienie_Activity.database_Przewinienie;
@@ -24,6 +25,7 @@ public class AdapterRecyclerView5_Przewinienie extends RecyclerView.Adapter<Adap
 
     int positionAdapterPrzewinienie;
     String positionAdapterPrzewinienieText;
+    public static String clickedPrzewinienieId;
 
     private final RecyclerViewInterface5_Przewinienie recyclerViewInterface;
     Context context;
@@ -142,8 +144,8 @@ public class AdapterRecyclerView5_Przewinienie extends RecyclerView.Adapter<Adap
                         positionAdapterPrzewinienie = getAdapterPosition();
                         positionAdapterPrzewinienieText = database_Przewinienie.get(positionAdapterPrzewinienie).get(3).toString();
                         inputPrzewinienie2.setText(positionAdapterPrzewinienieText);
-                        Toast.makeText(context, "Position: " + positionAdapterPrzewinienieText, Toast.LENGTH_SHORT).show();
-
+//                        Toast.makeText(context, "Position: " + positionAdapterPrzewinienieText, Toast.LENGTH_SHORT).show();
+                        clickedPrzewinienieId = database_Maszyna.get(positionAdapterPrzewinienie).get(2).toString();
                         if (positionAdapterPrzewinienie != RecyclerView.NO_POSITION) {
                             recyclerViewInterface.onItemClick(positionAdapterPrzewinienie);
                         }
