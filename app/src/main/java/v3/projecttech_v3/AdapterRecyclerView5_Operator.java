@@ -1,5 +1,6 @@
 package v3.projecttech_v3;
 
+import static v3.projecttech_v3.Maszyna_Activity.database_Maszyna;
 import static v3.projecttech_v3.Operator_Activity.FinalListWithCellColor;
 import static v3.projecttech_v3.Operator_Activity.FinalListWithColumnsAdjust;
 import static v3.projecttech_v3.Operator_Activity.database_Operator;
@@ -25,6 +26,7 @@ public class AdapterRecyclerView5_Operator extends RecyclerView.Adapter<AdapterR
     int positionAdapterOperator;
     String positionAdapterOperatorText;
     public static String positionAdapterOperatorTelefon;
+    public static String clickedOperatorId;
 
     private final RecyclerViewInterface5_Operator recyclerViewInterface;
     Context context;
@@ -145,6 +147,7 @@ public class AdapterRecyclerView5_Operator extends RecyclerView.Adapter<AdapterR
                         inputOperator2.setText(positionAdapterOperatorText);
                         positionAdapterOperatorTelefon = database_Operator.get(positionAdapterOperator).get(5).toString();
                         Toast.makeText(context, "Position: " + positionAdapterOperator, Toast.LENGTH_SHORT).show();
+                        clickedOperatorId = database_Maszyna.get(positionAdapterOperator).get(2).toString();
 
                         if (positionAdapterOperator != RecyclerView.NO_POSITION) {
                             recyclerViewInterface.onItemClick(positionAdapterOperator);
