@@ -24,7 +24,7 @@ public class AdapterRecyclerView5_Maszyna extends RecyclerView.Adapter<AdapterRe
 
     int positionAdapterMaszyna;
     String positionAdapterMaszynaText;
-
+    public static String clickedMaszynaId;
     private final RecyclerViewInterface5_Maszyna recyclerViewInterface;
     Context context;
     ArrayList<ArrayList<String>> data;
@@ -132,10 +132,10 @@ public class AdapterRecyclerView5_Maszyna extends RecyclerView.Adapter<AdapterRe
                 public void onClick(View view) {
                     if (recyclerViewInterface != null) {
                         positionAdapterMaszyna = getAdapterPosition();
-                        positionAdapterMaszynaText = database_Maszyna.get(positionAdapterMaszyna).get(3).toString();
+                        positionAdapterMaszynaText = database_Maszyna.get(positionAdapterMaszyna).get(5).toString();
                         inputMaszyna2.setText(positionAdapterMaszynaText);
-                        Toast.makeText(context, "Position: " + positionAdapterMaszyna, Toast.LENGTH_SHORT).show();
-
+//                        Toast.makeText(context, "Position: " + positionAdapterMaszyna, Toast.LENGTH_SHORT).show();
+                        clickedMaszynaId = database_Maszyna.get(positionAdapterMaszyna).get(2).toString();
                         if (positionAdapterMaszyna != RecyclerView.NO_POSITION) {
                             recyclerViewInterface.onItemClick(positionAdapterMaszyna);
                         }
