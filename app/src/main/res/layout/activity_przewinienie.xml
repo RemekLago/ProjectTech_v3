@@ -36,7 +36,7 @@
                 android:textColorHint="@color/greyColor" />
 
             <Button
-                android:id="@+id/buttonSzukajOperator2"
+                android:id="@+id/buttonSzukajPrzewinienie2"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/ic_search_24" />
