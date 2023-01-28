@@ -2,6 +2,9 @@ package v3.projecttech_v3;
 
 import static android.graphics.Color.rgb;
 
+import static v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga.inputOperator;
+import static v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga.inputTelefon;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -71,11 +74,11 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
             inputMaszyna2.setText(maszyna_searchText1);
         } else if (maszyna_searchText2 != null ){
             inputMaszyna2.setText(maszyna_searchText2);
-        } else {
+        } else if (maszyna_searchText3 != null ){
             inputMaszyna2.setText(maszyna_searchText3);
+        } else {
+            inputMaszyna2.setText("");
         }
-
-
 
         DataBaseChanges6_Maszyna_Formularz5 dataFinal = new DataBaseChanges6_Maszyna_Formularz5();
         ArrayList<ArrayList<String>> database = dataFinal.doInBackground();
@@ -107,7 +110,8 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
                 SharedPreferences.Editor editorMaszyna = preferencesMaszyna.edit();
                 editorMaszyna.putString("preferencesMaszyna", inputMaszyna2.getText().toString());
                 editorMaszyna.apply();
-            }
+
+             }
         });
 
         buttonSzukajMaszyna2.setOnClickListener(new View.OnClickListener() {
