@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2">
+    tools:context=".formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,8 +53,9 @@
                 android:background="@drawable/search_icon" />
         </LinearLayout>
 
-        <include layout="@layout/etykieta_formularz1" />
+        <include layout="@layout/formularz1_etykieta" />
 
+<!--        <include layout="@layout/activity_main_progress_bar" />-->
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -72,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <include layout="@layout/columns_names" />
+                    <include layout="@layout/formularz1_columns_names" />
 
 
                     <androidx.recyclerview.widget.RecyclerView

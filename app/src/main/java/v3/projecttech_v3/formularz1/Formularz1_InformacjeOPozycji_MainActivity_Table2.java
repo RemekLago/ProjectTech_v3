@@ -1,28 +1,28 @@
-package v3.projecttech_v3.formularze;
+package v3.projecttech_v3.formularz1;
 
 import androidx.appcompat.app.AppCompatActivity;
 import static android.graphics.Color.rgb;
 //import static v3.projecttech_v3.AdapterRecyclerView.position2;
-import static v3.projecttech_v3.DataBaseChanges2_Formularz1.ListWithColumnsNames;
-import static v3.projecttech_v3.DataBaseChanges2_Formularz1.tmpdata2;
-import static v3.projecttech_v3.procedury.Procedura_Pozycja_Informacje2_Formularz1.gettingrPozycja;
-import static v3.projecttech_v3.procedury.Procedura_Pozycja_Informacje2_Formularz1.rKomunikat;
-import static v3.projecttech_v3.procedury.Procedura_Pozycja_Informacje2_Formularz1.rStatus;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_10;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_11;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_12;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_13;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_14;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_15;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_4;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_5;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_6;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_7;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_8;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_9;
+import static v3.projecttech_v3.formularz1.Formularz1_DataBaseChanges2.ListWithColumnsNames;
+import static v3.projecttech_v3.formularz1.Formularz1_DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.formularz1.Procedura_Pozycja_Informacje2_Formularz1.gettingrPozycja;
+import static v3.projecttech_v3.formularz1.Procedura_Pozycja_Informacje2_Formularz1.rKomunikat;
+import static v3.projecttech_v3.formularz1.Procedura_Pozycja_Informacje2_Formularz1.rStatus;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_1;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_10;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_11;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_12;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_13;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_14;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_15;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_2;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_3;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_4;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_5;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_6;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_7;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_8;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_9;
 
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -43,13 +43,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
-import v3.projecttech_v3.AdapterRecyclerView2;
 import v3.projecttech_v3.BuildConfig;
-import v3.projecttech_v3.DataBaseChanges2_Formularz1;
-import v3.projecttech_v3.Scanner_Formularz1;
 import v3.projecttech_v3.R;
-import v3.projecttech_v3.RecyclerViewInterface;
-import v3.projecttech_v3.db.DataBaseHelper;
 import v3.projecttech_v3.db.entity.Data;
 
 public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompatActivity implements RecyclerViewInterface {
@@ -89,17 +84,17 @@ public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompat
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formularz1_activity_main_table2);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+//        progressBar = (ProgressBar) findViewById(R.id.progressbar);
 
         dataBaseSQL = new DataBaseHelper(Formularz1_InformacjeOPozycji_MainActivity_Table2.this);
 
         Log.i("checking", dataBaseSQL.toString());
 
-        DataBaseChanges2_Formularz1 dataFinal = new DataBaseChanges2_Formularz1();
+        Formularz1_DataBaseChanges2 dataFinal = new Formularz1_DataBaseChanges2();
         ArrayList<ArrayList<String>> database0 = dataFinal.doInBackground();
         database2 = dataFinal.cleaningDatabase(database0);
 
-        progressBar.setVisibility(ProgressBar.INVISIBLE);
+//        progressBar.setVisibility(ProgressBar.INVISIBLE);
 
         dataFinal.columnsNames();
         FinalListWithCellColor = dataFinal.cellsColor(database2);
@@ -130,7 +125,7 @@ public class Formularz1_InformacjeOPozycji_MainActivity_Table2 extends AppCompat
         buttonScanCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Formularz1_InformacjeOPozycji_MainActivity_Table2.this, Scanner_Formularz1.class));
+                startActivity(new Intent(Formularz1_InformacjeOPozycji_MainActivity_Table2.this, Formularz1_Scanner.class));
             }
         });
 

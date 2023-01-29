@@ -1,10 +1,10 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz1;
 
-import static v3.projecttech_v3.Activity_User_Login.enterMail;
-import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
-import static v3.projecttech_v3.DataBaseChanges2_Formularz1.tmpdata2;
-import static v3.projecttech_v3.procedury.Procedura_Pozycja_Informacje2_Formularz1.rKomunikat;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.enterMail;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.intentEditdata;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.userLoginCheck;
+import static v3.projecttech_v3.formularz1.Formularz1_DataBaseChanges2.tmpdata2;
+import static v3.projecttech_v3.formularz1.Procedura_Pozycja_Informacje2_Formularz1.rKomunikat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,8 +20,14 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import v3.projecttech_v3.Start.Activity_User_EditUser;
+import v3.projecttech_v3.Start.Activity_User_Login_oldversion;
+import v3.projecttech_v3.BuildConfig;
+import v3.projecttech_v3.MainActivity_enterdata;
+import v3.projecttech_v3.R;
 
-public class Etykieta_Formularz1 extends AppCompatActivity {
+
+public class Formularz1_Etykieta extends AppCompatActivity {
 
 
     @SuppressLint("WrongThread")
@@ -38,7 +44,7 @@ public class Etykieta_Formularz1 extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.etykieta_formularz1);
+        setContentView(R.layout.formularz1_etykieta);
 
 //        Procedura_Pozycja_Informacje informacje = new Procedura_Pozycja_Informacje();
 //        tmpdata = informacje.takingPositionInformation();
@@ -96,7 +102,7 @@ public class Etykieta_Formularz1 extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -113,7 +119,7 @@ public class Etykieta_Formularz1 extends AppCompatActivity {
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogOut);
                 return true;
 

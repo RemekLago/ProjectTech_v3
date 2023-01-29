@@ -1,18 +1,15 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz1;
 
-import static v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje2_Formularz1.columnsNames2;
-import static v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje2_Formularz1.numberOfColumns2;
+import static v3.projecttech_v3.formularz1.Procedura_Magazyn_Pozycje_Lokalizacje2_Formularz1.columnsNames2;
+import static v3.projecttech_v3.formularz1.Procedura_Magazyn_Pozycje_Lokalizacje2_Formularz1.numberOfColumns2;
 
 import android.os.AsyncTask;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje2_Formularz1;
-import v3.projecttech_v3.procedury.Procedura_Pozycja_Informacje2_Formularz1;
 
-
-public class DataBaseChanges2_Formularz1 extends AsyncTask <String, Void, ArrayList<ArrayList<String>>> {
+public class Formularz1_DataBaseChanges2 extends AsyncTask <String, Void, ArrayList<ArrayList<String>>> {
 
     static ArrayList<ArrayList<String>> ArrayListWithFinalData = new ArrayList<>();
     public static HashMap<String, String> tmpdata2;
@@ -55,7 +52,7 @@ public class DataBaseChanges2_Formularz1 extends AsyncTask <String, Void, ArrayL
             for (int i = 0; i < columnsNames2.size(); i++) {
                 String tmpOneColumn = (columnsNames2.get(i).split("\\|")[1]);
 //            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
-//            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
+            Log.i("checking", "ColumnName: " + i + " " + tmpOneColumn);
                 ListWithColumnsNames.add(tmpOneColumn);
             }
         } catch(Exception e){
