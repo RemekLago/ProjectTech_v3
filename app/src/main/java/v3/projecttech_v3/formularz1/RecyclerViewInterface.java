@@ -1,4 +1,4 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz1;
 
 public interface RecyclerViewInterface {
 

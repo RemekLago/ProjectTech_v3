@@ -1,4 +1,4 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
 public interface RecyclerViewInterface5_Przewinienie {
 
