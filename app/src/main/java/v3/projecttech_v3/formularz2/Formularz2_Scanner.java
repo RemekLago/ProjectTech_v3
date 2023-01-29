@@ -1,4 +1,4 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,9 +13,9 @@ import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 
-import v3.projecttech_v3.procedury.Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2;
+import v3.projecttech_v3.R;
 
-public class Scanner_Formularz2 extends AppCompatActivity {
+public class Formularz2_Scanner extends AppCompatActivity {
 
     private CodeScanner mCodeScanner;
     //    static Result result;
@@ -25,9 +25,9 @@ public class Scanner_Formularz2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.scanner_formularz2);
+        setContentView(R.layout.formularz2_scanner);
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
-        intentBarcode = new Intent(Scanner_Formularz2.this, Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2.class);
+        intentBarcode = new Intent(Formularz2_Scanner.this, Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2.class);
         mCodeScanner = new CodeScanner(this, scannerView);
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
@@ -35,7 +35,7 @@ public class Scanner_Formularz2 extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(Scanner_Formularz2.this, result.getText(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Formularz2_Scanner.this, result.getText(), Toast.LENGTH_SHORT).show();
                         barcodeInput = result.toString();
                         startActivity(intentBarcode.putExtra("barcodeInput", barcodeInput));
                         Log.i("checking", "barcodeInput " + result.getText());

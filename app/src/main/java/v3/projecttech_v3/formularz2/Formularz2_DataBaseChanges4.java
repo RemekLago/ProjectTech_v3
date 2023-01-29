@@ -1,21 +1,18 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz2;
 
 
 
-import static v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2.columnsNames4;
-import static v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2.numberOfColumns4;
+import static v3.projecttech_v3.formularz2.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2.columnsNames4;
+import static v3.projecttech_v3.formularz2.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2.numberOfColumns4;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
-
-import v3.projecttech_v3.procedury.Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2;
-import v3.projecttech_v3.procedury.Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2;
-
-public class DataBaseChanges4_Formularz2 extends AsyncTask <String, Void, ArrayList<ArrayList<String>>> {
+public class Formularz2_DataBaseChanges4 extends AsyncTask <String, Void, ArrayList<ArrayList<String>>> {
 
     static ArrayList<ArrayList<String>> ArrayListWithFinalData4 = new ArrayList<>();
     public static HashMap<String, String> tmpdata5;
@@ -31,6 +28,8 @@ public class DataBaseChanges4_Formularz2 extends AsyncTask <String, Void, ArrayL
         // HashMap with data: rStatus, rKomunikat, rMagazyn, rLokalizacja
         Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2 procedura = new Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2();
         tmpdata5 = procedura.takingMagazynLokalzacja();
+
+        // dodać zaciaganie nagłówków bazy dnaych jesli status jest 0
 
 //        if (Objects.equals(tmpdata5.get("rStatus"), "1")) {
             Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2 procedura2 = new Procedura_Magazyn_Pozycje_Lokalizacje_Formularz2();

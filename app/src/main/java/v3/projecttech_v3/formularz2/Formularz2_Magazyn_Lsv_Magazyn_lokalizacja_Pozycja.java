@@ -1,27 +1,27 @@
-package v3.projecttech_v3.formularze;
+package v3.projecttech_v3.formularz2;
 
 import static android.graphics.Color.rgb;
-import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
-import static v3.projecttech_v3.DataBaseChanges4_Formularz2.ListWithColumnsNames4;
-import static v3.projecttech_v3.DataBaseChanges4_Formularz2.tmpdata5;
-import static v3.projecttech_v3.procedury.Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2.gettingMagazynLokalzacja;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_4;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_5;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_6;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_7;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_8;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_9;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_10;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_11;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_12;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_13;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_14;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_15;
-import static v3.projecttech_v3.procedury.Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2.rKomunikat;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.intentEditdata;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.userLoginCheck;
+import static v3.projecttech_v3.formularz2.Formularz2_DataBaseChanges4.ListWithColumnsNames4;
+import static v3.projecttech_v3.formularz2.Formularz2_DataBaseChanges4.tmpdata5;
+import static v3.projecttech_v3.formularz2.Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2.gettingMagazynLokalzacja;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_1;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_2;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_3;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_4;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_5;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_6;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_7;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_8;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_9;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_10;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_11;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_12;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_13;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_14;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_15;
+import static v3.projecttech_v3.formularz2.Procedura_Magazyn_Lokalizacja_Walidacja_Formularz2.rKomunikat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,15 +47,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.Activity_User_Login;
-import v3.projecttech_v3.AdapterRecyclerView4;
+import v3.projecttech_v3.Start.Activity_User_Login_oldversion;
 import v3.projecttech_v3.BuildConfig;
-import v3.projecttech_v3.DataBaseChanges4_Formularz2;
-import v3.projecttech_v3.Scanner_Formularz1;
+import v3.projecttech_v3.formularz1.Formularz1_Scanner;
 import v3.projecttech_v3.MainActivity_enterdata;
 import v3.projecttech_v3.R;
-import v3.projecttech_v3.RecyclerViewInterface4;
-import v3.projecttech_v3.db.DataBaseHelper4;
 import v3.projecttech_v3.db.entity.Data4;
 
 public class Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja extends AppCompatActivity implements RecyclerViewInterface4 {
@@ -99,7 +95,7 @@ public class Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja extends AppCompa
         Log.i("checking", "database4: " + dataBaseSQL4.toString());
 
         // For procedure Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja
-        DataBaseChanges4_Formularz2 dataFinal4 = new DataBaseChanges4_Formularz2();
+        Formularz2_DataBaseChanges4 dataFinal4 = new Formularz2_DataBaseChanges4();
         ArrayList<ArrayList<String>> database04 = dataFinal4.doInBackground();
         database4 = dataFinal4.cleaningDatabase(database04);
 
@@ -150,7 +146,7 @@ public class Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja extends AppCompa
         buttonScanCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.this, Scanner_Formularz1.class));
+                startActivity(new Intent(Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.this, Formularz1_Scanner.class));
             }
         });
 
@@ -515,7 +511,7 @@ public class Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja extends AppCompa
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -532,7 +528,7 @@ public class Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja extends AppCompa
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogOut);
                 return true;
 

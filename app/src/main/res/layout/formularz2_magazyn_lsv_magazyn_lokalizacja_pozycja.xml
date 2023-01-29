@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja">
+    tools:context=".formularz2.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja">
 
 
     <LinearLayout
@@ -55,7 +55,7 @@
                 android:background="@drawable/search_icon" />
         </LinearLayout>
 
-        <include layout="@layout/etykieta_formularz2" />
+        <include layout="@layout/formularz2_etykieta" />
 
 
         <HorizontalScrollView
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <include layout="@layout/columns_names4" />
+                    <include layout="@layout/formularz2_columns_names4" />
 
 
                     <androidx.recyclerview.widget.RecyclerView
