@@ -25,130 +25,131 @@
         android:theme="@style/Theme.ProjectTech_v3"
         tools:targetApi="31">
         <activity
-            android:name=".Scanner_Formularz5"
+            android:name=".formularz5.Scanner_Formularz5"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Maszyna_Activity"
+            android:name=".formularz5.Maszyna_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Operator_Activity"
+            android:name=".formularz5.Operator_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Przewinienie_Activity"
+            android:name=".formularz5.Przewinienie_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Przewinienie_Activity_v2"
+            android:name=".formularz5.Przewinienie_Activity_v2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Photo_Activity"
+            android:name=".formularz5.Photo_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".formularze.Formularz3_Przewijanie_Pozycji_LKO"
+            android:name=".formularz3.Formularz3_Przewijanie_Pozycji_LKO"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Login_User_activity"
+            android:name=".Start.Login_User_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".formularze.Formularz4_Wydanie_Pozycji"
+            android:name=".formularz4.Formularz4_Wydanie_Pozycji"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_User_Verification"
+            android:name=".Start.Activity_User_Verification"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_User_Register"
+            android:name=".Start.Activity_User_Register"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_User_Login"
+            android:name=".formularz5.Formularz5_Maszyna_Pracownik_Skarga"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Etykieta_Formularz2"
+            android:name=".formularz2.Formularz2_Etykieta"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Scanner_Formularz2"
+            android:name=".formularz2.Formularz2_Scanner"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2"
+            android:name=".formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_Home_Main"
+            android:name=".Kafelki.Activity_Home_Main"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_User_EditUser"
+            android:name=".Start.Activity_User_EditUser"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity> <!-- <activity -->
-        <!-- android:name=".Activity_User_Register_old" -->
-        <!-- android:exported="false" > -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
+        </activity>
+         <activity
+         android:name=".Activity_User_Register_old"
+         android:exported="false" >
+         <meta-data
+         android:name="android.app.lib_name"
+         android:value="" />
+         </activity>
         <activity
             android:name=".MainActivity_enterdata"
             android:exported="false">
@@ -171,7 +172,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja"
+            android:name=".formularz2.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -185,21 +186,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Scanner_Formularz1"
+            android:name=".formularz1.Formularz1_Scanner"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity> <!-- <activity -->
         <activity
-            android:name=".Etykieta_Formularz1"
+            android:name=".formularz1.Formularz1_Etykieta"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".formularze.Formularz5_Maszyna_Pracownik_Skarga"
+            android:name=".Start.Activity_User_Login_oldversion"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

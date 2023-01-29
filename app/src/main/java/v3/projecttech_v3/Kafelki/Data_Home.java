@@ -1,4 +1,4 @@
-package v3.projecttech_v3.db.entity;
+package v3.projecttech_v3.Kafelki;
 
 public class Data_Home {
 // for creating User setting, permitions to tiles menu, layout

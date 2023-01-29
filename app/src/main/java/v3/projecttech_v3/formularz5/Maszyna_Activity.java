@@ -1,9 +1,6 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
 import static android.graphics.Color.rgb;
-
-import static v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga.inputOperator;
-import static v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga.inputTelefon;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,7 +21,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga;
+import v3.projecttech_v3.BuildConfig;
+import v3.projecttech_v3.R;
 
 public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewInterface5_Maszyna {
 
@@ -56,7 +54,7 @@ public class Maszyna_Activity extends AppCompatActivity implements RecyclerViewI
                     .build());
         }
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maszyna);
+        setContentView(R.layout.formularz5_activity_maszyna);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
 

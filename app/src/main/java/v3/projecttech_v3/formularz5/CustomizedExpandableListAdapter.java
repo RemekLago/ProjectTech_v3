@@ -1,4 +1,4 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -9,6 +9,8 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 import java.util.HashMap;
 import java.util.List;
+
+import v3.projecttech_v3.R;
 
 public class CustomizedExpandableListAdapter extends BaseExpandableListAdapter {
 
@@ -44,7 +46,7 @@ public class CustomizedExpandableListAdapter extends BaseExpandableListAdapter {
         final String expandedListText = (String) getChild(lstPosn, expanded_ListPosition);
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.list_item_formularz5, null);
+            convertView = layoutInflater.inflate(R.layout.formularz5_list_item, null);
         }
         TextView expandedListTextView = (TextView) convertView.findViewById(R.id.expandedListItem);
         expandedListTextView.setText(expandedListText);
@@ -84,7 +86,7 @@ public class CustomizedExpandableListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.list_group_formularz5, null);
+            convertView = layoutInflater.inflate(R.layout.formularz5_list_group_formularz5, null);
         }
         TextView listTitleTextView = (TextView) convertView.findViewById(R.id.listTitle);
         listTitleTextView.setTypeface(null, Typeface.BOLD);
