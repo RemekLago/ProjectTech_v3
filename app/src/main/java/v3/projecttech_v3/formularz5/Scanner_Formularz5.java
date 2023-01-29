@@ -1,4 +1,4 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +17,7 @@ import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 
-import v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga;
+import v3.projecttech_v3.R;
 
 
 public class Scanner_Formularz5 extends AppCompatActivity {
@@ -31,7 +31,7 @@ public class Scanner_Formularz5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.scanner_formularz5);
+        setContentView(R.layout.formularz5_scanner);
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
 
         intentGoToFormularz5 = new Intent(Scanner_Formularz5.this, Formularz5_Maszyna_Pracownik_Skarga.class);

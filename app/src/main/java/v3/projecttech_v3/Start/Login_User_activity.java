@@ -1,4 +1,4 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.Start;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,8 +24,10 @@ import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Objects;
 
-import v3.projecttech_v3.db.DataBaseHelper5;
-import v3.projecttech_v3.procedury.Procedura_prcLogin;
+import v3.projecttech_v3.Kafelki.Activity_Home_Main;
+import v3.projecttech_v3.BuildConfig;
+import v3.projecttech_v3.MainActivity_enterdata;
+import v3.projecttech_v3.R;
 
 public class Login_User_activity extends AppCompatActivity {
     public static DataBaseChanges_Login dataBaseChanges_login;
@@ -52,7 +54,7 @@ public class Login_User_activity extends AppCompatActivity {
         }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_user);
+        setContentView(R.layout.start_activity_login_user);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
 
@@ -141,6 +143,16 @@ public class Login_User_activity extends AppCompatActivity {
                 }
             }
         });
+
+        textView_ZapiszSie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentIdzDoRejestracja = new Intent(Login_User_activity.this, Activity_User_Register.class);
+                startActivity(intentIdzDoRejestracja);
+            }
+        });
+
+
     }
 
     @Override

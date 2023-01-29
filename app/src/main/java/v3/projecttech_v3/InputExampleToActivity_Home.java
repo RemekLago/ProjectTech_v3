@@ -5,6 +5,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Random;
 
+import v3.projecttech_v3.R;
+
 public class InputExampleToActivity_Home {
 
     public static ArrayList<String> zadania;
