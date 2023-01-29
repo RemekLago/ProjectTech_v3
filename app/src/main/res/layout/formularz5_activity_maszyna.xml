@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Maszyna_Activity">
+    tools:context=".formularz5.Maszyna_Activity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -67,7 +67,7 @@
                     android:orientation="vertical">
 
 
-                    <include layout="@layout/columns_names5_maszyna" />
+                    <include layout="@layout/formularz5_columns_names5_maszyna" />
 
 
                     <androidx.recyclerview.widget.RecyclerView

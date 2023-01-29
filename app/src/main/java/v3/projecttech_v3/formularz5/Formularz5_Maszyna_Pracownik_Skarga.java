@@ -1,10 +1,10 @@
-package v3.projecttech_v3.formularze;
+package v3.projecttech_v3.formularz5;
 
 
-import static v3.projecttech_v3.AdapterRecyclerView5_Maszyna.clickedMaszynaId;
-import static v3.projecttech_v3.AdapterRecyclerView5_Operator.clickedOperatorId;
-import static v3.projecttech_v3.AdapterRecyclerView5_Przewinienie.clickedPrzewinienieId;
-import static v3.projecttech_v3.ConvertStringToBitmap.tmpBitmapsPhotos;
+import static v3.projecttech_v3.formularz5.AdapterRecyclerView5_Maszyna.clickedMaszynaId;
+import static v3.projecttech_v3.formularz5.AdapterRecyclerView5_Operator.clickedOperatorId;
+import static v3.projecttech_v3.formularz5.AdapterRecyclerView5_Przewinienie.clickedPrzewinienieId;
+import static v3.projecttech_v3.formularz5.ConvertStringToBitmap.tmpBitmapsPhotos;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -15,8 +15,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.Editable;
@@ -29,7 +27,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
@@ -39,17 +36,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-import v3.projecttech_v3.AdapertRecyclerView5_Zdjęcie;
 import v3.projecttech_v3.BuildConfig;
-import v3.projecttech_v3.Maszyna_Activity;
-import v3.projecttech_v3.Operator_Activity;
-import v3.projecttech_v3.Photo_Activity;
-import v3.projecttech_v3.Przewinienie_Activity;
 import v3.projecttech_v3.R;
-import v3.projecttech_v3.Scanner_Formularz5;
-import v3.projecttech_v3.procedury.ProceduraBarcodeScannerWalidacja_Formularz5;
-import v3.projecttech_v3.procedury.ProceduraInsertDataSkargaFormularz5;
-import v3.projecttech_v3.procedury.ProceduraInsertZdjeciaSkargaFormularz5;
 
 
 public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity{
@@ -98,7 +86,7 @@ public class Formularz5_Maszyna_Pracownik_Skarga extends AppCompatActivity{
         }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formularz5_maszyna_magazyn_skarga2);
+        setContentView(R.layout.formularz5_activity_maszyna_magazyn_skarga2);
 
 
         inputMaszyna = findViewById(R.id.inputMaszyna);

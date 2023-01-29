@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background_4"
-    tools:context=".formularze.Formularz5_Maszyna_Pracownik_Skarga">
+    tools:context=".formularz5.Formularz5_Maszyna_Pracownik_Skarga">
 
 
         <LinearLayout

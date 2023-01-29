@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Przewinienie_Activity">
+    tools:context=".formularz5.Operator_Activity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -26,17 +26,17 @@
 
 
             <EditText
-                android:id="@+id/inputPrzewinienie2"
+                android:id="@+id/inputOperator2"
                 android:layout_width="340dp"
                 android:layout_height="match_parent"
                 android:gravity="start"
-                android:hint="przewinienie"
+                android:hint="operator"
                 android:inputType="text"
                 android:textColor="@color/mainColor"
                 android:textColorHint="@color/greyColor" />
 
             <Button
-                android:id="@+id/buttonSzukajPrzewinienie2"
+                android:id="@+id/buttonSzukajOperator2"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/ic_search_24" />
@@ -44,11 +44,11 @@
 
 
             <!--            <ListView-->
-<!--                android:id="@+id/listView_przewinienie"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:clickable="true"-->
-<!--                />-->
+            <!--                android:id="@+id/listView_przewinienie"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:clickable="true"-->
+            <!--                />-->
         </LinearLayout>
 
         <HorizontalScrollView
@@ -68,11 +68,11 @@
                     android:orientation="vertical">
 
 
-                    <include layout="@layout/columns_names5_przewinienie" />
+                    <include layout="@layout/formularz5_columns_names5_operator" />
 
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerViewPrzewinienie"
+                        android:id="@+id/recyclerViewOperator"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
