@@ -1,8 +1,8 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.Kafelki;
 
-import static v3.projecttech_v3.Activity_Home_Main.dataBaseSQLHome;
-import static v3.projecttech_v3.Activity_Home_Main.preferences;
-import static v3.projecttech_v3.Activity_Home_Main.userAccessLevel;
+import static v3.projecttech_v3.Kafelki.Activity_Home_Main.dataBaseSQLHome;
+import static v3.projecttech_v3.Kafelki.Activity_Home_Main.preferences;
+import static v3.projecttech_v3.Kafelki.Activity_Home_Main.userAccessLevel;
 
 
 import android.content.Context;
@@ -22,8 +22,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
-import v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja;
+import v3.projecttech_v3.R;
+import v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2;
+import v3.projecttech_v3.formularz2.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja;
+import v3.projecttech_v3.formularz5.Formularz5_Maszyna_Pracownik_Skarga;
 
 public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecyclerView_Home.ViewHolder> {
 
@@ -83,7 +85,7 @@ public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecycl
 
                     int sizeOfDataInDatabase = dataBaseSQLHome.getAllData().size();
 
-                    for (int i=0; i < sizeOfDataInDatabase; i++ ) {
+                    for (int i = 0; i < sizeOfDataInDatabase; i++) {
                         if (clickedTitle.equals(dataBaseSQLHome.getAllData().get(i).getName())) {
                             Log.i("checking", "clickedTitlefromDatabase: " + dataBaseSQLHome.getAllData().get(i).getName());
                             Log.i("checking", "clickedTitlefromDatabase: " + dataBaseSQLHome.getAllData().get(i).getParentId());
@@ -101,7 +103,7 @@ public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecycl
                     SharedPreferences.Editor editor3 = preferences.edit();
                     editor3.putInt("UserSettings", tmpNodeId);
                     editor3.apply();
-                    userAccessLevel = preferences.getInt("UserSettings",-1);
+                    userAccessLevel = preferences.getInt("UserSettings", -1);
                     Log.i("checking", "userAccessLevel_Procedura: " + userAccessLevel);
 
                     if (groupType == 0) {
@@ -128,12 +130,35 @@ public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecycl
 
 //                                break;
 
+                            case "Odłożenie na lokalizację":
+                                Toast.makeText(v.getContext(), "Formularz ", Toast.LENGTH_SHORT).show();
+                                break;
+
+                            case "Pobranie z lokalizacji":
+                                Toast.makeText(v.getContext(), "Formularz ", Toast.LENGTH_SHORT).show();
+                                break;
+
+                            case "LKO lokalizacje pozycji":
+                                Toast.makeText(v.getContext(), "Formularz ", Toast.LENGTH_SHORT).show();
+                                break;
+
+                            case "Lokalizacja zawartość":
+                                Toast.makeText(v.getContext(), "Formularz ", Toast.LENGTH_SHORT).show();
+                                break;
+
+                                // tymczasowe podpięcie Formularza5Skarga
+                            case "Zwrot":
+                                Intent goToFormularz5Skarga = new Intent(v.getContext(), Formularz5_Maszyna_Pracownik_Skarga.class);
+                                v.getContext().startActivity(goToFormularz5Skarga);
+                                break;
+
                             default:
                                 Toast.makeText(v.getContext(), "Formularz ", Toast.LENGTH_SHORT).show();
                         }
 
                     } else {
-                        Intent goToHome =new Intent(v.getContext(), Activity_Home_Main.class);
+
+                        Intent goToHome = new Intent(v.getContext(), Activity_Home_Main.class);
                         v.getContext().startActivity(goToHome);
                     }
 

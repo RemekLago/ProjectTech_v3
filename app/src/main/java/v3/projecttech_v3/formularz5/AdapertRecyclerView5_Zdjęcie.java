@@ -1,4 +1,4 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
 
 import android.content.Context;
@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import v3.projecttech_v3.R;
 
 public class AdapertRecyclerView5_Zdjęcie extends RecyclerView.Adapter<AdapertRecyclerView5_Zdjęcie.ViewHolder> {
 
@@ -29,7 +31,7 @@ public class AdapertRecyclerView5_Zdjęcie extends RecyclerView.Adapter<AdapertR
     @NonNull
     @Override
     public AdapertRecyclerView5_Zdjęcie.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.zdjecia_grid_layout, parent, false);
+        View view = inflater.inflate(R.layout.formularz5_zdjecia_grid_layout, parent, false);
         return new AdapertRecyclerView5_Zdjęcie.ViewHolder(view);
     }
 

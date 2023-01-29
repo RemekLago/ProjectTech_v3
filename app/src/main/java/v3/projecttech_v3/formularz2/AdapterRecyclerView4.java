@@ -1,11 +1,11 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz2;
 
 
 
-import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.FinalListWithCellColor4;
-import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.FinalListWithColumnsAdjust4;
-import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.dataBaseSQL4;
-import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.database4;
+import static v3.projecttech_v3.formularz2.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.FinalListWithCellColor4;
+import static v3.projecttech_v3.formularz2.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.FinalListWithColumnsAdjust4;
+import static v3.projecttech_v3.formularz2.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.dataBaseSQL4;
+import static v3.projecttech_v3.formularz2.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.database4;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -18,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import v3.projecttech_v3.R;
 
 public class AdapterRecyclerView4 extends RecyclerView.Adapter<AdapterRecyclerView4.ViewHolderRecyclerView> {
 
@@ -37,7 +39,7 @@ public class AdapterRecyclerView4 extends RecyclerView.Adapter<AdapterRecyclerVi
     @Override
     public AdapterRecyclerView4.ViewHolderRecyclerView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context4);
-        View view = inflater.inflate(R.layout.linear_layout_rows3, parent, false);
+        View view = inflater.inflate(R.layout.formularz2_linear_layout_rows3, parent, false);
         return new ViewHolderRecyclerView(view, recyclerViewInterface4);
 
     }

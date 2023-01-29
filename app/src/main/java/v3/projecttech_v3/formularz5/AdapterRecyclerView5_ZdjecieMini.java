@@ -1,6 +1,6 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
-import static v3.projecttech_v3.Photo_Activity.imageViewPhoto;
+import static v3.projecttech_v3.formularz5.Photo_Activity.imageViewPhoto;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+
+import v3.projecttech_v3.R;
 
 public class AdapterRecyclerView5_ZdjecieMini extends RecyclerView.Adapter<AdapterRecyclerView5_ZdjecieMini.ViewHolder> {
 
@@ -37,7 +39,7 @@ public class AdapterRecyclerView5_ZdjecieMini extends RecyclerView.Adapter<Adapt
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.zdjecia_mini_grid_layout, parent, false);
+        View view = inflater.inflate(R.layout.formularz5_zdjecia_mini_grid_layout, parent, false);
 
         return new AdapterRecyclerView5_ZdjecieMini.ViewHolder(view);
     }

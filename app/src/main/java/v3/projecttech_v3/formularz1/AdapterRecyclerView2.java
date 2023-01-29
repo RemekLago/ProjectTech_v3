@@ -1,13 +1,13 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz1;
 
 
 
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.FinalListWithCellColor;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.FinalListWithColumnsAdjust;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.database2;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.intent10;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.intent11;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.FinalListWithCellColor;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.FinalListWithColumnsAdjust;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.database2;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.intent10;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.intent11;
 
 import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;
@@ -31,6 +31,10 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
+import v3.projecttech_v3.MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja;
+import v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia;
+import v3.projecttech_v3.R;
+
 public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerView2.ViewHolderRecyclerView> implements PopupMenu.OnMenuItemClickListener {
 
     private final RecyclerViewInterface recyclerViewInterface;
@@ -49,7 +53,7 @@ public class AdapterRecyclerView2 extends RecyclerView.Adapter<AdapterRecyclerVi
     @Override
     public AdapterRecyclerView2.ViewHolderRecyclerView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context2);
-        View view = inflater.inflate(R.layout.linear_layout_rows, parent, false);
+        View view = inflater.inflate(R.layout.formularz1_linear_layout_rows, parent, false);
         return new ViewHolderRecyclerView(view, recyclerViewInterface);
 
     }

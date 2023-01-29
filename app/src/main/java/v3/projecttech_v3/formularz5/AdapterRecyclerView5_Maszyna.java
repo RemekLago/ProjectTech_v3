@@ -1,11 +1,9 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
-import static v3.projecttech_v3.Maszyna_Activity.FinalListWithCellColor;
-import static v3.projecttech_v3.Maszyna_Activity.FinalListWithColumnsAdjust;
-import static v3.projecttech_v3.Maszyna_Activity.database_Maszyna;
-import static v3.projecttech_v3.Maszyna_Activity.inputMaszyna2;
-import static v3.projecttech_v3.Przewinienie_Activity.database_Przewinienie;
-import static v3.projecttech_v3.Przewinienie_Activity.inputPrzewinienie2;
+import static v3.projecttech_v3.formularz5.Maszyna_Activity.FinalListWithCellColor;
+import static v3.projecttech_v3.formularz5.Maszyna_Activity.FinalListWithColumnsAdjust;
+import static v3.projecttech_v3.formularz5.Maszyna_Activity.database_Maszyna;
+import static v3.projecttech_v3.formularz5.Maszyna_Activity.inputMaszyna2;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -13,12 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import v3.projecttech_v3.R;
 
 public class AdapterRecyclerView5_Maszyna extends RecyclerView.Adapter<AdapterRecyclerView5_Maszyna.ViewHolderRecyclerView> {
 
@@ -40,7 +39,7 @@ public class AdapterRecyclerView5_Maszyna extends RecyclerView.Adapter<AdapterRe
     @Override
     public AdapterRecyclerView5_Maszyna.ViewHolderRecyclerView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.linear_layout_rows5_maszyna, parent, false);
+        View view = inflater.inflate(R.layout.formularz5_linear_layout_rows5_maszyna, parent, false);
         return new AdapterRecyclerView5_Maszyna.ViewHolderRecyclerView(view, recyclerViewInterface);
     }
 
