@@ -1,8 +1,8 @@
-package v3.projecttech_v3.procedury;
+package v3.projecttech_v3.formularz1;
 
-import static v3.projecttech_v3.Scanner_Formularz1.barcodeInput;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.searchCode;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.textViewSearch;
+import static v3.projecttech_v3.formularz1.Formularz1_Scanner.barcodeInput;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.searchCode;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.textViewSearch;
 import static v3.projecttech_v3.MainActivity_enterdata.editTextNumber;
 import static v3.projecttech_v3.MainActivity_enterdata.pozycja_input;
 

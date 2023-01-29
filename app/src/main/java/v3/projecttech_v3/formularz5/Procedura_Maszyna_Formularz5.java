@@ -1,13 +1,8 @@
-package v3.projecttech_v3.procedury;
+package v3.projecttech_v3.formularz5;
 
-import static v3.projecttech_v3.AdapterRecyclerView5_Maszyna.clickedMaszynaId;
-import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText1;
-import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText2;
-import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText3;
-import static v3.projecttech_v3.Operator_Activity.operator_searchText1;
-import static v3.projecttech_v3.Operator_Activity.operator_searchText2;
-import static v3.projecttech_v3.Operator_Activity.operator_searchText3;
-import static v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga.resultBarcodeWalidacja;
+import static v3.projecttech_v3.formularz5.Maszyna_Activity.maszyna_searchText1;
+import static v3.projecttech_v3.formularz5.Maszyna_Activity.maszyna_searchText2;
+import static v3.projecttech_v3.formularz5.Maszyna_Activity.maszyna_searchText3;
 
 import android.util.Log;
 
@@ -20,7 +15,7 @@ import java.util.ArrayList;
 
 import v3.projecttech_v3.Pass;
 
-public class Procedura_Operator_Formularz5 {
+public class Procedura_Maszyna_Formularz5 {
 
     static String UserId;
     static String Firma;
@@ -34,7 +29,7 @@ public class Procedura_Operator_Formularz5 {
     static ArrayList<ArrayList<String>> Result = new ArrayList<>();
 
 
-    public static ArrayList<ArrayList<String>> takingOperator(String parameters, String searchText) {
+    public static ArrayList<ArrayList<String>> takingMaszyna(String parameters, String searchText) {
 
         //connecting to database
         try {
@@ -56,20 +51,20 @@ public class Procedura_Operator_Formularz5 {
             Firma = "750";
             UserId = "1";
             FormName = "FormularzMaszynaPracownikSkarga";
-            TextBoxName = "textViewOperator";
-            Parameters = "MaszynaId=" + clickedMaszynaId; // pobiera MaszynaId z Formularza5
+            TextBoxName = "textViewMaszyna";
+            Parameters = "";                // w activity Maszyna parameters zawsze są Puste to numer maszyny
             // SearchText np. wytłaczarka lub 143 - szukanie po elementach nazwy
-            if (operator_searchText1 != null && !operator_searchText1.equals("")) {
-                SearchText = operator_searchText1;
-            } else if (operator_searchText2 != null && !operator_searchText2.equals("")) {
-                SearchText = operator_searchText2;
-            } else if (operator_searchText3 != null && !operator_searchText3.equals("")) {
-                SearchText = operator_searchText3;
+            if (maszyna_searchText1 != null && !maszyna_searchText1.equals("")) {
+                SearchText = maszyna_searchText1;
+            } else if (maszyna_searchText2 != null && !maszyna_searchText2.equals("")) {
+                SearchText = maszyna_searchText2;
+            } else if (maszyna_searchText3 != null && !maszyna_searchText3.equals("")) {
+                SearchText = maszyna_searchText3;
             } else {
                 SearchText = "";
             }
-            Log.i("checking", "Parameters: " + Parameters);
             Log.i("checking", "SearchText: " + SearchText);
+
 
             callableStatement.setInt("Firma", Integer.parseInt(Firma));
             callableStatement.setInt("UserId", Integer.parseInt(UserId));
@@ -109,12 +104,13 @@ public class Procedura_Operator_Formularz5 {
                 Log.i("checking", "Result: " + Result.get(a));
                 a++;
             }
+            Log.i("checking", "A: " + a);
 
             callableStatement.close();
             connection.close();
 
         } catch (Exception e) {
-            Log.i("checking", "exception takingOperator()" + e.toString());
+            Log.i("checking", "exception takingMaszyna()" + e.toString());
         }
 
         return Result;

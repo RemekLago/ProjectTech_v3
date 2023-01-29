@@ -1,11 +1,10 @@
-package v3.projecttech_v3.procedury;
+package v3.projecttech_v3.formularze;
 
-import static v3.projecttech_v3.Login_User_activity.enterMail;
-import static v3.projecttech_v3.Login_User_activity.enterPassword;
+import static v3.projecttech_v3.Start.Login_User_activity.enterMail;
+import static v3.projecttech_v3.Start.Login_User_activity.enterPassword;
 import android.util.Log;
 
 import java.nio.charset.StandardCharsets;
-import java.sql.Array;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;

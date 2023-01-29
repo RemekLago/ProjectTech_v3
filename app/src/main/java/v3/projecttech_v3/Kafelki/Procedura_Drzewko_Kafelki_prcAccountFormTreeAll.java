@@ -1,6 +1,6 @@
-package v3.projecttech_v3.procedury;
+package v3.projecttech_v3.Kafelki;
 
-import static v3.projecttech_v3.Activity_Home_Main.dataBaseSQLHome;
+import static v3.projecttech_v3.Kafelki.Activity_Home_Main.dataBaseSQLHome;
 
 import android.util.Log;
 
@@ -12,7 +12,7 @@ import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
 import v3.projecttech_v3.Pass;
-import v3.projecttech_v3.db.entity.Data_Home;
+import v3.projecttech_v3.Kafelki.Data_Home;
 
 public class Procedura_Drzewko_Kafelki_prcAccountFormTreeAll {
     public static String Firma;

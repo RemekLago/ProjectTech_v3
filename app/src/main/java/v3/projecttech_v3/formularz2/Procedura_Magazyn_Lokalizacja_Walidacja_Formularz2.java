@@ -1,8 +1,8 @@
-package v3.projecttech_v3.procedury;
+package v3.projecttech_v3.formularz2;
 
-import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.searchCode;
-import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.textViewSearch;
-import static v3.projecttech_v3.Scanner_Formularz2.barcodeInput;
+import static v3.projecttech_v3.formularz2.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.searchCode;
+import static v3.projecttech_v3.formularz2.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.textViewSearch;
+import static v3.projecttech_v3.formularz2.Formularz2_Scanner.barcodeInput;
 
 
 import android.util.Log;

@@ -1,14 +1,8 @@
-package v3.projecttech_v3.procedury;
+package v3.projecttech_v3.Kafelki;
 
-import static v3.projecttech_v3.Activity_Home_Main.userAccessLevel;
+import static v3.projecttech_v3.Kafelki.Activity_Home_Main.userAccessLevel;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.util.Log;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -16,10 +10,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 import v3.projecttech_v3.Pass;
 

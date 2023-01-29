@@ -1,9 +1,9 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.DataBaseChanges2_Formularz1.tmpdata2;
+import static v3.projecttech_v3.formularz1.Formularz1_DataBaseChanges2.tmpdata2;
 import static v3.projecttech_v3.MainActivity_Procedura_PozycjaPartia_HistoriaZycia.dataBaseSQL3;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.positionForDataBaseSQL;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.dataBaseSQL;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.positionForDataBaseSQL;
 
 
 import android.util.Log;

@@ -1,4 +1,4 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import v3.projecttech_v3.procedury.Procedura_Przewinienie_Formularz5;
+import v3.projecttech_v3.R;
 
 public class Przewinienie_Activity_v2 extends AppCompatActivity {
 
@@ -22,7 +22,7 @@ public class Przewinienie_Activity_v2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_przewinienie_v2);
+        setContentView(R.layout.formularz5_activity_przewinienie_v2);
 
         SearchView searchView_przewinienie = findViewById(R.id.searchView_przewinienie);
         ListView listView_przewinienie = findViewById(R.id.listView_przewinienie);

@@ -1,6 +1,6 @@
-package v3.projecttech_v3.procedury;
+package v3.projecttech_v3.formularz5;
 
-import static v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga.barcodeMaszynaInput;
+import static v3.projecttech_v3.formularz5.Formularz5_Maszyna_Pracownik_Skarga.barcodeMaszynaInput;
 
 import android.util.Log;
 

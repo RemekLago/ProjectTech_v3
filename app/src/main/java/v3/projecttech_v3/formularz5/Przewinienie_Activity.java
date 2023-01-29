@@ -1,4 +1,4 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
 import static android.graphics.Color.rgb;
 
@@ -16,14 +16,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga;
-import v3.projecttech_v3.procedury.Procedura_Przewinienie_Formularz5;
+import v3.projecttech_v3.BuildConfig;
+import v3.projecttech_v3.R;
 
 
 public class Przewinienie_Activity extends AppCompatActivity implements RecyclerViewInterface5_Przewinienie {
@@ -56,7 +55,7 @@ public class Przewinienie_Activity extends AppCompatActivity implements Recycler
                     .build());
         }
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_przewinienie);
+        setContentView(R.layout.formularz5_activity_przewinienie);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
 

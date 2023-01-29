@@ -1,12 +1,9 @@
-package v3.projecttech_v3.procedury;
+package v3.projecttech_v3.formularz5;
 
-import static v3.projecttech_v3.AdapterRecyclerView5_Maszyna.clickedMaszynaId;
-import static v3.projecttech_v3.Operator_Activity.operator_searchText1;
-import static v3.projecttech_v3.Przewinienie_Activity.przewinienie_searchText1;
-import static v3.projecttech_v3.Przewinienie_Activity.przewinienie_searchText2;
-import static v3.projecttech_v3.Przewinienie_Activity.przewinienie_searchText3;
-import static v3.projecttech_v3.formularze.Formularz2_Magazyn_Lsv_Magazyn_lokalizacja_Pozycja.dataBaseSQL4;
-import static v3.projecttech_v3.formularze.Formularz5_Maszyna_Pracownik_Skarga.resultBarcodeWalidacja;
+import static v3.projecttech_v3.formularz5.AdapterRecyclerView5_Maszyna.clickedMaszynaId;
+import static v3.projecttech_v3.formularz5.Przewinienie_Activity.przewinienie_searchText1;
+import static v3.projecttech_v3.formularz5.Przewinienie_Activity.przewinienie_searchText2;
+import static v3.projecttech_v3.formularz5.Przewinienie_Activity.przewinienie_searchText3;
 
 import android.util.Log;
 
@@ -18,7 +15,6 @@ import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
 import v3.projecttech_v3.Pass;
-import v3.projecttech_v3.db.entity.Data4;
 
 public class Procedura_Przewinienie_Formularz5 {
 
