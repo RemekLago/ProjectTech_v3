@@ -1,15 +1,10 @@
-package v3.projecttech_v3;
-
-import static v3.projecttech_v3.Activity_Home_Main.progressBar;
+package v3.projecttech_v3.Kafelki;
 
 import android.os.AsyncTask;
-import android.util.Log;
-import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.procedury.Procedura_Drzewko_Kafelki_prcAccountFormTree;
-import v3.projecttech_v3.procedury.Procedura_Drzewko_Kafelki_prcAccountFormTreeAll;
+import v3.projecttech_v3.Kafelki.Procedura_Drzewko_Kafelki_prcAccountFormTreeAll;
 
 public class DataBaseChanges5_home extends AsyncTask<String, Void, ArrayList<ArrayList<String>>> {
     public static ArrayList<ArrayList<String>> tmpArray;

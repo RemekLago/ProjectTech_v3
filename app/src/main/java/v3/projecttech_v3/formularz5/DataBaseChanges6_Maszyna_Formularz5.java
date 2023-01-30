@@ -1,15 +1,13 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
-import static v3.projecttech_v3.Maszyna_Activity.maszyna_searchText2;
-import static v3.projecttech_v3.procedury.Procedura_Maszyna_Formularz5.columnsNames;
-import static v3.projecttech_v3.procedury.Procedura_Maszyna_Formularz5.numberOfColumns;
+import static v3.projecttech_v3.formularz5.Maszyna_Activity.maszyna_searchText2;
+import static v3.projecttech_v3.formularz5.Procedura_Maszyna_Formularz5.columnsNames;
+import static v3.projecttech_v3.formularz5.Procedura_Maszyna_Formularz5.numberOfColumns;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 import java.util.ArrayList;
-
-import v3.projecttech_v3.procedury.Procedura_Maszyna_Formularz5;
 
 public class DataBaseChanges6_Maszyna_Formularz5 extends AsyncTask<String, Void, ArrayList<ArrayList<String>>> {
 

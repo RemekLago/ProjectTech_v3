@@ -1,12 +1,11 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.Start;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import v3.projecttech_v3.procedury.Procedura_prcLogin;
+import v3.projecttech_v3.formularze.Procedura_prcLogin;
 
 public class DataBaseChanges_Login extends AsyncTask<String, Void, HashMap<String, String> > {
     HashMap<String, String> ArrayListWithFinalData = new HashMap<>();

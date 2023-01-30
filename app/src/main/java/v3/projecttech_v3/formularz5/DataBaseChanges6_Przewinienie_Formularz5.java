@@ -1,17 +1,15 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.formularz5;
 
-import static v3.projecttech_v3.Operator_Activity.operator_searchText1;
-import static v3.projecttech_v3.procedury.Procedura_Operator_Formularz5.columnsNames;
-import static v3.projecttech_v3.procedury.Procedura_Operator_Formularz5.numberOfColumns;
+import static v3.projecttech_v3.formularz5.Przewinienie_Activity.przewinienie_searchText1;
+import static v3.projecttech_v3.formularz5.Procedura_Przewinienie_Formularz5.columnsNames;
+import static v3.projecttech_v3.formularz5.Procedura_Przewinienie_Formularz5.numberOfColumns;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.procedury.Procedura_Operator_Formularz5;
-
-public class DataBaseChanges6_Operator_Formularz5 extends AsyncTask<String, Void, ArrayList<ArrayList<String>>> {
+public class DataBaseChanges6_Przewinienie_Formularz5 extends AsyncTask<String, Void, ArrayList<ArrayList<String>>> {
 
     static ArrayList<ArrayList<String>> ArrayListWithFinalData = new ArrayList<>();
     public static ArrayList<String> ListWithColumnsNames = new ArrayList<>();
@@ -22,8 +20,8 @@ public class DataBaseChanges6_Operator_Formularz5 extends AsyncTask<String, Void
     @Override
     public ArrayList<ArrayList<String>> doInBackground(String... strings) {
 
-        Procedura_Operator_Formularz5 procedura = new Procedura_Operator_Formularz5();
-        ArrayListWithFinalData = procedura.takingOperator("", operator_searchText1);
+        Procedura_Przewinienie_Formularz5 procedura = new Procedura_Przewinienie_Formularz5();
+        ArrayListWithFinalData = procedura.takingPrzewinienie("", przewinienie_searchText1);
 
         return ArrayListWithFinalData;
     }
@@ -138,4 +136,3 @@ public class DataBaseChanges6_Operator_Formularz5 extends AsyncTask<String, Void
     }
 
 }
-

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/home_activity_backgroud"
-    tools:context=".Activity_Home_Main" >
+    tools:context=".Kafelki.Activity_Home_Main" >
 
 
     <androidx.recyclerview.widget.RecyclerView
