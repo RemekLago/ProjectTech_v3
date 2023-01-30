@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background_3"
-    tools:context=".Activity_User_Login">
+    tools:context=".Start.Activity_User_Login_oldversion">
 
     <TextView
         android:id="@+id/textView_ZapiszSie"

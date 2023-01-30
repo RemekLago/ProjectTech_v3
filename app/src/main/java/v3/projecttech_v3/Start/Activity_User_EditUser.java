@@ -1,8 +1,8 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.Start;
 
-import static v3.projecttech_v3.Activity_User_Login.dataBaseSQLUser;
-import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.dataBaseSQLUser;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.intentEditdata;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.userLoginCheck;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +25,8 @@ import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import v3.projecttech_v3.MainActivity_enterdata;
+import v3.projecttech_v3.R;
 import v3.projecttech_v3.db.entity.Data5;
 
 public class Activity_User_EditUser extends AppCompatActivity {
@@ -46,7 +48,7 @@ public class Activity_User_EditUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_edit_user);
+        setContentView(R.layout.start_activity_user_edit_user);
 
         inputImie = findViewById(R.id.inputImie);
         inputNazwisko = findViewById(R.id.inputNazwisko);
@@ -77,7 +79,7 @@ public class Activity_User_EditUser extends AppCompatActivity {
             public void onClick(View v) {
 //                Boolean isAllFieldsValidateTrue = CheckAllFields();
                 takingValuesFromInputTextView();
-                Intent intentRegister = new Intent(Activity_User_EditUser.this, Activity_User_Login.class);
+                Intent intentRegister = new Intent(Activity_User_EditUser.this, Activity_User_Login_oldversion.class);
 
                 if (CheckAllFields()) {
                     Log.i("checking", "MailtmpInsertData2: " + tmpInsertData.getMail());
@@ -95,7 +97,7 @@ public class Activity_User_EditUser extends AppCompatActivity {
         textViewMaszJuzKonto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentMamJuzKonto = new Intent(Activity_User_EditUser.this, Activity_User_Login.class);
+                Intent intentMamJuzKonto = new Intent(Activity_User_EditUser.this, Activity_User_Login_oldversion.class);
                 startActivity(intentMamJuzKonto);
             }
         });
@@ -286,7 +288,7 @@ public class Activity_User_EditUser extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -303,7 +305,7 @@ public class Activity_User_EditUser extends AppCompatActivity {
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogOut);
                 return true;
 

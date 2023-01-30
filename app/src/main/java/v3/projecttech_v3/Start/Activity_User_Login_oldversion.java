@@ -1,4 +1,4 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.Start;
 
 
 import androidx.annotation.NonNull;
@@ -19,12 +19,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import v3.projecttech_v3.db.DataBaseHelper5;
+import v3.projecttech_v3.Kafelki.Activity_Home_Main;
+import v3.projecttech_v3.Activity_User_Register_old;
+import v3.projecttech_v3.MainActivity_enterdata;
+import v3.projecttech_v3.R;
 
-public class Activity_User_Login extends AppCompatActivity {
+public class Activity_User_Login_oldversion extends AppCompatActivity {
     public static DataBaseHelper5 dataBaseSQLUser;
     public static Intent intentEnterData;
     public static Intent intentEditdata;
+    public static Intent intentGoToKafelki;
     public static String enterMail;
     public static String enterPassword;
     public static int userLoginCheck;
@@ -32,7 +36,7 @@ public class Activity_User_Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_login);
+        setContentView(R.layout.activity_user_login_oldversion);
 
 
 
@@ -47,10 +51,11 @@ public class Activity_User_Login extends AppCompatActivity {
         Button buttonLogin = findViewById(R.id.buttonLogin);
         ImageView imageLogo1 = findViewById(R.id.imageLogo1);
 
-        dataBaseSQLUser = new DataBaseHelper5(Activity_User_Login.this);
+        dataBaseSQLUser = new DataBaseHelper5(Activity_User_Login_oldversion.this);
         AddingUsersToDatabase.addingUser();
 
-        intentEnterData = new Intent(Activity_User_Login.this, MainActivity_enterdata.class);
+//        intentEnterData = new Intent(Activity_User_Login.this, MainActivity_enterdata.class);
+        intentGoToKafelki = new Intent(Activity_User_Login_oldversion.this, Activity_Home_Main.class);
 
         SharedPreferences preferencesLogin2 = getSharedPreferences("ShearedUserLogin", MODE_PRIVATE);
         SharedPreferences.Editor editor2 = preferencesLogin2.edit();
@@ -96,7 +101,12 @@ public class Activity_User_Login extends AppCompatActivity {
                     inputEmail.setText("");
                     inputHaslo.setText("");
 
-                    startActivity(intentEnterData);
+                    SharedPreferences preferences = getSharedPreferences("UserSettings", MODE_PRIVATE);
+                    SharedPreferences.Editor editor3 = preferences.edit();
+                    editor3.putInt("UserSettings", -1);
+                    editor3.apply();
+//                    startActivity(intentEnterData);
+                    startActivity(intentGoToKafelki);
 
                 } else {
                     try {
@@ -139,7 +149,7 @@ public class Activity_User_Login extends AppCompatActivity {
         textView_ZapiszSie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentIdzDoRejestracja = new Intent(Activity_User_Login.this, Activity_User_Register_old.class);
+                Intent intentIdzDoRejestracja = new Intent(Activity_User_Login_oldversion.this, Activity_User_Register_old.class);
                 startActivity(intentIdzDoRejestracja);
             }
         });
@@ -147,10 +157,10 @@ public class Activity_User_Login extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
         String checkbox = preferences.getString("remember", "");
         if(checkbox.equals("true")){
-            Intent intentGoToEnterData = new Intent(Activity_User_Login.this, MainActivity_enterdata.class);
+            Intent intentGoToEnterData = new Intent(Activity_User_Login_oldversion.this, MainActivity_enterdata.class);
             startActivity(intentGoToEnterData);
         } else if (checkbox.equals("false")){
-            Toast.makeText(Activity_User_Login.this, "Proszę zaloguj się", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity_User_Login_oldversion.this, "Proszę zaloguj się", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -163,14 +173,14 @@ public class Activity_User_Login extends AppCompatActivity {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("remember", "true");
                     editor.apply();
-                    Toast.makeText(Activity_User_Login.this, "Checked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_User_Login_oldversion.this, "Checked", Toast.LENGTH_SHORT).show();
 
                 } else if ( !compoundButton.isChecked()){
                     SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("remember", "false");
                     editor.apply();
-                    Toast.makeText(Activity_User_Login.this, "Unchecked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_User_Login_oldversion.this, "Unchecked", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -195,7 +205,7 @@ public class Activity_User_Login extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -212,7 +222,7 @@ public class Activity_User_Login extends AppCompatActivity {
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogOut);
                 return true;
 

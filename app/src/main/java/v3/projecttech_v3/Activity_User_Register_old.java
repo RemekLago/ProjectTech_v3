@@ -1,8 +1,8 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Activity_User_Login.dataBaseSQLUser;
-import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.dataBaseSQLUser;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.intentEditdata;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.userLoginCheck;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +25,7 @@ import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import v3.projecttech_v3.Start.Activity_User_Login_oldversion;
 import v3.projecttech_v3.db.entity.Data5;
 
 public class Activity_User_Register_old extends AppCompatActivity {
@@ -72,7 +73,7 @@ public class Activity_User_Register_old extends AppCompatActivity {
             public void onClick(View v) {
 //                Boolean isAllFieldsValidateTrue = CheckAllFields();
                 takingValuesFromInputTextView();
-                Intent intentRegister = new Intent(Activity_User_Register_old.this, Activity_User_Login.class);
+                Intent intentRegister = new Intent(Activity_User_Register_old.this, Activity_User_Login_oldversion.class);
 
                 if (CheckAllFields()) {
                     dataBaseSQLUser.insertData(tmpInsertData);
@@ -88,7 +89,7 @@ public class Activity_User_Register_old extends AppCompatActivity {
         textViewMaszJuzKonto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentMamJuzKonto = new Intent(Activity_User_Register_old.this, Activity_User_Login.class);
+                Intent intentMamJuzKonto = new Intent(Activity_User_Register_old.this, Activity_User_Login_oldversion.class);
                 startActivity(intentMamJuzKonto);
             }
         });
@@ -290,7 +291,7 @@ public class Activity_User_Register_old extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -307,7 +308,7 @@ public class Activity_User_Register_old extends AppCompatActivity {
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogOut);
                 return true;
 
