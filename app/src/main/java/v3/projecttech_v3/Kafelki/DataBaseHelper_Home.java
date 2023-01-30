@@ -1,8 +1,8 @@
-package v3.projecttech_v3.db;
+package v3.projecttech_v3.Kafelki;
 
-import static v3.projecttech_v3.db.entity.Data_Home.COLUMN_PARENTID;
-import static v3.projecttech_v3.db.entity.Data_Home.CREATE_TABLE;
-import static v3.projecttech_v3.db.entity.Data_Home.TABLE_NAME;
+import static v3.projecttech_v3.Kafelki.Data_Home.COLUMN_PARENTID;
+import static v3.projecttech_v3.Kafelki.Data_Home.CREATE_TABLE;
+import static v3.projecttech_v3.Kafelki.Data_Home.TABLE_NAME;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -14,8 +14,6 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
-
-import v3.projecttech_v3.db.entity.Data_Home;
 
 public class DataBaseHelper_Home extends SQLiteOpenHelper {
 

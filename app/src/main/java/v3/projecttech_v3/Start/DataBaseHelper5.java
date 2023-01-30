@@ -1,4 +1,4 @@
-package v3.projecttech_v3.db;
+package v3.projecttech_v3.Start;
 
 import static v3.projecttech_v3.db.entity.Data5.COLUMN_MAIL;
 import static v3.projecttech_v3.db.entity.Data5.CREATE_TABLE;
