@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
+import v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2;
 
 public class MainActivity_progressBar extends AppCompatActivity {
 

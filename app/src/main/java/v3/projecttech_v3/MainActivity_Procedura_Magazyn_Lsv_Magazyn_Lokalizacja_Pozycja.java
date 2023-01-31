@@ -1,25 +1,25 @@
 package v3.projecttech_v3;
 
 import static android.graphics.Color.rgb;
-import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
-import static v3.projecttech_v3.DataBaseChanges4_Formularz2.ListWithColumnsNames4;
-import static v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2.database4;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_1;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_2;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_3;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_4;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_5;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_6;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_7;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_8;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_9;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_10;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_11;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_12;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_13;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_14;
-import static v3.projecttech_v3.db.DataBaseHelper.SORTEDBY_15;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.intentEditdata;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.userLoginCheck;
+import static v3.projecttech_v3.formularz2.Formularz2_DataBaseChanges4.ListWithColumnsNames4;
+import static v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2.database4;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_1;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_2;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_3;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_4;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_5;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_6;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_7;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_8;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_9;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_10;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_11;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_12;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_13;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_14;
+import static v3.projecttech_v3.formularz1.DataBaseHelper.SORTEDBY_15;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,11 +44,15 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
-import v3.projecttech_v3.db.DataBaseHelper4;
+import v3.projecttech_v3.Start.Activity_User_Login_oldversion;
+import v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2;
+import v3.projecttech_v3.formularz2.AdapterRecyclerView4;
+import v3.projecttech_v3.formularz2.DataBaseHelper4;
 import v3.projecttech_v3.db.entity.Data4;
+import v3.projecttech_v3.formularz2.Formularz2_DataBaseChanges4;
+import v3.projecttech_v3.formularz2.RecyclerViewInterface4;
 
-public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja extends AppCompatActivity implements RecyclerViewInterface4{
+public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja extends AppCompatActivity implements RecyclerViewInterface4 {
 
     public static ArrayList<String> FinalListWithCellColor4;
     public static ArrayList<Integer> FinalListWithColumnsAdjust4;
@@ -80,7 +84,7 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
         Log.i("checking", "database4: " + dataBaseSQL4.toString());
 
         // For procedure Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja
-        DataBaseChanges4_Formularz2 dataFinal4 = new DataBaseChanges4_Formularz2();
+        Formularz2_DataBaseChanges4 dataFinal4 = new Formularz2_DataBaseChanges4();
         ArrayList<ArrayList<String>> database04 = dataFinal4.doInBackground();
         database4 = dataFinal4.cleaningDatabase(database04);
 
@@ -444,7 +448,7 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -461,7 +465,7 @@ public class MainActivity_Procedura_Magazyn_Lsv_Magazyn_Lokalizacja_Pozycja exte
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogOut);
                 return true;
 
