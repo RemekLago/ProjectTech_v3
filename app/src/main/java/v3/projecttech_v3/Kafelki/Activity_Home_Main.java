@@ -1,7 +1,7 @@
-package v3.projecttech_v3;
+package v3.projecttech_v3.Kafelki;
 
-import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.intentEditdata;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.userLoginCheck;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,9 +24,13 @@ import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
-import v3.projecttech_v3.db.DataBaseHelper_Home;
+import v3.projecttech_v3.BuildConfig;
+import v3.projecttech_v3.MainActivity_enterdata;
+import v3.projecttech_v3.R;
+import v3.projecttech_v3.Start.Activity_User_Login_oldversion;
+import v3.projecttech_v3.formularz1.RecyclerViewInterface;
 
-public class Activity_Home_Main extends AppCompatActivity implements RecyclerViewInterface{
+public class Activity_Home_Main extends AppCompatActivity implements RecyclerViewInterface {
     RecyclerView recyclerView_dataList;
     ArrayList<String> titles;
     ArrayList<Bitmap> images;
@@ -55,7 +59,7 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
         }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_main);
+        setContentView(R.layout.kafelki_activity_home_main);
 
         // ustawienie zmiennej userAccessLevel na początkową wartość: 0,
         // potem w zależności jaki box będzie kliknięty w procedurze wartość ta ulegnie zmianie
@@ -77,7 +81,7 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
 
         if (userAccessLevel >= 0){
             Log.i("checking", "opcja1");
-            startRecyclerView ();
+            startRecyclerView();
             }
 
 
@@ -96,7 +100,7 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
 
             DataBaseChanges5_home databaseUserSettings = new DataBaseChanges5_home();
             databaseUserSettings.doInBackground();
-            startRecyclerView ();
+            startRecyclerView();
         }
 
 
@@ -253,7 +257,7 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -270,7 +274,7 @@ public class Activity_Home_Main extends AppCompatActivity implements RecyclerVie
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogOut);
                 return true;
 
