@@ -74,7 +74,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Start.Login_User_activity"
+            android:name=".Start.Activity_User_Login_oldversion"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -200,7 +200,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Start.Activity_User_Login_oldversion"
+            android:name=".Start.Login_User_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
