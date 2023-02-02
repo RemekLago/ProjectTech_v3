@@ -36,7 +36,7 @@
 
         </LinearLayout>
 
-        <include layout="@layout/etykieta_formularz1" />
+        <include layout="@layout/formularz1_etykieta" />
 
 
         <HorizontalScrollView
@@ -56,7 +56,7 @@
                     android:orientation="vertical">
 
 
-                    <include layout="@layout/columns_names4" />
+                    <include layout="@layout/formularz2_columns_names4" />
 
 
                     <androidx.recyclerview.widget.RecyclerView

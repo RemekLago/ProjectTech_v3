@@ -36,7 +36,7 @@
 
         </LinearLayout>
 
-        <include layout="@layout/etykieta_formularz1" />
+        <include layout="@layout/formularz1_etykieta" />
 
 
         <HorizontalScrollView

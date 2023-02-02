@@ -46,8 +46,8 @@ tools:context=".MainActivity_Table">
                         android:text="scan new barcode" />
                 </LinearLayout>
 
-                <include layout="@layout/etykieta_formularz1" />
-                <include layout="@layout/columns_names" />
+                <include layout="@layout/formularz1_etykieta" />
+                <include layout="@layout/formularz1_columns_names" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
