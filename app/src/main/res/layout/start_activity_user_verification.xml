@@ -5,134 +5,128 @@
     android:id="@+id/image_logo1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background_3"
     tools:context=".Start.Activity_User_Verification">
 
-    <EditText
-        android:id="@+id/inputHaslo2"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/input_background"
-        android:drawableLeft="@drawable/ic_security_white"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Hasło potwierdź"
-        android:inputType="textPassword"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputHaslo" />
 
-    <EditText
-        android:id="@+id/inputKodWeryfikacja"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/input_background"
-        android:drawableLeft="@drawable/ic_code_white"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Kod weryfikacyjny"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRejestracja" />
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:padding="0dp"
+        >
 
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="104dp"
-        android:background="@drawable/button_background"
-        android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputHaslo"
-        app:layout_constraintVertical_bias="0.866" />
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="10dp">
 
-    <ImageView
-        android:id="@+id/imageLogo1"
-        android:layout_width="114dp"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.006"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/technokabel_logo" />
+            <LinearLayout
+                android:id="@+id/linearLayout0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
 
-    <TextView
-        android:id="@+id/textViewRejestracja"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Weryfikacja"
-        android:textColor="@color/colorWhite"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageLogo1"
-        app:layout_constraintVertical_bias="0.101" />
+                <ImageView
+                    android:id="@+id/imageLogo"
+                    android:layout_width="114dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/technokabel_logo_kolor" />
+
+                <TextView
+                    android:id="@+id/textViewWeryfikacja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Weryfikacja"
+                    android:textColor="@color/mainColor"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/inputEmail"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:drawableLeft="@drawable/ic_email"
+                    android:drawablePadding="10dp"
+                    android:paddingLeft="0dp"
+                    android:ems="20"
+                    android:layout_marginTop="80dp"
+                    android:hint="Login"
+                    android:layout_gravity="center"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/mainColor"
+                    android:textColorHint="@color/greyColor" />
+
+                <EditText
+                    android:id="@+id/inputHaslo1"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="30dp"
+                    android:drawableLeft="@drawable/ic_security"
+                    android:drawablePadding="10dp"
+                    android:paddingLeft="0dp"
+                    android:ems="10"
+                    android:hint="Hasło"
+                    android:layout_gravity="center"
+                    android:inputType="textPassword"
+                    android:textColor="@color/mainColor"
+                    android:textColorHint="@color/greyColor"
+                    />
+
+                <EditText
+                    android:id="@+id/inputHaslo2"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="30dp"
+                    android:drawableLeft="@drawable/ic_security"
+                    android:drawablePadding="10dp"
+                    android:paddingLeft="0dp"
+                    android:ems="10"
+                    android:hint="Hasło"
+                    android:layout_gravity="center"
+                    android:inputType="textPassword"
+                    android:textColor="@color/mainColor"
+                    android:textColorHint="@color/greyColor"
+                    />
 
 
-    <EditText
-        android:id="@+id/inputHaslo"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/input_background"
-        android:drawableLeft="@drawable/ic_security_white"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Hasło"
-        android:inputType="textPassword"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputKodWeryfikacja" />
+                <EditText
+                    android:id="@+id/inputKodWeryfikacja"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="30dp"
+                    android:drawableLeft="@drawable/ic_code_niebieski"
+                    android:drawablePadding="10dp"
+                    android:paddingLeft="0dp"
+                    android:ems="10"
+                    android:hint="Kod weryfikacyjny"
+                    android:layout_gravity="center"
+                    android:inputType="textPassword"
+                    android:textColor="@color/mainColor"
+                    android:textColorHint="@color/greyColor"
+                    />
 
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        android:layout_width="84dp"
-        android:layout_height="74dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/buttonLogin"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:layout_marginTop="60dp"
+                    android:layout_gravity="center"
+                    android:text="Login" />
+
+            </LinearLayout>
+    </ScrollView>
+</HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
