@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_activity_backgroud"
+
     tools:context=".Kafelki.Activity_Home_Main" >
 
 
@@ -27,3 +27,5 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    android:background="@drawable/home_activity_backgroud"-->
