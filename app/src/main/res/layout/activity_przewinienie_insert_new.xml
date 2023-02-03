@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".formularz5.Przewinienie_Activity_InsertNew">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:padding="2dp"
+        >
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:id="@+id/linearLayout0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="40dp">
+
+                    <TextView
+                        android:id="@+id/textViewPrzewinienieKod"
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:gravity="bottom"
+                        android:paddingStart="5dp"
+                        android:text="kod przewinienie"
+                        android:textSize="10sp" />
+
+
+                    <EditText
+                        android:id="@+id/inputPrzewinienieKod"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="start"
+                        android:hint="kod przewinienie"
+                        android:inputType="text"
+                        android:textColor="@color/mainColor"
+                        android:textColorHint="@color/greyColor"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/textViewPrzewinienieNazwa"
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:gravity="bottom"
+                        android:paddingLeft="5dp"
+                        android:text="nazwa przewinienie"
+                        android:textSize="10sp" />
+
+
+                    <EditText
+                        android:id="@+id/inputPrzewinienieNazwa"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="start"
+                        android:hint="nazwa przewinienie"
+                        android:inputType="textMultiLine"
+                        android:textColor="@color/mainColor"
+                        android:textColorHint="@color/greyColor"
+                        />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonDodaj"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:layout_marginTop="60dp"
+                    android:layout_gravity="center"
+                    android:text="Dodaj"
+                    />
+
+            </LinearLayout>
+        </ScrollView>
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
