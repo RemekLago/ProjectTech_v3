@@ -1,4 +1,4 @@
-package v3.projecttech_v3.formularze;
+package v3.projecttech_v3.Start;
 
 import static v3.projecttech_v3.Start.Login_User_activity.enterMail;
 import static v3.projecttech_v3.Start.Login_User_activity.enterPassword;
@@ -31,7 +31,7 @@ public class Procedura_prcLogin {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
             Connection connection = DriverManager.getConnection(URL, user, pass);
-            Log.i("checking", "Connected2 to : " + connection.toString());
+            Log.i("checking", "Connected to : " + connection.toString());
 
             CallableStatement callableStatement = connection.prepareCall(
                     "{call prcLogin(?,?,?,?,?,?)}");
@@ -40,6 +40,9 @@ public class Procedura_prcLogin {
 
             Login = enterMail;
             Password = gettingUserPassword(enterPassword);
+
+            Log.i("checking", "enterMail changed: " + Login);
+            Log.i("checking", "enterPassword changed: " + Password);
 
             callableStatement.setString("Login", Login);
             callableStatement.setString("Password", Password);
@@ -76,7 +79,8 @@ public class Procedura_prcLogin {
 
 //        resetTextView();
 
-        Log.i("checking", "Status return tmpHashMap: " + tmpHashMap2.get("Status"));
+        Log.i("checking", "Status return: " + tmpHashMap2.get("Status"));
+        Log.i("checking", "Komunikat return: " + tmpHashMap2.get("Komunikat"));
         return tmpHashMap2;
     }
 
@@ -89,7 +93,7 @@ public class Procedura_prcLogin {
         Log.i("checking", "passwordAsci: " + Arrays.toString(passwordInput));
 
         for (int i=0; i < passwordInput.length; i++) {
-            Log.i("checking", "i: " + i);
+//            Log.i("checking", "i: " + i);
             passwordAsciFinal = passwordAsciFinal + passwordInput[i];
             Log.i("checking", "passwordAsciFinal: " + passwordAsciFinal);
         }
