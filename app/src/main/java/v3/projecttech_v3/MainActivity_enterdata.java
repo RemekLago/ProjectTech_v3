@@ -1,7 +1,7 @@
 package v3.projecttech_v3;
 
-import static v3.projecttech_v3.Activity_User_Login.intentEditdata;
-import static v3.projecttech_v3.Activity_User_Login.userLoginCheck;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.intentEditdata;
+import static v3.projecttech_v3.Start.Activity_User_Login_oldversion.userLoginCheck;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +17,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import v3.projecttech_v3.formularze.Formularz1_InformacjeOPozycji_MainActivity_Table2;
+import v3.projecttech_v3.Start.Activity_User_Login_oldversion;
+import v3.projecttech_v3.formularz1.Formularz1_Scanner;
+import v3.projecttech_v3.formularz1.Formularz1_InformacjeOPozycji_MainActivity_Table2;
 
 public class MainActivity_enterdata extends AppCompatActivity {
 
@@ -33,7 +35,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_enterdata);
 
-        intent1 = new Intent(MainActivity_enterdata.this, Scanner_Formularz1.class);
+        intent1 = new Intent(MainActivity_enterdata.this, Formularz1_Scanner.class);
         intent2 = new Intent(MainActivity_enterdata.this, Formularz1_InformacjeOPozycji_MainActivity_Table2.class);
 
         Button button_scan = findViewById(R.id.buttonSearch);
@@ -106,7 +108,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_login:
-                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent intentLogin = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogin);
                 return true;
 
@@ -123,7 +125,7 @@ public class MainActivity_enterdata extends AppCompatActivity {
 
                 finish();
 
-                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login.class);
+                Intent  intentLogOut = new Intent(getApplicationContext(), Activity_User_Login_oldversion.class);
                 startActivity(intentLogOut);
                 return true;
 
