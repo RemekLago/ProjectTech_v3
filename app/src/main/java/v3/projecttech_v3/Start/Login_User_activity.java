@@ -82,18 +82,18 @@ public class Login_User_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                progressBar.setVisibility(ProgressBar.VISIBLE);
+//                progressBar.setVisibility(ProgressBar.VISIBLE);
 
                 enterMail = inputEmail.getText().toString();
                 enterPassword = inputHaslo.getText().toString();
 
-                Log.i("checking", "enterMail: " + enterMail);
-                Log.i("checking", "enterPassword: " + enterPassword);
+                Log.i("checking", "enterMail from textBox: " + enterMail);
+                Log.i("checking", "enterPassword from textBox: " + enterPassword);
 
                 dataBaseChanges_login = new DataBaseChanges_Login();
                 database1 = dataBaseChanges_login.doInBackground();
-                Log.i("checking","database1: " + database1.get("Status"));
-                Log.i("checking","database1: " + database1.get("Komunikat"));
+                Log.i("checking","database rStatus: " + database1.get("Status"));
+                Log.i("checking","database rKomunikat: " + database1.get("Komunikat"));
 
                 if (Objects.equals(database1.get("Status"), "1")) {
 
@@ -108,6 +108,7 @@ public class Login_User_activity extends AppCompatActivity {
                     SharedPreferences.Editor editor3 = preferences.edit();
                     editor3.putInt("UserSettings", -1);
                     editor3.apply();
+                    Toast.makeText(getApplicationContext(), database1.get("Komunikat"), Toast.LENGTH_LONG).show();
 
                     progressBar.setVisibility(ProgressBar.INVISIBLE);
                     startActivity(intentEnterData);
@@ -119,6 +120,8 @@ public class Login_User_activity extends AppCompatActivity {
                     inputHaslo.setError("Check Hasło");
                     inputEmail.setText("");
                     inputHaslo.setText("");
+
+                    Toast.makeText(getApplicationContext(), database1.get("Komunikat"), Toast.LENGTH_LONG).show();
                     }
                 }
         });
