@@ -45,7 +45,7 @@ public class AdapterRecyclerView_Home extends RecyclerView.Adapter<AdapterRecycl
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.home_grid_layout, parent, false);
+        View view = inflater.inflate(R.layout.kafelki_home_grid_layout, parent, false);
         return new ViewHolder(view);
     }
 
