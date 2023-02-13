@@ -55,14 +55,14 @@
                     android:id="@+id/inputEmail"
                     android:layout_width="320dp"
                     android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
                     android:drawableLeft="@drawable/ic_email"
                     android:drawablePadding="10dp"
-                    android:paddingLeft="0dp"
                     android:ems="20"
-                    android:layout_marginTop="80dp"
                     android:hint="Login"
-                    android:layout_gravity="center"
                     android:inputType="textEmailAddress"
+                    android:paddingLeft="0dp"
                     android:textColor="@color/mainColor"
                     android:textColorHint="@color/greyColor" />
 
